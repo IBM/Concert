@@ -1,0 +1,93 @@
+{
+    "bomFormat": "ConcertDef",
+    "specVersion": "1.0",
+    "serialNumber": "${CONCERT_URN_PREFIX}:deploy:${ENV_TARGET}:${BUILD_NUMBER}",
+    "version": 1,
+    "metadata": {
+      "timestamp": "${TIMESTAMP_UTC}",
+      "component": {
+        "type": "deploy",
+        "name": "${APP_NAME}",
+        "version": "${BUILD_NUMBER}"
+      },
+      "properties": [
+        {
+          "name": "environment-id",
+          "value": "${ENV_TARGET}"
+        }
+      ]
+    },
+    "components": [
+      {
+        "bom-ref": "deploy:${DEPLOYMENT_REPO_NAME}",
+        "type": "deployment",
+        "name": "${DEPLOYMENT_REPO_NAME}",
+        "components": [
+          {
+            "bom-ref": "repository:coderepo:github:${DEPLOYMENT_REPO_NAME}",
+            "type": "code",
+            "name": "${DEPLOYMENT_REPO_NAME}",
+            "purl": "${REPO_URL}"
+          }
+        ],
+        "properties": [
+          {
+            "name": "commit_sha",
+            "value": "${COMMIT_SHA}"
+          },
+          {
+            "name": "branch",
+            "value": "${REPO_BRANCH}"
+          },
+          {
+            "name": "bom-link-build",
+            "value": "${CONCERT_URN_PREFIX}:build:${BUILD_NUMBER}/1"
+          }
+        ]
+      }
+    ],
+    "services": [
+      {
+        "bom-ref": "k8:${K8_PLATFORM}",
+        "name": "${K8_PLATFORM}",
+        "properties": [
+          {
+            "name": "platform",
+            "value": "${CLUSTER_ENV_PLATFORM}"
+          },
+          {
+            "name": "cluster_platform",
+            "value": "${K8S_PLATFORM}"
+          },
+          {
+            "name": "cluster_id",
+            "value": "${CLUSTER_ID}"
+          },
+          {
+            "name": "cluster_region",
+            "value": "${CLUSTER_REGION}"
+          },
+          {
+            "name": "cluster_name",
+            "value": "${CLUSTER_NAME}"
+          },
+          {
+            "name": "cluster_namespace",
+            "value": "${CLUSTER_NAMESPACE}"
+          }
+        ]
+      },
+      {
+        "bom-ref": "appapi:${APP_NAME}_api",
+        "name": "${APP_NAME}_api",
+        "properties": [
+          {
+            "name": "base_url",
+            "value": "${APP_URL}"
+          }
+        ]
+      }
+    ],
+    "dependencies": [
+    ]
+  }
