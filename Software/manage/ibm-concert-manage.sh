@@ -5,7 +5,7 @@ scriptdir=`dirname $0`
 cd ${scriptdir}
 scriptdir=`pwd`
 dockerexe=${DOCKER_EXE:-podman}
-docker_image=${UTILS_IMG:-"cp.icr.io/cpopen/concert/aaf-utils:latest"}
+docker_image=${UTILS_IMG:-"cp.icr.io/cpopen/aaf-utils:1.0.0"}
 work_dir=${WORK_DIR:-"${scriptdir}/.ibm-concert-manage-utils"}
 
 container_name=ibm-aaf-utils
