@@ -7,5 +7,7 @@ Enterprises today manage a rapidly evolving landscape of enterprise technology a
 ## Overview of IBM Concert
 Powered by IBM watsonx, Concert integrates with your third-party tools and services, ingesting your application component and environment data to build a comprehensive view of your operations and entities. It proactively identifies and prioritizes issues based on known vulnerabilities (CVEs), compliance assessments, and certificate-related issues. With these insights, you can manually create and assign tickets from Concert in your third-party ticketing system (GitHub, Jira, ServiceNow) or configure automation rules to automatically create and assign tickets based on a triggering event.
 
-More details on IBM Concert:
-[Introduction to IBM Concert](https://www.ibm.com/docs/en/SSQNYH/doc/introduction-concert)
+## More details on IBM Concert
+- [Introduction to IBM Concert](https://www.ibm.com/docs/en/SSQNYH/doc/introduction-concert)
+- [Planning Concert](https://www.ibm.com/docs/en/SSQNYH/doc/planning.html)
+
