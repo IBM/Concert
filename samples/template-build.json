@@ -1,0 +1,61 @@
+{
+    "bomFormat": "ConcertDef",
+    "specVersion": "1.0",
+    "serialNumber": "urn:ibm:appmgmt:${APP_NAME}",
+    "version": 1,
+    "metadata": {
+      "timestamp": "2024-04-02T19:18:54Z",
+      "component": {
+        "bom-ref": "${APP_NAME}",
+        "type": "application",
+        "name": "${APP_NAME}",
+        "version": "${APP_VERSION}"
+      },
+      "business": {
+        "name": "IBM",
+        "units": [
+          {
+            "name": "Software",
+            "email": "concert@ibm.com",
+            "phone": "+1-877-426-6006"
+          }
+        ]
+      }
+    },
+    "components": [
+      {
+        "bom-ref": "build:${COMPONENT_NAME}",
+        "type": "build",
+        "name": "${COMPONENT_NAME}",
+        "components": [
+          {
+            "bom-ref": "img:${COMPONENT_NAME}",
+            "type": "container",
+            "name": "${IMAGE_NAME}",
+            "purl": "${IMAGE_NAME}"
+          },
+          {
+            "bom-ref": "repository:coderepo:github:${GIT_REPO_NAME_NAME}",
+            "type": "code",
+            "name": "${REPO_NAME}",
+            "purl": "${REPO_URL}"
+          }
+        ]
+      },
+      {
+        "bom-ref": "environment:${ENVIRONMANET_NAME_1}",
+        "type": "environment",
+        "name": "environment:${ENVIRONMANET_NAME_1}"
+      },
+      {
+        "bom-ref": "environment:${ENVIRONMANET_NAME_2}",
+        "type": "environment",
+        "name": "environment:${ENVIRONMANET_NAME_2}"
+      },
+      {
+        "bom-ref": "environment:${ENVIRONMANET_NAME_3}",
+        "type": "environment",
+        "name": "environment:${ENVIRONMANET_NAME_3}"
+      }
+    ]
+  }
