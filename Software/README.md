@@ -7,5 +7,5 @@ The commands provided in this script will allow the user to perform the followin
 - Setup concert operators and operands
 
 ## More detials 
-[How to install IBM Concert on OCP Cluster](https://www.ibm.com/docs/en/SSQNYH/doc/premises-installing-concert-openshift.html)
+[How to install IBM Concert on OCP Cluster](https://www.ibm.com/docs/en/concert?topic=implementing-concert-premises)
 
