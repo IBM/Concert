@@ -6,4 +6,7 @@ The commands provided in this script will allow the user to perform the followin
 - Update global image pull secrets
 - Setup concert operators and operands
 
+## More detials 
+[How to install IBM Concert on OCP Cluster](https://www.ibm.com/docs/en/SSQNYH/doc/premises-installing-concert-openshift.html)
+
 
