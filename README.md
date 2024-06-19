@@ -11,4 +11,4 @@ Powered by IBM watsonx, Concert integrates with your third-party tools and servi
 - [Introduction to IBM Concert](https://www.ibm.com/docs/en/concert?topic=introduction-concert)
 - [Concert-as-service](https://www.ibm.com/docs/en/concert?topic=implementing-concert-as-service)
 - [Concert On-Premise](https://www.ibm.com/docs/en/concert?topic=implementing-concert-premises)
-- [Concert starter edition](https://www.ibm.com/docs/en/concert?topic=premises-installing-concert-virtual-machine#taskinstalling_on_vm__prereq__1)
+- [Concert Starter Edition](https://www.ibm.com/docs/en/concert?topic=premises-installing-concert-virtual-machine#taskinstalling_on_vm__prereq__1)
