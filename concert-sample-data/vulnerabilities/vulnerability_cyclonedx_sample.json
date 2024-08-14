@@ -1,0 +1,396 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.5.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:d3d8bf36-0101-4260-a5a9-c7895d8cd9f4",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2024-06-26T11:50:54+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.52.2"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "pkg:oci/openjdk@sha256%3A9b448de897d211c9e0ec635a485650aed6e28d4eca1efbc34940560a480b3f1f?arch=amd64&repository_url=index.docker.io%2Flibrary%2Fopenjdk",
+      "type": "container",
+      "name": "us.icr.io/bravoapps/allegroapp-data-store",
+      "purl": "pkg:oci/openjdk@sha256%3A9b448de897d211c9e0ec635a485650aed6e28d4eca1efbc34940560a480b3f1f?arch=amd64&repository_url=index.docker.io%2Flibrary%2Fopenjdk"
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "pkg:rpm/oracle/libgcrypt@1.8.5-7.el8_6?arch=x86_64&distro=oracle-8.7",
+      "type": "library",
+      "supplier": {
+        "name": "Oracle America"
+      },
+      "name": "libgcrypt",
+      "version": "1.8.5-7.el8_6",
+      "hashes": [
+        {
+          "alg": "MD5",
+          "content": "b4a8aff3fc720dc7ef949fea279322af"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "LGPLv2+"
+          }
+        }
+      ],
+      "purl": "pkg:rpm/oracle/libgcrypt@1.8.5-7.el8_6?arch=x86_64&distro=oracle-8.7",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:LayerDiffID",
+          "value": "sha256:9cd9df9ffc972e9abc946d855162ef0c40dff9a89f10c962b7920154a3d943d8"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "libgcrypt@1.8.5-7.el8_6.x86_64"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "oracle"
+        },
+        {
+          "name": "aquasecurity:trivy:SrcName",
+          "value": "libgcrypt"
+        },
+        {
+          "name": "aquasecurity:trivy:SrcRelease",
+          "value": "7.el8_6"
+        },
+        {
+          "name": "aquasecurity:trivy:SrcVersion",
+          "value": "1.8.5"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:rpm/oracle/sqlite-libs@3.26.0-17.el8_7?arch=x86_64&distro=oracle-8.7",
+      "type": "library",
+      "supplier": {
+        "name": "Oracle America"
+      },
+      "name": "sqlite-libs",
+      "version": "3.26.0-17.el8_7",
+      "hashes": [
+        {
+          "alg": "MD5",
+          "content": "291e3b675a596153b51ad3cf5a3115e2"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Public Domain"
+          }
+        }
+      ],
+      "purl": "pkg:rpm/oracle/sqlite-libs@3.26.0-17.el8_7?arch=x86_64&distro=oracle-8.7",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:LayerDiffID",
+          "value": "sha256:9cd9df9ffc972e9abc946d855162ef0c40dff9a89f10c962b7920154a3d943d8"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "sqlite-libs@3.26.0-17.el8_7.x86_64"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "oracle"
+        },
+        {
+          "name": "aquasecurity:trivy:SrcName",
+          "value": "sqlite"
+        },
+        {
+          "name": "aquasecurity:trivy:SrcRelease",
+          "value": "17.el8_7"
+        },
+        {
+          "name": "aquasecurity:trivy:SrcVersion",
+          "value": "3.26.0"
+        }
+      ]
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "id": "CVE-2020-24736",
+      "source": {
+        "name": "oracle-oval",
+        "url": "https://linux.oracle.com/security/oval/"
+      },
+      "ratings": [
+        {
+          "source": {
+            "name": "alma"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "nvd"
+          },
+          "score": 5.5,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H"
+        },
+        {
+          "source": {
+            "name": "oracle-oval"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "redhat"
+          },
+          "score": 6.2,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+        },
+        {
+          "source": {
+            "name": "rocky"
+          },
+          "severity": "medium"
+        }
+      ],
+      "cwes": [
+        120
+      ],
+      "description": "Buffer Overflow vulnerability found in SQLite3 v.3.27.1 and before allows a local attacker to cause a denial of service via a crafted script.",
+      "recommendation": "Upgrade sqlite-libs to version 3.26.0-18.0.1.el8_8",
+      "advisories": [
+        {
+          "url": "https://avd.aquasec.com/nvd/cve-2020-24736"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2023:3840"
+        },
+        {
+          "url": "https://access.redhat.com/security/cve/CVE-2020-24736"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/2186385"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2186385"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-24736"
+        },
+        {
+          "url": "https://errata.almalinux.org/8/ALSA-2023-3840.html"
+        },
+        {
+          "url": "https://errata.rockylinux.org/RLSA-2023:3840"
+        },
+        {
+          "url": "https://linux.oracle.com/cve/CVE-2020-24736.html"
+        },
+        {
+          "url": "https://linux.oracle.com/errata/ELSA-2023-3840.html"
+        },
+        {
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-24736"
+        },
+        {
+          "url": "https://security.netapp.com/advisory/ntap-20230526-0005/"
+        },
+        {
+          "url": "https://www.cve.org/CVERecord?id=CVE-2020-24736"
+        },
+        {
+          "url": "https://www.sqlite.org/src/info/4feb3159c6bc3f7e33959"
+        }
+      ],
+      "published": "2023-04-11T18:15:58+00:00",
+      "updated": "2023-05-26T20:15:11+00:00",
+      "affects": [
+        {
+          "ref": "pkg:rpm/oracle/sqlite-libs@3.26.0-17.el8_7?arch=x86_64&distro=oracle-8.7",
+          "versions": [
+            {
+              "version": "3.26.0-17.el8_7",
+              "status": "affected"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CVE-2021-33560",
+      "source": {
+        "name": "oracle-oval",
+        "url": "https://linux.oracle.com/security/oval/"
+      },
+      "ratings": [
+        {
+          "source": {
+            "name": "alma"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "amazon"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "cbl-mariner"
+          },
+          "severity": "high"
+        },
+        {
+          "source": {
+            "name": "nvd"
+          },
+          "score": 5,
+          "severity": "medium",
+          "method": "CVSSv2",
+          "vector": "AV:N/AC:L/Au:N/C:P/I:N/A:N"
+        },
+        {
+          "source": {
+            "name": "nvd"
+          },
+          "score": 7.5,
+          "severity": "high",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N"
+        },
+        {
+          "source": {
+            "name": "oracle-oval"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "photon"
+          },
+          "severity": "high"
+        },
+        {
+          "source": {
+            "name": "redhat"
+          },
+          "score": 7.5,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N"
+        },
+        {
+          "source": {
+            "name": "ubuntu"
+          },
+          "severity": "low"
+        }
+      ],
+      "cwes": [
+        203
+      ],
+      "description": "Libgcrypt before 1.8.8 and 1.9.x before 1.9.3 mishandles ElGamal encryption because it lacks exponent blinding to address a side-channel attack against mpi_powm, and the window size is not chosen appropriately. This, for example, affects use of ElGamal in OpenPGP.",
+      "recommendation": "Upgrade libgcrypt to version 10:1.8.5-6.el8_fips",
+      "advisories": [
+        {
+          "url": "https://avd.aquasec.com/nvd/cve-2021-33560"
+        },
+        {
+          "url": "https://access.redhat.com/hydra/rest/securitydata/cve/CVE-2021-33560.json"
+        },
+        {
+          "url": "https://access.redhat.com/security/cve/CVE-2021-33560"
+        },
+        {
+          "url": "https://dev.gnupg.org/T5305"
+        },
+        {
+          "url": "https://dev.gnupg.org/T5328"
+        },
+        {
+          "url": "https://dev.gnupg.org/T5466"
+        },
+        {
+          "url": "https://dev.gnupg.org/rCe8b7f10be275bcedb5fc05ed4837a89bfd605c61"
+        },
+        {
+          "url": "https://eprint.iacr.org/2021/923"
+        },
+        {
+          "url": "https://errata.almalinux.org/8/ALSA-2021-4409.html"
+        },
+        {
+          "url": "https://linux.oracle.com/cve/CVE-2021-33560.html"
+        },
+        {
+          "url": "https://linux.oracle.com/errata/ELSA-2022-9263.html"
+        },
+        {
+          "url": "https://lists.debian.org/debian-lts-announce/2021/06/msg00021.html"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/BKKTOIGFW2SGN3DO2UHHVZ7MJSYN4AAB/"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/R7OAPCUGPF3VLA7QAJUQSL255D4ITVTL/"
+        },
+        {
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-33560"
+        },
+        {
+          "url": "https://security.gentoo.org/glsa/202210-13"
+        },
+        {
+          "url": "https://ubuntu.com/security/notices/USN-5080-1"
+        },
+        {
+          "url": "https://ubuntu.com/security/notices/USN-5080-2"
+        },
+        {
+          "url": "https://www.cve.org/CVERecord?id=CVE-2021-33560"
+        },
+        {
+          "url": "https://www.oracle.com/security-alerts/cpuapr2022.html"
+        },
+        {
+          "url": "https://www.oracle.com/security-alerts/cpujan2022.html"
+        },
+        {
+          "url": "https://www.oracle.com/security-alerts/cpujul2022.html"
+        },
+        {
+          "url": "https://www.oracle.com/security-alerts/cpuoct2021.html"
+        }
+      ],
+      "published": "2021-06-08T11:15:07+00:00",
+      "updated": "2023-11-07T03:35:52+00:00",
+      "affects": [
+        {
+          "ref": "pkg:rpm/oracle/libgcrypt@1.8.5-7.el8_6?arch=x86_64&distro=oracle-8.7",
+          "versions": [
+            {
+              "version": "1.8.5-7.el8_6",
+              "status": "affected"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
