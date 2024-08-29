@@ -1,0 +1,83 @@
+##########################################################################
+# Copyright IBM Corp. 2024.
+#
+# Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+# the License. You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+# an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+# specific language governing permissions and limitations under the License.
+##########################################################################
+
+##
+# Container command and options used on this environment
+##
+export OPTIONS="-it --rm -u $(id -u):$(id -g)"
+export CONTAINER_COMMAND="docker run"
+
+##
+# Templates
+##
+export TEMPLATE_PATH=../templates
+
+##
+# Common Variables
+##
+export CONCERT_TOOLKIT_IMAGE="icr.io/cpopen/ibm-concert-toolkit:latest"
+export CONCERT_TOOLKIT_UTILS_REPO="git@github.com:IBM/concert-utils.git"
+export CONCERT_URL="Your Concert URL"
+export INSTANCE_ID="0000-0000-0000-0000"
+export API_KEY="C_API_KEY your_api_key"
+
+
+##
+# Application Variabbles
+##
+export APP_NAME="Your application name"
+export APP_VERSION="1.0.0.0"
+
+export ENVIRONMANET_NAME_1="development"
+export ENVIRONMANET_NAME_2="pre-production"
+export ENVIRONMANET_NAME_3="production"
+
+export COMPONENT_NAME="concert-sample"
+export COMPONENT_VERSION="1.0.0"
+
+
+export BUSINESS_NAME="Acme Inc."
+export BUSINESS_UNIT_NAME="Business Unit name"
+export CONTACT_EMAIL="myemail@acme.com"
+export CONCAT_PHONE="(123) 123-1234"
+
+export APPLICATION_CRITICALITY=5
+export END_POINT_NAME="myapp-component_api"
+export ACCESS_POINT_NAME=${END_POINT_NAME}
+export COMPONENT_ENDPOINTS="/myapp-component"
+export NETWORK_EXPOSURE="public"
+###
+# emulating a Build Inventory SBOM specific vaiable 
+###
+export COMPONENT_SOURCECODE_REPO_NAME="concert-sample"
+export COMPONENT_SOURCECODE_REPO_URL="https://github.ibm.com/roja/concert-sample"
+export COMPONENT_SOURCECODE_REPO_BRANCH="main"
+export BUILD_NUMBER=1
+export COMPONENT_IMAGE_NAME="localhost/concert-sample"
+export COMPONENT_IMAGE_TAG="latest"
+
+##
+# Emulate a Deployment Inventory
+##
+export DEPLOYMENT_REPO_NAME="myapp-component"
+export DEPLOYMENT_REPO_URL="https://github.com/myorg/myapp-component"
+export DEPLOYMENT_REPO_BRANCH="main"
+export DEPLOYMENT_BUILD_NUMBER=2
+export K8_PLATFORM="roks"
+export ENV_PLATFORM="ibm"
+export CLUSTER_ID="arn:"
+export CLUSTER_REGION="us-east-1"
+export CLUSTER_NAME="my_cluster"
+export CLUSTER_NAMESPACE="myapp-component"
+export ENVIRONMENT_TARGET="production"
+export APP_URL="https://internal.mycompany.io/myappservice"
