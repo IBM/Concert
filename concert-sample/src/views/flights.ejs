@@ -1,0 +1,166 @@
+<!-- 
+ Copyright IBM Corp. 2021.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+the License. You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License. 
+-->
+
+<!DOCTYPE html>
+
+<head>
+    <title>Flight booking</title>
+    <meta charset="UTF-8" />
+    <%- include('./partials/head'); %>
+    <link rel="stylesheet" href="/stylesheets/flights.css">
+    <script defer src="/javascript/config.js"></script>
+    <script defer src="/javascript/index.js"></script>
+</head>
+
+<body>
+    <%- include('./partials/header'); %>
+    <div class="banner">
+        <div class="bx--grid">
+            <div class="bx--row">
+                <div class="bx--col-lg-3">
+                    <div class="offer-image">
+                        <img src="../images/discount.png" alt=" " />
+                        <div class="text">
+                            <h1>25</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="bx--col-lg-13">
+                    <div class="booking-form">
+                        <form>
+                            <input type="hidden" name="_csrf" value="<%= _csrf %>"/>
+                            <div class="form-group">
+                                <div class="form-checkbox">
+                                    <label for="roundtrip">
+                                        <input type="radio" id="roundtrip" name="flight-type">
+                                        <span></span>Roundtrip
+                                    </label>
+                                    <label for="one-way">
+                                        <input type="radio" id="one-way" name="flight-type">
+                                        <span></span>One way
+                                    </label>
+                                    <label for="multi-city">
+                                        <input type="radio" id="multi-city" name="flight-type">
+                                        <span></span>Multi-City
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="bx--row">
+                                <div class="bx--col-lg-4">
+                                    <div class="form-group">
+                                        <span class="form-label">Flying from</span>
+                                        <input class="form-control city_results_input" id="q_from" type="text" placeholder="City or airport">
+                                        <select class="city_results" id="result_from"></select>
+                                        <label class="err-airport-not-found" id="airport-not-found-from">No Airport / City found</label>
+                                    </div>
+                                </div>
+                                <div class="bx--col-lg-4">
+                                    <div class="form-group">
+                                        <span class="form-label">Flying to</span>
+                                        <input class="form-control city_results_input" id="q_to" type="text" placeholder="City or airport">
+                                        <select class="city_results" id="result_to"></select>
+                                        <label class="err-airport-not-found" id="airport-not-found-to">No Airport / City found</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bx--row">
+                                <div class="bx--col-lg-4">
+                                    <div class="form-group">
+                                        <span class="form-label">Departing</span>
+                                        <input class="form-control" type="date" required>
+                                    </div>
+                                </div>
+                                <div class="bx--col-lg-4">
+                                    <div class="form-group">
+                                        <span class="form-label">Returning</span>
+                                        <input class="form-control" type="date" required>
+                                    </div>
+                                </div>
+                                <div class="bx--col-lg-2">
+                                    <div class="form-group">
+                                        <span class="form-label">Adults (18+)</span>
+                                        <select class="form-control">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                        </select>
+                                        <span class="select-arrow"></span>
+                                    </div>
+                                </div>
+                                <div class="bx--col-lg-2">
+                                    <div class="form-group">
+                                        <span class="form-label">Children (0-17)</span>
+                                        <select class="form-control">
+                                            <option>0</option>
+                                            <option>1</option>
+                                            <option>2</option>
+                                        </select>
+                                        <span class="select-arrow"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bx--row">
+                                <div class="bx--col-lg-4">
+                                    <div class="form-group">
+                                        <span class="form-label">Travel class</span>
+                                        <select class="form-control">
+                                            <option>Economy class</option>
+                                            <option>Business class</option>
+                                            <option>First class</option>
+                                        </select>
+                                        <span class="select-arrow"></span>
+                                    </div>
+                                </div>
+                                <div class="bx--col-lg-4">
+                                    <div class="form-btn">
+                                        <button class="submit-btn">Show flights</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bx--row">
+        <div class="bx--col-lg-4 bx--col-md-3 bx--col-sm-2">
+            <div class="btm-grid back-col1">
+                <img src="../images/bbb3.png" alt="" />
+            </div>
+        </div>
+        <div class="bx--col-lg-4 bx--col-md-3 bx--col-sm-2">
+            <div class="btm-grid btm-wid">
+                <h3>Exclusive Offers</h3>
+                <p>Online recharge is one of the handiest options as it saves a lot of time and efforts
+                    Blue charge offers a reliable online recharge platform where you can make an moble recharge in short
+                    &
+                    simple steps
+                    Topping up prepaid mobile was never this quick and easy as it is with us.
+                    Forget the conventional way of making a recharge through scratch cards,
+                    Blue charge offers online mobile prepaid
+                    recharge by an uncomplicated process and also provides you
+                    with many mobile recharge offers.</p>
+            </div>
+        </div>
+        <div class="bx--col-lg-4 bx--col-md-3 bx--col-sm-2">
+            <div class="btm-grid back-col2">
+                <img src="../images/bbb5.png" alt="" />
+            </div>
+        </div>
+    </div>
+    <%- include('./partials/footer'); %>
+</body>
+
+</html>
