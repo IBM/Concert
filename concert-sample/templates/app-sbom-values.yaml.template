@@ -32,9 +32,9 @@ concert:
       image:
         name: "${COMPONENT_IMAGE_NAME}"
     environment_targets:
-    - name: "${ENVIRONMENT_NAME_1}"
-    - name: "${ENVIRONMENT_NAME_2}"
-    - name: "${ENVIRONMENT_NAME_3}"
+    - name: "${ENVIRONMANET_NAME_1}"
+    - name: "${ENVIRONMANET_NAME_2}"
+    - name: "${ENVIRONMANET_NAME_3}"
     services:
     - name: "${END_POINT_NAME}"
       type: "app_end_point"

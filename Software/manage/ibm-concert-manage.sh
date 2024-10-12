@@ -5,18 +5,19 @@ scriptdir=`dirname $0`
 cd ${scriptdir}
 scriptdir=`pwd`
 dockerexe=${DOCKER_EXE:-podman}
-docker_image=${UTILS_IMG:-"icr.io/cpopen/ibm-aaf-utils:1.0.1"}
+docker_image=${UTILS_IMG:-"icr.io/cpopen/ibm-aaf-utils:1.0.2"}
 work_dir=${WORK_DIR:-"${scriptdir}/.ibm-concert-manage-utils"}
 
 container_name=ibm-aaf-utils
-release=${RELEASE:-"5.0.0"} # AAF Release
+release=${RELEASE:-"5.0.1"} # AAF Release
 components=${COMPONENTS:-"concert"} 
 service_name=concert
-service_version=${SERVICE_VERSION:-"1.0.1"} # Concert Release
+service_version=${SERVICE_VERSION:-"1.0.2"} # Concert Release
 preview=${PREVIEW:-"false"}
 action=${ACTION:-"install"}
 registry_location=${PRIVATE_REGISTRY_LOCATION:-"cp.icr.io"}
 registry_location="${registry_location}/cp/concert"
+case_download=${CASE_DOWNLOAD:-true}
 
 # Function to execute a command
 function execute_command {
@@ -73,7 +74,7 @@ function login-to-ocp {
 function install {
     echo "install.."
     echo "apply-olm"
-    ${dockerexe} exec $container_name /opt/ansible/bin/olm-apply --release=${release} --case_download=true --components=${components} --cpd_operator_ns=${PROJECT_OPERATOR}
+    ${dockerexe} exec $container_name /opt/ansible/bin/olm-apply --release=${release} --case_download=${case_download} --components=${components} --cpd_operator_ns=${PROJECT_OPERATOR}
     echo "create-service-config"
     ${dockerexe} exec $container_name create-service-config --service_name=${service_name} --service_version=${service_version} --operator_ns=${PROJECT_OPERATOR} --registry_location=${$registry_location}
     echo "apply-cr"
@@ -83,10 +84,20 @@ function install {
 # Function to install zen 
 function install_zen {
     echo "install zen.."
+    ${dockerexe} exec $container_name /opt/ansible/bin/olm-apply --release=${release} --case_download=${case_download} --components=zen --cpd_operator_ns=${PROJECT_OPERATOR}
     echo "apply-aaf-zen"
     ${dockerexe} exec $container_name apply_aaf_zen --operator_ns=${PROJECT_OPERATOR} --instance_ns=${PROJECT_INSTANCE}
-    echo "apply-aaf-zen-cr"
-    ${dockerexe} exec $container_name apply-aaf-zen-cr --instance_ns=${PROJECT_INSTANCE} --block_storage_class=${STG_CLASS_BLOCK} --service_name=${service_name} 
+    echo "aaf-zen-cr-apply"
+    ${dockerexe} exec $container_name aaf-zen-cr-apply --instance_ns=${PROJECT_INSTANCE} --block_storage_class=${STG_CLASS_BLOCK} --service_name=${service_name} --release=${release}
+}
+
+# Function to upgrade zen 
+function upgrade_zen {
+    echo "upgrade zen.."
+    echo "apply-aaf-zen"
+    ${dockerexe} exec $container_name apply_aaf_zen --operator_ns=${PROJECT_OPERATOR} --instance_ns=${PROJECT_INSTANCE}
+    echo "aaf-zen-cr-apply"
+    ${dockerexe} exec $container_name aaf-zen-cr-apply --instance_ns=${PROJECT_INSTANCE} --block_storage_class=${STG_CLASS_BLOCK} --service_name=${service_name} --release=${release} --upgrade=true
 }
 
 # Function to check status
@@ -109,6 +120,11 @@ function add-cred-to-global-pull-secret {
 function add-icr-cred-to-global-pull-secret {
     echo "add-icr-cred-to-global-pull-secret"
     ${dockerexe} exec $container_name /opt/ansible/bin/add-icr-cred-to-global-pull-secret "$@"
+}
+
+function setup-route {
+    echo "setup-route"
+    ${dockerexe} exec $container_name /opt/ansible/bin/setup-route "$@"
 }
 
 function get-olm-artifacts {
@@ -183,6 +199,10 @@ function mirror-images {
     ${dockerexe} exec $container_name /opt/ansible/bin/mirror-images --components=${components} --release=${release} --target_registry=${PRIVATE_REGISTRY_LOCATION} --case_download=false
 }
 
+function mirror-images-from-intermediate {
+    echo "mirror-images-from-intermediate"
+    ${dockerexe} exec $container_name /opt/ansible/bin/mirror-images --components=${components} --release=${release} --source_registry=127.0.0.1:12443 --target_registry=${PRIVATE_REGISTRY_LOCATION} --case_download=false
+}
 function apply-aaf-icsp {
     echo "apply-aaf-icsp"
     ${dockerexe} exec $container_name apply-aaf-icsp --registry=${PRIVATE_REGISTRY_LOCATION}
@@ -196,6 +216,19 @@ function create-service-config {
 function concert-setup {
     echo "concert-setup"
     ${dockerexe} exec $container_name concert-setup --action=${action} --release=${release} --license_acceptance=true --operator_ns=${PROJECT_OPERATOR} --operand_ns=${PROJECT_INSTANCE} --preview=${preview} --components=${components} --service_name=${service_name} --service_version=${service_version} --block_storage_class=${STG_CLASS_BLOCK} --file_storage_class=${STG_CLASS_FILE} --registry_location=${registry_location}
+}
+
+function upgrade-concert {
+    echo "upgrade-concert"
+    ${dockerexe} exec $container_name concert-setup --action=upgrade --release=${release} --license_acceptance=true --operator_ns=${PROJECT_OPERATOR} --operand_ns=${PROJECT_INSTANCE} --preview=${preview} --components=${components} --service_name=${service_name} --service_version=${service_version} --block_storage_class=${STG_CLASS_BLOCK} --file_storage_class=${STG_CLASS_FILE} --registry_location=${registry_location}
+}
+
+function case-download {
+     ${dockerexe} exec $container_name case-download --components=${components}   --release=${release}
+}
+
+function delete-concert-zen-extn {
+     ${dockerexe} exec $container_name delete-concert-zen-extn --instance_ns=${PROJECT_INSTANCE}
 }
 
 function print-help {
@@ -219,6 +252,9 @@ case "$1" in
         ;;
     install_zen)
         install_zen
+        ;;
+    upgrade_zen)
+        upgrade_zen
         ;;
     status)
         status "${@:2}"
@@ -265,6 +301,9 @@ case "$1" in
     mirror-images)
         mirror-images
         ;;
+    mirror-images-from-intermediate)
+        mirror-images-from-intermediate
+        ;;
     login-private-image-registry)
         login-private-image-registry
         ;;
@@ -280,9 +319,21 @@ case "$1" in
     concert-setup)
         concert-setup
         ;;
+    upgrade-concert)
+       upgrade-concert
+       ;;
     get-concert-instance-details)
         get-concert-instance-details
         ;;
+    case-download)
+        case-download
+        ;;
+    setup-route)
+       setup-route
+       ;;
+    delete-concert-zen-extn)
+       delete-concert-zen-extn
+       ;;
     help )
         print-help
         ;;

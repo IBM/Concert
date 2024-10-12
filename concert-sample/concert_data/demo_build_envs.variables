@@ -1,4 +1,3 @@
-
 ##########################################################################
 # Copyright IBM Corp. 2024.
 #
@@ -28,58 +27,57 @@ export TEMPLATE_PATH=../templates
 ##
 export CONCERT_TOOLKIT_IMAGE="icr.io/cpopen/ibm-concert-toolkit:latest"
 export CONCERT_TOOLKIT_UTILS_REPO="git@github.com:IBM/concert-utils.git"
-export CONCERT_URL="Your IBM Concert URL"
+export CONCERT_URL="Your Concert URL"
 export INSTANCE_ID="0000-0000-0000-0000"
-export API_KEY="Your API Key"
+export API_KEY="C_API_KEY your_api_key"
+
 
 ##
-# Application Variables
+# Application Variabbles
 ##
 export APP_NAME="Your application name"
 export APP_VERSION="1.0.0.0"
 
-export ENVIRONMENT_NAME_1="development"
-export ENVIRONMENT_NAME_2="pre-production"
-export ENVIRONMENT_NAME_3="production"
+export ENVIRONMANET_NAME_1="development"
+export ENVIRONMANET_NAME_2="pre-production"
+export ENVIRONMANET_NAME_3="production"
 
-export COMPONENT_NAME="MyAppComp"
+export COMPONENT_NAME="concert-sample"
 export COMPONENT_VERSION="1.0.0"
 
-export BUSINESS_NAME="MyOrg"
+
+export BUSINESS_NAME="Acme Inc."
 export BUSINESS_UNIT_NAME="Business Unit name"
-export CONTACT_EMAIL="myemail@myorg.com"
+export CONTACT_EMAIL="myemail@acme.com"
 export CONCAT_PHONE="(123) 123-1234"
 
 export APPLICATION_CRITICALITY=5
-export END_POINT_NAME="myapp-component-api"
+export END_POINT_NAME="myapp-component_api"
 export ACCESS_POINT_NAME=${END_POINT_NAME}
 export COMPONENT_ENDPOINTS="/myapp-component"
 export NETWORK_EXPOSURE="public"
-
-##
-# Emulate a Build Inventory SBOM
-##
-export COMPONENT_SOURCECODE_REPO_NAME="myapp-component"
-export COMPONENT_SOURCECODE_REPO_URL="https://github.com/myorg/myapp-component"
-export COMPONENT_IMAGE_NAME="localhost/myapp-component"
+###
+# emulating a Build Inventory SBOM specific vaiable 
+###
+export COMPONENT_SOURCECODE_REPO_NAME="concert-sample"
+export COMPONENT_SOURCECODE_REPO_URL="https://github.ibm.com/roja/concert-sample"
+export COMPONENT_SOURCECODE_REPO_BRANCH="main"
+export BUILD_NUMBER=1
+export COMPONENT_IMAGE_NAME="localhost/concert-sample"
 export COMPONENT_IMAGE_TAG="latest"
-export COMPONENT_BUILD_NUMBER=1
 
 ##
-# Emulate a Deployment Inventory SBOM
+# Emulate a Deployment Inventory
 ##
 export DEPLOYMENT_REPO_NAME="myapp-component"
 export DEPLOYMENT_REPO_URL="https://github.com/myorg/myapp-component"
 export DEPLOYMENT_REPO_BRANCH="main"
+export DEPLOYMENT_BUILD_NUMBER=2
 export K8_PLATFORM="roks"
 export ENV_PLATFORM="ibm"
-export CLUSTER_ID="arn:zr1t7avw0ge8c776lf9y"
+export CLUSTER_ID="arn:"
 export CLUSTER_REGION="us-east-1"
 export CLUSTER_NAME="my_cluster"
 export CLUSTER_NAMESPACE="myapp-component"
 export ENVIRONMENT_TARGET="production"
-export APP_URL="https://internal.myorg.com/myappservice"
-
-##
-# simulate_ci_pipeline.sh generated vars below
-##
+export APP_URL="https://internal.mycompany.io/myappservice"

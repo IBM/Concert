@@ -26,16 +26,16 @@ source ${VARIABLES_FILE}
 export OUTPUTDIR=${sourcecodedir}/concert_data
 export SRC_PATH=${sourcecodedir}/src
 
-mkdir ${OUTPUTDIR}/${COMPONENT_BUILD_NUMBER}
-export OUTPUTDIR=${OUTPUTDIR}/${COMPONENT_BUILD_NUMBER}
+mkdir ${OUTPUTDIR}/${BUILD_NUMBER}
+export OUTPUTDIR=${OUTPUTDIR}/${BUILD_NUMBER}
 
 echo "all files generated from this script will be save here ${OUTPUTDIR}"
 
 echo "#####"
 echo "# source scanning stage #"
-echo "# ./concert-utils/helpers/create-code-cyclondx-sbom.sh --outputfile ${REPO_NAME}-cyclonedx-sbom-${COMPONENT_BUILD_NUMBER}.json --cdxgen-args "--project-name ${COMPONENT_SOURCECODE_REPO_URL} --project-version ${COMPONENT_VERSION}" "
+echo "# ./concert-utils/helpers/create-code-cyclondx-sbom.sh --outputfile ${REPO_NAME}-cyclonedx-sbom-${BUILD_NUMBER}.json --cdxgen-args "--project-name ${COMPONENT_SOURCECODE_REPO_URL} --project-version ${COMPONENT_VERSION}" "
 echo "#####"
-./concert-utils/helpers/create-code-cyclondx-sbom.sh --outputfile "${COMPONENT_SOURCECODE_REPO_NAME}-cyclonedx-sbom-${COMPONENT_BUILD_NUMBER}.json" --cdxgen-args "--project-name ${COMPONENT_SOURCECODE_REPO_URL} --project-version ${COMPONENT_VERSION}"
+./concert-utils/helpers/create-code-cyclondx-sbom.sh --outputfile "${COMPONENT_SOURCECODE_REPO_NAME}-cyclonedx-sbom-${BUILD_NUMBER}.json" --cdxgen-args "--project-name ${COMPONENT_SOURCECODE_REPO_URL} --project-version ${COMPONENT_VERSION}"
 
 echo "#####"
 echo "# build image stage #"
@@ -43,7 +43,7 @@ echo "#####"
 
 ./build.sh
 
-export CYCLONEDX_FILENAME=${COMPONENT_SOURCECODE_REPO_NAME}-cyclonedx-sbom-${COMPONENT_BUILD_NUMBER}.json
+export CYCLONEDX_FILENAME=${COMPONENT_SOURCECODE_REPO_NAME}-cyclonedx-sbom-${BUILD_NUMBER}.json
 
 cdxgen_vars="--project-name ${} --project-name "
 echo "#####"
@@ -55,9 +55,9 @@ echo "#####"
 echo "#####"
 echo "# gen concert build inventory (build sbom) "
 
-export BUILD_FILENAME=${COMPONENT_NAME}-build-inventory-${COMPONENT_BUILD_NUMBER}.json
+export BUILD_FILENAME=${COMPONENT_NAME}-build-inventory-${BUILD_NUMBER}.json
 
-CONCERT_DEF_CONFIG_FILE=build-${COMPONENT_NAME}-${COMPONENT_BUILD_NUMBER}-config.yaml
+CONCERT_DEF_CONFIG_FILE=build-${COMPONENT_NAME}-${BUILD_NUMBER}-config.yaml
 
 echo "envsubst < ${scriptdir}/${TEMPLATE_PATH}/build-sbom-values.yaml.template > ${OUTPUTDIR}/${CONCERT_DEF_CONFIG_FILE}"
 envsubst < ${scriptdir}/${TEMPLATE_PATH}/build-sbom-values.yaml.template > ${OUTPUTDIR}/${CONCERT_DEF_CONFIG_FILE}
@@ -73,6 +73,6 @@ echo "#####"
 envsubst < ${scriptdir}/${TEMPLATE_PATH}/simulating_ci_config.yaml.template > ${OUTPUTDIR}/config.yaml
 ./concert-utils/helpers/concert_upload.sh --outputdir ${OUTPUTDIR}
 
-echo "export INVENTORY_BUILD=${COMPONENT_BUILD_NUMBER}" >> ${VARIABLES_FILE}
-newbuild=$(( $COMPONENT_BUILD_NUMBER + 1 ))
-echo export COMPONENT_BUILD_NUMBER=${newbuild}  >> ${VARIABLES_FILE}
+echo "export INVENTORY_BUILD=${BUILD_NUMBER}" >> ${VARIABLES_FILE}
+newbuild=$(( $BUILD_NUMBER + 1 ))
+echo export BUILD_NUMBER=${newbuild}  >> ${VARIABLES_FILE}
