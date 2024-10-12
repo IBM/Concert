@@ -20,9 +20,6 @@ sourcecodedir=$(builtin cd $scriptdir/..; pwd)
 VARIABLES_FILE=${sourcecodedir}/concert_data/demo_build_envs.variables
 source ${VARIABLES_FILE}
 
-TOOLKIT_CLONE_FOLDER=`echo "${CONCERT_TOOLKIT_UTILS_REPO}" | awk -F"/" '{print $NF}' | awk -F"." '{print $1}'`
-rm -rf "${TOOLKIT_CLONE_FOLDER}" || true
-
 git clone ${CONCERT_TOOLKIT_UTILS_REPO}
 
 if which docker >/dev/null; then
@@ -30,8 +27,7 @@ if which docker >/dev/null; then
 elif which podman >/dev/null; then
     dockerexe=podman
 else
-    echo "Docker or Podman is not installed. You need a container runtime environment."
+    echo "docker or podman are not installed need a container runtime environment"
     exit -1
 fi
-
 ${dockerexe} pull ${CONCERT_TOOLKIT_IMAGE}
