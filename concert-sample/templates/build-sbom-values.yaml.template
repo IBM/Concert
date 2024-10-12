@@ -15,7 +15,7 @@ concert:
   - component_name: "${COMPONENT_NAME}"
     output_file: "${BUILD_FILENAME}" # optional
     app_name: "${APP_NAME}"
-    number: "${COMPONENT_BUILD_NUMBER}"
+    number: "${BUILD_NUMBER}"
     version: "${COMPONENT_VERSION}"
     repository:
       name: "${COMPONENT_SOURCECODE_REPO_NAME}"
