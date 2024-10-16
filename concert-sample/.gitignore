@@ -1,1 +1,5 @@
 scripts/concert-utils
+**/.DS_store
+concert_data/[0-9]*/
+concert_data/*.json
+concert_data/*.yaml
