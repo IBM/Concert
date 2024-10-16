@@ -15,8 +15,8 @@
 
 
 usage() {
-    echo "Usage: $(basename $0) --outputdir <outputdirectory for generated files> --configfile <application-config-file>"
-    echo "Example: $(basename $0) --outputdir <outputdirectory for generated files> --configfile application-config.yaml"
+    echo "Usage: $(basename $0) --outputfile <filename for the generated json>"
+    echo "Example: $(basename $0) --outputfile cyclonedx.json"
     exit 1
 }
 
@@ -26,14 +26,9 @@ fi
 
 while [[ "$#" -gt 0 ]]; do
     case $1 in
-        --configfile)
-            configfile="$2"
-            [ -z "$configfile" ] && { echo "Error:  --configfile <application-config-file> is required."; usage; }
-            shift 2
-            ;;
-        --outputdir)
-            outputdir="$2"
-            [ -z "$outputdir" ] && { echo "Error: --outputdir <outputdirectory for generated files>  is required."; usage; }
+        --outputfile)
+            outputfile="$2"
+            [ -z "$outputfile" ] && { echo "Error: --outputfile <filename for the generated json> is required."; usage; }
             shift 2
             ;;
         --help)
@@ -46,6 +41,11 @@ while [[ "$#" -gt 0 ]]; do
     esac
 done
 
-TOOLKIT_COMMAND="build-sbom --build-config /toolkit-data/${configfile}"
-echo "${CONTAINER_COMMAND} ${OPTIONS} -v ${outputdir}:/toolkit-data ${CONCERT_TOOLKIT_IMAGE} bash -c ${TOOLKIT_COMMAND}"
-${CONTAINER_COMMAND} ${OPTIONS} -v ${outputdir}:/toolkit-data ${CONCERT_TOOLKIT_IMAGE} bash -c "${TOOLKIT_COMMAND}"
+export OUTPUT_FILENAME=$outputfile 
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source ${SCRIPT_DIR}/constants.variables
+
+CODE_SCAN_COMMAND="code-scan --src /${COMPONENT_NAME} --output-file ${OUTPUT_FILENAME} ${CDXGEN_ARGS}"
+echo "${CONTAINER_COMMAND} ${OPTIONS} -v ${SRC_PATH}:/${COMPONENT_NAME} -v ${OUTPUTDIR}:/toolkit-data ${CONCERT_TOOLKIT_IMAGE} bash -c ${CODE_SCAN_COMMAND}"
+${CONTAINER_COMMAND} ${OPTIONS} -v ${SRC_PATH}:/${COMPONENT_NAME} -v ${OUTPUTDIR}:/toolkit-data ${CONCERT_TOOLKIT_IMAGE} bash -c "${CODE_SCAN_COMMAND}"

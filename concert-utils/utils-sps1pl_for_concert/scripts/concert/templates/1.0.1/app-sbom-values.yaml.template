@@ -11,40 +11,36 @@
 # specific language governing permissions and limitations under the License.
 ##########################################################################
 
-spec_version: "${SPEC_VERSION}"
 concert:
   application:
-    output_file: "${APP_FILE_NAME}"
-    app_name: "${APP_NAME}"
-    version: "${APP_VERSION}"
+    output_file: "${APP_FILE_NAME}" # optional
+    app_name: "${COMPONENT_NAME}"
+    version: "1.0.0"
     business:
-      name: "${BUSINESS_NAME}"
+      name: "Acme Inc."
       units:
-      - name: "${BUSINESS_UNIT_NAME}"
-        email: "${CONTACT_EMAIL}"
-        phone: "${CONTACT_PHONE}"
+      - name: "Unit 1"
+        email: "myemail@acme.com"
+        phone: "+1-123-456-7890"
     properties:
-      application_criticality: "${APPLICATION_CRITICALITY}"
+      application_criticality: "1"
     components:
     - component_name: "${COMPONENT_NAME}"
-      version: "${COMPONENT_VERSION}"
-      repositories:
-      - name: "${COMPONENT_SOURCECODE_REPO_NAME}"
-        url: "${COMPONENT_SOURCECODE_REPO_URL}"
-        branch: "${COMPONENT_SOURCECODE_REPO_BRANCH}"
-        commit_sha: "${COMPONENT_SOURCECODE_REPO_COMMIT_SHA}"
+      repository:
+        name: "${REPO_NAME}"
+        url: "${REPO_URL}"
       image:
-        name: "${COMPONENT_IMAGE_NAME}"
+        name: "${IMAGE_NAME}"
     environment_targets:
-    - name: "${ENVIRONMENT_NAME_1}"
-    - name: "${ENVIRONMENT_NAME_2}"
-    - name: "${ENVIRONMENT_NAME_3}"
+    - name: "qa"
+    - name: "stage"
+    - name: "prod"
     services:
-    - name: "${END_POINT_NAME}"
+    - name: "${COMPONENT_NAME}_api"
       type: "app_end_point"
       endpoints: 
-      - "${COMPONENT_ENDPOINTS}"
+      - "/"
       properties:
-        network_exposure: "${NETWORK_EXPOSURE}"
+        network_exposure: "public"
       reliant_by:
       - "${COMPONENT_NAME}"

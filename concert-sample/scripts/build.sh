@@ -29,10 +29,16 @@ if test -z "$IMAGE_TAG"; then
    IMAGE_TAG="sample"
 fi
 
-# shellcheck disable=SC2086
-docker build -f $SRC_PATH/Dockerfile -t ${IMAGE_NAME}:${IMAGE_TAG} 
+container_cmd=$(echo ${CONTAINER_COMMAND} | awk '{print $1}')
 
-IMAGE_DIGEST="$(docker inspect --format='{{index .RepoDigests 0}}' "${IMAGE_NAME}:${IMAGE_TAG}" | awk -F@ '{print $2}')"
+# shellcheck disable=SC2086
+${container_cmd} build -f $SRC_PATH/Dockerfile -t ${IMAGE_NAME}:${IMAGE_TAG} $SRC_PATH
+
+IMAGE_DIGEST="$(${container_cmd} inspect --format='{{index .RepoDigests 0}}' "${IMAGE_NAME}:${IMAGE_TAG}" 2>/dev/null | awk -F@ '{print $2}')"
+if [[ -z "${IMAGE_DIGEST}" ]]; then
+   echo "repo digests not available, using image id as digest"
+   IMAGE_DIGEST="$(${container_cmd} inspect --format='{{index .Id}}' "${IMAGE_NAME}:${IMAGE_TAG}")"
+fi
 
 REPO_COMMIT_SHA="$(git rev-parse HEAD)"
 REPO_BRANCH="$(git rev-parse --abbrev-ref HEAD)"
@@ -41,4 +47,3 @@ echo -e "export COMPONENT_IMAGE_DIGEST=${IMAGE_DIGEST}" >> ${VARIABLES_FILE}
 echo -e "export COMPONENT_SOURCECODE_REPO_BRANCH=${REPO_BRANCH}"  >> ${VARIABLES_FILE}
 echo -e "export COMPONENT_SOURCECODE_REPO_COMMIT_SHA=${REPO_COMMIT_SHA}"  >> ${VARIABLES_FILE}
 echo -e "export DEPLOYMENT_REPO_COMMIT_SHA=${REPO_COMMIT_SHA}"  >> ${VARIABLES_FILE}
-

@@ -1,3 +1,5 @@
+#!/bin/bash
+
 ##########################################################################
 # Copyright IBM Corp. 2024.
 #
@@ -10,21 +12,7 @@
 # an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
 # specific language governing permissions and limitations under the License.
 ##########################################################################
-spec_version: "${SPEC_VERSION}"
-concert:
-  builds:
-  - component_name: "${COMPONENT_NAME}"
-    output_file: "${BUILD_FILENAME}"
-    number: "${COMPONENT_BUILD_NUMBER}"
-    version: "${COMPONENT_VERSION}"
-    repositories:
-    - name: "${COMPONENT_SOURCECODE_REPO_NAME}"
-      url: "${COMPONENT_SOURCECODE_REPO_URL}"
-      branch: "${COMPONENT_SOURCECODE_REPO_BRANCH}"
-      commit_sha: "${COMPONENT_SOURCECODE_REPO_COMMIT_SHA}"
-      cyclonedx_bom_link:
-        file: "/toolkit-data/${CYCLONEDX_FILENAME}"
-    image:
-      name: "${COMPONENT_IMAGE_NAME}"
-      tag: "${COMPONENT_IMAGE_TAG}"
-      digest: "${COMPONENT_IMAGE_DIGEST}"
+
+SCAN_COMMAND="image-scan --images ${IMAGE_NAME}:${IMAGE_TAG}"
+echo "${CONTAINER_COMMAND} ${OPTIONS} -v ${SRC_PATH}:/concert-sample-src -v ${OUTPUTDIR}:/toolkit-data ${CONCERT_TOOLKIT_IMAGE} bash -c ${SCAN_COMMAND}"
+${CONTAINER_COMMAND} ${OPTIONS} -v ${SRC_PATH}:/concert-sample-src -v ${OUTPUTDIR}:/toolkit-data ${CONCERT_TOOLKIT_IMAGE} bash -c "${SCAN_COMMAND}"

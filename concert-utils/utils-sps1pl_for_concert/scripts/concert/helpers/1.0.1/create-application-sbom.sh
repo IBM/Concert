@@ -14,6 +14,8 @@
 ##########################################################################
 
 
+
+
 usage() {
     echo "Usage: $(basename $0) --outputdir <outputdirectory for generated files> --configfile <application-config-file>"
     echo "Example: $(basename $0) --outputdir <outputdirectory for generated files> --configfile application-config.yaml"
@@ -46,6 +48,11 @@ while [[ "$#" -gt 0 ]]; do
     esac
 done
 
-TOOLKIT_COMMAND="build-sbom --build-config /toolkit-data/${configfile}"
+###
+# upload build file
+###
+# ./common_variables.sh
+
+TOOLKIT_COMMAND="app-sbom --app-config /toolkit-data/${configfile}"
 echo "${CONTAINER_COMMAND} ${OPTIONS} -v ${outputdir}:/toolkit-data ${CONCERT_TOOLKIT_IMAGE} bash -c ${TOOLKIT_COMMAND}"
 ${CONTAINER_COMMAND} ${OPTIONS} -v ${outputdir}:/toolkit-data ${CONCERT_TOOLKIT_IMAGE} bash -c "${TOOLKIT_COMMAND}"
