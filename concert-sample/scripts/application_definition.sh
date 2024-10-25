@@ -24,7 +24,7 @@ source ${VARIABLES_FILE}
 
 export OUTPUTDIR=${sourcecodedir}/concert_data
 
-echo "All files generated from this script will be saved in: ${OUTPUTDIR}"
+echo "all files generated from this script will be save here ${OUTPUTDIR}"
 
 ###
 # application toolkit config yaml
@@ -34,14 +34,14 @@ export APP_FILE_NAME="${APP_NAME}-${APP_VERSION}-application.json"
 CONCERT_DEF_CONFIG_FILE=app-${APP_NAME}-${APP_VERSION}-config.yaml
 envsubst < ${scriptdir}/${TEMPLATE_PATH}/app-sbom-values.yaml.template > ${OUTPUTDIR}/${CONCERT_DEF_CONFIG_FILE}
 
-echo -e "\n#####"
-echo "# Generate Concert Application SBOM"
+echo "#####"
+echo "# gen concert app inventory"
 echo "# ./concert-utils/helpers/create-application-sbom.sh --outputdir ${OUTPUTDIR} --configfile ${CONCERT_DEF_CONFIG_FILE}"
 echo "####"
 ./concert-utils/helpers/create-application-sbom.sh --outputdir ${OUTPUTDIR} --configfile ${CONCERT_DEF_CONFIG_FILE}
 
-echo -e "\n#####"
-echo "# Send to Concert stage"
+echo "#####"
+echo "# send to concert stage"
 echo "#####"
 
 envsubst < ${scriptdir}/${TEMPLATE_PATH}/application_def_load_config.yaml.template > ${OUTPUTDIR}/config.yaml

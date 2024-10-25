@@ -1,6 +1,6 @@
 # concert-sample
 
-This code was tested on Linux and macOS systems.
+This code was tested on a Linux system (our engineering team will test soon on a macOS system).
 
 This example simulates a CI/CD pipeline and its integration with Concert. It emulates a CI/CD pipeline update, where the release of an application is pushed to the target environment. During this flow, the CI/CD pipeline generates and sends the data that Concert needs.
 
@@ -16,7 +16,7 @@ This example simulates a CI/CD pipeline and its integration with Concert. It emu
    ./setup.sh
    ```
 
-1. Go to the `concert_data` directory and update the `demo_build_envs.variables` file by entering the proper values for your target environment. The variables in the `demo_build_envs.variables` file control the behavior of the scripts in this repo. The following are *typical* variables you may want to update in this file:
+1. Go to the `concert_data` directory and update the `demo_build_envs.variables` file accordingly by entering the proper values for your target environment. The variables in the `demo_build_envs.variables` file control the behavior of the scripts in this repo. The following are typical variables you may want to update:
 
 * `CONCERT_URL` - Your Concert URL with the suffix `/ibm/concert` (e.g., `https://concert-concert-instance.apps.o2-160435.cp.fyre.ibm.com/ibm/concert`).
 * `INSTANCE_ID` - For non-SaaS deployments of Concert, use `0000-0000-0000-0000`
@@ -24,12 +24,6 @@ This example simulates a CI/CD pipeline and its integration with Concert. It emu
 * `APP_NAME` - Name of your application
 * `APP_VERSION` - Version of your application
 * `COMPONENT_NAME` - Your application component name
-* `COMPONENT_VERSION` - Version of your application component
-* `COMPONENT_SOURCECODE_REPO_NAME` - Name of the source code repository for your application component
-* `COMPONENT_SOURCECODE_REPO_URL` - URL for the source code repository for your application component
-* `COMPONENT_IMAGE_NAME` - Image name for your application component
-* `DEPLOYMENT_REPO_NAME` - Name of the repository for the deployment of application component
-* `DEPLOYMENT_REPO_URL` - URL for the repository for the deployment of application component
 * `ENVIRONMENT_NAME_1` - Name of the first environment where your application is hosted
 * `ENVIRONMENT_NAME_2` - Name of the second environment where your application is hosted
 * `ENVIRONMENT_NAME_3` - Name of the third environment where your application is hosted
@@ -39,19 +33,19 @@ This example simulates a CI/CD pipeline and its integration with Concert. It emu
 ## Running the example 
 
 1. Go to the `scripts` folder.
-1. Run the `application_definition.sh` script. You only need to run this script once *or* when updates to the application definition are required. This provides Concert with initial details of your application and of the forthcoming data to construct the Application inventory and Arena view. This simulates the generation of an Application `ConcertDef` SBOM (e.g., application name, application component repository, application component image, environments).
+1. Run the `application_definition.sh` script. You only need to run this script once *or* when updates to the application definition are required. This provides Concert with initial details of your application and of the forthcoming data to construct the Application inventory and Arena view.
 
    ```bash
    ./application_definition.sh
    ```
 
-1. Run the `simulate_ci_pipeline.sh` script. This simulates the generation of application dependencies (e.g., npm packages) for the application components. In other words, this simulates the generation of a `CycloneDX` SBOM file. After executing this step, the `Packages` view for the application should show the package dependencies along with their version. This step also simulates the generation of a Build `ConcertDef` SBOM file.
+1. Run the `simulate_ci_pipeline.sh` script. This simulates the generation of application assets (e.g., image, CycloneDX SBOM files, Concert Build SBOM file, etc.) to represent a commited version that can be released to any environment such as pre-production environments.
 
    ```bash
    ./simulate_ci_pipeline.sh
    ```
 
-1. Run the `simulate_cd_pipeline.sh` script. This simulates the generation of a Deploy `ConcertDef` SBOM file. After executing this step, the `Arena view` should show the endpoint(s) and their relationship with the environment(s).
+1. Run the `simulate_cd_pipeline.sh` script. This simulates the generation of application assets (e.g., image, CycloneDX SBOM files, Concert Build SBOM file, etc.) to represent a commited version that can be released to any environment such as pre-production environments.
 
    ```bash
    ./simulate_cd_pipeline.sh
@@ -71,4 +65,8 @@ to
 export CONTAINER_COMMAND="podman run"
 ```
 
-Finally, for your reference, the `OPTIONS` environment variable defined in the `concert_data/demo_build_envs.variables` file is used when `concert-utils` runs the `ibm-concert-toolkit` container.
+If you run into problems running the container due to missing options or other problems with user permissions, please update the following variable definition in the `concert_data/demo_build_envs.variables` file:
+
+```bash
+export OPTIONS="-it --rm -u $(id -u):$(id -g)" 
+```

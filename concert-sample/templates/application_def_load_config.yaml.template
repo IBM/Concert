@@ -21,6 +21,7 @@ app:
   auth:
     token:
       token: "${API_KEY}" 
+  # TODO: certs
 input-data:
   application-def:
     files:

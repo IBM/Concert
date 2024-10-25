@@ -46,6 +46,16 @@ while [[ "$#" -gt 0 ]]; do
     esac
 done
 
+if which docker >/dev/null; then
+    dockerexe=docker
+elif which podman >/dev/null; then
+    dockerexe=podman
+else
+    echo "docker or podman are not installed need a container runtime environment"
+    exit -1
+fi
+
 TOOLKIT_COMMAND="deploy-sbom --deploy-config /toolkit-data/${configfile}"
 echo "${CONTAINER_COMMAND} ${OPTIONS} -v ${outputdir}:/toolkit-data ${CONCERT_TOOLKIT_IMAGE} bash -c ${TOOLKIT_COMMAND}"
 ${CONTAINER_COMMAND} ${OPTIONS} -v ${outputdir}:/toolkit-data ${CONCERT_TOOLKIT_IMAGE} bash -c "${TOOLKIT_COMMAND}"
+
