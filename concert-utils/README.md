@@ -1,7 +1,1 @@
 # concert-utils
-
-This repo includes a set of Concert utility scripts that facilitate exploiting the capabilities of a Concert Toolkit image.  The scripts are organized in different directories in terms of the script exploitation context.
-
-Scripts in the `helpers` directory are described in `ConcertUtils_Guide.md`.  All types of Concert supported files can be uploaded to a Concert service instance via `concert_upload.sh`. For each type of Concert supported files, there is a script that converts a YAML-formated ConcertDef file to a JSON-formatted one.  All the scripts run a Concert Toolkit image to complete their respecitve tasks.
-
-Contents of the `utils-sps1pl_for_concert` directory are described in `README.md` in that directory. IBM SPS (Secure Pipeline Service) OnePipeline (1PL) provides an opinionated GitOps-based ___DevSecOps implementation framework___ with, among other types of pipelines, Continuous Integration (CI), Continuous Deployment (CD), and Continuous Compliance (CC) pipelines. The directory includes a collection of application-independent scripts that can be used to extend the automation scope of existing SPS/1PL CI/CD/CC pipelines with Concert file generation and upload.  The automation extension approach to supporting Concert  is generic and not specific to SPS/1PL.  For those non-SPS/1PL pipelines, the scripts exemplify how such extensions can be delivered with minimum changes to existing pipelines.

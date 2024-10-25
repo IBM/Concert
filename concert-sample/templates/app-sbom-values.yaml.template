@@ -11,10 +11,9 @@
 # specific language governing permissions and limitations under the License.
 ##########################################################################
 
-spec_version: "${SPEC_VERSION}"
 concert:
   application:
-    output_file: "${APP_FILE_NAME}"
+    output_file: "${APP_FILE_NAME}" # optional
     app_name: "${APP_NAME}"
     version: "${APP_VERSION}"
     business:
@@ -22,23 +21,20 @@ concert:
       units:
       - name: "${BUSINESS_UNIT_NAME}"
         email: "${CONTACT_EMAIL}"
-        phone: "${CONTACT_PHONE}"
+        phone: "${CONCAT_PHONE}"
     properties:
       application_criticality: "${APPLICATION_CRITICALITY}"
     components:
     - component_name: "${COMPONENT_NAME}"
-      version: "${COMPONENT_VERSION}"
-      repositories:
-      - name: "${COMPONENT_SOURCECODE_REPO_NAME}"
+      repository:
+        name: "${COMPONENT_SOURCECODE_REPO_NAME}"
         url: "${COMPONENT_SOURCECODE_REPO_URL}"
-        branch: "${COMPONENT_SOURCECODE_REPO_BRANCH}"
-        commit_sha: "${COMPONENT_SOURCECODE_REPO_COMMIT_SHA}"
       image:
         name: "${COMPONENT_IMAGE_NAME}"
     environment_targets:
-    - name: "${ENVIRONMENT_NAME_1}"
-    - name: "${ENVIRONMENT_NAME_2}"
-    - name: "${ENVIRONMENT_NAME_3}"
+    - name: "${ENVIRONMANET_NAME_1}"
+    - name: "${ENVIRONMANET_NAME_2}"
+    - name: "${ENVIRONMANET_NAME_3}"
     services:
     - name: "${END_POINT_NAME}"
       type: "app_end_point"

@@ -10,64 +10,38 @@
 # an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
 # specific language governing permissions and limitations under the License.
 ##########################################################################
-spec_version: "${SPEC_VERSION}"
 concert:
   deployments:
-  - output_file: "${DEPLOY_FILENAME}"
-    metadata:
-      component_name: "${COMPONENT_NAME}"
-      number: "${INVENTORY_BUILD}"
-      version: "${APP_VERSION}"
+  - component_name: "${COMPONENT_NAME}"
+    output_file: "${DEPLOY_FILENAME}" # optional
+    app_name: "${APP_NAME}"
+    number: "${DEPLOYMENT_BUILD_NUMBER}"
+    version: "${APP_VERSION}"
     environment_target: "${ENVIRONMENT_TARGET}"
-    change_request_url: "${CHANGE_REQUEST_URL}"
-    repositories:
-    - name: "${DEPLOYMENT_REPO_NAME}"
+    repository:
+      name: "${DEPLOYMENT_REPO_NAME}"
       url: "${DEPLOYMENT_REPO_URL}"
       branch: "${DEPLOYMENT_REPO_BRANCH}"
       commit_sha: "${DEPLOYMENT_REPO_COMMIT_SHA}"
+    build_inventory:
+      inventory_build_number: "${INVENTORY_BUILD}"
     services:
-    - type: "app_access_point"
-      name: "${ACCESS_POINT_NAME}"
-      properties: 
-        base_url: "${APP_URL}"
-    runtime:
-    - name: "${RUNTIME_1_NAME}"
-      type: "kubernetes"
-      depends_on: 
-      - "${ACCESS_POINT_NAME}"
-      properties:
-        platform: "${K8_PLATFORM}"
-        cluster_platform: "${ENV_PLATFORM}"
-        cluster_id: "${CLUSTER_ID}"
-        cluster_region: "${CLUSTER_REGION}"
-        cluster_name: "${CLUSTER_NAME}"
-      api-server: "${CLUSTER_API_SERVER}"
-      namespaces:
-      - name: "${CLUSTER_NAMESPACE}"
-        images:
-        - name: "${COMPONENT_IMAGE_NAME}"
-          tag: "${COMPONENT_IMAGE_TAG}"
-    - name: "${RUNTIME_2_NAME}"
-      type: "vm"
-      properties:
-        os: "${VM_OS_NAME}"
-        version: "${VM_OS_VERSION}"
-      depends_on: 
-      - "${ACCESS_POINT_NAME}"
-      network:
-        ipv4_addrs:
-        - "${VM_IPV4}"
-        ipv6_addrs:
-        - "${VM_IPV6}"
-        hostname: "${VM_HOSTNAME}"
-      images:
-      - name: "${VM_IMAGE}"
-        tag: "${VM_IMAGE_TAG}"
-    - name: "${RUNTIME_3_NAME}"
-      type: "db"
-      properties:
-        db_type: "${DB_TYPE}"
-        db_version: "${DB_VERSION}"
-        db_name: "${DB_NAME}"
-        db_host: "${DB_HOST}"
-        db_port: "${DB_PORT}"
+      - type: "app_access_point"
+        name: "${ACCESS_POINT_NAME}"
+        properties: 
+          base_url: "${APP_URL}"
+      - type: "k8_platform"
+        "name": "myk8"
+        properties:
+          platform: "${K8_PLATFORM}"
+          env_platform: "${ENV_PLATFORM}"
+          cluster_id: "${CLUSTER_ID}"
+          cluster_region: "${CLUSTER_REGION}"
+          cluster_name: "${CLUSTER_NAME}"
+          cluster_namespace: "${CLUSTER_NAMESPACE}"
+        dependson: 
+          - "${ACCESS_POINT_NAME}"
+
+    
+
+
