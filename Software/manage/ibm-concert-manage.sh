@@ -5,14 +5,14 @@ scriptdir=`dirname $0`
 cd ${scriptdir}
 scriptdir=`pwd`
 dockerexe=${DOCKER_EXE:-podman}
-docker_image=${UTILS_IMG:-"icr.io/cpopen/ibm-aaf-utils:1.0.2.2"}
+docker_image=${UTILS_IMG:-"icr.io/cpopen/ibm-aaf-utils:1.0.3"}
 work_dir=${WORK_DIR:-"${scriptdir}/.ibm-concert-manage-utils"}
 
 container_name=ibm-aaf-utils
-release=${RELEASE:-"5.0.1"} # AAF Release
+release=${RELEASE:-"5.0.3"} # AAF Release
 components=${COMPONENTS:-"concert"} 
 service_name=concert
-service_version=${SERVICE_VERSION:-"1.0.2.2"} # Concert Release
+service_version=${SERVICE_VERSION:-"1.0.3"} # Concert Release
 preview=${PREVIEW:-"false"}
 action=${ACTION:-"install"}
 registry_location=${PRIVATE_REGISTRY_LOCATION:-"cp.icr.io"}
@@ -50,7 +50,7 @@ function initialize {
     set -e
     echo ===== work_dir is ${work_dir} =====
     mkdir -p ${work_dir}
-    chmod 777 ${work_dir}
+    chmod 777 -R ${work_dir}
     export DOCKER_DEFAULT_PLATFORM="linux/amd64"
     if [ "${dockerexe}" == "podman" ]
     then
@@ -74,17 +74,17 @@ function login-to-ocp {
 function install {
     echo "install.."
     echo "apply-olm"
-    ${dockerexe} exec $container_name /opt/ansible/bin/olm-apply --release=${release} --case_download=${case_download} --components=${components} --cpd_operator_ns=${PROJECT_OPERATOR}
+    ${dockerexe} exec $container_name apply-olm --release=${release} --case_download=${case_download} --components=${components} --cpd_operator_ns=${PROJECT_OPERATOR}
     echo "create-service-config"
-    ${dockerexe} exec $container_name create-service-config --service_name=${service_name} --service_version=${service_version} --operator_ns=${PROJECT_OPERATOR} --registry_location=${$registry_location}
+    ${dockerexe} exec $container_name create-service-config --service_name=${service_name} --service_version=${service_version} --operator_ns=${PROJECT_OPERATOR} --registry_location=${registry_location}
     echo "apply-cr"
-    ${dockerexe} exec $container_name /opt/ansible/bin/cr-apply --release=${release} --components=${components} --cpd_operator_ns=${PROJECT_OPERATOR} --cpd_instance_ns=${PROJECT_INSTANCE} --block_storage_class=${STG_CLASS_BLOCK} --file_storage_class=${STG_CLASS_FILE} "$@" 
+    ${dockerexe} exec $container_name apply-cr --release=${release} --components=${components} --cpd_operator_ns=${PROJECT_OPERATOR} --cpd_instance_ns=${PROJECT_INSTANCE} --block_storage_class=${STG_CLASS_BLOCK} --file_storage_class=${STG_CLASS_FILE} "$@" 
 }
 
 # Function to install zen 
 function install_zen {
     echo "install zen.."
-    ${dockerexe} exec $container_name /opt/ansible/bin/olm-apply --release=${release} --case_download=${case_download} --components=zen --cpd_operator_ns=${PROJECT_OPERATOR}
+    ${dockerexe} exec $container_name apply-olm --release=${release} --case_download=${case_download} --components=zen --cpd_operator_ns=${PROJECT_OPERATOR}
     echo "apply-aaf-zen"
     ${dockerexe} exec $container_name apply_aaf_zen --operator_ns=${PROJECT_OPERATOR} --instance_ns=${PROJECT_INSTANCE}
     echo "aaf-zen-cr-apply"
@@ -211,16 +211,27 @@ function apply-aaf-icsp {
 function create-service-config {
     echo "create-service-config"
     ${dockerexe} exec $container_name create-service-config  --service_name=${service_name} --service_version=${service_version} --operator_ns=${PROJECT_OPERATOR} --registry_location=${registry_location}
+    
 }
 
 function concert-setup {
     echo "concert-setup"
     ${dockerexe} exec $container_name concert-setup --action=${action} --release=${release} --license_acceptance=true --operator_ns=${PROJECT_OPERATOR} --operand_ns=${PROJECT_INSTANCE} --preview=${preview} --components=${components} --service_name=${service_name} --service_version=${service_version} --block_storage_class=${STG_CLASS_BLOCK} --file_storage_class=${STG_CLASS_FILE} --registry_location=${registry_location}
+    exit_status=$?
+    if [  $exit_status -ne 0 ]; then
+        echo "concert-setup failed"
+        exit $exit_status
+    fi
 }
 
 function upgrade-concert {
     echo "upgrade-concert"
     ${dockerexe} exec $container_name concert-setup --action=upgrade --release=${release} --license_acceptance=true --operator_ns=${PROJECT_OPERATOR} --operand_ns=${PROJECT_INSTANCE} --preview=${preview} --components=${components} --service_name=${service_name} --service_version=${service_version} --block_storage_class=${STG_CLASS_BLOCK} --file_storage_class=${STG_CLASS_FILE} --registry_location=${registry_location}
+    exit_status=$?
+    if [  $exit_status -ne 0 ]; then
+        echo "concert-setup upgrade failed"
+        exit $exit_status
+    fi
 }
 
 function case-download {
