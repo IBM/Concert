@@ -1,0 +1,774 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://concert.ibm.com/schema/concertdef-1.0.2.schema.json",
+  "type": "object",
+  "title": "Concert v1.0.2 Schema for Deploy SBOMs",
+  "required": [
+    "bomFormat",
+    "specVersion",
+    "metadata"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "enum": [
+        "http://concert.ibm.com/schema/concertdef-1.0.2.schema.json"
+      ]
+    },
+    "bomFormat": {
+      "type": "string",
+      "title": "BOM Format",
+      "description": "Format of the BOM. This value MUST be \"ConcertDef\".",
+      "enum": [
+        "ConcertDef"
+      ]
+    },
+    "specVersion": {
+      "type": "string",
+      "title": "Concert Schema Specification Version",
+      "description": "Version of the ConcertDef specification.",
+      "examples": [
+        "1.0.2"
+      ]
+    },
+    "serialNumber": {
+      "type": "string",
+      "title": "BOM Serial Number",
+      "description": "The unique URN of the BOM file. Prefix of the URN (e.g., 'urn:ibm:<clientName>:<appName>') must be registered with Concert.",
+      "examples": [
+        "urn:ibm:myorg:myapp"
+      ]
+    },
+    "version": {
+      "type": "integer",
+      "title": "BOM Version",
+      "description": "Version of the BOM file. The default version is '1'.",
+      "minimum": 1,
+      "default": 1,
+      "examples": [
+        1
+      ]
+    },
+    "metadata": {
+      "$ref": "#/definitions/metadata",
+      "title": "BOM Metadata",
+      "uniqueItems": true,
+      "description": "Provides additional information about a BOM."
+    },
+    "components": {
+      "type": "array",
+      "items": {
+        "anyOf": [
+          {
+            "$ref": "#/definitions/object-code"
+          }
+        ]
+      },
+      "uniqueItems": true,
+      "title": "Components",
+      "description": "A list of top-level software components."
+    },
+    "runtime-components": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/runtime-component"
+      },
+      "uniqueItems": true,
+      "title": "Runtime Components",
+      "description": "A list of deployment runtime components."
+    },
+    "services": {
+      "type": "array",
+      "items": {
+        "anyOf": [
+          {
+            "$ref": "#/definitions/deploy-service"
+          }
+        ]
+      },
+      "uniqueItems": true,
+      "title": "Components",
+      "description": "A list of services in Application SBOM or in deploy SBOM."
+    },
+    "dependencies": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/dependency"
+      },
+      "uniqueItems": true,
+      "title": "Dependencies",
+      "description": "Provides the ability to document dependency relationships."
+    },
+    "properties": {
+      "type": "array",
+      "title": "Properties",
+      "items": {
+        "$ref": "#/definitions/property"
+      }
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true,
+      "title": "Tags",
+      "description": "An optional list of strings that can be used for searching or filtering",
+      "examples": [
+        "team-tiger"
+      ]
+    }
+  },
+  "definitions": {
+    "refType": {
+      "description": "An identifier which can be used to reference the component elsewhere in the BOM. Every bom-ref MUST be unique within the BOM.",
+      "type": "string",
+      "minLength": 1
+    },
+    "refLinkType": {
+      "description": "Descriptor for an element identified by the attribute 'bom-ref' in the same BOM document.\nIn contrast to `bomLinkElementType`.",
+      "allOf": [
+        {
+          "$ref": "#/definitions/refType"
+        }
+      ]
+    },
+    "bomLinkDocumentType": {
+      "title": "CycloneDX BOM-Link Document",
+      "description": "Descriptor for another BOM document. See https://cyclonedx.org/capabilities/bomlink/",
+      "type": "string",
+      "format": "iri-reference",
+      "$comment": "part of the pattern is based on `bom.serialNumber`'s pattern",
+      "examples": [
+        "urn:uuid:97cdf861-f4e8-4bb1-893b-9e5907ebb399/1"
+      ]
+    },
+    "bomLinkElementType": {
+      "title": "CycloneDX BOM-Link Element",
+      "description": "Descriptor for an element in a BOM document. See https://cyclonedx.org/capabilities/bomlink/",
+      "type": "string",
+      "format": "iri-reference",
+      "$comment": "part of the pattern is based on `bom.serialNumber`'s pattern"
+    },
+    "bomLink": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/bomLinkDocumentType"
+        },
+        {
+          "$ref": "#/definitions/bomLinkElementType"
+        }
+      ]
+    },
+    "metadata": {
+      "type": "object",
+      "title": "BOM Metadata Object",
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "timestamp": {
+          "type": "string",
+          "format": "date-time",
+          "title": "Timestamp",
+          "description": "ISO 8601 date and time when the BOM was created.",
+          "examples": [
+            "2024-01-01T12:00:00Z"
+          ]
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "deploy"
+          ],
+          "title": "Metadata Type",
+          "description": "Specifies the ConcertDef type of the software component.  The types are:\n\n* __application__ = A software application definition without environment-dependent deployment specifics for its constituent containers, code repositories, services, and/or API endpoints.\n* __build__ = A component comprising versioned container image artifact and the associated versioned code repository.\n* __deploy__ = A component comprsing deployment components, runtime-components, and relevant services and API endpoint URLs for deploying environment-specific application microservices.",
+          "examples": [
+            "build"
+          ]
+        },
+        "environment": {
+          "type": "string",
+          "title": "Deployment Environment",
+          "description": "Deployment environment of the ConcertDef Deploy component.  It must be one of the deployment environments of any ConcertDef Application component that includes this Deploy component.",
+          "examples": [
+            "production"
+          ]
+        },
+        "component": {
+          "type": "object",
+          "title": "Metadata Component",
+          "description": "ConcertDef component labels used for searching or selecting in Concert.",
+          "required": [
+            "name",
+            "version"
+          ],
+          "properties": {
+            "name": {
+              "type": "string",
+              "title": "Name",
+              "description": "Name of the ConcertDef component",
+              "examples": [
+                "my-component-1"
+              ]
+            },
+            "version": {
+              "type": "string",
+              "title": "Version",
+              "description": "Versioon string of the ConcertDef component.",
+              "examples": [
+                "2.100.0"
+              ]
+            },
+            "deploy-number": {
+              "type": "string",
+              "title": "Deployment Number",
+              "description": "Deployment string of the ConcertDef Deploy component.  This property is required if the component type is `deploy`.",
+              "examples": [
+                "111"
+              ]
+            },
+            "change-request-url": {
+              "type": "string",
+              "title": "Change Request URL",
+              "description": "Change request string of the ConcertDef Deploy component.",
+              "examples": [
+                "https://us-south.git.cloud.ibm.com/rong/concert-sample-devsecops-change/issues/59"
+              ]
+            }
+          }
+        },
+        "properties": {
+          "type": "array",
+          "title": "Properties",
+          "items": {
+            "$ref": "#/definitions/property"
+          }
+        }
+      }
+    },
+    "object-library": {
+      "type": "object",
+      "title": "Library Object",
+      "required": [
+        "type",
+        "name",
+        "version",
+        "purl"
+      ],
+      "properties": {
+        "bom-ref": {
+          "$ref": "#/definitions/refType"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "library"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "title": "Library Name",
+          "description": "Library name per CycloneDX specification.",
+          "examples": [
+            "maven/com.app.example"
+          ]
+        },
+        "version": {
+          "type": "string",
+          "title": "Version",
+          "description": "Version string for the component.",
+          "examples": [
+            "0.0.1"
+          ]
+        },
+        "purl": {
+          "type": "string",
+          "title": "Library PURL",
+          "description": "Library PURL per CycloneDX specification.",
+          "examples": [
+            "pkg:maven/com.app.example/example@0.0.1-SNAPSHOT?type=jar"
+          ]
+        },
+        "cyclonedx-bom-link": {
+          "$ref": "#/definitions/bomLinkDocumentType"
+        },
+        "filename": {
+          "type": "string",
+          "title": "File name",
+          "description": "file name",
+          "examples": [
+            "*.tar"
+          ]
+        },
+        "url": {
+          "type": "string",
+          "title": "URL",
+          "description": "URL.",
+          "examples": [
+            "https://artifactory.com/myspace/relase-10-mortgage-application.tar"
+          ]
+        }
+      }
+    },
+    "object-container": {
+      "title": "Container Object",
+      "description": "Container object with build inventory data.  Container image URI needs be available via the \"uri\" property or by composing the values of other properties, e.g., <\"name\", \"tag\", \"digest\"> or <\"purl\", \"digest\">.",
+      "type": "object",
+      "required": [
+        "type",
+        "name"
+      ],
+      "properties": {
+        "bom-ref": {
+          "$ref": "#/definitions/refType"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "container"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "title": "Container Name",
+          "description": "Container image registry path.",
+          "examples": [
+            "us.icr.io/myapp/my-component-1",
+            "us.icr.io/icr4mcc/concert-sample-devsecops"
+          ]
+        },
+        "uri": {
+          "type": "string",
+          "title": "Container Image URI",
+          "description": "Structured URI containing image registry path, image tag, and image digest.  It is recommended to use that as a UID for the container image.",
+          "examples": [
+            "us.icr.io/myapp/my-component-1:2.100.0.40@sha256:de11d4d8d711a65b2782c7ee8e2c7ffe718122821b7d35fba434d26f5c404939",
+            "us.icr.io/icr4mcc/concert-sample-devsecops:124-main-03964735fadfd0fae86a1edb5f82257a133f79c7@sha256:c596470fbda33ec78ba6645b95fb2e0a7f324f929f3feff56125de38a3163f71"
+          ]
+        },
+        "purl": {
+          "type": "string",
+          "title": "Container Image PURL",
+          "description": "Container image registry path and tag",
+          "examples": [
+            "us.icr.io/myapp/my-component-1:2.100.0.40",
+            "us.icr.io/icr4mcc/concert-sample-devsecops:124-main-03964735fadfd0fae86a1edb5f82257a133f79c7"
+          ]
+        },
+        "tag": {
+          "type": "string",
+          "title": "Image Tag",
+          "description": "Image tag.  It can be a timestamp if a source code ",
+          "examples": [
+            "2.100.0.40",
+            "124-main-03964735fadfd0fae86a1edb5f82257a133f79c7"
+          ]
+        },
+        "digest": {
+          "type": "string",
+          "title": "Image Digest",
+          "description": "Image digest",
+          "examples": [
+            "sha256:de11d4d8d711a65b2782c7ee8e2c7ffe718122821b7d35fba434d26f5c404939",
+            "sha256:c596470fbda33ec78ba6645b95fb2e0a7f324f929f3feff56125de38a3163f71"
+          ]
+        },
+        "cyclonedx-bom-link": {
+          "$ref": "#/definitions/bomLinkDocumentType"
+        }
+      }
+    },
+    "object-code": {
+      "type": "object",
+      "required": [
+        "type",
+        "name",
+        "commit_sha"
+      ],
+      "properties": {
+        "bom-ref": {
+          "$ref": "#/definitions/refType"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "code"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "title": "Code Name",
+          "description": "Name of the source/deployment Code object.",
+          "examples": [
+            "com.app.example",
+            "concert-sample-devsecops"
+          ]
+        },
+        "purl": {
+          "type": "string",
+          "title": "Code Repo URL",
+          "description": "URL of the source or deployment repo.",
+          "examples": [
+            "https://github.ibm.com/myapp/my-component-1",
+            "https://github.ibm.com/concert/concert-sample-devsecops"
+          ]
+        },
+        "commit_sha": {
+          "type": "string",
+          "title": "Commit Sha",
+          "description": "Commit sha of a git repo.",
+          "examples": [
+            "03964735fadfd0fae86a1edb5f82257a133f79c7"
+          ]
+        },
+        "branch": {
+          "type": "string",
+          "title": "Branch ",
+          "description": "Branch of a git repo.",
+          "examples": [
+            "main"
+          ]
+        },
+        "cyclonedx-bom-link": {
+          "$ref": "#/definitions/bomLinkDocumentType"
+        }
+      }
+    },
+    "runtime-component": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/runtime-component-kubernetes"
+        },
+        {
+          "$ref": "#/definitions/runtime-component-vm"
+        },
+        {
+          "$ref": "#/definitions/runtime-component-zos"
+        }
+      ]
+    },
+    "runtime-component-kubernetes": {
+      "type": "object",
+      "title": "Runtime Component - Kubernetes",
+      "required": [
+        "type",
+        "name",
+        "components"
+      ],
+      "properties": {
+        "bom-ref": {
+          "$ref": "#/definitions/refType"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "kubernetes"
+          ],
+          "title": "Runtime Component Type - Kubernetes",
+          "description": "A Kubernetes-based container runtime."
+        },
+        "name": {
+          "type": "string",
+          "title": "Kubernetes Runtime Name",
+          "description": "Name of the Kubernetes runtime. This is often a shortened, single name of the component.  It is recommended to use container-platform-dependent cluster id. ",
+          "examples": [
+            "vm-39iej-1",
+            "cjsal64w0g8rl335fso0",
+            "7306ed2b-3af1-488c-b43c-0d42a933236f",
+            "arn:aws:eks:us-east-1:390464794305:cluster/kid1"
+          ]
+        },
+        "api-server": {
+          "type": "string",
+          "title": "Kubernetes API Server",
+          "description": "URL of the Kubernetes API server.",
+          "examples": [
+            "https://172.20.0.1:2040"
+          ]
+        },
+        "properties": {
+          "type": "array",
+          "title": "Properties",
+          "description": "Valid property names for kubernetes runtime are: \"platform\", \"cluster_platform\", \"cluster_id\", \"cluster_region\", \"cluster_name\".",
+          "items": {
+            "$ref": "#/definitions/property"
+          }
+        },
+        "components": {
+          "type": "array",
+          "uniqueItems": true,
+          "title": "Namespace Components of a Kubernetes Runtime Environment",
+          "description": "A list of namespace components.",
+          "items": {
+            "component": {
+              "type": "object",
+              "title": "Namespace Component",
+              "description": "Namespace of a Kubernetes Runtime.",
+              "required": [
+                "type",
+                "name"
+              ],
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "namespace"
+                  ],
+                  "title": "Namespace",
+                  "description": "A namespace or project in the Kubernetes cluster."
+                },
+                "name": {
+                  "type": "string",
+                  "title": "Cluster Namespace",
+                  "description": "A cluster or project name.",
+                  "examples": [
+                    "run"
+                  ]
+                },
+                "components": {
+                  "type": "array",
+                  "items": {
+                    "anyOf": [
+                      {
+                        "$ref": "#/definitions/object-container"
+                      },
+                      {
+                        "$ref": "#/definitions/object-library"
+                      }
+                    ]
+                  },
+                  "uniqueItems": true,
+                  "title": "Container Objects",
+                  "description": "A list of Container objects deployed to the namespace.  Info on container image URI is needed, which can be specified via the `\"uri\" property or a composition of related properties."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "runtime-component-vm": {
+      "type": "object",
+      "title": "Runtime Component - VM",
+      "description": "A VM or server based deployment runtime.",
+      "required": [
+        "type",
+        "name",
+        "components"
+      ],
+      "properties": {
+        "bom-ref": {
+          "$ref": "#/definitions/refType"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "vm"
+          ],
+          "title": "Runtime Component Type - VM",
+          "description": "A VM or server deployment runtime."
+        },
+        "name": {
+          "type": "string",
+          "title": "VM Name",
+          "description": "VM name. This is often a shortened, single name of the component.  It is recommended to use the value of \"hostname\".",
+          "examples": [
+            "vm-39iej-1",
+            "apihead.acme.com"
+          ]
+        },
+        "ipv4": {
+          "type": "array",
+          "title": "IPv4 Addresses",
+          "description": "An array of IPv4 addresses.",
+          "items": {
+            "type": "object",
+            "title": "IPv4 Address",
+            "required": [
+              "addr"
+            ],
+            "properties": {
+              "addr": {
+                "type": "string",
+                "title": "Address"
+              }
+            }
+          }
+        },
+        "ipv6": {
+          "type": "array",
+          "title": "IPv6 Addresses",
+          "description": "An array of IPv6 addresses.",
+          "items": {
+            "type": "object",
+            "title": "IPv6 Address",
+            "required": [
+              "addr"
+            ],
+            "properties": {
+              "addr": {
+                "type": "string",
+                "title": "Address"
+              }
+            }
+          }
+        },
+        "hostname": {
+          "type": "string",
+          "title": "Server Hostname",
+          "description": "Domain Name or IP address of the host."
+        },
+        "properties": {
+          "type": "array",
+          "title": "Properties",
+          "description": "Valid property names for VM/server runtime are: \"vm_id\".",
+          "items": {
+            "$ref": "#/definitions/property"
+          }
+        },
+        "components": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/object-container"
+              },
+              {
+                "$ref": "#/definitions/object-library"
+              }
+            ]
+          },
+          "uniqueItems": true,
+          "title": "Container and Library Objects",
+          "description": "A array of Container and Library objects deployed to the VM."
+        }
+      }
+    },
+    "runtime-component-zos": {
+      "type": "object",
+      "title": "Runtime Component - VM",
+      "description": "A VM or server based deployment runtime.",
+      "required": [
+        "type",
+        "name",
+        "components"
+      ],
+      "properties": {
+        "bom-ref": {
+          "$ref": "#/definitions/refType"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "zOS"
+          ],
+          "title": "Runtime Component Type - zOS",
+          "description": "A zOS deployment runtime."
+        },
+        "name": {
+          "type": "string",
+          "title": "zOS Name",
+          "description": "zOS name, often a LPAR name."
+        },
+        "hostname": {
+          "type": "string",
+          "title": "LPAR name",
+          "description": "zOS LPAR name."
+        },
+        "properties": {
+          "type": "array",
+          "title": "Properties",
+          "description": "Valid property names for zOS runtime are: \"subsystem\".",
+          "items": {
+            "$ref": "#/definitions/property"
+          }
+        },
+        "components": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/object-library"
+              }
+            ]
+          },
+          "uniqueItems": true,
+          "title": "Container and Library Objects",
+          "description": "A array of Container and Library objects deployed to the VM."
+        }
+      }
+    },
+    "deploy-service": {
+      "type": "object",
+      "title": "Service Object in Deploy SBOM",
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "bom-ref": {
+          "$ref": "#/definitions/refType"
+        },
+        "name": {
+          "type": "string",
+          "title": "Service Name",
+          "description": "Name of the service. This is often a shortened, single name of the service.",
+          "examples": [
+            "my-component-1_api",
+            "concert-sample-devsecops"
+          ]
+        },
+        "properties": {
+          "type": "array",
+          "title": "Properties",
+          "description": "An important property a service in the deployment environment is \"base_url\".  A full API service endpoint is formed by composing the base URL with the API access path specified in the associated Application SBOM.",
+          "items": {
+            "$ref": "#/definitions/property"
+          }
+        }
+      }
+    },
+    "dependency": {
+      "type": "object",
+      "title": "Dependency",
+      "description": "Defines the direct dependencies of a component or service.",
+      "required": [
+        "ref",
+        "dependsOn"
+      ],
+      "properties": {
+        "ref": {
+          "$ref": "#/definitions/refLinkType",
+          "title": "Reference",
+          "description": "References a component or service by its bom-ref attribute"
+        },
+        "dependsOn": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/definitions/refLinkType"
+          },
+          "title": "Depends On",
+          "description": "The bom-ref identifiers of the components or services that are dependencies of this dependency object."
+        }
+      }
+    },
+    "property": {
+      "type": "object",
+      "title": "Lightweight name-value pair",
+      "description": "Provides the ability to document properties in a name-value store. This provides flexibility to include data not officially supported in the standard without having to use additional namespaces or create extensions. Unlike key-value stores, properties support duplicate names, each potentially having different values.",
+      "properties": {
+        "name": {
+          "type": "string",
+          "title": "Name",
+          "description": "The name of the property. Duplicate names are allowed, each potentially having a different value."
+        },
+        "value": {
+          "type": "string",
+          "title": "Value",
+          "description": "The value of the property."
+        }
+      }
+    }
+  }
+}

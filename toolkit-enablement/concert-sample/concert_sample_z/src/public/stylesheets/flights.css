@@ -1,0 +1,234 @@
+/*
+ *  Copyright IBM Corp. 2021.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+
+/* You can write your styles here 👇 */
+
+.banner {
+  background: url(../images/aeroplane.jpg) no-repeat 0px 0px;
+  background-size: cover;
+  min-height: 570px;
+}
+
+.booking-form {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 40px;
+  border-radius: 6px;
+  margin-top: 80px;
+  margin-left: 0px;
+}
+
+.booking-form .form-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.booking-form .form-control {
+  background-color: #fff;
+  height: 50px;
+  color: #191a1e;
+  border: none;
+  font-size: 16px;
+  font-weight: 400;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-radius: 40px;
+  padding: 0px 25px;
+}
+
+.booking-form .form-control::-webkit-input-placeholder {
+  color: rgba(82, 82, 84, 0.4);
+}
+
+.booking-form .form-control:-ms-input-placeholder {
+  color: rgba(82, 82, 84, 0.4);
+}
+
+.booking-form .form-control::placeholder {
+  color: rgba(82, 82, 84, 0.4);
+}
+
+.booking-form input[type="date"].form-control:invalid {
+  color: rgba(82, 82, 84, 0.4);
+}
+
+.booking-form .form-label {
+  display: block;
+  margin-left: 20px;
+  margin-bottom: 5px;
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: 24px;
+  height: 24px;
+  font-size: 12px;
+  color: #fff;
+}
+
+.booking-form .form-checkbox input {
+  position: absolute !important;
+  margin-left: -9999px !important;
+  visibility: hidden !important;
+}
+
+.booking-form .form-checkbox label {
+  position: relative;
+  padding-top: 4px;
+  padding-left: 30px;
+  font-weight: 400;
+  color: #fff;
+}
+
+.booking-form .form-checkbox label + label {
+  margin-left: 15px;
+}
+
+.booking-form .form-checkbox input + span {
+  position: absolute;
+  left: 2px;
+  top: 4px;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-radius: 50%;
+}
+
+.booking-form .form-checkbox input + span:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0px;
+  height: 0px;
+  border-radius: 50%;
+  background-color: #0f62fe;
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.booking-form .form-checkbox input:not(:checked) + span:after {
+  opacity: 0;
+}
+
+.booking-form .form-checkbox input:checked + span:after {
+  opacity: 1;
+  width: 10px;
+  height: 10px;
+}
+
+.booking-form .form-btn {
+  margin-top: 27px;
+}
+
+.booking-form .submit-btn {
+  color: #fff;
+  background-color: #0f62fe;
+  font-weight: 400;
+  height: 50px;
+  font-size: 14px;
+  border: none;
+  width: 100%;
+  border-radius: 40px;
+  text-transform: uppercase;
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+}
+
+.booking-form .submit-btn:hover,
+.booking-form .submit-btn:focus {
+  opacity: 0.9;
+}
+/* BOOKING FORM - END */
+.offer-image {
+  position: relative;
+  margin-top: 100px;
+}
+
+.offer-image img {
+  width: 380px;
+  height: 180px;
+}
+
+.offer-image .text {
+  position: absolute;
+  z-index: 999;
+  left: 0;
+  right: 0;
+  top: 18%; /* Adjust this value to move the positioned div up and down */
+  font-family: "Varela Round", sans-serif;
+  color: #fff;
+  text-align: center;
+  width: 46%;
+}
+
+.offer-image .text h1 {
+  font-size: 100px;
+}
+.btm-grid {
+  padding: 70px 0;
+}
+.btm-grid h3 {
+  color: #3d70b2;
+  font-size: 32px;
+  text-transform: uppercase;
+  font-family: "IBM Plex Sans", sans-serif;
+  text-align: center;
+}
+.btm-grid p {
+  color: #a9a8a8;
+  font-size: 16px;
+  text-align: center;
+  margin-top: 50px;
+  line-height: 2em;
+}
+.btm-grid img {
+  width: 100%;
+}
+.back-col1 {
+  background: #3d70b2;
+  padding: 4em 11.7em;
+}
+.back-col2 {
+  background: #cdd468;
+  padding: 4em 11.7em;
+}
+.btm-wid {
+  padding: 70px 50px;
+}
+
+.city_results {
+  border: 1px dotted #ccc;
+  padding: 3px;
+  background-color: white;
+  z-index: 999;
+  position: absolute;
+  max-width: 300px;
+}
+.city_results ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.city_results ul li {
+  padding: 5px 0;
+}
+.city_results ul li:hover {
+  background: #eee;
+  font-weight: 800;
+}
+
+.err-airport-not-found {
+  color: red;
+  padding: 5px;
+  text-align: center;
+}
