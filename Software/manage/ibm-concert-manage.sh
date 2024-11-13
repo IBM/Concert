@@ -50,7 +50,7 @@ function initialize {
     set -e
     echo ===== work_dir is ${work_dir} =====
     mkdir -p ${work_dir}
-    chmod 777 -R ${work_dir}
+    chmod -R 777 ${work_dir}
     export DOCKER_DEFAULT_PLATFORM="linux/amd64"
     if [ "${dockerexe}" == "podman" ]
     then
