@@ -65,6 +65,18 @@ spec:
                   - secret:
                       name: app-cfg-oob-secret
                       optional: true
+                  - secret:
+                      name: concert-configdb-creds
+                      optional: true
+                  - secret:
+                      name: concert-appdb-creds
+                      optional: true
+                  - secret:
+                      name: concert-lzbucket-creds
+                      optional: true
+                  - secret:
+                      name: concert-elbucket-creds
+                      optional: true
                 defaultMode: 420
             - name: app-cfg-internal-tls-mount
               secret:

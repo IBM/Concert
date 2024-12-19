@@ -1,8 +1,9 @@
-# IBM  Concert v1.0.3
+# IBM  Concert v1.0.4
 
-The following new capabilities and improvements are available with IBM® Concert version 1.0.3.
+The following new capabilities and improvements are available with IBM® Concert version 1.0.4.
 
-* Support for CVE scans from source code repositories generated using Mend tool.
+* Support for CVE scans from application images generated using prismacloud tool.
+* Support for exposure report generated using Sonarqube tool.
 
 Samples of newly introduced features are available in the following folders:
 <pre>

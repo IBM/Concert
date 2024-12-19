@@ -1,6 +1,6 @@
 # ConcertDef JSON Schema v1.0.2
 
-ConcertDef JSON Schema is a `JSON Schema` based representation of the Concert-defined data model for enabling generation of `Application 360 Insights`. Three types of ConcertDef v1.0.2 SBOM files can be formatted per this Schema, namely, `build`, `deploy`, and `application` SBOMs. To facilitate understanding and using the Schema, three sub-schemas are provided for each type of ConcertDef SBOM files.  The sub-schema filenames end with `-build.json`, `-deploy.json`, and `-app.json`, respectively.
+ConcertDef JSON Schema is a `JSON Schema` based representation of the Concert-defined data model for enabling generation of `Application 360 Insights`. Three types of ConcertDef v1.0.2 SBOM files can be formatted per this Schema, namely, `build`, `deploy`, and `application` SBOMs. To facilitate understanding and using the Schema, three sub-schemas are provided for each type of ConcertDef SBOM files.  The sub-schema filenames end with `-build.json`, `-deploy.json`, and `-app.json`, respectively.  A developer guide document is included in this folder as well.
 
 The tool `check-jsonschema` can be used to check for **syntax** errors of a ConcertDef file formatted in JSON.  Home page of the tool is at the URL below.
 `https://github.com/python-jsonschema/check-jsonschema`
