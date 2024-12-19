@@ -8,17 +8,18 @@
     "specVersion",
     "metadata"
   ],
+  "additionalProperties": false,
   "properties": {
     "$schema": {
       "type": "string",
       "enum": [
-        "http://concert.ibm.com/schema/concertdef-1.0.2.schema.json"
+        "http://concert.ibm.com/schema/concertdef-1.0.2.json"
       ]
     },
     "bomFormat": {
       "type": "string",
       "title": "BOM Format",
-      "description": "Format of the BOM. This value MUST be \"ConcertDef\".",
+      "description": "Format of the BOM.",
       "enum": [
         "ConcertDef"
       ]
@@ -42,7 +43,7 @@
     "version": {
       "type": "integer",
       "title": "BOM Version",
-      "description": "Version of the BOM file. The default version is '1'.",
+      "description": "Version of the BOM file.",
       "minimum": 1,
       "default": 1,
       "examples": [
@@ -113,7 +114,7 @@
       },
       "uniqueItems": true,
       "title": "Tags",
-      "description": "An optional list of strings that can be used for searching or filtering",
+      "description": "An optional list of strings that can be used for searching or filtering.",
       "examples": [
         "team-tiger"
       ]
@@ -166,6 +167,7 @@
       "required": [
         "type"
       ],
+      "additionalProperties": false,
       "properties": {
         "timestamp": {
           "type": "string",
@@ -203,6 +205,7 @@
             "name",
             "version"
           ],
+          "additionalProperties": false,
           "properties": {
             "name": {
               "type": "string",
@@ -241,6 +244,7 @@
         "name"
       ],
       "description": " The business organization that supplied the component that the BOM describes.",
+      "additionalProperties": false,
       "properties": {
         "name": {
           "type": "string",
@@ -268,6 +272,7 @@
         "name"
       ],
       "description": "A business unit contact at the organization. Multiple contacts are allowed.",
+      "additionalProperties": false,
       "properties": {
         "name": {
           "type": "string",
@@ -304,6 +309,7 @@
         "name",
         "version"
       ],
+      "additionalProperties": false,
       "properties": {
         "bom-ref": {
           "$ref": "#/definitions/refType"
@@ -364,6 +370,7 @@
         "name",
         "version"
       ],
+      "additionalProperties": false,
       "properties": {
         "bom-ref": {
           "$ref": "#/definitions/refType"
@@ -399,6 +406,7 @@
         "type",
         "name"
       ],
+      "additionalProperties": false,
       "properties": {
         "bom-ref": {
           "$ref": "#/definitions/refType"
@@ -426,6 +434,7 @@
         "type",
         "name"
       ],
+      "additionalProperties": false,
       "properties": {
         "bom-ref": {
           "$ref": "#/definitions/refType"
@@ -447,7 +456,7 @@
         "purl": {
           "type": "string",
           "title": "Code URL",
-          "description": "URL of the Code blueprint. This is often the URL of a source code repo.",
+          "description": "URL (or folder path) of the Code blueprint. This is often the URL of a source code repo (or file system).",
           "examples": [
             "https://github.ibm.com/myapp/my-component-1"
           ]
@@ -461,6 +470,7 @@
         "type",
         "name"
       ],
+      "additionalProperties": false,
       "properties": {
         "bom-ref": {
           "$ref": "#/definitions/refType"
@@ -490,6 +500,7 @@
         "name",
         "endpoints"
       ],
+      "additionalProperties": false,
       "properties": {
         "bom-ref": {
           "$ref": "#/definitions/refType"
@@ -532,6 +543,7 @@
         "ref",
         "dependsOn"
       ],
+      "additionalProperties": false,
       "properties": {
         "ref": {
           "$ref": "#/definitions/refLinkType",
@@ -553,6 +565,7 @@
       "type": "object",
       "title": "Lightweight name-value pair",
       "description": "Provides the ability to document properties in a name-value store. This provides flexibility to include data not officially supported in the standard without having to use additional namespaces or create extensions. Unlike key-value stores, properties support duplicate names, each potentially having different values.",
+      "additionalProperties": false,
       "properties": {
         "name": {
           "type": "string",

@@ -8,17 +8,18 @@
     "specVersion",
     "metadata"
   ],
+  "additionalProperties": false,
   "properties": {
     "$schema": {
       "type": "string",
       "enum": [
-        "http://concert.ibm.com/schema/concertdef-1.0.2.schema.json"
+        "http://concert.ibm.com/schema/concertdef-1.0.2.json"
       ]
     },
     "bomFormat": {
       "type": "string",
       "title": "BOM Format",
-      "description": "Format of the BOM. This value MUST be \"ConcertDef\".",
+      "description": "Format of the BOM.",
       "enum": [
         "ConcertDef"
       ]
@@ -42,7 +43,7 @@
     "version": {
       "type": "integer",
       "title": "BOM Version",
-      "description": "Version of the BOM file. The default version is '1'.",
+      "description": "Version of the BOM file.",
       "minimum": 1,
       "default": 1,
       "examples": [
@@ -88,7 +89,7 @@
       },
       "uniqueItems": true,
       "title": "Tags",
-      "description": "An optional list of strings that can be used for searching or filtering",
+      "description": "An optional list of strings that can be used for searching or filtering.",
       "examples": [
         "team-tiger"
       ]
@@ -141,6 +142,7 @@
       "required": [
         "type"
       ],
+      "additionalProperties": false,
       "properties": {
         "timestamp": {
           "type": "string",
@@ -170,6 +172,7 @@
             "name",
             "version"
           ],
+          "additionalProperties": false,
           "properties": {
             "name": {
               "type": "string",
@@ -215,6 +218,7 @@
         "version",
         "purl"
       ],
+      "additionalProperties": false,
       "properties": {
         "bom-ref": {
           "$ref": "#/definitions/refType"
@@ -262,6 +266,7 @@
         "type",
         "name"
       ],
+      "additionalProperties": false,
       "properties": {
         "bom-ref": {
           "$ref": "#/definitions/refType"
@@ -302,7 +307,7 @@
         "tag": {
           "type": "string",
           "title": "Image Tag",
-          "description": "Image tag.  It can be a timestamp if a source code ",
+          "description": "Image tag.  It can be a timestamp of a source code.",
           "examples": [
             "2.100.0.40",
             "124-main-03964735fadfd0fae86a1edb5f82257a133f79c7"
@@ -327,8 +332,9 @@
       "required": [
         "type",
         "name",
-        "commit_sha"
+        "purl"
       ],
+      "additionalProperties": false,
       "properties": {
         "bom-ref": {
           "$ref": "#/definitions/refType"
@@ -351,7 +357,7 @@
         "purl": {
           "type": "string",
           "title": "Code Repo URL",
-          "description": "URL of the source or deployment repo.",
+          "description": "URL (or folder path) of the source/deployment repo (or file system).",
           "examples": [
             "https://github.ibm.com/myapp/my-component-1",
             "https://github.ibm.com/concert/concert-sample-devsecops"
@@ -382,6 +388,7 @@
       "type": "object",
       "title": "Lightweight name-value pair",
       "description": "Provides the ability to document properties in a name-value store. This provides flexibility to include data not officially supported in the standard without having to use additional namespaces or create extensions. Unlike key-value stores, properties support duplicate names, each potentially having different values.",
+      "additionalProperties": false,
       "properties": {
         "name": {
           "type": "string",

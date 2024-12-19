@@ -57,6 +57,11 @@ This example simulates a CI/CD pipeline and its integration with Concert. It emu
    ./simulate_cd_pipeline.sh
    ```
 
+1. Run the `upload_cve.sh` script. This will upload example CVEs to Concert. After executing this step, the `Arena view` should show the prioritized CVEs associated to the application. 
+
+   ```bash
+   ./upload_cve.sh
+   ```
 ## Notes
 
 If you use `podman` instead of `docker`, please update the following line in the `concert_data/demo_build_envs.variables` file, from
