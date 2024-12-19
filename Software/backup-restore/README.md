@@ -19,7 +19,6 @@ spec:
   resources:
     requests:
       storage: 200Gi
-EOF
 ```
 
 After creating the yaml , run the following to create PVC 
@@ -68,6 +67,13 @@ Once your cronjob completed the back up , it will be stored in the path /mnt/inf
 Eg: /mnt/infra/backup/v1.0.3-141-20241016.114004-main/20241106_125702 . Here backup of your data  will be stored in the timestamp folder. 
 
 
+## To suspend/resume the backup cronjob
+To suspend/resume the backup cronjob set the value true/false respectively. 
+
+```
+kubectl patch cronjob concert-backup -n ${INSTANCE_NAMESPACE} --type=json -p '[{"op": "replace", "path": "/spec/suspend", "value": true}]'
+```
+
 ## Restore concert backup
 
 Export variables to run the script
@@ -94,16 +100,13 @@ The sample output looks like this below:
 ```
 
 
-## To suspend/resume the backup cronjob
-To suspend/resume the backup cronjob set the value true/false respectively. 
-
-```
-kubectl patch cronjob concert-backup -n ${INSTANCE_NAMESPACE} --type=json -p '[{"op": "replace", "path": "/spec/suspend", "value": true}]'
-```
-
 ## To kill the job once it's completes the restore. 
 
 ```
 kubectl delete job concert-restore -n ${INSTANCE_NAMESPACE}
 ```
+Note : Once the restore is finished, please use the command __*kubectl delete*__ to kill the existing job and run the restore again for any other db or bucket. We are taking the backup for the entire db or buckets, while restore only needs for specific reasons. 
+
+
+
 
