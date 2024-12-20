@@ -1,0 +1,92 @@
+{
+    "bomFormat": "ConcertDef",
+    "specVersion": "1.0.2",
+    "metadata": {
+        "timestamp": "2024-09-25T07:27:17Z",
+        "type": "application",
+        "component": {
+            "name": "encoreapp",
+            "version": "1.0.0"
+        },
+        "business": {
+            "name": "Acme Inc.",
+            "units": [
+                {
+                    "name": "Engineering",
+                    "email": "myemail@acme.com",
+                    "phone": "+1-877-426-6006"
+                }
+            ]
+        }
+    },
+    "environments": [
+        {
+            "bom-ref": "environment:prod",
+            "type": "environment",
+            "name": "prod"
+        }
+    ],
+    "components": [
+        {
+            "bom-ref": "build:mern-react-app",
+            "type": "build",
+            "name": "mern-react-app",
+            "version": "1.0.0"
+        },
+        {
+            "bom-ref": "build:mern-node-app",
+            "type": "build",
+            "name": "mern-node-app",
+            "version": "1.0.0"
+        }
+    ],
+    "properties": [
+        {
+            "name": "application_criticality",
+            "value": "5"
+        }
+    ],
+    "services": [
+        {
+            "bom-ref": "appapi:mern-react-app",
+            "name": "mern-react-app",
+            "endpoints": [
+                "/"
+            ]
+        },
+        {
+            "bom-ref": "appapi:mern-node-app",
+            "name": "mern-node-app",
+            "endpoints": [
+                "/",
+                "/v1/channels/",
+                "/v1/channels/find",
+                "/v1/channels/add",
+                "/v1/channels/getChannelDetail",
+                "/v1/message",
+                "/v1/message/*",
+                "/v1/user/*"
+            ],
+            "properties": [
+                {
+                    "name": "network_exposure",
+                    "value": "public"
+                }
+            ]
+        }
+    ],
+    "dependencies": [
+        {
+            "bom-ref": "build:mern-react-app",
+            "dependsOn": [
+                "appapi:mern-react-app"
+            ]
+        },
+        {
+            "bom-ref": "build:mern-node-app",
+            "dependsOn": [
+                "appapi:mern-node-app"
+            ]
+        }
+    ]
+}

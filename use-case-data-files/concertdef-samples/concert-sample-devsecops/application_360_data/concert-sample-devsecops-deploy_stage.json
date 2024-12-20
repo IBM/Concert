@@ -1,0 +1,92 @@
+{
+  "bomFormat": "ConcertDef",
+  "specVersion": "1.0.2",
+  "metadata": {
+    "timestamp": "2024-12-06T16:37:49Z",
+    "type": "deploy",
+    "environment": "stage",
+    "component": {
+      "deploy-number": "188",
+      "change-request-url": "https://us-south.git.cloud.ibm.com/rong/concert-sample-devsecops-change/issues/100",
+      "name": "concert-sample-devsecops",
+      "version": "1.0.0"
+    }
+  },
+  "components": [
+    {
+      "type": "code",
+      "name": "concert-sample-devsecops-deployment",
+      "purl": "https://github.ibm.com/rong/concert-sample-devsecops-deployment",
+      "commit_sha": "c637635161906c6c7c4bfa104d83f98c176e9892",
+      "branch": "master"
+    }
+  ],
+  "runtime-components": [
+    {
+      "bom-ref": "runtime-components:kubernetes:roks:cjsal64w0g8rl335fso0",
+      "type": "kubernetes",
+      "name": "cjsal64w0g8rl335fso0",
+      "api-server": "https://172.20.0.1:2040",
+      "properties": [
+        {
+          "name": "platform",
+          "value": "ibmcloud"
+        },
+        {
+          "name": "cluster_platform",
+          "value": "roks"
+        },
+        {
+          "name": "cluster_id",
+          "value": "cjsal64w0g8rl335fso0"
+        },
+        {
+          "name": "cluster_region",
+          "value": "us-east"
+        },
+        {
+          "name": "cluster_name",
+          "value": "roks1"
+        }
+      ],
+      "components": [
+        {
+          "type": "namespace",
+          "name": "cd4concert3stage",
+          "components": [
+            {
+              "bom-ref": "container:us.icr.io/icr4mcc/concert-sample-devsecops",
+              "type": "container",
+              "name": "us.icr.io/icr4mcc/concert-sample-devsecops",
+              "uri": "us.icr.io/icr4mcc/concert-sample-devsecops:204-main-a0a7e8eab28b5d3ca7abc4014080cda6309b68fa@sha256:dbd24de377d42d4e4d3a24004d5fb8664d87c74ec30ca9d26ed72cee1e7bee57"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "services": [
+    {
+      "bom-ref": "appapi:concert-sample-devsecops",
+      "name": "concert-sample-devsecops",
+      "properties": [
+        {
+          "name": "base_url",
+          "value": "https://concert-sample-devsecops-service-cip-route-cd4concert3stage.roks1-b12d73cc7b0aedf0e30addbf16d8fc5a-0000.us-east.containers.appdomain.cloud"
+        },
+        {
+          "name": "network_exposure",
+          "value": "private"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "container:us.icr.io/icr4mcc/concert-sample-devsecops",
+      "dependsOn": [
+        "appapi:concert-sample-devsecops"
+      ]
+    }
+  ]
+}
