@@ -1,0 +1,83 @@
+{
+  "bomFormat": "ConcertDef",
+  "specVersion": "1.0.2",
+  "metadata": {
+    "timestamp": "2024-12-06T15:23:57Z",
+    "type": "application",
+    "component": {
+      "name": "concert-sample-devsecops",
+      "version": "1.0.0"
+    },
+    "business": {
+      "name": "Acme Inc.",
+      "units": [
+        {
+          "name": "Unit 1",
+          "email": "myemail@acme.com",
+          "phone": "(123) 123-1234"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "build:concert-sample-devsecops",
+      "type": "build",
+      "name": "concert-sample-devsecops",
+      "version": "1.0.0",
+      "components": [
+        {
+          "bom-ref": "container:us.icr.io/icr4mcc/concert-sample-devsecops",
+          "type": "container",
+          "name": "us.icr.io/icr4mcc/concert-sample-devsecops"
+        },
+        {
+          "bom-ref": "repository:coderepo:github:concert-sample-devsecops",
+          "type": "code",
+          "name": "concert-sample-devsecops",
+          "purl": "https://github.ibm.com/concert/concert-sample-devsecops"
+        }
+      ]
+    }
+  ],
+  "environments": [
+    {
+      "bom-ref": "environment:dev",
+      "type": "environment",
+      "name": "dev"
+    },
+    {
+      "bom-ref": "environment:stage",
+      "type": "environment",
+      "name": "stage"
+    },
+    {
+      "bom-ref": "environment:prod",
+      "type": "environment",
+      "name": "prod"
+    }
+  ],
+  "services": [
+    {
+      "bom-ref": "appapi:concert-sample-devsecops",
+      "name": "concert-sample-devsecops",
+      "endpoints": [
+        "/"
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "build:concert-sample-devsecops",
+      "dependsOn": [
+        "appapi:concert-sample-devsecops"
+      ]
+    }
+  ],
+  "properties": [
+    {
+      "name": "application_criticality",
+      "value": "3"
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+    "bomFormat": "ConcertDef",
+    "specVersion": "1.0.2",
+    "metadata": {
+        "timestamp": "2024-09-25T09:27:33Z",
+        "type": "deploy",
+        "environment": "prod",
+        "component": {
+            "name": "mern-node-app",
+            "version": "1.0.0",
+            "deploy-number": "75",
+            "change-request-url": "https://us-south.git.cloud.ibm.com/encoreapp/mern-node-change/issues/75"
+        }
+    },
+    "components": [
+        {
+            "bom-ref": "repository:coderepo:github:mern-node-deployment",
+            "type": "code",
+            "name": "mern-node-deployment",
+            "purl": "https://github.ibm.com/samples/mern-node-deployment",
+            "branch": "main",
+            "commit_sha": "35b11956c67cf7cbc88fccb66d3becbcde948512"
+        }
+    ],
+    "runtime-components": [
+        {
+            "bom-ref": "runtime-components:kubernetes:roks2",
+            "name": "roks2",
+            "type": "kubernetes",
+            "api-server": "https://c104-e.us-east.containers.cloud.ibm.com:32315",
+            "properties": [
+                {
+                    "name": "platform",
+                    "value": "ibmcloud"
+                },
+                {
+                    "name": "cluster_platform",
+                    "value": "roks"
+                },
+                {
+                    "name": "cluster_id",
+                    "value": "ckri4n4w0upk39imvl30"
+                },
+                {
+                    "name": "cluster_region",
+                    "value": "us-east"
+                },
+                {
+                    "name": "cluster_name",
+                    "value": "roks2"
+                }
+            ],
+            "components": [
+                {
+                    "type": "namespace",
+                    "name": "prod",
+                    "components": [
+                        {
+                            "bom-ref": "container:us.icr.io/encoreapp/mern-node-app",
+                            "type": "container",
+                            "name": "us.icr.io/encoreapp/mern-node-app",
+                            "tag": "latest",
+                            "digest": "sha256:e9c654240d56276d6bde9ea12d47f495462f43480a86a12c2714e70f64bba2d3"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "services": [
+        {
+            "bom-ref": "appapi:mern-node-app",
+            "name": "mern-node-app",
+            "properties": [
+                {
+                    "name": "base_url",
+                    "value": "https://mern-node-app.roks2-b12d73cc7b0aedf0e30addbf16d8fc5a-0000.us-east.containers.appdomain.cloud"
+                }
+            ]
+        }
+    ],
+    "dependencies": [
+        {
+            "ref": "container:us.icr.io/encoreapp/mern-node-app",
+            "dependsOn": [
+                "appapi:mern-node-app"
+            ]
+        }
+    ]
+}

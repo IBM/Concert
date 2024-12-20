@@ -1,0 +1,30 @@
+{
+  "bomFormat": "ConcertDef",
+  "specVersion": "1.0.2",
+  "metadata": {
+    "timestamp": "2024-12-06T15:23:57Z",
+    "type": "build",
+    "component": {
+      "name": "concert-sample-devsecops",
+      "version": "1.0.0",
+      "build-number": "204"
+    }
+  },
+  "components": [
+    {
+      "type": "container",
+      "name": "us.icr.io/icr4mcc/concert-sample-devsecops",
+      "uri": "us.icr.io/icr4mcc/concert-sample-devsecops:204-main-a0a7e8eab28b5d3ca7abc4014080cda6309b68fa@sha256:dbd24de377d42d4e4d3a24004d5fb8664d87c74ec30ca9d26ed72cee1e7bee57",
+      "tag": "204-main-a0a7e8eab28b5d3ca7abc4014080cda6309b68fa",
+      "digest": "sha256:dbd24de377d42d4e4d3a24004d5fb8664d87c74ec30ca9d26ed72cee1e7bee57"
+    },
+    {
+      "type": "code",
+      "name": "concert-sample-devsecops",
+      "purl": "https://github.ibm.com/concert/concert-sample-devsecops",
+      "cyclonedx-bom-link": "urn:uuid:ddec31c8-caae-4bf6-807a-bbb6e0bc3f1c/1",
+      "commit_sha": "a0a7e8eab28b5d3ca7abc4014080cda6309b68fa",
+      "branch": "main"
+    }
+  ]
+}
