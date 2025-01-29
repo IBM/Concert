@@ -47,6 +47,6 @@ done
 
 export OUTPUT_FILENAME=$outputfile 
 
-CODE_SCAN_COMMAND="code-scan --src /concert-sample --output-file ${OUTPUT_FILENAME} --cdxgen-args \"${CDXGEN_ARGS}\" "
-echo "${CONTAINER_COMMAND} ${OPTIONS} -v ${SRC_PATH}:/concert-sample -v ${OUTPUTDIR}:/toolkit-data ${CONCERT_TOOLKIT_IMAGE} bash -c ${CODE_SCAN_COMMAND}"
-${CONTAINER_COMMAND} ${OPTIONS} -v ${SRC_PATH}:/concert-sample -v ${OUTPUTDIR}:/toolkit-data ${CONCERT_TOOLKIT_IMAGE} bash -c "${CODE_SCAN_COMMAND}"
+CODE_SCAN_COMMAND="-r /app -o /toolkit-data/${OUTPUT_FILENAME} --cdxgen-args \"${CDXGEN_ARGS}\" "
+echo "${CONTAINER_COMMAND} ${OPTIONS} -v /tmp:/tmp -v ${SRC_PATH}:/app -v ${OUTPUTDIR}:/toolkit-data ${CYCLONEDX_CODE_SCAN_IMAGE} ${CODE_SCAN_COMMAND}"
+${CONTAINER_COMMAND} ${OPTIONS} -v /tmp:/tmp -v ${SRC_PATH}:/app -v ${OUTPUTDIR}:/toolkit-data ${CYCLONEDX_CODE_SCAN_IMAGE} ${CODE_SCAN_COMMAND}
