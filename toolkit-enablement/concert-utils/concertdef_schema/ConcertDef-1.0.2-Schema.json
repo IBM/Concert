@@ -2,7 +2,8 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "http://concert.ibm.com/schema/concertdef-1.0.2.schema.json",
   "type": "object",
-  "title": "Concert v1.0.2 Schema",
+  "title": "ConcertDef v1.0.2 Schema",
+  "description": "This is an all-in-one specification of the ConcertDef v1.0.2 Schema.  The top-level object \"components\" is required for the ConcertDef Build Inventory SBOM files.",
   "required": [
     "bomFormat",
     "specVersion",
@@ -28,26 +29,8 @@
       "type": "string",
       "title": "Concert Schema Specification Version",
       "description": "Version of the ConcertDef specification.",
-      "examples": [
+      "enum": [
         "1.0.2"
-      ]
-    },
-    "serialNumber": {
-      "type": "string",
-      "title": "BOM Serial Number",
-      "description": "The unique URN of the BOM file. Prefix of the URN (e.g., 'urn:ibm:<clientName>:<appName>') must be registered with Concert.",
-      "examples": [
-        "urn:ibm:myorg:myapp"
-      ]
-    },
-    "version": {
-      "type": "integer",
-      "title": "BOM Version",
-      "description": "Version of the BOM file.",
-      "minimum": 1,
-      "default": 1,
-      "examples": [
-        1
       ]
     },
     "metadata": {
@@ -74,6 +57,7 @@
           }
         ]
       },
+      "minItems": 1,
       "uniqueItems": true,
       "title": "Components",
       "description": "A list of top-level software components."
@@ -131,7 +115,8 @@
     "tags": {
       "type": "array",
       "items": {
-        "type": "string"
+        "type": "string",
+        "minLength": 1
       },
       "uniqueItems": true,
       "title": "Tags",
@@ -159,6 +144,7 @@
       "title": "CycloneDX BOM-Link Document",
       "description": "Descriptor for another BOM document. See https://cyclonedx.org/capabilities/bomlink/",
       "type": "string",
+      "minLength": 1,
       "format": "iri-reference",
       "$comment": "part of the pattern is based on `bom.serialNumber`'s pattern",
       "examples": [
@@ -169,6 +155,7 @@
       "title": "CycloneDX BOM-Link Element",
       "description": "Descriptor for an element in a BOM document. See https://cyclonedx.org/capabilities/bomlink/",
       "type": "string",
+      "minLength": 1,
       "format": "iri-reference",
       "$comment": "part of the pattern is based on `bom.serialNumber`'s pattern"
     },
@@ -188,10 +175,12 @@
       "required": [
         "type"
       ],
+      "description": "The the \"component\" object is required for Build Inventory SBOM and App Blueprint SBOM. When a Deploy Inventory SBOM regards a specific ConcertDef environment independent of the Build Inventory SBOMs of a specific ConcertDef application component, the \"component\" object is not required, otherwise the \"component\" object must be specified for the associated Build Inventory SBOMs.  Moreover, the \"environment\" object is required for a Deploy Inventory SBOM.",
       "additionalProperties": false,
       "properties": {
         "timestamp": {
           "type": "string",
+          "minLength": 1,
           "format": "date-time",
           "title": "Timestamp",
           "description": "ISO 8601 date and time when the BOM was created.",
@@ -214,10 +203,13 @@
         },
         "environment": {
           "type": "string",
-          "title": "Deployment Environment",
-          "description": "Deployment environment of the ConcertDef Deploy component.  It must be one of the deployment environments of any ConcertDef Application component that includes this Deploy component.",
+          "minLength": 1,
+          "title": "Deployment Environment Name",
+          "description": "The deployment environment name must be unique in the Concert service in use.",
           "examples": [
-            "production"
+            "acme-test",
+            "cluster-001",
+            "us-west-vpc-005"
           ]
         },
         "component": {
@@ -232,6 +224,7 @@
           "properties": {
             "name": {
               "type": "string",
+              "minLength": 1,
               "title": "Name",
               "description": "Name of the ConcertDef component",
               "examples": [
@@ -240,6 +233,7 @@
             },
             "version": {
               "type": "string",
+              "minLength": 1,
               "title": "Version",
               "description": "Versioon string of the ConcertDef component.",
               "examples": [
@@ -248,6 +242,7 @@
             },
             "build-number": {
               "type": "string",
+              "minLength": 1,
               "title": "Build Number",
               "description": "Build string of the ConcertDef Build component.",
               "examples": [
@@ -256,6 +251,7 @@
             },
             "deploy-number": {
               "type": "string",
+              "minLength": 1,
               "title": "Deployment Number",
               "description": "Deployment string of the ConcertDef Deploy component.  This property is required if the component type is `deploy`.",
               "examples": [
@@ -264,6 +260,7 @@
             },
             "change-request-url": {
               "type": "string",
+              "minLength": 1,
               "title": "Change Request URL",
               "description": "Change request string of the ConcertDef Deploy component.",
               "examples": [
@@ -295,6 +292,7 @@
       "properties": {
         "name": {
           "type": "string",
+          "minLength": 1,
           "title": "Name",
           "description": "The name of the business organization",
           "examples": [
@@ -323,6 +321,7 @@
       "properties": {
         "name": {
           "type": "string",
+          "minLength": 1,
           "title": "Name",
           "description": "The name of a business unit",
           "examples": [
@@ -331,6 +330,7 @@
         },
         "email": {
           "type": "string",
+          "minLength": 1,
           "format": "idn-email",
           "title": "Email Address",
           "description": "The email address of the business unit.",
@@ -340,6 +340,7 @@
         },
         "phone": {
           "type": "string",
+          "minLength": 1,
           "title": "Phone",
           "description": "The phone number of the business unit.",
           "examples": [
@@ -369,6 +370,7 @@
         },
         "name": {
           "type": "string",
+          "minLength": 1,
           "title": "Build Blueprint Name",
           "description": "Name of the Build component. This is often a shortened, single name of the component.",
           "examples": [
@@ -377,6 +379,7 @@
         },
         "version": {
           "type": "string",
+          "minLength": 1,
           "title": "Version",
           "description": "Version string for the component.  The value can be a timestamp string.",
           "examples": [
@@ -430,18 +433,20 @@
         },
         "name": {
           "type": "string",
+          "minLength": 1,
           "title": "Library Name",
           "description": "Library name per CycloneDX specification.",
           "examples": [
-            "maven/com.app.example"
+            "aux-service"
           ]
         },
         "version": {
           "type": "string",
+          "minLength": 1,
           "title": "Version",
           "description": "Version string for the component.",
           "examples": [
-            "0.0.1"
+            "1.0.0-SNAPSHOT"
           ]
         }
       }
@@ -466,8 +471,9 @@
         },
         "name": {
           "type": "string",
-          "title": "Container Name",
-          "description": "Container name as an image registry path.",
+          "minLength": 1,
+          "title": "Container Image Reference",
+          "description": "Image path (without tag or digest).",
           "examples": [
             "us.icr.io/myapp/my-component-1"
           ]
@@ -479,7 +485,8 @@
       "title": "Code Blueprint",
       "required": [
         "type",
-        "name"
+        "name",
+        "purl"
       ],
       "additionalProperties": false,
       "properties": {
@@ -494,6 +501,7 @@
         },
         "name": {
           "type": "string",
+          "minLength": 1,
           "title": "Code Name",
           "description": "Name of the Code blueprint. This is often a shortened, single name of the code repo.",
           "examples": [
@@ -502,6 +510,7 @@
         },
         "purl": {
           "type": "string",
+          "minLength": 1,
           "title": "Code URL",
           "description": "URL of the Code blueprint. This is often the URL of a source code repo.",
           "examples": [
@@ -532,46 +541,60 @@
         },
         "name": {
           "type": "string",
+          "minLength": 1,
           "title": "Library Name",
           "description": "Library name per CycloneDX specification.",
           "examples": [
-            "maven/com.app.example"
+            "aux-service"
           ]
         },
         "version": {
           "type": "string",
+          "minLength": 1,
           "title": "Version",
           "description": "Version string for the component.",
           "examples": [
-            "0.0.1"
+            "1.0.0-SNAPSHOT"
+          ]
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1,
+          "title": "Scope",
+          "description": "Scope string for the component.",
+          "examples": [
+            "tar"
+          ]
+        },
+        "filename": {
+          "type": "string",
+          "minLength": 1,
+          "title": "Filename",
+          "description": "Library Filename.",
+          "examples": [
+            "aux-service-v1.0.0-SNAPSHOT-10.tar"
           ]
         },
         "purl": {
           "type": "string",
+          "minLength": 1,
           "title": "Library PURL",
           "description": "Library PURL per CycloneDX specification.",
           "examples": [
-            "pkg:maven/com.app.example/example@0.0.1-SNAPSHOT?type=jar"
-          ]
-        },
-        "cyclonedx-bom-link": {
-          "$ref": "#/definitions/bomLinkDocumentType"
-        },
-        "filename": {
-          "type": "string",
-          "title": "File name",
-          "description": "file name",
-          "examples": [
-            "*.tar"
+            "library:tar/ibm/concert/aux-service@1.0.0-SNAPSHOT-10.tar"
           ]
         },
         "url": {
           "type": "string",
-          "title": "URL",
-          "description": "URL.",
+          "minLength": 1,
+          "title": "Library URL",
+          "description": "Library URL.",
           "examples": [
-            "https://artifactory.com/myspace/relase-10-mortgage-application.tar"
+            "https://artifactory.com/concert/aux-service-1.0.0-SNAPSHOT-10.tar"
           ]
+        },
+        "cyclonedx-bom-link": {
+          "$ref": "#/definitions/bomLinkDocumentType"
         }
       }
     },
@@ -596,26 +619,31 @@
         },
         "name": {
           "type": "string",
-          "title": "Container Name",
-          "description": "Container image registry path.",
+          "minLength": 1,
+          "title": "Container Image Reference",
+          "description": "Image path (without tag or digest), which includes the image repository name as the last naming component delimited by character \"/\".",
+          "pattern": "[^:@]+",
           "examples": [
-            "us.icr.io/myapp/my-component-1",
-            "us.icr.io/icr4mcc/concert-sample-devsecops"
+            "us.icr.io/myapp/my-component-1"
           ]
         },
         "uri": {
           "type": "string",
-          "title": "Container Image URI",
-          "description": "Structured URI containing image registry path, image tag, and image digest.  It is recommended to use that as a UID for the container image.",
+          "minLength": 1,
+          "title": "Unique Reference ID of Container Image",
+          "description": "Structured ID containing image path, image tag, and/or image digest.  The format is \"<path>:<tag>\", \"<path>@<digest>\" or \"<path>:<tag>@<digest>\".  That is, image path (a.k.a., image repository path) is required.  An image tag labels a specific image instance in the image repository mainly for human consumption, and an image digest is a content-based version indicator for a specific image instance. When this uri field is not included in the SBOM, Concert composes the identifier in terms of the defined values of name, tag, and digest.  In practice, \"latest\" is the default tag value when neither tag nor digest is specified, though common best practices do not use that to tag image instances.",
+          "pattern": "[^:@]+(:[^@]+)?(@.+)?",
           "examples": [
             "us.icr.io/myapp/my-component-1:2.100.0.40@sha256:de11d4d8d711a65b2782c7ee8e2c7ffe718122821b7d35fba434d26f5c404939",
-            "us.icr.io/icr4mcc/concert-sample-devsecops:124-main-03964735fadfd0fae86a1edb5f82257a133f79c7@sha256:c596470fbda33ec78ba6645b95fb2e0a7f324f929f3feff56125de38a3163f71"
+            "us.icr.io/myapp/my-component-1:2.100.0.40",
+            "us.icr.io/myapp/my-component-1@sha256:c596470fbda33ec78ba6645b95fb2e0a7f324f929f3feff56125de38a3163f71"
           ]
         },
         "purl": {
           "type": "string",
+          "minLength": 1,
           "title": "Container Image PURL",
-          "description": "Container image registry path and tag",
+          "description": "Container image registry path and tag. This field will be deprecated in a future release of the schema.",
           "examples": [
             "us.icr.io/myapp/my-component-1:2.100.0.40",
             "us.icr.io/icr4mcc/concert-sample-devsecops:124-main-03964735fadfd0fae86a1edb5f82257a133f79c7"
@@ -623,6 +651,7 @@
         },
         "tag": {
           "type": "string",
+          "minLength": 1,
           "title": "Image Tag",
           "description": "Image tag.  It can be a timestamp of a source code.",
           "examples": [
@@ -632,6 +661,7 @@
         },
         "digest": {
           "type": "string",
+          "minLength": 1,
           "title": "Image Digest",
           "description": "Image digest",
           "examples": [
@@ -664,6 +694,7 @@
         },
         "name": {
           "type": "string",
+          "minLength": 1,
           "title": "Code Name",
           "description": "Name of the source/deployment Code object.",
           "examples": [
@@ -673,6 +704,7 @@
         },
         "purl": {
           "type": "string",
+          "minLength": 1,
           "title": "Code Repo URL",
           "description": "URL (or folder path) of the source/deployment repo (or file system).",
           "examples": [
@@ -682,6 +714,7 @@
         },
         "commit_sha": {
           "type": "string",
+          "minLength": 1,
           "title": "Commit Sha",
           "description": "Commit sha of a git repo.",
           "examples": [
@@ -690,6 +723,7 @@
         },
         "branch": {
           "type": "string",
+          "minLength": 1,
           "title": "Branch ",
           "description": "Branch of a git repo.",
           "examples": [
@@ -737,6 +771,7 @@
         },
         "name": {
           "type": "string",
+          "minLength": 1,
           "title": "Kubernetes Runtime Name",
           "description": "Name of the Kubernetes runtime. This is often a shortened, single name of the component.  It is recommended to use container-platform-dependent cluster id. ",
           "examples": [
@@ -748,8 +783,8 @@
         },
         "api-server": {
           "type": "string",
-          "title": "Kubernetes API Server",
-          "description": "URL of the Kubernetes API server.",
+          "minLength": 1,
+          "description": "URL of the Kubernetes API server.  The default value is the value of \"name\".",
           "examples": [
             "https://172.20.0.1:2040"
           ]
@@ -768,51 +803,54 @@
           "title": "Namespace Components of a Kubernetes Runtime Environment",
           "description": "A list of namespace components.",
           "items": {
-            "component": {
-              "type": "object",
-              "title": "Namespace Component",
-              "description": "Namespace of a Kubernetes Runtime.",
-              "required": [
-                "type",
-                "name"
-              ],
-              "additionalProperties": false,
-              "properties": {
-                "type": {
-                  "type": "string",
-                  "enum": [
-                    "namespace"
-                  ],
-                  "title": "Namespace",
-                  "description": "A namespace or project in the Kubernetes cluster."
-                },
-                "name": {
-                  "type": "string",
-                  "title": "Cluster Namespace",
-                  "description": "A cluster or project name.",
-                  "examples": [
-                    "run"
-                  ]
-                },
-                "components": {
-                  "type": "array",
-                  "items": {
-                    "anyOf": [
-                      {
-                        "$ref": "#/definitions/object-container"
-                      },
-                      {
-                        "$ref": "#/definitions/object-library"
-                      }
-                    ]
-                  },
-                  "uniqueItems": true,
-                  "title": "Container Objects",
-                  "description": "A list of Container objects deployed to the namespace.  Info on container image URI is needed, which can be specified via the `\"uri\" property or a composition of related properties."
-                }
+            "$ref": "#/definitions/k8-component-namespace"
+          },
+          "minItems": 1
+        }
+      }
+    },
+    "k8-component-namespace": {
+      "type": "object",
+      "title": "Namespace Component of Kubernetes",
+      "description": "Namespace of a Kubernetes Runtime.",
+      "required": [
+        "type",
+        "name"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "namespace"
+          ],
+          "title": "Namespace",
+          "description": "A namespace or project in the Kubernetes cluster."
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "title": "Cluster Namespace",
+          "description": "A cluster or project name.",
+          "examples": [
+            "run"
+          ]
+        },
+        "components": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/object-container"
+              },
+              {
+                "$ref": "#/definitions/object-library"
               }
-            }
-          }
+            ]
+          },
+          "uniqueItems": true,
+          "title": "Namespace/Project Objects",
+          "description": "A list of Container/Library objects deployed to the namespace/project.  Info on container image URI is needed, which can be specified via the `\"uri\" property or a composition of related properties."
         }
       }
     },
@@ -823,7 +861,8 @@
       "required": [
         "type",
         "name",
-        "components"
+        "components",
+        "hostname"
       ],
       "additionalProperties": false,
       "properties": {
@@ -840,6 +879,7 @@
         },
         "name": {
           "type": "string",
+          "minLength": 1,
           "title": "VM Name",
           "description": "VM name. This is often a shortened, single name of the component.  It is recommended to use the value of \"hostname\".",
           "examples": [
@@ -861,6 +901,7 @@
             "properties": {
               "addr": {
                 "type": "string",
+                "minLength": 1,
                 "title": "Address"
               }
             }
@@ -887,6 +928,7 @@
         },
         "hostname": {
           "type": "string",
+          "minLength": 1,
           "title": "Server Hostname",
           "description": "Domain Name or IP address of the host."
         },
@@ -910,9 +952,10 @@
               }
             ]
           },
+          "minItems": 1,
           "uniqueItems": true,
-          "title": "Container and Library Objects",
-          "description": "A array of Container and Library objects deployed to the VM."
+          "title": "Container and/or Library Objects",
+          "description": "A array of Container and/or Library objects deployed to the VM."
         }
       }
     },
@@ -923,6 +966,7 @@
       "required": [
         "type",
         "name",
+        "hostname",
         "components"
       ],
       "additionalProperties": false,
@@ -940,11 +984,53 @@
         },
         "name": {
           "type": "string",
+          "minLength": 1,
           "title": "zOS Name",
           "description": "zOS name, often a LPAR name."
         },
+        "ipv4": {
+          "type": "array",
+          "title": "IPv4 Addresses",
+          "description": "An array of IPv4 addresses.",
+          "items": {
+            "type": "object",
+            "title": "IPv4 Address",
+            "required": [
+              "addr"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "addr": {
+                "type": "string",
+                "minLength": 1,
+                "title": "Address"
+              }
+            }
+          }
+        },
+        "ipv6": {
+          "type": "array",
+          "title": "IPv6 Addresses",
+          "description": "An array of IPv6 addresses.",
+          "items": {
+            "type": "object",
+            "title": "IPv6 Address",
+            "required": [
+              "addr"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "addr": {
+                "type": "string",
+                "minLength": 1,
+                "title": "Address"
+              }
+            }
+          }
+        },
         "hostname": {
           "type": "string",
+          "minLength": 1,
           "title": "LPAR name",
           "description": "zOS LPAR name."
         },
@@ -965,9 +1051,10 @@
               }
             ]
           },
+          "minItems": 1,
           "uniqueItems": true,
-          "title": "Container and Library Objects",
-          "description": "A array of Container and Library objects deployed to the VM."
+          "title": "Container and/or Library Objects",
+          "description": "A array of Container and/or Library objects deployed to the zOS."
         }
       }
     },
@@ -993,10 +1080,13 @@
         },
         "name": {
           "type": "string",
-          "title": "Environment Name",
-          "description": "Name of the environment.",
+          "minLength": 1,
+          "title": "Deployment Environment Name",
+          "description": "The deployment environment name must be unique in the Concert service in use.",
           "examples": [
-            "qa", "development", "stage", "pre-production", "prod", "production"
+            "acme-test",
+            "cluster-001",
+            "us-west-vpc-005"
           ]
         }
       }
@@ -1015,6 +1105,7 @@
         },
         "name": {
           "type": "string",
+          "minLength": 1,
           "title": "Service Name",
           "description": "The name of the service. This will often be a shortened, single name of the service.",
           "examples": [
@@ -1024,8 +1115,10 @@
         "endpoints": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "minLength": 1
           },
+          "minItems": 1,
           "uniqueItems": true,
           "title": "Endpoints",
           "description": "The API paths of the service providing component. Base URLs of the API service endpoints are provided by the service's Deploy component",
@@ -1056,6 +1149,7 @@
         },
         "name": {
           "type": "string",
+          "minLength": 1,
           "title": "Service Name",
           "description": "Name of the service. This is often a shortened, single name of the service.",
           "examples": [
@@ -1094,6 +1188,7 @@
           "items": {
             "$ref": "#/definitions/refLinkType"
           },
+          "minItems": 1,
           "title": "Depends On",
           "description": "The bom-ref identifiers of the components or services that are dependencies of this dependency object."
         }
@@ -1103,10 +1198,15 @@
       "type": "object",
       "title": "Lightweight name-value pair",
       "description": "Provides the ability to document properties in a name-value store. This provides flexibility to include data not officially supported in the standard without having to use additional namespaces or create extensions. Unlike key-value stores, properties support duplicate names, each potentially having different values.",
+      "required": [
+        "name",
+        "value"
+      ],
       "additionalProperties": false,
       "properties": {
         "name": {
           "type": "string",
+          "minLength": 1,
           "title": "Name",
           "description": "The name of the property. Duplicate names are allowed, each potentially having a different value."
         },
