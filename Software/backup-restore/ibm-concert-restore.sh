@@ -37,9 +37,15 @@ validate_inputs()
       exit 1
     fi
 
-    if [ "X$BACKUP_LOCATION" == "X" ];
+    if [ "X$BACKUP_VERSION" == "X" ];
     then
-      echo "--backup_location=<BACKUP_LOCATION> argument is required"
+      echo "--backup_version=<BACKUP_VERSION> argument is required"
+      exit 1
+    fi
+
+    if [ "X$BACKUP_TIMESTAMP" == "X" ];
+    then
+      echo "--backup_timestamp=<BACKUP_TIMESTAMP> argument is required"
       exit 1
     fi
 }
@@ -87,6 +93,11 @@ spec:
                   name: concert-elbucket-creds
                   optional: true
             defaultMode: 420
+        - name: backup-secret
+          secret:
+            secretName: backup-secret
+            defaultMode: 420
+            optional: true
         - name: app-cfg-internal-tls-mount
           secret:
             secretName: app-cfg-internal-tls
@@ -102,8 +113,7 @@ spec:
               ephemeral-storage: 256Mi
               memory: 256Mi
           name: concert-restore-server
-          command:
-            - /app/bin/backup-restore/restore-db-bucket.sh
+          command: ["bash", "-c"]
           securityContext:
             runAsNonRoot: true
             allowPrivilegeEscalation: false
@@ -120,11 +130,11 @@ spec:
             - name: app-cfg-internal-tls-mount
               readOnly: true
               mountPath: /app/tmp/self-signed-ssl
+            - name: backup-secret
+              mountPath: /mnt/infra/backup-secret
           terminationMessagePolicy: File
           image: "${IMG_PREFIX}/ibm-roja-py-utils:${IMG_TAG}"
-          args:
-            - ${BACKUP_ENTITY}
-            - ${BACKUP_LOCATION}
+          args: ["/app/bin/backup-restore/restore-from-bucket.sh ${BACKUP_ENTITY} ${BACKUP_VERSION} ${BACKUP_TIMESTAMP}"]
 
                 
 EOF
