@@ -1,0 +1,2318 @@
+{
+	"version": "2.1.0",
+	"runs": [
+	  {
+		"tool": {
+		  "driver": {
+			"name": "SonarQube",
+			"version": "10.5.1.90531",
+			"informationUri": "https://www.sonarqube.org/",
+			"rules": [
+			  {
+				"id": "python:S3776",
+				"name": "python:S3776"
+			  },
+			  {
+				"id": "python:S3776",
+				"name": "python:S3776"
+			  },
+			  {
+				"id": "python:S1515",
+				"name": "python:S1515"
+			  },
+			  {
+				"id": "python:S108",
+				"name": "python:S108"
+			  },
+			  {
+				"id": "python:S108",
+				"name": "python:S108"
+			  },
+			  {
+				"id": "python:S3776",
+				"name": "python:S3776"
+			  },
+			  {
+				"id": "python:S1542",
+				"name": "python:S1542"
+			  },
+			  {
+				"id": "python:S117",
+				"name": "python:S117"
+			  },
+			  {
+				"id": "python:S117",
+				"name": "python:S117"
+			  },
+			  {
+				"id": "python:S117",
+				"name": "python:S117"
+			  },
+			  {
+				"id": "python:S117",
+				"name": "python:S117"
+			  },
+			  {
+				"id": "python:S125",
+				"name": "python:S125"
+			  },
+			  {
+				"id": "python:S125",
+				"name": "python:S125"
+			  },
+			  {
+				"id": "python:S1481",
+				"name": "python:S1481"
+			  },
+			  {
+				"id": "python:S1192",
+				"name": "python:S1192"
+			  },
+			  {
+				"id": "python:S1481",
+				"name": "python:S1481"
+			  },
+			  {
+				"id": "python:S1542",
+				"name": "python:S1542"
+			  },
+			  {
+				"id": "python:S1542",
+				"name": "python:S1542"
+			  },
+			  {
+				"id": "python:S1542",
+				"name": "python:S1542"
+			  },
+			  {
+				"id": "python:S1542",
+				"name": "python:S1542"
+			  },
+			  {
+				"id": "python:S1542",
+				"name": "python:S1542"
+			  },
+			  {
+				"id": "python:S1542",
+				"name": "python:S1542"
+			  },
+			  {
+				"id": "python:S3457",
+				"name": "python:S3457"
+			  },
+			  {
+				"id": "python:S3776",
+				"name": "python:S3776"
+			  },
+			  {
+				"id": "python:S3776",
+				"name": "python:S3776"
+			  },
+			  {
+				"id": "python:S1192",
+				"name": "python:S1192"
+			  },
+			  {
+				"id": "python:S1192",
+				"name": "python:S1192"
+			  },
+			  {
+				"id": "python:S5754",
+				"name": "python:S5754"
+			  },
+			  {
+				"id": "python:S112",
+				"name": "python:S112"
+			  },
+			  {
+				"id": "python:S3457",
+				"name": "python:S3457"
+			  },
+			  {
+				"id": "python:S1192",
+				"name": "python:S1192"
+			  },
+			  {
+				"id": "python:S1192",
+				"name": "python:S1192"
+			  },
+			  {
+				"id": "python:S3776",
+				"name": "python:S3776"
+			  },
+			  {
+				"id": "python:S3776",
+				"name": "python:S3776"
+			  },
+			  {
+				"id": "python:S1172",
+				"name": "python:S1172"
+			  },
+			  {
+				"id": "python:S5886",
+				"name": "python:S5886"
+			  },
+			  {
+				"id": "python:S1192",
+				"name": "python:S1192"
+			  },
+			  {
+				"id": "python:S3776",
+				"name": "python:S3776"
+			  },
+			  {
+				"id": "python:S1515",
+				"name": "python:S1515"
+			  },
+			  {
+				"id": "python:S1481",
+				"name": "python:S1481"
+			  },
+			  {
+				"id": "python:S3457",
+				"name": "python:S3457"
+			  },
+			  {
+				"id": "python:S3457",
+				"name": "python:S3457"
+			  },
+			  {
+				"id": "python:S3457",
+				"name": "python:S3457"
+			  },
+			  {
+				"id": "python:S3457",
+				"name": "python:S3457"
+			  },
+			  {
+				"id": "python:S6735",
+				"name": "python:S6735"
+			  },
+			  {
+				"id": "python:S3457",
+				"name": "python:S3457"
+			  },
+			  {
+				"id": "python:S5886",
+				"name": "python:S5886"
+			  },
+			  {
+				"id": "python:S3457",
+				"name": "python:S3457"
+			  },
+			  {
+				"id": "python:S6735",
+				"name": "python:S6735"
+			  },
+			  {
+				"id": "python:S125",
+				"name": "python:S125"
+			  },
+			  {
+				"id": "python:S125",
+				"name": "python:S125"
+			  },
+			  {
+				"id": "python:S3776",
+				"name": "python:S3776"
+			  },
+			  {
+				"id": "python:S3776",
+				"name": "python:S3776"
+			  },
+			  {
+				"id": "python:S3516",
+				"name": "python:S3516"
+			  },
+			  {
+				"id": "python:S1066",
+				"name": "python:S1066"
+			  },
+			  {
+				"id": "python:S125",
+				"name": "python:S125"
+			  },
+			  {
+				"id": "python:S112",
+				"name": "python:S112"
+			  },
+			  {
+				"id": "python:S112",
+				"name": "python:S112"
+			  },
+			  {
+				"id": "python:S3457",
+				"name": "python:S3457"
+			  },
+			  {
+				"id": "python:S3457",
+				"name": "python:S3457"
+			  },
+			  {
+				"id": "python:S3457",
+				"name": "python:S3457"
+			  },
+			  {
+				"id": "python:S3457",
+				"name": "python:S3457"
+			  },
+			  {
+				"id": "python:S3457",
+				"name": "python:S3457"
+			  },
+			  {
+				"id": "python:S1192",
+				"name": "python:S1192"
+			  },
+			  {
+				"id": "python:S3457",
+				"name": "python:S3457"
+			  },
+			  {
+				"id": "python:S3457",
+				"name": "python:S3457"
+			  },
+			  {
+				"id": "python:S3457",
+				"name": "python:S3457"
+			  },
+			  {
+				"id": "python:S3457",
+				"name": "python:S3457"
+			  },
+			  {
+				"id": "python:S6735",
+				"name": "python:S6735"
+			  },
+			  {
+				"id": "python:S117",
+				"name": "python:S117"
+			  },
+			  {
+				"id": "python:S112",
+				"name": "python:S112"
+			  },
+			  {
+				"id": "python:S1542",
+				"name": "python:S1542"
+			  },
+			  {
+				"id": "python:S112",
+				"name": "python:S112"
+			  },
+			  {
+				"id": "python:S125",
+				"name": "python:S125"
+			  },
+			  {
+				"id": "python:S112",
+				"name": "python:S112"
+			  },
+			  {
+				"id": "python:S112",
+				"name": "python:S112"
+			  },
+			  {
+				"id": "python:S112",
+				"name": "python:S112"
+			  },
+			  {
+				"id": "python:S112",
+				"name": "python:S112"
+			  },
+			  {
+				"id": "python:S1226",
+				"name": "python:S1226"
+			  },
+			  {
+				"id": "python:S1481",
+				"name": "python:S1481"
+			  },
+			  {
+				"id": "python:S5915",
+				"name": "python:S5915"
+			  },
+			  {
+				"id": "python:S1542",
+				"name": "python:S1542"
+			  },
+			  {
+				"id": "python:S1542",
+				"name": "python:S1542"
+			  },
+			  {
+				"id": "python:S1542",
+				"name": "python:S1542"
+			  },
+			  {
+				"id": "python:S1542",
+				"name": "python:S1542"
+			  },
+			  {
+				"id": "python:S112",
+				"name": "python:S112"
+			  },
+			  {
+				"id": "python:S5720",
+				"name": "python:S5720"
+			  },
+			  {
+				"id": "python:S1542",
+				"name": "python:S1542"
+			  },
+			  {
+				"id": "python:S117",
+				"name": "python:S117"
+			  },
+			  {
+				"id": "python:S117",
+				"name": "python:S117"
+			  },
+			  {
+				"id": "python:S1940",
+				"name": "python:S1940"
+			  },
+			  {
+				"id": "python:S6735",
+				"name": "python:S6735"
+			  },
+			  {
+				"id": "python:S3776",
+				"name": "python:S3776"
+			  },
+			  {
+				"id": "python:S5886",
+				"name": "python:S5886"
+			  },
+			  {
+				"id": "python:S112",
+				"name": "python:S112"
+			  },
+			  {
+				"id": "python:S1172",
+				"name": "python:S1172"
+			  },
+			  {
+				"id": "python:S1542",
+				"name": "python:S1542"
+			  },
+			  {
+				"id": "python:S117",
+				"name": "python:S117"
+			  },
+			  {
+				"id": "python:S117",
+				"name": "python:S117"
+			  },
+			  {
+				"id": "python:S117",
+				"name": "python:S117"
+			  }
+			]
+		  }
+		},
+		"results": [
+		  {
+			"ruleId": "python:S3776",
+			"level": "error",
+			"message": {
+			  "text": "Refactor this function to reduce its Cognitive Complexity from 22 to the 15 allowed."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/tasks/certificate/utils/certificate_utils.py"
+				  },
+				  "region": {
+					"startLine": 272
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S3776",
+			"level": "error",
+			"message": {
+			  "text": "Refactor this function to reduce its Cognitive Complexity from 22 to the 15 allowed."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/tasks/audit/utils/preprocessing.py"
+				  },
+				  "region": {
+					"startLine": 330
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S1515",
+			"level": "warning",
+			"message": {
+			  "text": "Add a parameter to the parent lambda function and use variable \"report_col_name\" as its default value; The value of \"report_col_name\" might change at the next loop iteration."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/tasks/audit/utils/preprocessing.py"
+				  },
+				  "region": {
+					"startLine": 362
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S108",
+			"level": "warning",
+			"message": {
+			  "text": "Either remove or fill this block of code."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/tasks/audit/utils/preprocessing.py"
+				  },
+				  "region": {
+					"startLine": 415
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S108",
+			"level": "warning",
+			"message": {
+			  "text": "Either remove or fill this block of code."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/tasks/audit/utils/preprocessing.py"
+				  },
+				  "region": {
+					"startLine": 418
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S3776",
+			"level": "error",
+			"message": {
+			  "text": "Refactor this function to reduce its Cognitive Complexity from 25 to the 15 allowed."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/tasks/certificate/certificate_task.py"
+				  },
+				  "region": {
+					"startLine": 45
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S1542",
+			"level": "warning",
+			"message": {
+			  "text": "Rename function \"mock_checkifLicenseRisk\" to match the regular expression ^[a-z_][a-z0-9_]*$."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/tests/test_results/test_pkg_results.py"
+				  },
+				  "region": {
+					"startLine": 158
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S117",
+			"level": "warning",
+			"message": {
+			  "text": "Rename this parameter \"mock_checkifLicenseRisk\" to match the regular expression ^[_a-z][a-z0-9_]*$."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/tests/test_results/test_pkg_results.py"
+				  },
+				  "region": {
+					"startLine": 193
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S117",
+			"level": "warning",
+			"message": {
+			  "text": "Rename this parameter \"mock_checkifLicenseRisk\" to match the regular expression ^[_a-z][a-z0-9_]*$."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/tests/test_results/test_pkg_results.py"
+				  },
+				  "region": {
+					"startLine": 198
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S117",
+			"level": "warning",
+			"message": {
+			  "text": "Rename this parameter \"mock_checkifLicenseRisk\" to match the regular expression ^[_a-z][a-z0-9_]*$."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/tests/test_results/test_pkg_results.py"
+				  },
+				  "region": {
+					"startLine": 206
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S117",
+			"level": "warning",
+			"message": {
+			  "text": "Rename this parameter \"mock_checkifLicenseRisk\" to match the regular expression ^[_a-z][a-z0-9_]*$."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/tests/test_results/test_pkg_results.py"
+				  },
+				  "region": {
+					"startLine": 224
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S125",
+			"level": "warning",
+			"message": {
+			  "text": "Remove this commented out code."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/tasks/audit/audit_task.py"
+				  },
+				  "region": {
+					"startLine": 314
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S125",
+			"level": "warning",
+			"message": {
+			  "text": "Remove this commented out code."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/tests/tasks/audit/utils/test_preprocessing.py"
+				  },
+				  "region": {
+					"startLine": 481
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S1481",
+			"level": "warning",
+			"message": {
+			  "text": "Remove the unused local variable \"result\"."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/tests/test_results/test_pkg_reco_utils.py"
+				  },
+				  "region": {
+					"startLine": 234
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S1192",
+			"level": "error",
+			"message": {
+			  "text": "Define a constant instead of duplicating this literal 'raw roja score' 9 times."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/tasks/audit/utils/assessment_utils.py"
+				  },
+				  "region": {
+					"startLine": 279
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S1481",
+			"level": "warning",
+			"message": {
+			  "text": "Remove the unused local variable \"mock_logger\"."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/tests/tasks/certificate/utils/test_certificate_utils.py"
+				  },
+				  "region": {
+					"startLine": 442
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S1542",
+			"level": "warning",
+			"message": {
+			  "text": "Rename function \"test_checkIfHighVulCategory\" to match the regular expression ^[a-z_][a-z0-9_]*$."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/tests/test_results/test_checks/test_high_audit.py"
+				  },
+				  "region": {
+					"startLine": 43
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S1542",
+			"level": "warning",
+			"message": {
+			  "text": "Rename function \"test_checkIfHighVulCategory_exception\" to match the regular expression ^[a-z_][a-z0-9_]*$."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/tests/test_results/test_checks/test_high_audit.py"
+				  },
+				  "region": {
+					"startLine": 48
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S1542",
+			"level": "warning",
+			"message": {
+			  "text": "Rename function \"test_checkifLicenseRisk\" to match the regular expression ^[a-z_][a-z0-9_]*$."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/tests/test_results/test_checks/test_license_risk.py"
+				  },
+				  "region": {
+					"startLine": 102
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S1542",
+			"level": "warning",
+			"message": {
+			  "text": "Rename function \"test_checkIfHighVulCategory_exception\" to match the regular expression ^[a-z_][a-z0-9_]*$."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/tests/test_results/test_checks/test_license_risk.py"
+				  },
+				  "region": {
+					"startLine": 107
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S1542",
+			"level": "warning",
+			"message": {
+			  "text": "Rename function \"test_checkIfOutofSupport\" to match the regular expression ^[a-z_][a-z0-9_]*$."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/tests/test_results/test_checks/test_out_of_support.py"
+				  },
+				  "region": {
+					"startLine": 53
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S1542",
+			"level": "warning",
+			"message": {
+			  "text": "Rename function \"test_checkIfHighVulCategory_exception\" to match the regular expression ^[a-z_][a-z0-9_]*$."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/tests/test_results/test_checks/test_out_of_support.py"
+				  },
+				  "region": {
+					"startLine": 58
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S3457",
+			"level": "warning",
+			"message": {
+			  "text": "Add replacement fields or use a normal string instead of an f-string."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/tasks/certificate/utils/certificate_utils.py"
+				  },
+				  "region": {
+					"startLine": 170
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S3776",
+			"level": "error",
+			"message": {
+			  "text": "Refactor this function to reduce its Cognitive Complexity from 21 to the 15 allowed."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/results/pkg_results.py"
+				  },
+				  "region": {
+					"startLine": 86
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S3776",
+			"level": "error",
+			"message": {
+			  "text": "Refactor this function to reduce its Cognitive Complexity from 22 to the 15 allowed."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/results/pkg_results.py"
+				  },
+				  "region": {
+					"startLine": 28
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S1192",
+			"level": "error",
+			"message": {
+			  "text": "Define a constant instead of duplicating this literal 'Generation of package recommendation process completed Successfully' 4 times."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/results/pkg_results.py"
+				  },
+				  "region": {
+					"startLine": 57
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S1192",
+			"level": "error",
+			"message": {
+			  "text": "Define a constant instead of duplicating this literal 'ibm_roja_app.results' 3 times."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/results/pkg_results.py"
+				  },
+				  "region": {
+					"startLine": 62
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S5754",
+			"level": "error",
+			"message": {
+			  "text": "Specify an exception class to catch or reraise the exception"
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/tasks/application/utils/app_utils.py"
+				  },
+				  "region": {
+					"startLine": 60
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S112",
+			"level": "warning",
+			"message": {
+			  "text": "Replace this generic exception class with a more specific one."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/tasks/audit/utils/audit_utils.py"
+				  },
+				  "region": {
+					"startLine": 154
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S3457",
+			"level": "warning",
+			"message": {
+			  "text": "Add replacement fields or use a normal string instead of an f-string."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/tasks/audit/utils/audit_utils.py"
+				  },
+				  "region": {
+					"startLine": 155
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S1192",
+			"level": "error",
+			"message": {
+			  "text": "Define a constant instead of duplicating this literal 'Serial Number' 3 times."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/tasks/certificate/utils/certificate_utils.py"
+				  },
+				  "region": {
+					"startLine": 177
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S1192",
+			"level": "error",
+			"message": {
+			  "text": "Define a constant instead of duplicating this literal ' +0000 UTC' 3 times."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/tasks/certificate/utils/certificate_utils.py"
+				  },
+				  "region": {
+					"startLine": 241
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S3776",
+			"level": "error",
+			"message": {
+			  "text": "Refactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/tasks/application/utils/app_utils.py"
+				  },
+				  "region": {
+					"startLine": 156
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S3776",
+			"level": "error",
+			"message": {
+			  "text": "Refactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/results/checks/high_audit.py"
+				  },
+				  "region": {
+					"startLine": 10
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S1172",
+			"level": "warning",
+			"message": {
+			  "text": "Remove the unused function parameter \"file_path\"."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/tasks/application/utils/app_utils.py"
+				  },
+				  "region": {
+					"startLine": 159
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S5886",
+			"level": "warning",
+			"message": {
+			  "text": "Return a value of type \"NoneType\" or update function \"persist_packages\" type hint."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/tasks/application/utils/package_utils.py"
+				  },
+				  "region": {
+					"startLine": 154
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S1192",
+			"level": "error",
+			"message": {
+			  "text": "Define a constant instead of duplicating this literal '%Y-%m-%dT%H:%M:%SZ' 3 times."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/tasks/common/toc_utils.py"
+				  },
+				  "region": {
+					"startLine": 92
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S3776",
+			"level": "error",
+			"message": {
+			  "text": "Refactor this function to reduce its Cognitive Complexity from 23 to the 15 allowed."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/database/db_utils.py"
+				  },
+				  "region": {
+					"startLine": 113
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S1515",
+			"level": "warning",
+			"message": {
+			  "text": "Add a parameter to the parent lambda function and use variable \"col\" as its default value; The value of \"col\" might change at the next loop iteration."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/database/db_utils.py"
+				  },
+				  "region": {
+					"startLine": 119
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S1481",
+			"level": "warning",
+			"message": {
+			  "text": "Remove the unused local variable \"mock_logger\"."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/tests/tasks/certificate/utils/test_certificate_utils.py"
+				  },
+				  "region": {
+					"startLine": 502
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S3457",
+			"level": "warning",
+			"message": {
+			  "text": "Add replacement fields or use a normal string instead of an f-string."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/tasks/certificate/utils/certificate_utils.py"
+				  },
+				  "region": {
+					"startLine": 423
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S3457",
+			"level": "warning",
+			"message": {
+			  "text": "Add replacement fields or use a normal string instead of an f-string."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/tasks/certificate/utils/certificate_utils.py"
+				  },
+				  "region": {
+					"startLine": 510
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S3457",
+			"level": "warning",
+			"message": {
+			  "text": "Add replacement fields or use a normal string instead of an f-string."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/tasks/certificate/certificate_task.py"
+				  },
+				  "region": {
+					"startLine": 153
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S3457",
+			"level": "warning",
+			"message": {
+			  "text": "Add replacement fields or use a normal string instead of an f-string."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/tasks/certificate/utils/certificate_utils.py"
+				  },
+				  "region": {
+					"startLine": 408
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S6735",
+			"level": "warning",
+			"message": {
+			  "text": "Specify the \"validate\" parameter of this merge."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/tasks/certificate/utils/certificate_utils.py"
+				  },
+				  "region": {
+					"startLine": 415
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S3457",
+			"level": "warning",
+			"message": {
+			  "text": "Add replacement fields or use a normal string instead of an f-string."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/tasks/certificate/utils/certificate_utils.py"
+				  },
+				  "region": {
+					"startLine": 443
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S5886",
+			"level": "warning",
+			"message": {
+			  "text": "Return a value of type \"str\" instead of \"NoneType\" or update function \"get_environment_id\" type hint."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/tasks/certificate/utils/certificate_utils.py"
+				  },
+				  "region": {
+					"startLine": 444
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S3457",
+			"level": "warning",
+			"message": {
+			  "text": "Add replacement fields or use a normal string instead of an f-string."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/tasks/certificate/certificate_task.py"
+				  },
+				  "region": {
+					"startLine": 85
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S6735",
+			"level": "warning",
+			"message": {
+			  "text": "Specify the \"validate\" parameter of this merge."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/tasks/audit/utils/audit_utils.py"
+				  },
+				  "region": {
+					"startLine": 133
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S125",
+			"level": "warning",
+			"message": {
+			  "text": "Remove this commented out code."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/tasks/audit/utils/audit_utils.py"
+				  },
+				  "region": {
+					"startLine": 149
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S125",
+			"level": "warning",
+			"message": {
+			  "text": "Remove this commented out code."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/tasks/audit/utils/audit_utils.py"
+				  },
+				  "region": {
+					"startLine": 158
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S3776",
+			"level": "error",
+			"message": {
+			  "text": "Refactor this function to reduce its Cognitive Complexity from 25 to the 15 allowed."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/tasks/collector/collector_task.py"
+				  },
+				  "region": {
+					"startLine": 51
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S3776",
+			"level": "error",
+			"message": {
+			  "text": "Refactor this function to reduce its Cognitive Complexity from 34 to the 15 allowed."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/results/checks/license_risk.py"
+				  },
+				  "region": {
+					"startLine": 13
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S3516",
+			"level": "warning",
+			"message": {
+			  "text": "Refactor this method to not always return the same value."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/results/pkg_reco_utils.py"
+				  },
+				  "region": {
+					"startLine": 126
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S1066",
+			"level": "warning",
+			"message": {
+			  "text": "Merge this if statement with the enclosing one."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/results/pkg_reco_utils.py"
+				  },
+				  "region": {
+					"startLine": 177
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S125",
+			"level": "warning",
+			"message": {
+			  "text": "Remove this commented out code."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/tasks/audit/audit_task.py"
+				  },
+				  "region": {
+					"startLine": 549
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S112",
+			"level": "warning",
+			"message": {
+			  "text": "Replace this generic exception class with a more specific one."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/tasks/audit/audit_task.py"
+				  },
+				  "region": {
+					"startLine": 780
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S112",
+			"level": "warning",
+			"message": {
+			  "text": "Replace this generic exception class with a more specific one."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/tasks/audit/audit_task.py"
+				  },
+				  "region": {
+					"startLine": 784
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S3457",
+			"level": "warning",
+			"message": {
+			  "text": "Add replacement fields or use a normal string instead of an f-string."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/tasks/audit/audit_task.py"
+				  },
+				  "region": {
+					"startLine": 812
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S3457",
+			"level": "warning",
+			"message": {
+			  "text": "Add replacement fields or use a normal string instead of an f-string."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/tasks/certificate/utils/certificate_utils.py"
+				  },
+				  "region": {
+					"startLine": 81
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S3457",
+			"level": "warning",
+			"message": {
+			  "text": "Add replacement fields or use a normal string instead of an f-string."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/tasks/certificate/utils/certificate_utils.py"
+				  },
+				  "region": {
+					"startLine": 205
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S3457",
+			"level": "warning",
+			"message": {
+			  "text": "Add replacement fields or use a normal string instead of an f-string."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/tasks/certificate/utils/certificate_utils.py"
+				  },
+				  "region": {
+					"startLine": 269
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S3457",
+			"level": "warning",
+			"message": {
+			  "text": "Add replacement fields or use a normal string instead of an f-string."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/tasks/certificate/utils/certificate_utils.py"
+				  },
+				  "region": {
+					"startLine": 382
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S1192",
+			"level": "error",
+			"message": {
+			  "text": "Define a constant instead of duplicating this literal 'roja score' 9 times."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/tasks/audit/utils/assessment_utils.py"
+				  },
+				  "region": {
+					"startLine": 89
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S3457",
+			"level": "warning",
+			"message": {
+			  "text": "Add replacement fields or use a normal string instead of an f-string."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/tasks/certificate/utils/certificate_utils.py"
+				  },
+				  "region": {
+					"startLine": 333
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S3457",
+			"level": "warning",
+			"message": {
+			  "text": "Add replacement fields or use a normal string instead of an f-string."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/tasks/certificate/utils/certificate_utils.py"
+				  },
+				  "region": {
+					"startLine": 344
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S3457",
+			"level": "warning",
+			"message": {
+			  "text": "Add replacement fields or use a normal string instead of an f-string."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/tasks/certificate/utils/certificate_utils.py"
+				  },
+				  "region": {
+					"startLine": 359
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S3457",
+			"level": "warning",
+			"message": {
+			  "text": "Add replacement fields or use a normal string instead of an f-string."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/tasks/certificate/certificate_task.py"
+				  },
+				  "region": {
+					"startLine": 109
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S6735",
+			"level": "warning",
+			"message": {
+			  "text": "Specify the \"validate\" parameter of this merge."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/tasks/certificate/utils/certificate_utils.py"
+				  },
+				  "region": {
+					"startLine": 374
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S117",
+			"level": "warning",
+			"message": {
+			  "text": "Rename this local variable \"masterFile\" to match the regular expression ^[_a-z][a-z0-9_]*$."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/tasks/common/caching.py"
+				  },
+				  "region": {
+					"startLine": 56
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S112",
+			"level": "warning",
+			"message": {
+			  "text": "Replace this generic exception class with a more specific one."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/results/pkg_results.py"
+				  },
+				  "region": {
+					"startLine": 117
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S1542",
+			"level": "warning",
+			"message": {
+			  "text": "Rename function \"checkifLicenseRisk\" to match the regular expression ^[a-z_][a-z0-9_]*$."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/results/checks/license_risk.py"
+				  },
+				  "region": {
+					"startLine": 13
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S112",
+			"level": "warning",
+			"message": {
+			  "text": "Replace this generic exception class with a more specific one."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/results/checks/license_risk.py"
+				  },
+				  "region": {
+					"startLine": 62
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S125",
+			"level": "warning",
+			"message": {
+			  "text": "Remove this commented out code."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/tasks/audit/utils/assessment_utils.py"
+				  },
+				  "region": {
+					"startLine": 283
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S112",
+			"level": "warning",
+			"message": {
+			  "text": "Replace this generic exception class with a more specific one."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/tasks/audit/utils/preprocessing.py"
+				  },
+				  "region": {
+					"startLine": 510
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S112",
+			"level": "warning",
+			"message": {
+			  "text": "Replace this generic exception class with a more specific one."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/tasks/audit/utils/preprocessing.py"
+				  },
+				  "region": {
+					"startLine": 522
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S112",
+			"level": "warning",
+			"message": {
+			  "text": "Replace this generic exception class with a more specific one."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/tasks/common/s3_utils.py"
+				  },
+				  "region": {
+					"startLine": 135
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S112",
+			"level": "warning",
+			"message": {
+			  "text": "Replace this generic exception class with a more specific one."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/tasks/audit/utils/preprocessing.py"
+				  },
+				  "region": {
+					"startLine": 538
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S1226",
+			"level": "warning",
+			"message": {
+			  "text": "Introduce a new variable or use its initial value before reassigning 'file_content'."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/tests/tasks/audit/utils/test_preprocessing.py"
+				  },
+				  "region": {
+					"startLine": 477
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S1481",
+			"level": "warning",
+			"message": {
+			  "text": "Remove the unused local variable \"result\"."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/tests/tasks/common/test_s3_utils.py"
+				  },
+				  "region": {
+					"startLine": 63
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S5915",
+			"level": "error",
+			"message": {
+			  "text": "Don\u2019t perform an assertion here; An exception is expected to be raised before its execution."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/tests/tasks/common/test_s3_utils.py"
+				  },
+				  "region": {
+					"startLine": 64
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S1542",
+			"level": "warning",
+			"message": {
+			  "text": "Rename function \"test_read_from_s3_HTTPError\" to match the regular expression ^[a-z_][a-z0-9_]*$."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/tests/tasks/common/test_s3_utils.py"
+				  },
+				  "region": {
+					"startLine": 102
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S1542",
+			"level": "warning",
+			"message": {
+			  "text": "Rename function \"test_read_from_s3_RequestException\" to match the regular expression ^[a-z_][a-z0-9_]*$."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/tests/tasks/common/test_s3_utils.py"
+				  },
+				  "region": {
+					"startLine": 116
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S1542",
+			"level": "warning",
+			"message": {
+			  "text": "Rename function \"test_write_to_s3_HTTPError\" to match the regular expression ^[a-z_][a-z0-9_]*$."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/tests/tasks/common/test_s3_utils.py"
+				  },
+				  "region": {
+					"startLine": 147
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S1542",
+			"level": "warning",
+			"message": {
+			  "text": "Rename function \"test_write_to_s3_RequestException\" to match the regular expression ^[a-z_][a-z0-9_]*$."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/tests/tasks/common/test_s3_utils.py"
+				  },
+				  "region": {
+					"startLine": 161
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S112",
+			"level": "warning",
+			"message": {
+			  "text": "Replace this generic exception class with a more specific one."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/tests/tasks/common/test_s3cache.py"
+				  },
+				  "region": {
+					"startLine": 145
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S5720",
+			"level": "error",
+			"message": {
+			  "text": "Rename \"instance_id\" to \"self\" or add the missing \"self\" parameter."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/tasks/common/s3_utils.py"
+				  },
+				  "region": {
+					"startLine": 118
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S1542",
+			"level": "warning",
+			"message": {
+			  "text": "Rename function \"mock_S3Utils_delete_from_s3\" to match the regular expression ^[a-z_][a-z0-9_]*$."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/tests/conftest.py"
+				  },
+				  "region": {
+					"startLine": 175
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S117",
+			"level": "warning",
+			"message": {
+			  "text": "Rename this parameter \"mock_S3Utils_delete_from_s3\" to match the regular expression ^[_a-z][a-z0-9_]*$."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/tests/tasks/audit/test_audit_task.py"
+				  },
+				  "region": {
+					"startLine": 279
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S117",
+			"level": "warning",
+			"message": {
+			  "text": "Rename this parameter \"mock_S3Utils_delete_from_s3\" to match the regular expression ^[_a-z][a-z0-9_]*$."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/tests/tasks/audit/test_audit_task.py"
+				  },
+				  "region": {
+					"startLine": 367
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S1940",
+			"level": "warning",
+			"message": {
+			  "text": "Use the opposite operator (\"not in\") instead."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/app.py"
+				  },
+				  "region": {
+					"startLine": 138
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S6735",
+			"level": "warning",
+			"message": {
+			  "text": "Specify the \"validate\" parameter of this merge."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/results/checks/oss_grouping.py"
+				  },
+				  "region": {
+					"startLine": 26
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S3776",
+			"level": "error",
+			"message": {
+			  "text": "Refactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/tasks/audit/utils/preprocessing.py"
+				  },
+				  "region": {
+					"startLine": 166
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S5886",
+			"level": "warning",
+			"message": {
+			  "text": "Return a value of type \"dict\" instead of \"NoneType\" or update function \"get_db_config\" type hint."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/database/db.py"
+				  },
+				  "region": {
+					"startLine": 47
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S112",
+			"level": "warning",
+			"message": {
+			  "text": "Replace this generic exception class with a more specific one."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/tasks/audit/utils/audit_utils.py"
+				  },
+				  "region": {
+					"startLine": 166
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S1172",
+			"level": "warning",
+			"message": {
+			  "text": "Remove the unused function parameter \"engine\"."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/tasks/common/utils.py"
+				  },
+				  "region": {
+					"startLine": 91
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S1542",
+			"level": "warning",
+			"message": {
+			  "text": "Rename function \"validateRequest\" to match the regular expression ^[a-z_][a-z0-9_]*$."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/auth.py"
+				  },
+				  "region": {
+					"startLine": 18
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S117",
+			"level": "warning",
+			"message": {
+			  "text": "Rename this local variable \"instanceId\" to match the regular expression ^[_a-z][a-z0-9_]*$."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/auth.py"
+				  },
+				  "region": {
+					"startLine": 23
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S117",
+			"level": "warning",
+			"message": {
+			  "text": "Rename this parameter \"instanceId\" to match the regular expression ^[_a-z][a-z0-9_]*$."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/auth.py"
+				  },
+				  "region": {
+					"startLine": 32
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"ruleId": "python:S117",
+			"level": "warning",
+			"message": {
+			  "text": "Rename this parameter \"instanceId\" to match the regular expression ^[_a-z][a-z0-9_]*$."
+			},
+			"locations": [
+			  {
+				"physicalLocation": {
+				  "artifactLocation": {
+					"uri": "allegroapp-security-audit-app/src/auth.py"
+				  },
+				  "region": {
+					"startLine": 49
+				  }
+				}
+			  }
+			]
+		  }
+		]
+	  }
+	]
+  }

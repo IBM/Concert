@@ -57,11 +57,18 @@ This example simulates a CI/CD pipeline and its integration with Concert. It emu
    ./simulate_cd_pipeline.sh
    ```
 
-1. Run the `upload_cve.sh` script. This will upload example CVEs to Concert. After executing this step, the `Arena view` should show the prioritized CVEs associated to the application. 
+1. Run the `upload_cve.sh` script. This will upload example CVEs to Concert. After executing this step, the `Arena view` should show the CVEs associated to the application. From **Concert homepage**, navigate to **Administration** > **Settings**. Under **Vulnerability priorities**, drag CVSS score to 100% to promote CVEs as priorty 1 CVEs.  
 
    ```bash
    ./upload_cve.sh
    ```
+
+1. Run the `upload_certs.sh` script. This will upload example certificates to Concert. After executing this step, the `Arena view` should show the certificates associated to the environment. 
+
+   ```bash
+   ./upload_certs.sh
+   ```
+
 ## Notes
 
 If you use `podman` instead of `docker`, please update the following line in the `concert_data/demo_build_envs.variables` file, from

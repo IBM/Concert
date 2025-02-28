@@ -5,14 +5,14 @@ scriptdir=`dirname $0`
 cd ${scriptdir}
 scriptdir=`pwd`
 dockerexe=${DOCKER_EXE:-podman}
-docker_image=${UTILS_IMG:-"icr.io/cpopen/ibm-aaf-utils:1.0.4"}
+docker_image=${UTILS_IMG:-"icr.io/cpopen/ibm-aaf-utils:1.0.5"}
 work_dir=${WORK_DIR:-"${scriptdir}/.ibm-concert-manage-utils"}
 
 container_name=ibm-aaf-utils
-release=${RELEASE:-"5.0.3"} # AAF Release
+release=${RELEASE:-"5.1.0"} # AAF Release
 components=${COMPONENTS:-"concert"} 
 service_name=concert
-service_version=${SERVICE_VERSION:-"1.0.4"} # Concert Release
+service_version=${SERVICE_VERSION:-"1.0.5"} # Concert Release
 preview=${PREVIEW:-"false"}
 action=${ACTION:-"install"}
 registry_location=${PRIVATE_REGISTRY_LOCATION:-"cp.icr.io"}
@@ -234,6 +234,12 @@ function upgrade-concert {
     fi
 }
 
+function concert-reset {
+    echo "concert-reset"
+    ${dockerexe} exec $container_name concert-reset --instance_ns=${PROJECT_INSTANCE} --preview=${preview}
+    echo "reset completed...monitor your instance namespace for concert status"
+}
+
 function case-download {
      ${dockerexe} exec $container_name case-download --components=${components}   --release=${release}
 }
@@ -332,6 +338,9 @@ case "$1" in
         ;;
     upgrade-concert)
        upgrade-concert
+       ;;
+    concert-reset)
+       concert-reset
        ;;
     get-concert-instance-details)
         get-concert-instance-details

@@ -78,6 +78,11 @@ spec:
                       name: concert-elbucket-creds
                       optional: true
                 defaultMode: 420
+            - name: backup-secret
+              secret:
+                secretName: backup-secret
+                defaultMode: 420
+                optional: true
             - name: app-cfg-internal-tls-mount
               secret:
                 secretName: app-cfg-internal-tls
@@ -112,6 +117,8 @@ spec:
                   mountPath: /app/tmp/self-signed-ssl
                 - name: concert-backup-restore
                   mountPath: /mnt/infra/backup
+                - name: backup-secret
+                  mountPath: /mnt/infra/backup-secret
               terminationMessagePolicy: File
               envFrom:
                 - configMapRef:

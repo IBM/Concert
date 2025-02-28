@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "http://concert.ibm.com/schema/concertdef-1.0.2.schema.json",
   "type": "object",
-  "title": "Concert v1.0.2 Schema for Application SBOMs",
+  "title": "ConcertDef v1.0.2 Schema for Application Blueprint SBOM Files",
   "required": [
     "bomFormat",
     "specVersion",
@@ -28,26 +28,8 @@
       "type": "string",
       "title": "Concert Schema Specification Version",
       "description": "Version of the ConcertDef specification.",
-      "examples": [
+      "enum": [
         "1.0.2"
-      ]
-    },
-    "serialNumber": {
-      "type": "string",
-      "title": "BOM Serial Number",
-      "description": "The unique URN of the BOM file. Prefix of the URN (e.g., 'urn:ibm:<clientName>:<appName>') must be registered with Concert.",
-      "examples": [
-        "urn:ibm:myorg:myapp"
-      ]
-    },
-    "version": {
-      "type": "integer",
-      "title": "BOM Version",
-      "description": "Version of the BOM file.",
-      "minimum": 1,
-      "default": 1,
-      "examples": [
-        1
       ]
     },
     "metadata": {
@@ -110,7 +92,8 @@
     "tags": {
       "type": "array",
       "items": {
-        "type": "string"
+        "type": "string",
+        "minLength": 1
       },
       "uniqueItems": true,
       "title": "Tags",
@@ -138,6 +121,7 @@
       "title": "CycloneDX BOM-Link Document",
       "description": "Descriptor for another BOM document. See https://cyclonedx.org/capabilities/bomlink/",
       "type": "string",
+      "minLength": 1,
       "format": "iri-reference",
       "$comment": "part of the pattern is based on `bom.serialNumber`'s pattern",
       "examples": [
@@ -148,6 +132,7 @@
       "title": "CycloneDX BOM-Link Element",
       "description": "Descriptor for an element in a BOM document. See https://cyclonedx.org/capabilities/bomlink/",
       "type": "string",
+      "minLength": 1,
       "format": "iri-reference",
       "$comment": "part of the pattern is based on `bom.serialNumber`'s pattern"
     },
@@ -165,12 +150,14 @@
       "type": "object",
       "title": "BOM Metadata Object",
       "required": [
-        "type"
+        "type",
+        "component"
       ],
       "additionalProperties": false,
       "properties": {
         "timestamp": {
           "type": "string",
+          "minLength": 1,
           "format": "date-time",
           "title": "Timestamp",
           "description": "ISO 8601 date and time when the BOM was created.",
@@ -189,14 +176,6 @@
             "build"
           ]
         },
-        "environment": {
-          "type": "string",
-          "title": "Deployment Environment",
-          "description": "Deployment environment of the ConcertDef Deploy component.  It must be one of the deployment environments of any ConcertDef Application component that includes this Deploy component.",
-          "examples": [
-            "production"
-          ]
-        },
         "component": {
           "type": "object",
           "title": "Metadata Component",
@@ -209,6 +188,7 @@
           "properties": {
             "name": {
               "type": "string",
+              "minLength": 1,
               "title": "Name",
               "description": "Name of the ConcertDef component",
               "examples": [
@@ -217,6 +197,7 @@
             },
             "version": {
               "type": "string",
+              "minLength": 1,
               "title": "Version",
               "description": "Versioon string of the ConcertDef component.",
               "examples": [
@@ -248,6 +229,7 @@
       "properties": {
         "name": {
           "type": "string",
+          "minLength": 1,
           "title": "Name",
           "description": "The name of the business organization",
           "examples": [
@@ -276,6 +258,7 @@
       "properties": {
         "name": {
           "type": "string",
+          "minLength": 1,
           "title": "Name",
           "description": "The name of a business unit",
           "examples": [
@@ -284,6 +267,7 @@
         },
         "email": {
           "type": "string",
+          "minLength": 1,          
           "format": "idn-email",
           "title": "Email Address",
           "description": "The email address of the business unit.",
@@ -293,6 +277,7 @@
         },
         "phone": {
           "type": "string",
+          "minLength": 1,
           "title": "Phone",
           "description": "The phone number of the business unit.",
           "examples": [
@@ -322,6 +307,7 @@
         },
         "name": {
           "type": "string",
+          "minLength": 1,
           "title": "Build Blueprint Name",
           "description": "Name of the Build component. This is often a shortened, single name of the component.",
           "examples": [
@@ -330,6 +316,7 @@
         },
         "version": {
           "type": "string",
+          "minLength": 1,
           "title": "Version",
           "description": "Version string for the component.  The value can be a timestamp string.",
           "examples": [
@@ -383,6 +370,7 @@
         },
         "name": {
           "type": "string",
+          "minLength": 1,
           "title": "Library Name",
           "description": "Library name per CycloneDX specification.",
           "examples": [
@@ -391,6 +379,7 @@
         },
         "version": {
           "type": "string",
+          "minLength": 1,
           "title": "Version",
           "description": "Version string for the component.",
           "examples": [
@@ -419,8 +408,9 @@
         },
         "name": {
           "type": "string",
-          "title": "Container Name",
-          "description": "Container name as an image registry path.",
+          "minLength": 1,
+          "title": "Container Image Reference",
+          "description": "Image path (without tag or digest).",
           "examples": [
             "us.icr.io/myapp/my-component-1"
           ]
@@ -432,7 +422,8 @@
       "title": "Code Blueprint",
       "required": [
         "type",
-        "name"
+        "name",
+        "purl"
       ],
       "additionalProperties": false,
       "properties": {
@@ -447,6 +438,7 @@
         },
         "name": {
           "type": "string",
+          "minLength": 1,
           "title": "Code Name",
           "description": "Name of the Code blueprint. This is often a shortened, single name of the code repo.",
           "examples": [
@@ -455,6 +447,7 @@
         },
         "purl": {
           "type": "string",
+          "minLength": 1,
           "title": "Code URL",
           "description": "URL (or folder path) of the Code blueprint. This is often the URL of a source code repo (or file system).",
           "examples": [
@@ -485,10 +478,13 @@
         },
         "name": {
           "type": "string",
-          "title": "Environment Name",
-          "description": "Name of the environment.",
+          "minLength": 1,
+          "title": "Deployment Environment Name",
+          "description": "The deployment environment name must be unique in the Concert service in use.",
           "examples": [
-            "qa", "development", "stage", "pre-production", "prod", "production"
+            "acme-test",
+            "cluster-001",
+            "us-west-vpc-005"
           ]
         }
       }
@@ -507,6 +503,7 @@
         },
         "name": {
           "type": "string",
+          "minLength": 1,
           "title": "Service Name",
           "description": "The name of the service. This will often be a shortened, single name of the service.",
           "examples": [
@@ -516,8 +513,10 @@
         "endpoints": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "minLength": 1
           },
+          "minItems": 1,
           "uniqueItems": true,
           "title": "Endpoints",
           "description": "The API paths of the service providing component. Base URLs of the API service endpoints are provided by the service's Deploy component",
@@ -565,10 +564,15 @@
       "type": "object",
       "title": "Lightweight name-value pair",
       "description": "Provides the ability to document properties in a name-value store. This provides flexibility to include data not officially supported in the standard without having to use additional namespaces or create extensions. Unlike key-value stores, properties support duplicate names, each potentially having different values.",
+      "required": [
+        "name",
+        "value"
+      ],
       "additionalProperties": false,
       "properties": {
         "name": {
           "type": "string",
+          "minLength": 1,
           "title": "Name",
           "description": "The name of the property. Duplicate names are allowed, each potentially having a different value."
         },
