@@ -1,0 +1,81 @@
+{
+    "bomFormat": "ConcertDef",
+    "specVersion": "1.0.2",
+    "metadata": {
+        "timestamp": "2025-02-07T10:44:33Z",
+        "type": "deploy",
+        "environment": "ibmc_prod",
+        "component": {
+            "name": "mern-node-app",
+            "version": "1.0.0",
+            "deploy-number": "75",
+            "change-request-url": "https://us-south.git.cloud.ibm.com/samples/mern-node-change/issues/75"
+        }
+    },
+    "runtime-components": [
+        {
+            "bom-ref": "service:kubernetes:ibmcloud:roks",
+            "name": "roks",
+            "type": "kubernetes",
+            "api-server": "http://cluster-a1b.ocp.internal.company.com:6443",
+            "properties": [
+                {
+                    "name": "platform",
+                    "value": "ibmcloud"
+                },
+                {
+                    "name": "cluster_platform",
+                    "value": "ROKS"
+                },
+                {
+                    "name": "cluster_id",
+                    "value": "ckri4n4w0upk39imvl30"
+                },
+                {
+                    "name": "cluster_region",
+                    "value": "us-east"
+                },
+                {
+                    "name": "cluster_name",
+                    "value": "roks2"
+                }
+            ],
+            "components": [
+                {
+                    "type": "namespace",
+                    "name": "mern-node-app-deployment",
+                    "components": [
+                        {
+                            "bom-ref": "container:us.icr.io/encoreapps/mern-node-app",
+                            "type": "container",
+                            "name": "us.icr.io/encoreapps/mern-node-app",
+                            "tag": "latest",
+                            "digest": "sha256:e9c654240d56276d6bde9ea12d47f495462f43480a86a12c2714e70f64bba2d3",
+                            "uri": "us.icr.io/encoreapps/mern-node-app:latest@sha256:e9c654240d56276d6bde9ea12d47f495462f43480a86a12c2714e70f64bba2d3"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "services": [
+        {
+            "bom-ref": "appapi:mern-node-app",
+            "name": "mern-node-app",
+            "properties": [
+                {
+                    "name": "base_url",
+                    "value": "https://concert-sample.internal.company.com/home"
+                }
+            ]
+        }
+    ],
+    "dependencies": [
+        {
+            "ref": "container:us.icr.io/encoreapps/mern-node-app",
+            "dependsOn": [
+                "appapi:mern-node-app"
+            ]
+        }
+    ]
+}
