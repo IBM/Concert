@@ -410,7 +410,8 @@
           "type": "string",
           "minLength": 1,
           "title": "Container Image Reference",
-          "description": "Image path (without tag or digest).",
+          "description": "Image path (whose optional tag and digest values are ignored by Concert). See https://kubernetes.io/docs/concepts/containers/images/",
+          "pattern": "^(((http|https):\/\/|)?[a-z0-9]+([\\-\\.]{1}[a-z0-9]+)*\\.[a-z]{2,6}(:[0-9]{1,5})?\/)?[^:@]+(:[^@]+)?(@.+)?$",
           "examples": [
             "us.icr.io/myapp/my-component-1"
           ]
