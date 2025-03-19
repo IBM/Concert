@@ -1,0 +1,32 @@
+{
+    "bomFormat": "ConcertDef",
+    "specVersion": "1.0.2",
+    "metadata": {
+        "timestamp": "2024-09-25T09:38:17Z",
+        "type": "build",
+        "component": {
+            "name": "mern-react-app",
+            "version": "1.0.0",
+            "build-number": "73"
+        }
+    },
+    "components": [
+        {
+            "bom-ref": "container:us.icr.io/encoreapps/mern-react-app",
+            "type": "container",
+            "name": "us.icr.io/encoreapps/mern-react-app",
+            "tag": "latest",
+            "digest": "sha256:9373bcf1c12a4836f4c14b7d19ad405b45561c5340fd574c56332a6a1e1658fe",
+            "uri": "us.icr.io/encoreapps/mern-react-app:latest@sha256:9373bcf1c12a4836f4c14b7d19ad405b45561c5340fd574c56332a6a1e1658fe"
+        },
+        {
+            "bom-ref": "repository:coderepo:github:mern-react-app",
+            "type": "code",
+            "name": "mern-react-app",
+            "purl": "https://github.ibm.com/samples/mern-react-app",
+            "branch": "main",
+            "commit_sha": "54c20a53c02c07a4a78acef611ab42e81f7fa609",
+            "cyclonedx-bom-link": "urn:uuid:08d8d17f-b914-4d7d-ad45-91c1f4d02309/1"
+        }
+    ]
+}

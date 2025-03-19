@@ -304,8 +304,8 @@
           "type": "string",
           "minLength": 1,
           "title": "Container Image Reference",
-          "description": "Image path (without tag or digest), which includes the image repository name as the last naming component delimited by character \"/\".",
-          "pattern": "[^:@]+",
+          "description": "Image path (whose optional tag and digest values are ignored by Concert). See https://kubernetes.io/docs/concepts/containers/images/",
+          "pattern": "^(((http|https):\/\/|)?[a-z0-9]+([\\-\\.]{1}[a-z0-9]+)*\\.[a-z]{2,6}(:[0-9]{1,5})?\/)?[^:@]+(:[^@]+)?(@.+)?$",
           "examples": [
             "us.icr.io/myapp/my-component-1"
           ]
@@ -315,7 +315,7 @@
           "minLength": 1,
           "title": "Unique Reference ID of Container Image",
           "description": "Structured ID containing image path, image tag, and/or image digest.  The format is \"<path>:<tag>\", \"<path>@<digest>\" or \"<path>:<tag>@<digest>\".  That is, image path (a.k.a., image repository path) is required.  An image tag labels a specific image instance in the image repository mainly for human consumption, and an image digest is a content-based version indicator for a specific image instance. When this uri field is not included in the SBOM, Concert composes the identifier in terms of the defined values of name, tag, and digest.  In practice, \"latest\" is the default tag value when neither tag nor digest is specified, though common best practices do not use that to tag image instances.",
-          "pattern": "[^:@]+(:[^@]+)?(@.+)?",
+          "pattern": "^(((http|https):\/\/|)?[a-z0-9]+([\\-\\.]{1}[a-z0-9]+)*\\.[a-z]{2,6}(:[0-9]{1,5})?\/)?[^:@]+(:[^@]+)?(@.+)?$",
           "examples": [
             "us.icr.io/myapp/my-component-1:2.100.0.40@sha256:de11d4d8d711a65b2782c7ee8e2c7ffe718122821b7d35fba434d26f5c404939",
             "us.icr.io/myapp/my-component-1:2.100.0.40",

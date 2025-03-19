@@ -1,0 +1,31 @@
+{
+    "bomFormat": "ConcertDef",
+    "specVersion": "1.0.2",
+    "metadata": {
+        "timestamp": "2024-09-25T09:01:16Z",
+        "type": "build",
+        "component": {
+            "name": "mern-node-app",
+            "version": "1.0.0",
+            "build-number": "184"
+        }
+    },
+    "components": [
+        {
+            "bom-ref": "container:us.icr.io/encoreapps/mern-node-app",
+            "type": "container",
+            "name": "us.icr.io/encoreapps/mern-node-app",
+            "tag": "latest",
+            "digest": "sha256:e9c654240d56276d6bde9ea12d47f495462f43480a86a12c2714e70f64bba2d3",
+            "uri": "us.icr.io/encoreapps/mern-node-app:latest@sha256:e9c654240d56276d6bde9ea12d47f495462f43480a86a12c2714e70f64bba2d3"
+        },
+        {
+            "bom-ref": "repository:coderepo:github:mern-node-app",
+            "type": "code",
+            "name": "mern-node-app",
+            "purl": "https://github.ibm.com/samples/mern-node-app",
+            "branch": "main",
+            "commit_sha": "2fdc2b0cb46756ba6d54bcf660aeb92748e40beb"
+        }
+    ]
+}
