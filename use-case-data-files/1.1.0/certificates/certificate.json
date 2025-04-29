@@ -1,0 +1,110 @@
+{
+  "components": [
+    {
+      "type": "certificate",
+      "ref": "certificate:416730047297653093060437355272553080019035",
+      "serial_number": "416730047297653093060437355272553080019035",
+      "properties": [
+        {
+          "name": "subject",
+          "value": "CN=test-ca-tor-1-ww.ca-tor.qq.appdomain.cloud"
+        },
+        {
+          "name": "issuer",
+          "value": "CN=R11,O=Test,C=AB"
+        },
+        {
+          "name": "validity_start_date",
+          "value": "2024-05-25 09:02:22 +0000 UTC"
+        },
+        {
+          "name": "validity_end_date",
+          "value": "2024-12-01 01:02:22 +0000 UTC"
+        },
+        {
+          "name": "certificate_type",
+          "value": "der"
+        },
+        {
+          "name": "owner",
+          "value": "mDkfg1ufap@domain.com"
+        },
+        {
+          "name": "dns_names",
+          "value": "*.test-ca-tor-1-ww.ca-tor.qq.appdomain.cloud"
+        },
+        {
+          "name": "metadata",
+          "value": "{\"certificate_host\": \"\", \"service_info\": \"289****\", \"dn\": \"\\\\VED\\\\Policy\\\\Aperture\\\\1CMB-CESD-IT\\\\AI\\\\Non-******************************************\", \"senior_manager_contact\": \"mDkfg1ufap@domain.com\"}"
+        }
+      ],
+      "access_points": [
+        {
+          "name": "appapi:solution-services-api",
+          "is_public": "false",
+          "url": "https://private-mern-react-app-roja3mern.roks2-b12d73cc7b0aedf0e30addbf16d8fc5a-0000.us-east.containers.appdomain.cloud"
+        }
+      ]
+    },
+    {
+      "type": "certificate",
+      "ref": "certificate:202430047297653093060437355272553080011032",
+      "serial_number": "202430047297653093060437355272553080011032",
+      "properties": [
+        {
+          "name": "subject",
+          "value": "CN=guest-ca-tor-1-ww.ca-tor.qq.appdomain.cloud"
+        },
+        {
+          "name": "issuer",
+          "value": "CN=A11,O=Test,C=AB"
+        },
+        {
+          "name": "validity_start_date",
+          "value": "2024-05-25 09:02:22 +0000 UTC"
+        },
+        {
+          "name": "validity_end_date",
+          "value": "2024-11-01 01:02:22 +0000 UTC"
+        },
+        {
+          "name": "certificate_type",
+          "value": "pfx"
+        },
+        {
+          "name": "dns_names",
+          "value": "*.guest-ca-tor-1-ww.ca-tor.qq.appdomain.cloud"
+        },
+        {
+          "name": "owner",
+          "value": "xyzgTp@domain.com"
+        },
+        {
+          "name": "namespace",
+          "value": "openshift-config"
+        },
+        {
+          "name": "metadata",
+          "value": "{\"certificate_host\": \"\", \"service_info\": \"289****\", \"dn\": \"\\\\VED\\\\Policy\\\\Aperture\\\\1CMB-CESD-IT\\\\AI\\\\Non-******************************************\", \"senior_manager_contact\": \"mDkfg1ufap@domain.com\"}"
+        }
+      ],
+      "access_points": [
+        {
+          "name": "appapi:slacksim-services-api",
+          "is_public": "false",
+          "url": "http://aci-cedm-data-store-client.prod-d1267efc7babedf0e30addbf16d8f985-0000.us-east.containers.appdomain.cloud"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "environment:qa",
+      "depends_on": ["certificate:416730047297653093060437355272553080019035"]
+    },
+    {
+      "ref": "environment:prod",
+      "depends_on": ["certificate:202430047297653093060437355272553080011032"]
+    }
+  ]
+}
