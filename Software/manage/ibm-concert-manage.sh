@@ -5,14 +5,14 @@ scriptdir=`dirname $0`
 cd ${scriptdir}
 scriptdir=`pwd`
 dockerexe=${DOCKER_EXE:-podman}
-docker_image=${UTILS_IMG:-"icr.io/cpopen/ibm-aaf-utils:1.0.5.2"}
+docker_image=${UTILS_IMG:-"icr.io/cpopen/ibm-aaf-utils:1.1.0"}
 work_dir=${WORK_DIR:-"${scriptdir}/.ibm-concert-manage-utils"}
 
 container_name=ibm-aaf-utils
-release=${RELEASE:-"5.1.0"} # AAF Release
+release=${RELEASE:-"5.1.2"} # AAF Release
 components=${COMPONENTS:-"concert"} 
 service_name=concert
-service_version=${SERVICE_VERSION:-"1.0.5.2"} # Concert Release
+service_version=${SERVICE_VERSION:-"1.1.0"} # Concert Release
 preview=${PREVIEW:-"false"}
 action=${ACTION:-"install"}
 registry_location=${PRIVATE_REGISTRY_LOCATION:-"cp.icr.io"}

@@ -1,0 +1,1189 @@
+{
+  "Systems": [
+    {
+      "Uuid": "58ec979f-0f45-3bae-8725-9fd66576b979.440D6D57-8C63-4AB3-8247-ED018871DD73",
+      "Name": "VIOS121",
+      "SystemType": "vios",
+      "OSType": "vios",
+      "NeedUpdate": false,
+      "ParentSystem": {
+        "UUID": "58ec979f-0f45-3bae-8725-9fd66576b979",
+        "Name": "hmc-rainier9-bmc"
+      },
+      "Model": "9105-22B",
+      "Serial": "13BE930",
+      "MachineType": "Power S1022s"
+    },
+    {
+      "Uuid": "b496525c-d44d-3bd0-8c42-3762bf2ef185.01551686-B60D-45DB-AB2C-F406CA0F1AD0",
+      "Name": "VIOS1637",
+      "SystemType": "vios",
+      "OSType": "vios",
+      "NeedUpdate": false,
+      "ParentSystem": {
+        "UUID": "b496525c-d44d-3bd0-8c42-3762bf2ef185",
+        "Name": "hmc-rainier11-bmc"
+      },
+      "Model": "9105-22A",
+      "Serial": "139F390",
+      "MachineType": "Power S1022"
+    },
+    {
+      "Uuid": "b496525c-d44d-3bd0-8c42-3762bf2ef185.3FA11A79-C9D9-4830-BFD1-B2ADF730BB73",
+      "Name": "VIOS152",
+      "SystemType": "vios",
+      "OSType": "vios",
+      "NeedUpdate": false,
+      "ParentSystem": {
+        "UUID": "b496525c-d44d-3bd0-8c42-3762bf2ef185",
+        "Name": "hmc-rainier11-bmc"
+      },
+      "Model": "9105-22A",
+      "Serial": "139F390",
+      "MachineType": "Power S1022"
+    },
+    {
+      "Uuid": "58ec979f-0f45-3bae-8725-9fd66576b979.0EE1FE72-1AF0-4793-B3AE-9E7881E90FB6",
+      "Name": "VIOS164",
+      "SystemType": "vios",
+      "OSType": "vios",
+      "NeedUpdate": false,
+      "ParentSystem": {
+        "UUID": "58ec979f-0f45-3bae-8725-9fd66576b979",
+        "Name": "hmc-rainier9-bmc"
+      },
+      "Model": "9105-22B",
+      "Serial": "13BE930",
+      "MachineType": "Power S1022s"
+    },
+    {
+      "Uuid": "58ec979f-0f45-3bae-8725-9fd66576b979.2D5A03A1-DFFB-40C9-B4C1-8FD61BB12243",
+      "Name": "VIOS1420",
+      "SystemType": "vios",
+      "OSType": "vios",
+      "NeedUpdate": false,
+      "ParentSystem": {
+        "UUID": "58ec979f-0f45-3bae-8725-9fd66576b979",
+        "Name": "hmc-rainier9-bmc"
+      },
+      "Model": "9105-22B",
+      "Serial": "13BE930",
+      "MachineType": "Power S1022s"
+    },
+    {
+      "Uuid": "e32ca52e-7cb9-3a4e-b937-58056978a1b1.0335E2E2-E26B-47B3-A0DD-C2E4E4FFD656",
+      "Name": "hmc-rainier10-vios1",
+      "SystemType": "vios",
+      "OSType": "vios",
+      "NeedUpdate": true,
+      "Current": "4.1.0.30",
+      "ParentSystem": {
+        "UUID": "e32ca52e-7cb9-3a4e-b937-58056978a1b1",
+        "Name": "hmc-rainier10-bmc"
+      },
+      "IpAddresses": ["10.48.20.139"],
+      "Model": "9105-22A",
+      "Serial": "139F1B0",
+      "MachineType": "Power S1022",
+      "Release": {
+        "Id": "vios.4.1.0.30",
+        "SystemType": "vios",
+        "OSType": "vios",
+        "Name": "Virtual I/O Server Service Release 4.1.0.30",
+        "Version": "4.1.0.30",
+        "Release": "2025.02.07",
+        "Eosps": "2026.11.30",
+        "Nextpack": "2025.09.30",
+        "Download": "http://www.ibm.com/support/fixcentral/vios/quickorder?fixids=VIOS_FP_4.1.0.30&function=fixId&includeRequisites=1&includeSupersedes=0&parent=Virtualization%20software&platform=All&product=ibm/vios/5765G34&release=All&source=flrt"
+      },
+      "LatestRelease": {
+        "Id": "vios.4.1.1.0",
+        "SystemType": "vios",
+        "OSType": "vios",
+        "Name": "Virtual I/O Server Service Release 4.1.1.0",
+        "Version": "4.1.1.0",
+        "Release": "2024.12.12",
+        "Eosps": "2027.12.31",
+        "Nextpack": "2025.07.18",
+        "Download": "http://www.ibm.com/support/fixcentral/vios/quickorder?fixids=VIOS_FP_4.1.1.0&function=fixId&includeRequisites=1&includeSupersedes=0&parent=Virtualization%20software&platform=All&product=ibm/vios/5765G34&release=All&source=flrt"
+      },
+      "RecommendedUpgrade": {
+        "Id": "vios.4.1.1.0",
+        "SystemType": "vios",
+        "OSType": "vios",
+        "Name": "Virtual I/O Server Service Release 4.1.1.0",
+        "Version": "4.1.1.0",
+        "Release": "2024.12.12",
+        "Eosps": "2027.12.31",
+        "Nextpack": "2025.07.18",
+        "Download": "http://www.ibm.com/support/fixcentral/vios/quickorder?fixids=VIOS_FP_4.1.1.0&function=fixId&includeRequisites=1&includeSupersedes=0&parent=Virtualization%20software&platform=All&product=ibm/vios/5765G34&release=All&source=flrt",
+        "RecommendedByIBM": true
+      },
+      "LatestUpgrade": {
+        "Id": "vios.4.1.1.0",
+        "SystemType": "vios",
+        "OSType": "vios",
+        "Name": "Virtual I/O Server Service Release 4.1.1.0",
+        "Version": "4.1.1.0",
+        "Release": "2024.12.12",
+        "Eosps": "2027.12.31",
+        "Nextpack": "2025.07.18",
+        "Download": "http://www.ibm.com/support/fixcentral/vios/quickorder?fixids=VIOS_FP_4.1.1.0&function=fixId&includeRequisites=1&includeSupersedes=0&parent=Virtualization%20software&platform=All&product=ibm/vios/5765G34&release=All&source=flrt"
+      }
+    },
+    {
+      "Uuid": "58ec979f-0f45-3bae-8725-9fd66576b979.4F9B753E-C6D6-4237-9536-780D794F8894",
+      "Name": "hmc-rainier9-vios1",
+      "SystemType": "vios",
+      "OSType": "vios",
+      "NeedUpdate": true,
+      "Current": "4.1.0.21",
+      "ParentSystem": {
+        "UUID": "58ec979f-0f45-3bae-8725-9fd66576b979",
+        "Name": "hmc-rainier9-bmc"
+      },
+      "IpAddresses": ["10.48.20.138"],
+      "Model": "9105-22B",
+      "Serial": "13BE930",
+      "MachineType": "Power S1022s",
+      "Release": {
+        "Id": "vios.4.1.0.21",
+        "SystemType": "vios",
+        "OSType": "vios",
+        "Name": "Virtual I/O Server Service Release 4.1.0.21",
+        "Version": "4.1.0.21",
+        "Release": "2024.06.07",
+        "Eosps": "2026.11.30",
+        "Download": "http://www.ibm.com/support/fixcentral/vios/quickorder?fixids=VIOS_FP_4.1.0.21&function=fixId&includeRequisites=1&includeSupersedes=0&parent=Virtualization%20software&platform=All&product=ibm/vios/5765G34&release=All&source=flrt",
+        "Notes": [
+          "\u003Ca href=\"https://www.ibm.com/support/pages/node/7172778\" \u003EThis HIPER bulletin\u003C/a\u003E is critical to review before installing this Fix Pack to avoid potential undetected data loss for VIOS hosting NPIV connections to Fibre Channel adapters with the Feature Codes EN1E/EN1F, EN1G/EN1H, EN1J/EN1K, EN2L/EN2M, and EN2N/EN2P."
+        ]
+      },
+      "LatestRelease": {
+        "Id": "vios.4.1.1.0",
+        "SystemType": "vios",
+        "OSType": "vios",
+        "Name": "Virtual I/O Server Service Release 4.1.1.0",
+        "Version": "4.1.1.0",
+        "Release": "2024.12.12",
+        "Eosps": "2027.12.31",
+        "Nextpack": "2025.07.18",
+        "Download": "http://www.ibm.com/support/fixcentral/vios/quickorder?fixids=VIOS_FP_4.1.1.0&function=fixId&includeRequisites=1&includeSupersedes=0&parent=Virtualization%20software&platform=All&product=ibm/vios/5765G34&release=All&source=flrt",
+        "Notes": [
+          "\u003Ca href=\"https://www.ibm.com/support/pages/node/7172778\" \u003EThis HIPER bulletin\u003C/a\u003E is critical to review before installing this Fix Pack to avoid potential undetected data loss for VIOS hosting NPIV connections to Fibre Channel adapters with the Feature Codes EN1E/EN1F, EN1G/EN1H, EN1J/EN1K, EN2L/EN2M, and EN2N/EN2P."
+        ]
+      },
+      "RecommendedUpgrade": {
+        "Id": "vios.4.1.1.0",
+        "SystemType": "vios",
+        "OSType": "vios",
+        "Name": "Virtual I/O Server Service Release 4.1.1.0",
+        "Version": "4.1.1.0",
+        "Release": "2024.12.12",
+        "Eosps": "2027.12.31",
+        "Nextpack": "2025.07.18",
+        "Download": "http://www.ibm.com/support/fixcentral/vios/quickorder?fixids=VIOS_FP_4.1.1.0&function=fixId&includeRequisites=1&includeSupersedes=0&parent=Virtualization%20software&platform=All&product=ibm/vios/5765G34&release=All&source=flrt",
+        "RecommendedByIBM": true
+      },
+      "LatestUpgrade": {
+        "Id": "vios.4.1.1.0",
+        "SystemType": "vios",
+        "OSType": "vios",
+        "Name": "Virtual I/O Server Service Release 4.1.1.0",
+        "Version": "4.1.1.0",
+        "Release": "2024.12.12",
+        "Eosps": "2027.12.31",
+        "Nextpack": "2025.07.18",
+        "Download": "http://www.ibm.com/support/fixcentral/vios/quickorder?fixids=VIOS_FP_4.1.1.0&function=fixId&includeRequisites=1&includeSupersedes=0&parent=Virtualization%20software&platform=All&product=ibm/vios/5765G34&release=All&source=flrt"
+      }
+    },
+    {
+      "Uuid": "58ec979f-0f45-3bae-8725-9fd66576b979.343D15E3-5739-4309-8DAD-FCAC78B34E25",
+      "Name": "VIOS1014",
+      "SystemType": "vios",
+      "OSType": "vios",
+      "NeedUpdate": false,
+      "ParentSystem": {
+        "UUID": "58ec979f-0f45-3bae-8725-9fd66576b979",
+        "Name": "hmc-rainier9-bmc"
+      },
+      "Model": "9105-22B",
+      "Serial": "13BE930",
+      "MachineType": "Power S1022s"
+    },
+    {
+      "Uuid": "b496525c-d44d-3bd0-8c42-3762bf2ef185.7474E00F-2EF3-4845-A0CB-AB638A083E55",
+      "Name": "hmc-rainier11-vios",
+      "SystemType": "vios",
+      "OSType": "vios",
+      "NeedUpdate": true,
+      "Current": "4.1.0.21",
+      "ParentSystem": {
+        "UUID": "b496525c-d44d-3bd0-8c42-3762bf2ef185",
+        "Name": "hmc-rainier11-bmc"
+      },
+      "IpAddresses": ["10.48.17.134"],
+      "Model": "9105-22A",
+      "Serial": "139F390",
+      "MachineType": "Power S1022",
+      "Release": {
+        "Id": "vios.4.1.0.21",
+        "SystemType": "vios",
+        "OSType": "vios",
+        "Name": "Virtual I/O Server Service Release 4.1.0.21",
+        "Version": "4.1.0.21",
+        "Release": "2024.06.07",
+        "Eosps": "2026.11.30",
+        "Download": "http://www.ibm.com/support/fixcentral/vios/quickorder?fixids=VIOS_FP_4.1.0.21&function=fixId&includeRequisites=1&includeSupersedes=0&parent=Virtualization%20software&platform=All&product=ibm/vios/5765G34&release=All&source=flrt",
+        "Notes": [
+          "\u003Ca href=\"https://www.ibm.com/support/pages/node/7172778\" \u003EThis HIPER bulletin\u003C/a\u003E is critical to review before installing this Fix Pack to avoid potential undetected data loss for VIOS hosting NPIV connections to Fibre Channel adapters with the Feature Codes EN1E/EN1F, EN1G/EN1H, EN1J/EN1K, EN2L/EN2M, and EN2N/EN2P."
+        ]
+      },
+      "LatestRelease": {
+        "Id": "vios.4.1.1.0",
+        "SystemType": "vios",
+        "OSType": "vios",
+        "Name": "Virtual I/O Server Service Release 4.1.1.0",
+        "Version": "4.1.1.0",
+        "Release": "2024.12.12",
+        "Eosps": "2027.12.31",
+        "Nextpack": "2025.07.18",
+        "Download": "http://www.ibm.com/support/fixcentral/vios/quickorder?fixids=VIOS_FP_4.1.1.0&function=fixId&includeRequisites=1&includeSupersedes=0&parent=Virtualization%20software&platform=All&product=ibm/vios/5765G34&release=All&source=flrt",
+        "Notes": [
+          "\u003Ca href=\"https://www.ibm.com/support/pages/node/7172778\" \u003EThis HIPER bulletin\u003C/a\u003E is critical to review before installing this Fix Pack to avoid potential undetected data loss for VIOS hosting NPIV connections to Fibre Channel adapters with the Feature Codes EN1E/EN1F, EN1G/EN1H, EN1J/EN1K, EN2L/EN2M, and EN2N/EN2P."
+        ]
+      },
+      "RecommendedUpgrade": {
+        "Id": "vios.4.1.1.0",
+        "SystemType": "vios",
+        "OSType": "vios",
+        "Name": "Virtual I/O Server Service Release 4.1.1.0",
+        "Version": "4.1.1.0",
+        "Release": "2024.12.12",
+        "Eosps": "2027.12.31",
+        "Nextpack": "2025.07.18",
+        "Download": "http://www.ibm.com/support/fixcentral/vios/quickorder?fixids=VIOS_FP_4.1.1.0&function=fixId&includeRequisites=1&includeSupersedes=0&parent=Virtualization%20software&platform=All&product=ibm/vios/5765G34&release=All&source=flrt",
+        "RecommendedByIBM": true
+      },
+      "LatestUpgrade": {
+        "Id": "vios.4.1.1.0",
+        "SystemType": "vios",
+        "OSType": "vios",
+        "Name": "Virtual I/O Server Service Release 4.1.1.0",
+        "Version": "4.1.1.0",
+        "Release": "2024.12.12",
+        "Eosps": "2027.12.31",
+        "Nextpack": "2025.07.18",
+        "Download": "http://www.ibm.com/support/fixcentral/vios/quickorder?fixids=VIOS_FP_4.1.1.0&function=fixId&includeRequisites=1&includeSupersedes=0&parent=Virtualization%20software&platform=All&product=ibm/vios/5765G34&release=All&source=flrt"
+      }
+    },
+    {
+      "Uuid": "58ec979f-0f45-3bae-8725-9fd66576b979.1020737E-61AE-40EF-9918-D6C4E4B76FD3",
+      "Name": "hmc-rainier9-vios2",
+      "SystemType": "vios",
+      "OSType": "vios",
+      "NeedUpdate": true,
+      "Current": "4.1.0.21",
+      "ParentSystem": {
+        "UUID": "58ec979f-0f45-3bae-8725-9fd66576b979",
+        "Name": "hmc-rainier9-bmc"
+      },
+      "IpAddresses": ["10.48.20.156"],
+      "Model": "9105-22B",
+      "Serial": "13BE930",
+      "MachineType": "Power S1022s",
+      "Release": {
+        "Id": "vios.4.1.0.21",
+        "SystemType": "vios",
+        "OSType": "vios",
+        "Name": "Virtual I/O Server Service Release 4.1.0.21",
+        "Version": "4.1.0.21",
+        "Release": "2024.06.07",
+        "Eosps": "2026.11.30",
+        "Download": "http://www.ibm.com/support/fixcentral/vios/quickorder?fixids=VIOS_FP_4.1.0.21&function=fixId&includeRequisites=1&includeSupersedes=0&parent=Virtualization%20software&platform=All&product=ibm/vios/5765G34&release=All&source=flrt",
+        "Notes": [
+          "\u003Ca href=\"https://www.ibm.com/support/pages/node/7172778\" \u003EThis HIPER bulletin\u003C/a\u003E is critical to review before installing this Fix Pack to avoid potential undetected data loss for VIOS hosting NPIV connections to Fibre Channel adapters with the Feature Codes EN1E/EN1F, EN1G/EN1H, EN1J/EN1K, EN2L/EN2M, and EN2N/EN2P."
+        ]
+      },
+      "LatestRelease": {
+        "Id": "vios.4.1.1.0",
+        "SystemType": "vios",
+        "OSType": "vios",
+        "Name": "Virtual I/O Server Service Release 4.1.1.0",
+        "Version": "4.1.1.0",
+        "Release": "2024.12.12",
+        "Eosps": "2027.12.31",
+        "Nextpack": "2025.07.18",
+        "Download": "http://www.ibm.com/support/fixcentral/vios/quickorder?fixids=VIOS_FP_4.1.1.0&function=fixId&includeRequisites=1&includeSupersedes=0&parent=Virtualization%20software&platform=All&product=ibm/vios/5765G34&release=All&source=flrt",
+        "Notes": [
+          "\u003Ca href=\"https://www.ibm.com/support/pages/node/7172778\" \u003EThis HIPER bulletin\u003C/a\u003E is critical to review before installing this Fix Pack to avoid potential undetected data loss for VIOS hosting NPIV connections to Fibre Channel adapters with the Feature Codes EN1E/EN1F, EN1G/EN1H, EN1J/EN1K, EN2L/EN2M, and EN2N/EN2P."
+        ]
+      },
+      "RecommendedUpgrade": {
+        "Id": "vios.4.1.1.0",
+        "SystemType": "vios",
+        "OSType": "vios",
+        "Name": "Virtual I/O Server Service Release 4.1.1.0",
+        "Version": "4.1.1.0",
+        "Release": "2024.12.12",
+        "Eosps": "2027.12.31",
+        "Nextpack": "2025.07.18",
+        "Download": "http://www.ibm.com/support/fixcentral/vios/quickorder?fixids=VIOS_FP_4.1.1.0&function=fixId&includeRequisites=1&includeSupersedes=0&parent=Virtualization%20software&platform=All&product=ibm/vios/5765G34&release=All&source=flrt",
+        "RecommendedByIBM": true
+      },
+      "LatestUpgrade": {
+        "Id": "vios.4.1.1.0",
+        "SystemType": "vios",
+        "OSType": "vios",
+        "Name": "Virtual I/O Server Service Release 4.1.1.0",
+        "Version": "4.1.1.0",
+        "Release": "2024.12.12",
+        "Eosps": "2027.12.31",
+        "Nextpack": "2025.07.18",
+        "Download": "http://www.ibm.com/support/fixcentral/vios/quickorder?fixids=VIOS_FP_4.1.1.0&function=fixId&includeRequisites=1&includeSupersedes=0&parent=Virtualization%20software&platform=All&product=ibm/vios/5765G34&release=All&source=flrt"
+      }
+    },
+    {
+      "Uuid": "58ec979f-0f45-3bae-8725-9fd66576b979.44669EBA-2E6F-4849-93CA-3DFF6E9255D6",
+      "Name": "VIOS628testVIOS",
+      "SystemType": "vios",
+      "OSType": "vios",
+      "NeedUpdate": false,
+      "ParentSystem": {
+        "UUID": "58ec979f-0f45-3bae-8725-9fd66576b979",
+        "Name": "hmc-rainier9-bmc"
+      },
+      "Model": "9105-22B",
+      "Serial": "13BE930",
+      "MachineType": "Power S1022s"
+    },
+    {
+      "Uuid": "b496525c-d44d-3bd0-8c42-3762bf2ef185.68F9CD0F-2C5D-41D1-9788-B9F2B681F69C",
+      "Name": "hmc-rainier11-vios1",
+      "SystemType": "vios",
+      "OSType": "vios",
+      "NeedUpdate": false,
+      "ParentSystem": {
+        "UUID": "b496525c-d44d-3bd0-8c42-3762bf2ef185",
+        "Name": "hmc-rainier11-bmc"
+      },
+      "Model": "9105-22A",
+      "Serial": "139F390",
+      "MachineType": "Power S1022"
+    },
+    {
+      "Uuid": "e32ca52e-7cb9-3a4e-b937-58056978a1b1.618EBDC5-C79C-4093-9FC6-79BD1FB45716",
+      "Name": "hmc-rainier10-vios2",
+      "SystemType": "vios",
+      "OSType": "vios",
+      "NeedUpdate": true,
+      "Current": "4.1.0.30",
+      "ParentSystem": {
+        "UUID": "e32ca52e-7cb9-3a4e-b937-58056978a1b1",
+        "Name": "hmc-rainier10-bmc"
+      },
+      "IpAddresses": ["10.48.20.158"],
+      "Model": "9105-22A",
+      "Serial": "139F1B0",
+      "MachineType": "Power S1022",
+      "Release": {
+        "Id": "vios.4.1.0.30",
+        "SystemType": "vios",
+        "OSType": "vios",
+        "Name": "Virtual I/O Server Service Release 4.1.0.30",
+        "Version": "4.1.0.30",
+        "Release": "2025.02.07",
+        "Eosps": "2026.11.30",
+        "Nextpack": "2025.09.30",
+        "Download": "http://www.ibm.com/support/fixcentral/vios/quickorder?fixids=VIOS_FP_4.1.0.30&function=fixId&includeRequisites=1&includeSupersedes=0&parent=Virtualization%20software&platform=All&product=ibm/vios/5765G34&release=All&source=flrt"
+      },
+      "LatestRelease": {
+        "Id": "vios.4.1.1.0",
+        "SystemType": "vios",
+        "OSType": "vios",
+        "Name": "Virtual I/O Server Service Release 4.1.1.0",
+        "Version": "4.1.1.0",
+        "Release": "2024.12.12",
+        "Eosps": "2027.12.31",
+        "Nextpack": "2025.07.18",
+        "Download": "http://www.ibm.com/support/fixcentral/vios/quickorder?fixids=VIOS_FP_4.1.1.0&function=fixId&includeRequisites=1&includeSupersedes=0&parent=Virtualization%20software&platform=All&product=ibm/vios/5765G34&release=All&source=flrt"
+      },
+      "RecommendedUpgrade": {
+        "Id": "vios.4.1.1.0",
+        "SystemType": "vios",
+        "OSType": "vios",
+        "Name": "Virtual I/O Server Service Release 4.1.1.0",
+        "Version": "4.1.1.0",
+        "Release": "2024.12.12",
+        "Eosps": "2027.12.31",
+        "Nextpack": "2025.07.18",
+        "Download": "http://www.ibm.com/support/fixcentral/vios/quickorder?fixids=VIOS_FP_4.1.1.0&function=fixId&includeRequisites=1&includeSupersedes=0&parent=Virtualization%20software&platform=All&product=ibm/vios/5765G34&release=All&source=flrt",
+        "RecommendedByIBM": true
+      },
+      "LatestUpgrade": {
+        "Id": "vios.4.1.1.0",
+        "SystemType": "vios",
+        "OSType": "vios",
+        "Name": "Virtual I/O Server Service Release 4.1.1.0",
+        "Version": "4.1.1.0",
+        "Release": "2024.12.12",
+        "Eosps": "2027.12.31",
+        "Nextpack": "2025.07.18",
+        "Download": "http://www.ibm.com/support/fixcentral/vios/quickorder?fixids=VIOS_FP_4.1.1.0&function=fixId&includeRequisites=1&includeSupersedes=0&parent=Virtualization%20software&platform=All&product=ibm/vios/5765G34&release=All&source=flrt"
+      }
+    },
+    {
+      "Uuid": "e32ca52e-7cb9-3a4e-b937-58056978a1b1.060F241C-350C-493B-861A-CFF8849553E9",
+      "Name": "Partition-202502241031-729",
+      "location": "On-Prem",
+      "NeedUpdate": false,
+      "ParentSystem": {
+        "UUID": "e32ca52e-7cb9-3a4e-b937-58056978a1b1",
+        "Name": "hmc-rainier10-bmc"
+      },
+      "SystemType": "aix",
+      "OSType": "aix",
+      "Model": "9105-22A",
+      "Serial": "139F1B0",
+      "MachineType": "Power S1022"
+    },
+    {
+      "Uuid": "e32ca52e-7cb9-3a4e-b937-58056978a1b1.3B8DBA7D-C297-4C18-A2E9-F22B8EDF6E2D",
+      "Name": "testprocperf",
+      "location": "On-Prem",
+      "NeedUpdate": false,
+      "ParentSystem": {
+        "UUID": "e32ca52e-7cb9-3a4e-b937-58056978a1b1",
+        "Name": "hmc-rainier10-bmc"
+      },
+      "SystemType": "aix",
+      "OSType": "aix",
+      "Model": "9105-22A",
+      "Serial": "139F1B0",
+      "MachineType": "Power S1022"
+    },
+    {
+      "Uuid": "58ec979f-0f45-3bae-8725-9fd66576b979.10272DB6-CE09-4983-893B-AC2A0AA82ED9",
+      "Name": "Partition-202503250635-947",
+      "location": "On-Prem",
+      "NeedUpdate": false,
+      "ParentSystem": {
+        "UUID": "58ec979f-0f45-3bae-8725-9fd66576b979",
+        "Name": "hmc-rainier9-bmc"
+      },
+      "SystemType": "aix",
+      "OSType": "aix",
+      "Model": "9105-22B",
+      "Serial": "13BE930",
+      "MachineType": "Power S1022s"
+    },
+    {
+      "Uuid": "e32ca52e-7cb9-3a4e-b937-58056978a1b1.5345DA73-710B-449C-83F2-1EC9F3016225",
+      "Name": "Partition,new_34",
+      "location": "On-Prem",
+      "NeedUpdate": false,
+      "ParentSystem": {
+        "UUID": "e32ca52e-7cb9-3a4e-b937-58056978a1b1",
+        "Name": "hmc-rainier10-bmc"
+      },
+      "SystemType": "aix",
+      "OSType": "aix",
+      "Model": "9105-22A",
+      "Serial": "139F1B0",
+      "MachineType": "Power S1022"
+    },
+    {
+      "Uuid": "e32ca52e-7cb9-3a4e-b937-58056978a1b1.7D867B25-E784-49F9-AD67-30C9B5B106A0",
+      "Name": "hmc-rainier10-bmc-aix1",
+      "location": "On-Prem",
+      "NeedUpdate": false,
+      "ParentSystem": {
+        "UUID": "e32ca52e-7cb9-3a4e-b937-58056978a1b1",
+        "Name": "hmc-rainier10-bmc"
+      },
+      "SystemType": "aix",
+      "OSType": "aix",
+      "Current": "7300-03-01-2520",
+      "IpAddresses": ["10.48.20.165"],
+      "Model": "9105-22A",
+      "Serial": "139F1B0",
+      "MachineType": "Power S1022",
+      "FLRTError": "Unknown version: 7300-03-01-2520"
+    },
+    {
+      "Uuid": "b496525c-d44d-3bd0-8c42-3762bf2ef185.3C5E3ED2-C6BD-42F9-B19D-67E719B8FBC6",
+      "Name": "asyncflowtest",
+      "location": "On-Prem",
+      "NeedUpdate": false,
+      "ParentSystem": {
+        "UUID": "b496525c-d44d-3bd0-8c42-3762bf2ef185",
+        "Name": "hmc-rainier11-bmc"
+      },
+      "SystemType": "aix",
+      "OSType": "aix",
+      "Model": "9105-22A",
+      "Serial": "139F390",
+      "MachineType": "Power S1022"
+    },
+    {
+      "Uuid": "e32ca52e-7cb9-3a4e-b937-58056978a1b1.6DED2DF3-B39A-4EA5-8381-668D1BDC9904",
+      "Name": "test_2",
+      "location": "On-Prem",
+      "NeedUpdate": false,
+      "ParentSystem": {
+        "UUID": "e32ca52e-7cb9-3a4e-b937-58056978a1b1",
+        "Name": "hmc-rainier10-bmc"
+      },
+      "SystemType": "aix",
+      "OSType": "aix",
+      "Model": "9105-22A",
+      "Serial": "139F1B0",
+      "MachineType": "Power S1022"
+    },
+    {
+      "Uuid": "e32ca52e-7cb9-3a4e-b937-58056978a1b1.08BF0C31-8308-4A3E-9EA6-5E1712288902",
+      "Name": "Test  Partition,new23",
+      "location": "On-Prem",
+      "NeedUpdate": false,
+      "ParentSystem": {
+        "UUID": "e32ca52e-7cb9-3a4e-b937-58056978a1b1",
+        "Name": "hmc-rainier10-bmc"
+      },
+      "SystemType": "aix",
+      "OSType": "aix",
+      "Model": "9105-22A",
+      "Serial": "139F1B0",
+      "MachineType": "Power S1022"
+    },
+    {
+      "Uuid": "e32ca52e-7cb9-3a4e-b937-58056978a1b1.5F790B64-CC65-49A5-B23B-630A298F10CE",
+      "Name": "test_4",
+      "location": "On-Prem",
+      "NeedUpdate": false,
+      "ParentSystem": {
+        "UUID": "e32ca52e-7cb9-3a4e-b937-58056978a1b1",
+        "Name": "hmc-rainier10-bmc"
+      },
+      "SystemType": "aix",
+      "OSType": "aix",
+      "Model": "9105-22A",
+      "Serial": "139F1B0",
+      "MachineType": "Power S1022"
+    },
+    {
+      "Uuid": "e32ca52e-7cb9-3a4e-b937-58056978a1b1.1E8AB821-BD43-4F39-B5B5-570B8BBC73F1",
+      "Name": "Partition-202503262121-121",
+      "location": "On-Prem",
+      "NeedUpdate": false,
+      "ParentSystem": {
+        "UUID": "e32ca52e-7cb9-3a4e-b937-58056978a1b1",
+        "Name": "hmc-rainier10-bmc"
+      },
+      "SystemType": "aix",
+      "OSType": "aix",
+      "Model": "9105-22A",
+      "Serial": "139F1B0",
+      "MachineType": "Power S1022"
+    },
+    {
+      "Uuid": "e32ca52e-7cb9-3a4e-b937-58056978a1b1.1E4FDA4A-C84F-4B02-BE8A-81A670B56605",
+      "Name": "Partition-202502201410-317_1",
+      "location": "On-Prem",
+      "NeedUpdate": false,
+      "ParentSystem": {
+        "UUID": "e32ca52e-7cb9-3a4e-b937-58056978a1b1",
+        "Name": "hmc-rainier10-bmc"
+      },
+      "SystemType": "aix",
+      "OSType": "aix",
+      "Model": "9105-22A",
+      "Serial": "139F1B0",
+      "MachineType": "Power S1022"
+    },
+    {
+      "Uuid": "e32ca52e-7cb9-3a4e-b937-58056978a1b1.3C2A50C4-41D1-4718-9AF3-F2C51C9F071B",
+      "Name": "test_3",
+      "location": "On-Prem",
+      "NeedUpdate": false,
+      "ParentSystem": {
+        "UUID": "e32ca52e-7cb9-3a4e-b937-58056978a1b1",
+        "Name": "hmc-rainier10-bmc"
+      },
+      "SystemType": "aix",
+      "OSType": "aix",
+      "Model": "9105-22A",
+      "Serial": "139F1B0",
+      "MachineType": "Power S1022"
+    },
+    {
+      "Uuid": "e32ca52e-7cb9-3a4e-b937-58056978a1b1.6AD92ADA-3EAC-453D-A9AD-B3726AA1AD23",
+      "Name": "TESTLpar",
+      "location": "On-Prem",
+      "NeedUpdate": false,
+      "ParentSystem": {
+        "UUID": "e32ca52e-7cb9-3a4e-b937-58056978a1b1",
+        "Name": "hmc-rainier10-bmc"
+      },
+      "SystemType": "aix",
+      "OSType": "aix",
+      "Model": "9105-22A",
+      "Serial": "139F1B0",
+      "MachineType": "Power S1022"
+    },
+    {
+      "Uuid": "e32ca52e-7cb9-3a4e-b937-58056978a1b1",
+      "Name": "hmc-rainier10-bmc",
+      "NeedUpdate": false,
+      "SystemType": "fw",
+      "OSType": "fw",
+      "Model": "9105-22A",
+      "Serial": "139F1B0",
+      "MachineType": "Power S1022",
+      "Current": "ML1050_052",
+      "IpAddresses": ["10.48.20.32"],
+      "Lpars": [
+        "e32ca52e-7cb9-3a4e-b937-58056978a1b1.0335E2E2-E26B-47B3-A0DD-C2E4E4FFD656",
+        "e32ca52e-7cb9-3a4e-b937-58056978a1b1.618EBDC5-C79C-4093-9FC6-79BD1FB45716",
+        "e32ca52e-7cb9-3a4e-b937-58056978a1b1.060F241C-350C-493B-861A-CFF8849553E9",
+        "e32ca52e-7cb9-3a4e-b937-58056978a1b1.3B8DBA7D-C297-4C18-A2E9-F22B8EDF6E2D",
+        "e32ca52e-7cb9-3a4e-b937-58056978a1b1.5345DA73-710B-449C-83F2-1EC9F3016225",
+        "e32ca52e-7cb9-3a4e-b937-58056978a1b1.7D867B25-E784-49F9-AD67-30C9B5B106A0",
+        "e32ca52e-7cb9-3a4e-b937-58056978a1b1.6DED2DF3-B39A-4EA5-8381-668D1BDC9904",
+        "e32ca52e-7cb9-3a4e-b937-58056978a1b1.08BF0C31-8308-4A3E-9EA6-5E1712288902",
+        "e32ca52e-7cb9-3a4e-b937-58056978a1b1.5F790B64-CC65-49A5-B23B-630A298F10CE",
+        "e32ca52e-7cb9-3a4e-b937-58056978a1b1.1E8AB821-BD43-4F39-B5B5-570B8BBC73F1",
+        "e32ca52e-7cb9-3a4e-b937-58056978a1b1.1E4FDA4A-C84F-4B02-BE8A-81A670B56605",
+        "e32ca52e-7cb9-3a4e-b937-58056978a1b1.3C2A50C4-41D1-4718-9AF3-F2C51C9F071B",
+        "e32ca52e-7cb9-3a4e-b937-58056978a1b1.6AD92ADA-3EAC-453D-A9AD-B3726AA1AD23"
+      ],
+      "ipAndNameMap": {},
+      "idAndNameMap": {},
+      "ipAndUUIDMap": {},
+      "idAndUUIDMap": {},
+      "Hmc": "2cac0ab1-68bb-35ee-b0a0-da49aafbae10",
+      "Release": {
+        "Id": "ML1050_052",
+        "SystemType": "fw",
+        "OSType": "fw",
+        "Name": "System Firmware VL950_0ML1050_052",
+        "Version": "ML1050_052",
+        "Release": "2021.06.08",
+        "Eosps": "2025.11.30",
+        "Download": ""
+      },
+      "LatestRelease": {
+        "Id": "ML1060_107",
+        "SystemType": "fw",
+        "OSType": "fw",
+        "Name": "System Firmware ML1060_107",
+        "Version": "ML1060_107",
+        "Release": "2024.12.19",
+        "Eosps": "2025.11.20",
+        "Download": ""
+      },
+      "RecommendedUpdate": {
+        "Id": "ML1050_088",
+        "SystemType": "fw",
+        "OSType": "fw",
+        "Name": "System Firmware ML1050_088",
+        "Version": "ML1050_088",
+        "Release": "2024.12.19",
+        "Eosps": "2025.11.30",
+        "Download": "",
+        "RecommendedByIBM": true
+      },
+      "LatestUpdate": {
+        "Id": "ML1060_107",
+        "SystemType": "fw",
+        "OSType": "fw",
+        "Name": "System Firmware ML1060_107",
+        "Version": "ML1060_107",
+        "Release": "2024.12.19",
+        "Eosps": "2025.11.30",
+        "Download": ""
+      },
+      "Microcode": [
+        {
+          "SystemType": "microcode",
+          "ids": ["ent0", "ent1", "ent2", "ent3"],
+          "latest": "10240310",
+          "installed": "10240180",
+          "pkgName": "4-Port Gigabit Ethernet PCI-Express Adapter",
+          "ipAddr": "",
+          "name": "",
+          "parId": "001",
+          "NeedUpdate": true,
+          "model": "9105-22A",
+          "serial": "139F1B0",
+          "partInternalName": "1*9105-22A*139F1B0",
+          "download": "http://www.ibm.com/support/fixcentral/quickorder?product=ibm/io&release=all&platform=all&function=fixId&includeSupersedes=0&source=fc&fixids=764042582_20190613104824_GRP",
+          "description": "4-Port Gigabit Ethernet PCI-Express Adapter",
+          "reldate": "2019.06.20",
+          "UserDefName": "hmc-rainier10-vios1",
+          "Uuid": "e32ca52e-7cb9-3a4e-b937-58056978a1b1.0335E2E2-E26B-47B3-A0DD-C2E4E4FFD656*ent0"
+        },
+        {
+          "SystemType": "microcode",
+          "ids": ["fcs0", "fcs1"],
+          "latest": "00012000040025700030",
+          "installed": "00001000010005800004",
+          "pkgName": "PCIe2 2-Port 16Gb FC Adapter",
+          "ipAddr": "",
+          "name": "",
+          "parId": "001",
+          "NeedUpdate": true,
+          "model": "9105-22A",
+          "serial": "139F1B0",
+          "partInternalName": "1*9105-22A*139F1B0",
+          "download": "http://www.ibm.com/support/fixcentral/quickorder?product=ibm/io&release=all&platform=all&function=fixId&includeSupersedes=0&source=fc&fixids=1050999087_20210208113815_GRP",
+          "description": "PCIe2 2-Port 16Gb FC Adapter",
+          "reldate": "2021.03.18",
+          "UserDefName": "hmc-rainier10-vios1",
+          "Uuid": "e32ca52e-7cb9-3a4e-b937-58056978a1b1.0335E2E2-E26B-47B3-A0DD-C2E4E4FFD656*fcs0"
+        },
+        {
+          "SystemType": "microcode",
+          "ids": ["nvme0"],
+          "latest": "534e3443",
+          "installed": "534e3433",
+          "pkgName": "PM1735 U.2 NVMe Gen4 1600/3200/6400 GB",
+          "ipAddr": "",
+          "name": "",
+          "parId": "001",
+          "NeedUpdate": true,
+          "model": "9105-22A",
+          "serial": "139F1B0",
+          "partInternalName": "1*9105-22A*139F1B0",
+          "download": "http://www.ibm.com/support/fixcentral/quickorder?product=ibm/io&release=all&platform=all&function=fixId&includeSupersedes=0&source=fc&fixids=551539326_20230210084658_GRP",
+          "description": "PM1735 U.2 NVMe Gen4 1600/3200/6400 GB",
+          "reldate": "2023.02.10",
+          "UserDefName": "hmc-rainier10-vios1",
+          "Uuid": "e32ca52e-7cb9-3a4e-b937-58056978a1b1.0335E2E2-E26B-47B3-A0DD-C2E4E4FFD656*nvme0"
+        },
+        {
+          "SystemType": "microcode",
+          "ids": ["ent0", "ent1", "ent2", "ent3"],
+          "latest": "10240310",
+          "installed": "10240180",
+          "pkgName": "4-Port Gigabit Ethernet PCI-Express Adapter",
+          "ipAddr": "",
+          "name": "",
+          "parId": "007",
+          "NeedUpdate": true,
+          "model": "9105-22A",
+          "serial": "139F1B0",
+          "partInternalName": "7*9105-22A*139F1B0",
+          "download": "http://www.ibm.com/support/fixcentral/quickorder?product=ibm/io&release=all&platform=all&function=fixId&includeSupersedes=0&source=fc&fixids=764042582_20190613104824_GRP",
+          "description": "4-Port Gigabit Ethernet PCI-Express Adapter",
+          "reldate": "2019.06.20",
+          "UserDefName": "hmc-rainier10-vios2",
+          "Uuid": "e32ca52e-7cb9-3a4e-b937-58056978a1b1.618EBDC5-C79C-4093-9FC6-79BD1FB45716*ent0"
+        },
+        {
+          "SystemType": "microcode",
+          "ids": ["fcs0", "fcs1", "fcs2", "fcs3"],
+          "latest": "00014000020062400010",
+          "installed": "00011000040041500005",
+          "pkgName": "PCIe3 4-Port 16Gb FC Adapter",
+          "ipAddr": "",
+          "name": "",
+          "parId": "007",
+          "NeedUpdate": true,
+          "model": "9105-22A",
+          "serial": "139F1B0",
+          "partInternalName": "7*9105-22A*139F1B0",
+          "download": "http://www.ibm.com/support/fixcentral/quickorder?product=ibm/io&release=all&platform=all&function=fixId&includeSupersedes=0&source=fc&fixids=EN1C-EN1D_14.2.624.10_20240729_AIX",
+          "description": "PCIe3 4-Port 16Gb FC Adapter",
+          "reldate": "2024.07.29",
+          "UserDefName": "hmc-rainier10-vios2",
+          "Uuid": "e32ca52e-7cb9-3a4e-b937-58056978a1b1.618EBDC5-C79C-4093-9FC6-79BD1FB45716*fcs0"
+        },
+        {
+          "SystemType": "microcode",
+          "ids": ["nvme0"],
+          "latest": "534e3443",
+          "installed": "534e3435",
+          "pkgName": "PM1735 U.2 NVMe Gen4 1600/3200/6400 GB",
+          "ipAddr": "",
+          "name": "",
+          "parId": "007",
+          "NeedUpdate": true,
+          "model": "9105-22A",
+          "serial": "139F1B0",
+          "partInternalName": "7*9105-22A*139F1B0",
+          "download": "http://www.ibm.com/support/fixcentral/quickorder?product=ibm/io&release=all&platform=all&function=fixId&includeSupersedes=0&source=fc&fixids=551539326_20230210084658_GRP",
+          "description": "PM1735 U.2 NVMe Gen4 1600/3200/6400 GB",
+          "reldate": "2023.02.10",
+          "UserDefName": "hmc-rainier10-vios2",
+          "Uuid": "e32ca52e-7cb9-3a4e-b937-58056978a1b1.618EBDC5-C79C-4093-9FC6-79BD1FB45716*nvme0"
+        }
+      ]
+    },
+    {
+      "Uuid": "58ec979f-0f45-3bae-8725-9fd66576b979",
+      "Name": "hmc-rainier9-bmc",
+      "NeedUpdate": false,
+      "SystemType": "fw",
+      "OSType": "fw",
+      "Model": "9105-22B",
+      "Serial": "13BE930",
+      "MachineType": "Power S1022s",
+      "Current": "ML1050_052",
+      "IpAddresses": ["10.48.20.30"],
+      "Lpars": [
+        "58ec979f-0f45-3bae-8725-9fd66576b979.440D6D57-8C63-4AB3-8247-ED018871DD73",
+        "58ec979f-0f45-3bae-8725-9fd66576b979.0EE1FE72-1AF0-4793-B3AE-9E7881E90FB6",
+        "58ec979f-0f45-3bae-8725-9fd66576b979.2D5A03A1-DFFB-40C9-B4C1-8FD61BB12243",
+        "58ec979f-0f45-3bae-8725-9fd66576b979.4F9B753E-C6D6-4237-9536-780D794F8894",
+        "58ec979f-0f45-3bae-8725-9fd66576b979.343D15E3-5739-4309-8DAD-FCAC78B34E25",
+        "58ec979f-0f45-3bae-8725-9fd66576b979.1020737E-61AE-40EF-9918-D6C4E4B76FD3",
+        "58ec979f-0f45-3bae-8725-9fd66576b979.44669EBA-2E6F-4849-93CA-3DFF6E9255D6",
+        "58ec979f-0f45-3bae-8725-9fd66576b979.10272DB6-CE09-4983-893B-AC2A0AA82ED9"
+      ],
+      "ipAndNameMap": {},
+      "idAndNameMap": {},
+      "ipAndUUIDMap": {},
+      "idAndUUIDMap": {},
+      "Hmc": "2cac0ab1-68bb-35ee-b0a0-da49aafbae10",
+      "Release": {
+        "Id": "ML1050_052",
+        "SystemType": "fw",
+        "OSType": "fw",
+        "Name": "System Firmware VL950_0ML1050_052",
+        "Version": "ML1050_052",
+        "Release": "2021.06.08",
+        "Eosps": "2025.11.30",
+        "Download": ""
+      },
+      "LatestRelease": {
+        "Id": "ML1060_107",
+        "SystemType": "fw",
+        "OSType": "fw",
+        "Name": "System Firmware ML1060_107",
+        "Version": "ML1060_107",
+        "Release": "2024.12.19",
+        "Eosps": "2025.11.20",
+        "Download": ""
+      },
+      "RecommendedUpdate": {
+        "Id": "ML1050_088",
+        "SystemType": "fw",
+        "OSType": "fw",
+        "Name": "System Firmware ML1050_088",
+        "Version": "ML1050_088",
+        "Release": "2024.12.19",
+        "Eosps": "2025.11.30",
+        "Download": "",
+        "RecommendedByIBM": true
+      },
+      "LatestUpdate": {
+        "Id": "ML1060_107",
+        "SystemType": "fw",
+        "OSType": "fw",
+        "Name": "System Firmware ML1060_107",
+        "Version": "ML1060_107",
+        "Release": "2024.12.19",
+        "Eosps": "2025.11.30",
+        "Download": ""
+      },
+      "Microcode": [
+        {
+          "SystemType": "microcode",
+          "ids": ["ent0", "ent1", "ent2", "ent3"],
+          "latest": "10240310",
+          "installed": "10240180",
+          "pkgName": "4-Port Gigabit Ethernet PCI-Express Adapter",
+          "ipAddr": "",
+          "name": "",
+          "parId": "003",
+          "NeedUpdate": true,
+          "model": "9105-22B",
+          "serial": "13BE930",
+          "partInternalName": "3*9105-22B*13BE930",
+          "download": "http://www.ibm.com/support/fixcentral/quickorder?product=ibm/io&release=all&platform=all&function=fixId&includeSupersedes=0&source=fc&fixids=764042582_20190613104824_GRP",
+          "description": "4-Port Gigabit Ethernet PCI-Express Adapter",
+          "reldate": "2019.06.20",
+          "UserDefName": "hmc-rainier9-vios1",
+          "Uuid": "58ec979f-0f45-3bae-8725-9fd66576b979.4F9B753E-C6D6-4237-9536-780D794F8894*ent0"
+        },
+        {
+          "SystemType": "microcode",
+          "ids": ["fcs0", "fcs1"],
+          "latest": "00012000040025700030",
+          "installed": "00011000040041500010",
+          "pkgName": "PCIe2 2-Port 16Gb FC Adapter",
+          "ipAddr": "",
+          "name": "",
+          "parId": "003",
+          "NeedUpdate": true,
+          "model": "9105-22B",
+          "serial": "13BE930",
+          "partInternalName": "3*9105-22B*13BE930",
+          "download": "http://www.ibm.com/support/fixcentral/quickorder?product=ibm/io&release=all&platform=all&function=fixId&includeSupersedes=0&source=fc&fixids=1050999087_20210208113815_GRP",
+          "description": "PCIe2 2-Port 16Gb FC Adapter",
+          "reldate": "2021.03.18",
+          "UserDefName": "hmc-rainier9-vios1",
+          "Uuid": "58ec979f-0f45-3bae-8725-9fd66576b979.4F9B753E-C6D6-4237-9536-780D794F8894*fcs0"
+        },
+        {
+          "SystemType": "microcode",
+          "ids": ["nvme0"],
+          "latest": "534e3443",
+          "installed": "534e3433",
+          "pkgName": "PM1735 U.2 NVMe Gen4 1600/3200/6400 GB",
+          "ipAddr": "",
+          "name": "",
+          "parId": "003",
+          "NeedUpdate": true,
+          "model": "9105-22B",
+          "serial": "13BE930",
+          "partInternalName": "3*9105-22B*13BE930",
+          "download": "http://www.ibm.com/support/fixcentral/quickorder?product=ibm/io&release=all&platform=all&function=fixId&includeSupersedes=0&source=fc&fixids=551539326_20230210084658_GRP",
+          "description": "PM1735 U.2 NVMe Gen4 1600/3200/6400 GB",
+          "reldate": "2023.02.10",
+          "UserDefName": "hmc-rainier9-vios1",
+          "Uuid": "58ec979f-0f45-3bae-8725-9fd66576b979.4F9B753E-C6D6-4237-9536-780D794F8894*nvme0"
+        },
+        {
+          "SystemType": "microcode",
+          "ids": ["ent0", "ent1"],
+          "latest": "020123",
+          "installed": "010516",
+          "pkgName": "10 Gb FCoE PCIe Dual Port Adapter",
+          "ipAddr": "",
+          "name": "",
+          "parId": "018",
+          "NeedUpdate": true,
+          "model": "9105-22B",
+          "serial": "13BE930",
+          "partInternalName": "18*9105-22B*13BE930",
+          "download": "http://www.ibm.com/support/fixcentral/quickorder?product=ibm/io&release=all&platform=all&function=fixId&includeSupersedes=0&source=fc&fixids=854010233_20181114082504_GRP",
+          "description": "10 Gb FCoE PCIe Dual Port Adapter",
+          "reldate": "2018.11.14",
+          "UserDefName": "hmc-rainier9-vios2",
+          "Uuid": "58ec979f-0f45-3bae-8725-9fd66576b979.1020737E-61AE-40EF-9918-D6C4E4B76FD3*ent0"
+        },
+        {
+          "SystemType": "microcode",
+          "ids": ["ent2", "ent3", "ent4", "ent5"],
+          "latest": "00011000040041500033",
+          "installed": "00011000040041500036",
+          "pkgName": "PCIe2 10Gb 4-Port FCoE Adapter",
+          "ipAddr": "",
+          "name": "",
+          "parId": "018",
+          "NeedUpdate": false,
+          "model": "9105-22B",
+          "serial": "13BE930",
+          "partInternalName": "18*9105-22B*13BE930",
+          "download": "http://www.ibm.com/support/fixcentral/quickorder?product=ibm/io&release=all&platform=all&function=fixId&includeSupersedes=0&source=fc&fixids=1301832996_20201020003319_GRP",
+          "description": "PCIe2 10Gb 4-Port FCoE Adapter",
+          "reldate": "2020.10.27",
+          "UserDefName": "hmc-rainier9-vios2",
+          "Uuid": "58ec979f-0f45-3bae-8725-9fd66576b979.1020737E-61AE-40EF-9918-D6C4E4B76FD3*ent2"
+        },
+        {
+          "SystemType": "microcode",
+          "ids": ["fcs0", "fcs1"],
+          "latest": "020123",
+          "installed": "010516",
+          "pkgName": "10 Gb FCoE PCIe Dual Port Adapter",
+          "ipAddr": "",
+          "name": "",
+          "parId": "018",
+          "NeedUpdate": true,
+          "model": "9105-22B",
+          "serial": "13BE930",
+          "partInternalName": "18*9105-22B*13BE930",
+          "download": "http://www.ibm.com/support/fixcentral/quickorder?product=ibm/io&release=all&platform=all&function=fixId&includeSupersedes=0&source=fc&fixids=854010233_20181114082504_GRP",
+          "description": "10 Gb FCoE PCIe Dual Port Adapter",
+          "reldate": "2018.11.14",
+          "UserDefName": "hmc-rainier9-vios2",
+          "Uuid": "58ec979f-0f45-3bae-8725-9fd66576b979.1020737E-61AE-40EF-9918-D6C4E4B76FD3*fcs0"
+        },
+        {
+          "SystemType": "microcode",
+          "ids": ["fcs2", "fcs3"],
+          "latest": "00011000040041500033",
+          "installed": "00011000040041500036",
+          "pkgName": "PCIe2 10Gb 4-Port FCoE Adapter",
+          "ipAddr": "",
+          "name": "",
+          "parId": "018",
+          "NeedUpdate": false,
+          "model": "9105-22B",
+          "serial": "13BE930",
+          "partInternalName": "18*9105-22B*13BE930",
+          "download": "http://www.ibm.com/support/fixcentral/quickorder?product=ibm/io&release=all&platform=all&function=fixId&includeSupersedes=0&source=fc&fixids=1301832996_20201020003319_GRP",
+          "description": "PCIe2 10Gb 4-Port FCoE Adapter",
+          "reldate": "2020.10.27",
+          "UserDefName": "hmc-rainier9-vios2",
+          "Uuid": "58ec979f-0f45-3bae-8725-9fd66576b979.1020737E-61AE-40EF-9918-D6C4E4B76FD3*fcs2"
+        },
+        {
+          "SystemType": "microcode",
+          "ids": ["fcs4", "fcs5"],
+          "latest": "00012000040025700030",
+          "installed": "00010000020025200016",
+          "pkgName": "PCIe2 2-Port 16Gb FC Adapter",
+          "ipAddr": "",
+          "name": "",
+          "parId": "018",
+          "NeedUpdate": true,
+          "model": "9105-22B",
+          "serial": "13BE930",
+          "partInternalName": "18*9105-22B*13BE930",
+          "download": "http://www.ibm.com/support/fixcentral/quickorder?product=ibm/io&release=all&platform=all&function=fixId&includeSupersedes=0&source=fc&fixids=1050999087_20210208113815_GRP",
+          "description": "PCIe2 2-Port 16Gb FC Adapter",
+          "reldate": "2021.03.18",
+          "UserDefName": "hmc-rainier9-vios2",
+          "Uuid": "58ec979f-0f45-3bae-8725-9fd66576b979.1020737E-61AE-40EF-9918-D6C4E4B76FD3*fcs4"
+        },
+        {
+          "SystemType": "microcode",
+          "ids": ["nvme0"],
+          "latest": "534e3443",
+          "installed": "534e3435",
+          "pkgName": "PM1735 U.2 NVMe Gen4 1600/3200/6400 GB",
+          "ipAddr": "",
+          "name": "",
+          "parId": "018",
+          "NeedUpdate": true,
+          "model": "9105-22B",
+          "serial": "13BE930",
+          "partInternalName": "18*9105-22B*13BE930",
+          "download": "http://www.ibm.com/support/fixcentral/quickorder?product=ibm/io&release=all&platform=all&function=fixId&includeSupersedes=0&source=fc&fixids=551539326_20230210084658_GRP",
+          "description": "PM1735 U.2 NVMe Gen4 1600/3200/6400 GB",
+          "reldate": "2023.02.10",
+          "UserDefName": "hmc-rainier9-vios2",
+          "Uuid": "58ec979f-0f45-3bae-8725-9fd66576b979.1020737E-61AE-40EF-9918-D6C4E4B76FD3*nvme0"
+        }
+      ]
+    },
+    {
+      "Uuid": "b496525c-d44d-3bd0-8c42-3762bf2ef185",
+      "Name": "hmc-rainier11-bmc",
+      "NeedUpdate": false,
+      "SystemType": "fw",
+      "OSType": "fw",
+      "Model": "9105-22A",
+      "Serial": "139F390",
+      "MachineType": "Power S1022",
+      "Current": "ML1050_052",
+      "IpAddresses": ["10.48.17.110"],
+      "Lpars": [
+        "b496525c-d44d-3bd0-8c42-3762bf2ef185.01551686-B60D-45DB-AB2C-F406CA0F1AD0",
+        "b496525c-d44d-3bd0-8c42-3762bf2ef185.3FA11A79-C9D9-4830-BFD1-B2ADF730BB73",
+        "b496525c-d44d-3bd0-8c42-3762bf2ef185.7474E00F-2EF3-4845-A0CB-AB638A083E55",
+        "b496525c-d44d-3bd0-8c42-3762bf2ef185.68F9CD0F-2C5D-41D1-9788-B9F2B681F69C",
+        "b496525c-d44d-3bd0-8c42-3762bf2ef185.3C5E3ED2-C6BD-42F9-B19D-67E719B8FBC6"
+      ],
+      "ipAndNameMap": {},
+      "idAndNameMap": {},
+      "ipAndUUIDMap": {},
+      "idAndUUIDMap": {},
+      "Hmc": "2cac0ab1-68bb-35ee-b0a0-da49aafbae10",
+      "Release": {
+        "Id": "ML1050_052",
+        "SystemType": "fw",
+        "OSType": "fw",
+        "Name": "System Firmware VL950_0ML1050_052",
+        "Version": "ML1050_052",
+        "Release": "2021.06.08",
+        "Eosps": "2025.11.30",
+        "Download": ""
+      },
+      "LatestRelease": {
+        "Id": "ML1060_107",
+        "SystemType": "fw",
+        "OSType": "fw",
+        "Name": "System Firmware ML1060_107",
+        "Version": "ML1060_107",
+        "Release": "2024.12.19",
+        "Eosps": "2025.11.20",
+        "Download": ""
+      },
+      "RecommendedUpdate": {
+        "Id": "ML1050_088",
+        "SystemType": "fw",
+        "OSType": "fw",
+        "Name": "System Firmware ML1050_088",
+        "Version": "ML1050_088",
+        "Release": "2024.12.19",
+        "Eosps": "2025.11.30",
+        "Download": "",
+        "RecommendedByIBM": true
+      },
+      "LatestUpdate": {
+        "Id": "ML1060_107",
+        "SystemType": "fw",
+        "OSType": "fw",
+        "Name": "System Firmware ML1060_107",
+        "Version": "ML1060_107",
+        "Release": "2024.12.19",
+        "Eosps": "2025.11.30",
+        "Download": ""
+      },
+      "Microcode": [
+        {
+          "SystemType": "microcode",
+          "ids": ["ent0", "ent1", "ent2", "ent3"],
+          "latest": "10240310",
+          "installed": "10240180",
+          "pkgName": "4-Port Gigabit Ethernet PCI-Express Adapter",
+          "ipAddr": "",
+          "name": "",
+          "parId": "007",
+          "NeedUpdate": true,
+          "model": "9105-22A",
+          "serial": "139F390",
+          "partInternalName": "7*9105-22A*139F390",
+          "download": "http://www.ibm.com/support/fixcentral/quickorder?product=ibm/io&release=all&platform=all&function=fixId&includeSupersedes=0&source=fc&fixids=764042582_20190613104824_GRP",
+          "description": "4-Port Gigabit Ethernet PCI-Express Adapter",
+          "reldate": "2019.06.20",
+          "UserDefName": "hmc-rainier11-vios",
+          "Uuid": "b496525c-d44d-3bd0-8c42-3762bf2ef185.7474E00F-2EF3-4845-A0CB-AB638A083E55*ent0"
+        },
+        {
+          "SystemType": "microcode",
+          "ids": ["nvme0"],
+          "latest": "4d413235",
+          "installed": "4d413234",
+          "pkgName": "PCIe3 1.6TB/3.2TB/6.4TB NVMe Flash Adapter III x8",
+          "ipAddr": "",
+          "name": "",
+          "parId": "007",
+          "NeedUpdate": true,
+          "model": "9105-22A",
+          "serial": "139F390",
+          "partInternalName": "7*9105-22A*139F390",
+          "download": "http://www.ibm.com/support/fixcentral/quickorder?product=ibm/io&release=all&platform=all&function=fixId&includeSupersedes=0&source=fc&fixids=170858558_20210303095237_GRP",
+          "description": "PCIe3 1.6TB/3.2TB/6.4TB NVMe Flash Adapter III x8",
+          "reldate": "2021.03.18",
+          "UserDefName": "hmc-rainier11-vios",
+          "Uuid": "b496525c-d44d-3bd0-8c42-3762bf2ef185.7474E00F-2EF3-4845-A0CB-AB638A083E55*nvme0"
+        }
+      ]
+    },
+    {
+      "Uuid": "2cac0ab1-68bb-35ee-b0a0-da49aafbae10",
+      "Name": "test1481rchraghu1.phmc.stglabs.ibm.com",
+      "SystemType": "hmc",
+      "OSType": "hmc",
+      "NeedUpdate": false,
+      "Model": "Vda7-f7d",
+      "Serial": "7944455",
+      "Architecture": "x86_64",
+      "Current": "V11 R1 SP1110",
+      "IpAddresses": ["10.48.16.119"],
+      "Phyps": [
+        "e32ca52e-7cb9-3a4e-b937-58056978a1b1",
+        "2b35c593-13e1-3769-8ee0-84cc1eed3cfb",
+        "58ec979f-0f45-3bae-8725-9fd66576b979",
+        "8d49aa5b-26da-3766-8f9e-fd56ba6f2c28",
+        "b496525c-d44d-3bd0-8c42-3762bf2ef185"
+      ],
+      "FLRTError": "Unknown version: V11 R1 SP1110"
+    }
+  ]
+}
