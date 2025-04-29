@@ -1,0 +1,110 @@
+[
+    {
+        "Issue Id":"CVE-2025-0986",
+        "Type":"FW",
+        "Name":"hmc-rainier9-bmc",
+        "Current Level":"ML1050_052",
+        "Risk Type":"Medium",
+        "Recommonded  Update\/Upgrade":"ML1050_093",
+        "Latest Update\/Upgrde":"ML1060_107"
+    },
+    {
+        "Issue Id":"CVE-2025-0986",
+        "Type":"FW",
+        "Name":"hmc-rainier11-bmc",
+        "Current Level":"ML1050_052",
+        "Risk Type":"Medium",
+        "Recommonded  Update\/Upgrade":"ML1050_093",
+        "Latest Update\/Upgrde":"ML1060_107"
+    },
+    {
+        "Issue Id":"CVE-2025-0986",
+        "Type":"FW",
+        "Name":"hmc-rainier10-bmc",
+        "Current Level":"ML1050_052",
+        "Risk Type":"Medium",
+        "Recommonded  Update\/Upgrade":"ML1050_093",
+        "Latest Update\/Upgrde":"ML1060_107"
+    },
+    {
+        "Issue Id":"CVE-2024-41781",
+        "Type":"FW",
+        "Name":"hmc-rainier9-bmc",
+        "Current Level":"ML1050_052",
+        "Risk Type":"Medium",
+        "Recommonded  Update\/Upgrade":"ML1050_093",
+        "Latest Update\/Upgrde":"ML1060_107"
+    },
+    {
+        "Issue Id":"CVE-2024-41781",
+        "Type":"FW",
+        "Name":"hmc-rainier11-bmc",
+        "Current Level":"ML1050_052",
+        "Risk Type":"Medium",
+        "Recommonded  Update\/Upgrade":"ML1050_093",
+        "Latest Update\/Upgrde":"ML1060_107"
+    },
+    {
+        "Issue Id":"CVE-2024-41781",
+        "Type":"FW",
+        "Name":"hmc-rainier10-bmc",
+        "Current Level":"ML1050_052",
+        "Risk Type":"Medium",
+        "Recommonded  Update\/Upgrade":"ML1050_093",
+        "Latest Update\/Upgrde":"ML1060_107"
+    },
+    {
+        "Issue Id":"CVE-2023-52340",
+        "Type":"FW",
+        "Name":"hmc-rainier9-bmc",
+        "Current Level":"ML1050_052",
+        "Risk Type":"Medium",
+        "Recommonded  Update\/Upgrade":"ML1050_093",
+        "Latest Update\/Upgrde":"ML1060_107"
+    },
+    {
+        "Issue Id":"CVE-2023-52340",
+        "Type":"FW",
+        "Name":"hmc-rainier11-bmc",
+        "Current Level":"ML1050_052",
+        "Risk Type":"Medium",
+        "Recommonded  Update\/Upgrade":"ML1050_093",
+        "Latest Update\/Upgrde":"ML1060_107"
+    },
+    {
+        "Issue Id":"CVE-2023-52340",
+        "Type":"FW",
+        "Name":"hmc-rainier10-bmc",
+        "Current Level":"ML1050_052",
+        "Risk Type":"Medium",
+        "Recommonded  Update\/Upgrade":"ML1050_093",
+        "Latest Update\/Upgrde":"ML1060_107"
+    },
+    {
+        "Issue Id":"CVE-2023-45871",
+        "Type":"FW",
+        "Name":"hmc-rainier9-bmc",
+        "Current Level":"ML1050_052",
+        "Risk Type":"High",
+        "Recommonded  Update\/Upgrade":"ML1050_093",
+        "Latest Update\/Upgrde":"ML1060_107"
+    },
+    {
+        "Issue Id":"CVE-2023-45871",
+        "Type":"FW",
+        "Name":"hmc-rainier11-bmc",
+        "Current Level":"ML1050_052",
+        "Risk Type":"High",
+        "Recommonded  Update\/Upgrade":"ML1050_093",
+        "Latest Update\/Upgrde":"ML1060_107"
+    },
+    {
+        "Issue Id":"CVE-2023-45871",
+        "Type":"FW",
+        "Name":"hmc-rainier10-bmc",
+        "Current Level":"ML1050_052",
+        "Risk Type":"High",
+        "Recommonded  Update\/Upgrade":"ML1050_093",
+        "Latest Update\/Upgrde":"ML1060_107"
+    }
+]
