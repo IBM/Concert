@@ -487,6 +487,14 @@
             "cluster-001",
             "us-west-vpc-005"
           ]
+        },
+        "properties": {
+          "type": "array",
+          "title": "Properties",
+          "description": "Valid property names for environments are: \"platform_type\", \"deployment_purpose\".",
+          "items": {
+            "$ref": "#/definitions/property"
+          }
         }
       }
     },
