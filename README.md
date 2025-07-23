@@ -1,14 +1,10 @@
 # Concert
 
-IBM® Concert uses generative AI to provide valuable and actionable insight into your application lifecycle. It delivers a 360-degree view of your operations and interprets data across diverse application infrastructures and environments.
+IBM Concert is automated IT resilience. It helps technology leaders, application owners, SREs, and development teams eliminate manual effort, reduce risks, and boost productivity, enabling organizations to operate with greater confidence, agility, and control. Built on agentic AI, Concert unifies and correlates siloed data from your existing tools, automatically contextualizes and recommends actions to resolve key issues, and can be configured to take actions to remediate issues automatically.
 
-Enterprises today manage a rapidly evolving landscape of enterprise technology across multiple cloud environments. The scale and complexity of the tools required to manage and maintain modern applications can lead to operational inefficiency and expose your infrastructure to vulnerabilities, compliance issues, and other critical risk. Also, the lack of visibility across disparate systems and tools makes it difficult to feel confident that you're addressing the right issue at the right time. Concert analyzes application and environment data and tells you which issues need your attention most and helps you instrument solutions to make your operations resilient, cost-effective, and high-performing.
-
-## Overview of IBM Concert
-Powered by IBM watsonx, Concert integrates with your third-party tools and services, ingesting your application component and environment data to build a comprehensive view of your operations and entities. It proactively identifies and prioritizes issues based on known vulnerabilities (CVEs), compliance assessments, and certificate-related issues. With these insights, you can manually create and assign tickets from Concert in your third-party ticketing system (GitHub, Jira, ServiceNow) or configure automation rules to automatically create and assign tickets based on a triggering event.
+Concert automates resilience best practices while providing audit-ready evidence to help you remain continuously compliant, so teams can be more focused on supporting the business.
 
 ## More details on IBM Concert
 - [Introduction to IBM Concert](https://www.ibm.com/docs/en/concert?topic=introduction-concert)
 - [Concert-as-service](https://www.ibm.com/docs/en/concert?topic=implementing-concert-as-service)
 - [Concert On-Premise](https://www.ibm.com/docs/en/concert?topic=implementing-concert-premises)
-- [Concert Starter Edition](https://www.ibm.com/docs/en/concert?topic=premises-installing-concert-virtual-machine#taskinstalling_on_vm__prereq__1)
