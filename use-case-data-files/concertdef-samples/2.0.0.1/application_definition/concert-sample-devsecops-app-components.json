@@ -1,0 +1,156 @@
+{
+  "bomFormat": "ConcertDef",
+  "specVersion": "1.0.2",
+  "metadata": {
+    "timestamp": "2024-12-06T15:23:57Z",
+    "type": "application",
+    "component": {
+      "name": "concert-sample-devsecops",
+      "version": "1.0.0"
+    },
+    "business": {
+      "name": "Acme Inc.",
+      "units": [
+        {
+          "name": "Unit 1",
+          "email": "myemail@acme.com",
+          "phone": "(123) 123-1234"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "build:concert-sample-devsecops",
+      "type": "build",
+      "name": "concert-sample-devsecops",
+      "version": "1.0.0",
+      "components": [
+        {
+          "bom-ref": "container:us.icr.io/icr4mcc/concert-sample-devsecops",
+          "type": "container",
+          "name": "us.icr.io/icr4mcc/concert-sample-devsecops",
+          "uri": "us.icr.io/icr4mcc/concert-sample-devsecops@sha256:62b2e97c78d6142c12d94f8077efc5c1f40888c3e473e1e2e3a7a8700c3b9a54",
+          "tag": "2.0.0",
+          "digest": "sha256:62b2e97c78d6142c12d94f8077efc5c1f40888c3e473e1e2e3a7a8700c3b9a54",
+          "properties": [
+            {
+              "name": "base_image",
+              "value": "ubi9"
+            }
+          ]
+        },
+        {
+          "bom-ref": "container:us.icr.io/icr4mcc/concert-test-devsecops",
+          "type": "container",
+          "name": "us.icr.io/icr4mcc/concert-test-devsecops",
+          "uri": "us.icr.io/icr4mcc/concert-test-devsecops@sha256:22b2e97c78d6142c12d94f8077efc5c1f40888c3e473e1e2e3a7a8700c3b9a54",
+          "tag": "2.0.0",
+          "digest": "sha256:22b2e97c78d6142c12d94f8077efc5c1f40888c3e473e1e2e3a7a8700c3b9a54"
+        },
+        {
+          "bom-ref": "repository:coderepo:github:concert-sample-devsecops",
+          "type": "code",
+          "name": "concert-sample-devsecops",
+          "purl": "https://github.ibm.com/concert/concert-sample-devsecops",
+          "commit_sha": "1a2b3c4d5e6f7890123456789abcdef012345678",
+          "branch": "main",
+          "properties": [
+            {
+              "name": "version_control",
+              "value": "github"
+            }
+          ]
+        },
+        {
+          "bom-ref": "repository:coderepo:github:concert-test-devsecops",
+          "type": "code",
+          "name": "concert-test-devsecops",
+          "purl": "https://github.ibm.com/concert/concert-test-devsecops",
+          "commit_sha": "2a2b3c4d5e6f7890123456789abcdef012345678",
+          "branch": "main"
+        }
+      ]
+    }
+  ],
+  "environments": [
+    {
+      "bom-ref": "environment:dev",
+      "type": "environment",
+      "name": "dev",
+      "access-points": [
+        {
+          "ref": "appapi:concert-sample-devsecops",
+          "base-url": "https://internal.mycompany.io/concert-sample-devsecops"
+        }
+      ],
+      "properties": [
+        {
+          "name": "platform_type",
+          "value": "ec2"
+        },
+        {
+          "name": "deployment_purpose",
+          "value": "development"
+        }
+      ]
+    },
+    {
+      "bom-ref": "environment:stage",
+      "type": "environment",
+      "name": "stage"
+    },
+    {
+      "bom-ref": "environment:prod",
+      "type": "environment",
+      "name": "prod"
+    }
+  ],
+  "services": [
+    {
+      "bom-ref": "appapi:concert-sample-devsecops",
+      "name": "concert-sample-devsecops",
+      "endpoints": [
+        "/"
+      ],
+      "properties": [
+        {
+          "name": "network_exposure",
+          "value": "public"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "container:us.icr.io/icr4mcc/concert-sample-devsecops",
+      "dependsOn": [
+        "appapi:concert-sample-devsecops",
+        "repository:coderepo:github:concert-sample-devsecops"
+      ]
+    },
+    {
+      "ref": "container:us.icr.io/icr4mcc/concert-test-devsecops",
+      "dependsOn": [
+        "repository:coderepo:github:concert-test-devsecops"
+      ]
+    }
+  ],
+  "properties": [
+    {
+      "name": "application_criticality",
+      "value": "4"
+    },
+    {
+      "name": "application_data_assessment_impact_risk",
+      "value": "5"
+    },
+    {
+      "name": "revenue",
+      "value": "1000"
+    }
+  ],
+  "tags": [
+    "sample"
+  ]
+}

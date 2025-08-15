@@ -1,0 +1,143 @@
+{
+  "bomFormat": "ConcertDef",
+  "specVersion": "1.0.2",
+  "metadata": {
+    "timestamp": "2024-12-06T15:23:57Z",
+    "type": "application",
+    "component": {
+      "name": "concert-sample-devsecops",
+      "version": "1.0.0"
+    },
+    "business": {
+      "name": "Acme Inc.",
+      "units": [
+        {
+          "name": "Unit 1",
+          "email": "myemail@acme.com",
+          "phone": "(123) 123-1234"
+        }
+      ]
+    }
+  },
+  "runtime-components": [
+    {
+      "bom-ref": "service:kubernetes:rosa:development-k8-1",
+      "name": "development-k8-1",
+      "type": "kubernetes",
+      "api-server": "https://api.rosa1.1jk4.p1.openshiftapps.com:6443",
+      "properties": [
+        {
+          "name": "platform",
+          "value": "rosa"
+        },
+        {
+          "name": "cluster_platform",
+          "value": "aws"
+        },
+        {
+          "name": "cluster_region",
+          "value": "us-east-1"
+        },
+        {
+          "name": "cluster_name",
+          "value": "development-k8-1"
+        }
+      ],
+      "namespaces": [
+        {
+          "namespace": "concert-instance-1",
+          "labels": [
+            "label1"
+          ]
+        },
+        {
+          "namespace": "concert-instance-2",
+          "labels": [
+            "label2"
+          ]
+        }
+      ],
+      "components": [
+        {
+          "type": "namespace",
+          "name": "concert-instance-1",
+          "components": [
+            {
+              "bom-ref": "container:us.icr.io/sample/concert-sample",
+              "type": "container",
+              "name": "us.icr.io/icr4mcc/concert-sample-devsecops",
+              "uri": "us.icr.io/icr4mcc/concert-sample-devsecops@sha256:62b2e97c78d6142c12d94f8077efc5c1f40888c3e473e1e2e3a7a8700c3b9a54",
+              "tag": "2.0.0",
+              "digest": "sha256:62b2e97c78d6142c12d94f8077efc5c1f40888c3e473e1e2e3a7a8700c3b9a54"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "environments": [
+    {
+      "bom-ref": "environment:dev",
+      "type": "environment",
+      "name": "dev",
+      "access-points": [
+        {
+          "ref": "appapi:concert-sample-devsecops",
+          "base-url": "https://internal.mycompany.io/concert-sample-devsecops",
+          "port": 8000
+        }
+      ],
+      "properties": [
+        {
+          "name": "platform_type",
+          "value": "ec2"
+        },
+        {
+          "name": "deployment_purpose",
+          "value": "development"
+        }
+      ]
+    }
+  ],
+  "services": [
+    {
+      "bom-ref": "appapi:concert-sample-devsecops",
+      "name": "concert-sample-devsecops",
+      "endpoints": [
+        "/"
+      ],
+      "properties": [
+        {
+          "name": "network_exposure",
+          "value": "public"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "container:us.icr.io/sample/concert-sample",
+      "dependsOn": [
+        "appapi:concert-sample-devsecops"
+      ]
+    }
+  ],
+  "properties": [
+    {
+      "name": "application_criticality",
+      "value": "4"
+    },
+    {
+      "name": "application_data_assessment_impact_risk",
+      "value": "5"
+    },
+    {
+      "name": "revenue",
+      "value": "1000"
+    }
+  ],
+  "tags": [
+    "sample"
+  ]
+}
+
