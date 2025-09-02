@@ -1,0 +1,495 @@
+{
+  "$comment": "IBM Confidential; PID: 5900-BD6, 5900-BBE; Copyright IBM Corp. 2024, 2025",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://concert.ibm.com/schema/concertdef-1.0.2.schema.json",
+  "type": "object",
+  "title": "ConcertDef v1.0.2 Schema for Build Inventory SBOM Files",
+  "required": [
+    "bomFormat",
+    "specVersion",
+    "metadata",
+    "components"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "enum": [
+        "http://concert.ibm.com/schema/concertdef-1.0.2.json"
+      ]
+    },
+    "bomFormat": {
+      "type": "string",
+      "title": "BOM Format",
+      "description": "Format of the BOM.",
+      "enum": [
+        "ConcertDef"
+      ]
+    },
+    "specVersion": {
+      "type": "string",
+      "title": "Concert Schema Specification Version",
+      "description": "Version of the ConcertDef specification.",
+      "enum": [
+        "1.0.2"
+      ]
+    },
+    "metadata": {
+      "$ref": "#/definitions/metadata",
+      "title": "BOM Metadata",
+      "uniqueItems": true,
+      "description": "Provides additional information about a BOM."
+    },
+    "components": {
+      "type": "array",
+      "items": {
+        "anyOf": [
+          {
+            "$ref": "#/definitions/object-library"
+          },
+          {
+            "$ref": "#/definitions/object-container"
+          },
+          {
+            "$ref": "#/definitions/object-code"
+          }
+        ]
+      },
+      "minItems": 1,
+      "uniqueItems": true,
+      "title": "Components",
+      "description": "A list of top-level software components.  It is required to have at least one \"container\" or \"library\" object, though \"code\" objects are optional.  When \"code\" objects must be included (e.g., for linking with code-based CycloneDX SBOMs via BOM-Links), placehold string values can be used for a dummy \"container\" or \"library\" object before necessary evidence values for a \"container\" or \"library\" are available." 
+    },
+    "properties": {
+      "type": "array",
+      "title": "Properties",
+      "items": {
+        "$ref": "#/definitions/property"
+      }
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true,
+      "title": "Tags",
+      "description": "An optional list of strings that can be used for searching or filtering.",
+      "examples": [
+        "team-tiger"
+      ]
+    },
+    "dependencies": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/dependency"
+      },
+      "uniqueItems": true,
+      "title": "Dependencies",
+      "description": "Provides the ability to document dependency relationships."
+    }
+  },
+  "definitions": {
+    "refType": {
+      "description": "An identifier which can be used to reference the component elsewhere in the BOM. Every bom-ref MUST be unique within the BOM.",
+      "type": "string",
+      "minLength": 1
+    },
+    "refLinkType": {
+      "description": "Descriptor for an element identified by the attribute 'bom-ref' in the same BOM document.\nIn contrast to `bomLinkElementType`.",
+      "allOf": [
+        {
+          "$ref": "#/definitions/refType"
+        }
+      ]
+    },
+    "bomLinkDocumentType": {
+      "title": "CycloneDX BOM-Link Document",
+      "description": "Descriptor for another BOM document. See https://cyclonedx.org/capabilities/bomlink/",
+      "type": "string",
+      "minLength": 1,
+      "format": "iri-reference",
+      "$comment": "part of the pattern is based on `bom.serialNumber`'s pattern",
+      "examples": [
+        "urn:uuid:97cdf861-f4e8-4bb1-893b-9e5907ebb399/1"
+      ]
+    },
+    "bomLinkElementType": {
+      "title": "CycloneDX BOM-Link Element",
+      "description": "Descriptor for an element in a BOM document. See https://cyclonedx.org/capabilities/bomlink/",
+      "type": "string",
+      "minLength": 1,
+      "format": "iri-reference",
+      "$comment": "part of the pattern is based on `bom.serialNumber`'s pattern"
+    },
+    "bomLink": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/bomLinkDocumentType"
+        },
+        {
+          "$ref": "#/definitions/bomLinkElementType"
+        }
+      ]
+    },
+    "metadata": {
+      "type": "object",
+      "title": "BOM Metadata Object",
+      "required": [
+        "type",
+        "component"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "timestamp": {
+          "type": "string",
+          "minLength": 1,
+          "format": "date-time",
+          "title": "Timestamp",
+          "description": "ISO 8601 date and time when the BOM was created.",
+          "examples": [
+            "2024-01-01T12:00:00Z"
+          ]
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "build"
+          ],
+          "title": "Metadata Type",
+          "description": "Specifies the ConcertDef type of the software component.  The types are:\n\n* __application__ = A software application definition without environment-dependent deployment specifics for its constituent containers, code repositories, services, and/or API endpoints.\n* __build__ = A component comprising versioned container image artifact and the associated versioned code repository.\n* __deploy__ = A component comprsing deployment components, runtime-components, and relevant services and API endpoint URLs for deploying environment-specific application microservices.",
+          "examples": [
+            "build"
+          ]
+        },
+        "component": {
+          "type": "object",
+          "title": "Metadata Component",
+          "description": "ConcertDef component labels used for searching or selecting in Concert.",
+          "required": [
+            "name",
+            "version",
+            "build-number"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "name": {
+              "type": "string",
+              "minLength": 1,
+              "title": "Name",
+              "description": "Name of the ConcertDef component",
+              "examples": [
+                "my-component-1"
+              ]
+            },
+            "version": {
+              "type": "string",
+              "minLength": 1,
+              "title": "Version",
+              "description": "Versioon string of the ConcertDef component.",
+              "examples": [
+                "2.100.0"
+              ]
+            },
+            "build-number": {
+              "type": "string",
+              "minLength": 1,
+              "title": "Build Number",
+              "description": "An additional version indicator for the ConcertDef component's Build Inventory data.",
+              "examples": [
+                "124"
+              ]
+            }
+          }
+        },
+        "properties": {
+          "type": "array",
+          "title": "Properties",
+          "items": {
+            "$ref": "#/definitions/property"
+          }
+        }
+      }
+    },
+    "object-library": {
+      "type": "object",
+      "title": "Library Object",
+      "required": [
+        "type",
+        "name",
+        "version",
+        "purl"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "bom-ref": {
+          "$ref": "#/definitions/refType"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "library"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "title": "Library Name",
+          "description": "Library name per CycloneDX specification.",
+          "examples": [
+            "aux-service"
+          ]
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1,
+          "title": "Version",
+          "description": "Version string for the component.",
+          "examples": [
+            "1.0.0-SNAPSHOT"
+          ]
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1,
+          "title": "Scope",
+          "description": "Scope string for the component.",
+          "examples": [
+            "tar"
+          ]
+        },
+        "filename": {
+          "type": "string",
+          "minLength": 1,
+          "title": "Filename",
+          "description": "Library Filename.",
+          "examples": [
+            "aux-service-v1.0.0-SNAPSHOT-10.tar"
+          ]
+        },
+        "purl": {
+          "type": "string",
+          "minLength": 1,
+          "title": "Library PURL",
+          "description": "Library PURL.",
+          "examples": [
+            "library:tar/ibm/concert/aux-service@1.0.0-SNAPSHOT-10.tar"
+          ]
+        },
+        "url": {
+          "type": "string",
+          "minLength": 1,
+          "title": "Library URL",
+          "description": "Library URL.",
+          "examples": [
+            "https://artifactory.com/concert/aux-service-1.0.0-SNAPSHOT-10.tar"
+          ]
+        },
+        "cyclonedx-bom-link": {
+          "$ref": "#/definitions/bomLinkDocumentType"
+        }
+      }
+    },
+    "object-container": {
+      "title": "Container Object",
+      "description": "Container object with build inventory data.  Container image URI needs be available via the \"uri\" property or by composing the values of other properties, e.g., <\"name\", \"tag\", \"digest\"> or <\"purl\", \"digest\">.",
+      "type": "object",
+      "required": [
+        "type",
+        "name"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "bom-ref": {
+          "$ref": "#/definitions/refType"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "container"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "title": "Container Image Reference",
+          "description": "Image path (whose optional tag and digest values are ignored by Concert). See https://kubernetes.io/docs/concepts/containers/images/",
+          "pattern": "^(((http|https):\/\/|)?[a-z0-9]+([\\-\\.]{1}[a-z0-9]+)*\\.[a-z]{2,6}(:[0-9]{1,5})?\/)?[^:@]+(:[^@]+)?(@.+)?$",
+          "examples": [
+            "us.icr.io/myapp/my-component-1"
+          ]
+        },
+        "uri": {
+          "type": "string",
+          "minLength": 1,
+          "title": "Unique Reference ID of Container Image",
+          "description": "Structured ID containing image path, image tag, and/or image digest.  The format is \"<path>:<tag>\", \"<path>@<digest>\" or \"<path>:<tag>@<digest>\".  That is, image path (a.k.a., image repository path) is required.  An image tag labels a specific image instance in the image repository mainly for human consumption, and an image digest is a content-based version indicator for a specific image instance. When this uri field is not included in the SBOM, Concert composes the identifier in terms of the defined values of name, tag, and digest.  In practice, \"latest\" is the default tag value when neither tag nor digest is specified, though common best practices do not use that to tag image instances.",
+          "pattern": "^(((http|https):\/\/|)?[a-z0-9]+([\\-\\.]{1}[a-z0-9]+)*\\.[a-z]{2,6}(:[0-9]{1,5})?\/)?[^:@]+(:[^@]+)?(@.+)?$",
+          "examples": [
+            "us.icr.io/myapp/my-component-1:2.100.0.40@sha256:de11d4d8d711a65b2782c7ee8e2c7ffe718122821b7d35fba434d26f5c404939",
+            "us.icr.io/myapp/my-component-1:2.100.0.40",
+            "us.icr.io/myapp/my-component-1@sha256:c596470fbda33ec78ba6645b95fb2e0a7f324f929f3feff56125de38a3163f71"
+          ]
+        },
+        "purl": {
+          "type": "string",
+          "minLength": 1,
+          "title": "Container Image PURL",
+          "description": "Container image registry path and tag. This field will be deprecated in a future release of the schema.",
+          "examples": [
+            "us.icr.io/myapp/my-component-1:2.100.0.40",
+            "us.icr.io/icr4mcc/concert-sample-devsecops:124-main-03964735fadfd0fae86a1edb5f82257a133f79c7"
+          ]
+        },
+        "tag": {
+          "type": "string",
+          "minLength": 1,
+          "title": "Image Tag",
+          "description": "Image tag.  It can be a timestamp of a source code.",
+          "examples": [
+            "2.100.0.40",
+            "124-main-03964735fadfd0fae86a1edb5f82257a133f79c7"
+          ]
+        },
+        "digest": {
+          "type": "string",
+          "minLength": 1,
+          "title": "Image Digest",
+          "description": "Image digest",
+          "examples": [
+            "sha256:de11d4d8d711a65b2782c7ee8e2c7ffe718122821b7d35fba434d26f5c404939"
+          ]
+        },
+        "cyclonedx-bom-link": {
+          "$ref": "#/definitions/bomLinkDocumentType"
+        },
+        "golden_master": {
+          "type": "boolean",
+          "title": "Golden Master",
+          "description": "To differentiate a image as golden master image or micro service images",
+          "examples": [
+            true
+          ]
+        },
+        "status": {
+          "type": "string",
+          "minLength": 1,
+          "title": "Image status",
+          "description": "Status of the Image (active/deprecated)",
+          "examples": [
+            "active"
+          ]
+        }
+      }
+    },
+    "object-code": {
+      "type": "object",
+      "required": [
+        "type",
+        "name",
+        "purl"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "bom-ref": {
+          "$ref": "#/definitions/refType"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "code"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "title": "Code Name",
+          "description": "Name of the source/deployment Code object.",
+          "examples": [
+            "com.app.example"
+          ]
+        },
+        "purl": {
+          "type": "string",
+          "minLength": 1,
+          "title": "Code Repo URL for Build Inventory",
+          "description": "URL (or folder path) of the code repo (or file system).",
+          "examples": [
+            "https://github.ibm.com/myapp/my-component-1"
+          ]
+        },
+        "commit_sha": {
+          "type": "string",
+          "minLength": 1,
+          "title": "Commit Sha",
+          "description": "Commit sha of a git repo.",
+          "examples": [
+            "03964735fadfd0fae86a1edb5f82257a133f79c7"
+          ]
+        },
+        "branch": {
+          "type": "string",
+          "minLength": 1,
+          "title": "Branch",
+          "description": "Branch of a git repo.  This optional field facilitates human consumption per need.",
+          "examples": [
+            "main"
+          ]
+        },
+        "cyclonedx-bom-link": {
+          "$ref": "#/definitions/bomLinkDocumentType"
+        }
+      }
+    },
+    "property": {
+      "type": "object",
+      "title": "Lightweight name-value pair",
+      "description": "Provides the ability to document properties in a name-value store. This provides flexibility to include data not officially supported in the standard without having to use additional namespaces or create extensions. Unlike key-value stores, properties support duplicate names, each potentially having different values.",
+      "required": [
+        "name",
+        "value"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "title": "Name",
+          "description": "The name of the property. Duplicate names are allowed, each potentially having a different value."
+        },
+        "value": {
+          "type": "string",
+          "title": "Value",
+          "description": "The value of the property."
+        }
+      }
+    },
+    "dependency": {
+      "type": "object",
+      "title": "Dependency",
+      "description": "Defines the direct dependencies of a component or service.",
+      "required": [
+        "ref",
+        "dependsOn"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "ref": {
+          "$ref": "#/definitions/refLinkType",
+          "title": "Reference",
+          "description": "References a component or service by its bom-ref attribute"
+        },
+        "dependsOn": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/definitions/refLinkType"
+          },
+          "title": "Depends On",
+          "description": "The bom-ref identifiers of the components or services that are dependencies of this dependency object."
+        }
+      }
+    }
+  }
+}

@@ -21,26 +21,30 @@
   },
   "runtime-components": [
     {
-      "bom-ref": "service:kubernetes:rosa:development-k8-1",
-      "name": "development-k8-1",
+      "bom-ref": "service:kubernetes:roks:cjsal64w0g8rl335fso0",
       "type": "kubernetes",
-      "api-server": "https://api.rosa1.1jk4.p1.openshiftapps.com:6443",
+      "name": "cjsal64w0g8rl335fso0",
+      "api-server": "https://172.20.0.1:2040",
       "properties": [
         {
           "name": "platform",
-          "value": "rosa"
+          "value": "ibmcloud"
         },
         {
           "name": "cluster_platform",
-          "value": "aws"
+          "value": "roks"
+        },
+        {
+          "name": "cluster_id",
+          "value": "cjsal64w0g8rl335fso0"
         },
         {
           "name": "cluster_region",
-          "value": "us-east-1"
+          "value": "us-east"
         },
         {
           "name": "cluster_name",
-          "value": "development-k8-1"
+          "value": "roks1"
         }
       ],
       "namespaces": [
@@ -140,4 +144,3 @@
     "sample"
   ]
 }
-
