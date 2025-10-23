@@ -113,6 +113,9 @@ spec:
               ephemeral-storage: 256Mi
               memory: 256Mi
           name: concert-restore-server
+          env:
+          - name: SSL_CERT_FILE
+            value: "/app/tmp/self-signed-ssl/tls-ca-bundle.pem"
           command: ["bash", "-c"]
           securityContext:
             runAsNonRoot: true
