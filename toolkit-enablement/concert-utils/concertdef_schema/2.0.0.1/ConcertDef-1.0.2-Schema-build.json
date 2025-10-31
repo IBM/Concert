@@ -1,12 +1,14 @@
 {
+  "$comment": "IBM Confidential; PID: 5900-BD6, 5900-BBE; Copyright IBM Corp. 2024, 2025",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "http://concert.ibm.com/schema/concertdef-1.0.2.schema.json",
   "type": "object",
-  "title": "ConcertDef v1.0.2 Schema for Application Blueprint SBOM Files",
+  "title": "ConcertDef v1.0.2 Schema for Build Inventory SBOM Files",
   "required": [
     "bomFormat",
     "specVersion",
-    "metadata"
+    "metadata",
+    "components"
   ],
   "additionalProperties": false,
   "properties": {
@@ -43,44 +45,20 @@
       "items": {
         "anyOf": [
           {
-            "$ref": "#/definitions/blueprint-build"
-          }
-        ]
-      },
-      "uniqueItems": true,
-      "title": "Components",
-      "description": "A list of top-level software components."
-    },
-    "environments": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/environment"
-      },
-      "uniqueItems": true,
-      "title": "Environments",
-      "description": "A list of software deployment environments."
-    },
-    "services": {
-      "type": "array",
-      "items": {
-        "anyOf": [
+            "$ref": "#/definitions/object-library"
+          },
           {
-            "$ref": "#/definitions/app-service"
+            "$ref": "#/definitions/object-container"
+          },
+          {
+            "$ref": "#/definitions/object-code"
           }
         ]
       },
+      "minItems": 1,
       "uniqueItems": true,
       "title": "Components",
-      "description": "A list of services in Application SBOM or in deploy SBOM."
-    },
-    "dependencies": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/dependency"
-      },
-      "uniqueItems": true,
-      "title": "Dependencies",
-      "description": "Provides the ability to document dependency relationships."
+      "description": "A list of top-level software components.  It is required to have at least one \"container\" or \"library\" object, though \"code\" objects are optional.  When \"code\" objects must be included (e.g., for linking with code-based CycloneDX SBOMs via BOM-Links), placehold string values can be used for a dummy \"container\" or \"library\" object before necessary evidence values for a \"container\" or \"library\" are available." 
     },
     "properties": {
       "type": "array",
@@ -101,6 +79,15 @@
       "examples": [
         "team-tiger"
       ]
+    },
+    "dependencies": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/dependency"
+      },
+      "uniqueItems": true,
+      "title": "Dependencies",
+      "description": "Provides the ability to document dependency relationships."
     }
   },
   "definitions": {
@@ -168,7 +155,7 @@
         "type": {
           "type": "string",
           "enum": [
-            "application"
+            "build"
           ],
           "title": "Metadata Type",
           "description": "Specifies the ConcertDef type of the software component.  The types are:\n\n* __application__ = A software application definition without environment-dependent deployment specifics for its constituent containers, code repositories, services, and/or API endpoints.\n* __build__ = A component comprising versioned container image artifact and the associated versioned code repository.\n* __deploy__ = A component comprsing deployment components, runtime-components, and relevant services and API endpoint URLs for deploying environment-specific application microservices.",
@@ -182,7 +169,8 @@
           "description": "ConcertDef component labels used for searching or selecting in Concert.",
           "required": [
             "name",
-            "version"
+            "version",
+            "build-number"
           ],
           "additionalProperties": false,
           "properties": {
@@ -203,12 +191,18 @@
               "examples": [
                 "2.100.0"
               ]
+            },
+            "build-number": {
+              "type": "string",
+              "minLength": 1,
+              "title": "Build Number",
+              "description": "An additional version indicator for the ConcertDef component's Build Inventory data.",
+              "examples": [
+                "124"
+              ]
             }
           }
         },
-        "business": {
-          "$ref": "#/definitions/organizationalEntity"
-        },
         "properties": {
           "type": "array",
           "title": "Properties",
@@ -218,144 +212,14 @@
         }
       }
     },
-    "organizationalEntity": {
+    "object-library": {
       "type": "object",
-      "title": "Organizational Entity Object",
-      "required": [
-        "name"
-      ],
-      "description": " The business organization that supplied the component that the BOM describes.",
-      "additionalProperties": false,
-      "properties": {
-        "name": {
-          "type": "string",
-          "minLength": 1,
-          "title": "Name",
-          "description": "The name of the business organization",
-          "examples": [
-            "Acme Inc."
-          ]
-        },
-        "units": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/organizationalContact"
-          },
-          "uniqueItems": true,
-          "title": "Business Units",
-          "description": "A list of business units."
-        }
-      }
-    },
-    "organizationalContact": {
-      "type": "object",
-      "title": "Organizational Contact",
-      "required": [
-        "name"
-      ],
-      "description": "A business unit contact at the organization. Multiple contacts are allowed.",
-      "additionalProperties": false,
-      "properties": {
-        "name": {
-          "type": "string",
-          "minLength": 1,
-          "title": "Name",
-          "description": "The name of a business unit",
-          "examples": [
-            "HR"
-          ]
-        },
-        "email": {
-          "type": "string",
-          "minLength": 1,          
-          "format": "idn-email",
-          "title": "Email Address",
-          "description": "The email address of the business unit.",
-          "examples": [
-            "hr@acme.com"
-          ]
-        },
-        "phone": {
-          "type": "string",
-          "minLength": 1,
-          "title": "Phone",
-          "description": "The phone number of the business unit.",
-          "examples": [
-            "(123) 123-1234"
-          ]
-        }
-      }
-    },
-    "blueprint-build": {
-      "type": "object",
-      "title": "Build Blueprint",
+      "title": "Library Object",
       "required": [
         "type",
         "name",
-        "version"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "bom-ref": {
-          "$ref": "#/definitions/refType"
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "build"
-          ]
-        },
-        "name": {
-          "type": "string",
-          "minLength": 1,
-          "title": "Build Blueprint Name",
-          "description": "Name of the Build component. This is often a shortened, single name of the component.",
-          "examples": [
-            "my-component-1"
-          ]
-        },
-        "version": {
-          "type": "string",
-          "minLength": 1,
-          "title": "Version",
-          "description": "Version string for the component.  The value can be a timestamp string.",
-          "examples": [
-            "0.0.1"
-          ]
-        },
-        "components": {
-          "items": {
-            "anyOf": [
-              {
-                "$ref": "#/definitions/blueprint-library"
-              },
-              {
-                "$ref": "#/definitions/blueprint-container"
-              },
-              {
-                "$ref": "#/definitions/blueprint-code"
-              }
-            ]
-          },
-          "title": "Blueprint Objects for a Build Component",
-          "description": "A list of Build object blueprints, each of which is associated with a Build object."
-        },
-        "properties": {
-          "type": "array",
-          "title": "Properties",
-          "items": {
-            "$ref": "#/definitions/property"
-          }
-        }
-      }
-    },
-    "blueprint-library": {
-      "type": "object",
-      "title": "Library Blueprint",
-      "required": [
-        "type",
-        "name",
-        "version"
+        "version",
+        "purl"
       ],
       "additionalProperties": false,
       "properties": {
@@ -374,7 +238,7 @@
           "title": "Library Name",
           "description": "Library name per CycloneDX specification.",
           "examples": [
-            "maven/com.app.example"
+            "aux-service"
           ]
         },
         "version": {
@@ -383,14 +247,54 @@
           "title": "Version",
           "description": "Version string for the component.",
           "examples": [
-            "0.0.1"
+            "1.0.0-SNAPSHOT"
           ]
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1,
+          "title": "Scope",
+          "description": "Scope string for the component.",
+          "examples": [
+            "tar"
+          ]
+        },
+        "filename": {
+          "type": "string",
+          "minLength": 1,
+          "title": "Filename",
+          "description": "Library Filename.",
+          "examples": [
+            "aux-service-v1.0.0-SNAPSHOT-10.tar"
+          ]
+        },
+        "purl": {
+          "type": "string",
+          "minLength": 1,
+          "title": "Library PURL",
+          "description": "Library PURL.",
+          "examples": [
+            "library:tar/ibm/concert/aux-service@1.0.0-SNAPSHOT-10.tar"
+          ]
+        },
+        "url": {
+          "type": "string",
+          "minLength": 1,
+          "title": "Library URL",
+          "description": "Library URL.",
+          "examples": [
+            "https://artifactory.com/concert/aux-service-1.0.0-SNAPSHOT-10.tar"
+          ]
+        },
+        "cyclonedx-bom-link": {
+          "$ref": "#/definitions/bomLinkDocumentType"
         }
       }
     },
-    "blueprint-container": {
+    "object-container": {
+      "title": "Container Object",
+      "description": "Container object with build inventory data.  Container image URI needs be available via the \"uri\" property or by composing the values of other properties, e.g., <\"name\", \"tag\", \"digest\"> or <\"purl\", \"digest\">.",
       "type": "object",
-      "title": "Container Blueprint",
       "required": [
         "type",
         "name"
@@ -415,12 +319,72 @@
           "examples": [
             "us.icr.io/myapp/my-component-1"
           ]
+        },
+        "uri": {
+          "type": "string",
+          "minLength": 1,
+          "title": "Unique Reference ID of Container Image",
+          "description": "Structured ID containing image path, image tag, and/or image digest.  The format is \"<path>:<tag>\", \"<path>@<digest>\" or \"<path>:<tag>@<digest>\".  That is, image path (a.k.a., image repository path) is required.  An image tag labels a specific image instance in the image repository mainly for human consumption, and an image digest is a content-based version indicator for a specific image instance. When this uri field is not included in the SBOM, Concert composes the identifier in terms of the defined values of name, tag, and digest.  In practice, \"latest\" is the default tag value when neither tag nor digest is specified, though common best practices do not use that to tag image instances.",
+          "pattern": "^(((http|https):\/\/|)?[a-z0-9]+([\\-\\.]{1}[a-z0-9]+)*\\.[a-z]{2,6}(:[0-9]{1,5})?\/)?[^:@]+(:[^@]+)?(@.+)?$",
+          "examples": [
+            "us.icr.io/myapp/my-component-1:2.100.0.40@sha256:de11d4d8d711a65b2782c7ee8e2c7ffe718122821b7d35fba434d26f5c404939",
+            "us.icr.io/myapp/my-component-1:2.100.0.40",
+            "us.icr.io/myapp/my-component-1@sha256:c596470fbda33ec78ba6645b95fb2e0a7f324f929f3feff56125de38a3163f71"
+          ]
+        },
+        "purl": {
+          "type": "string",
+          "minLength": 1,
+          "title": "Container Image PURL",
+          "description": "Container image registry path and tag. This field will be deprecated in a future release of the schema.",
+          "examples": [
+            "us.icr.io/myapp/my-component-1:2.100.0.40",
+            "us.icr.io/icr4mcc/concert-sample-devsecops:124-main-03964735fadfd0fae86a1edb5f82257a133f79c7"
+          ]
+        },
+        "tag": {
+          "type": "string",
+          "minLength": 1,
+          "title": "Image Tag",
+          "description": "Image tag.  It can be a timestamp of a source code.",
+          "examples": [
+            "2.100.0.40",
+            "124-main-03964735fadfd0fae86a1edb5f82257a133f79c7"
+          ]
+        },
+        "digest": {
+          "type": "string",
+          "minLength": 1,
+          "title": "Image Digest",
+          "description": "Image digest",
+          "examples": [
+            "sha256:de11d4d8d711a65b2782c7ee8e2c7ffe718122821b7d35fba434d26f5c404939"
+          ]
+        },
+        "cyclonedx-bom-link": {
+          "$ref": "#/definitions/bomLinkDocumentType"
+        },
+        "golden_master": {
+          "type": "boolean",
+          "title": "Golden Master",
+          "description": "To differentiate a image as golden master image or micro service images",
+          "examples": [
+            true
+          ]
+        },
+        "status": {
+          "type": "string",
+          "minLength": 1,
+          "title": "Image status",
+          "description": "Status of the Image (active/deprecated)",
+          "examples": [
+            "active"
+          ]
         }
       }
     },
-    "blueprint-code": {
+    "object-code": {
       "type": "object",
-      "title": "Code Blueprint",
       "required": [
         "type",
         "name",
@@ -441,105 +405,63 @@
           "type": "string",
           "minLength": 1,
           "title": "Code Name",
-          "description": "Name of the Code blueprint. This is often a shortened, single name of the code repo.",
+          "description": "Name of the source/deployment Code object.",
           "examples": [
-            "my-component-1"
+            "com.app.example"
           ]
         },
         "purl": {
           "type": "string",
           "minLength": 1,
-          "title": "Code URL",
-          "description": "URL (or folder path) of the Code blueprint. This is often the URL of a source code repo (or file system).",
+          "title": "Code Repo URL for Build Inventory",
+          "description": "URL (or folder path) of the code repo (or file system).",
           "examples": [
             "https://github.ibm.com/myapp/my-component-1"
           ]
-        }
-      }
-    },
-    "environment": {
-      "type": "object",
-      "title": "Environment",
-      "required": [
-        "type",
-        "name"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "bom-ref": {
-          "$ref": "#/definitions/refType"
         },
-        "type": {
-          "type": "string",
-          "enum": [
-            "environment"
-          ],
-          "title": "Environment Type",
-          "description": "A deployment environment."
-        },
-        "name": {
+        "commit_sha": {
           "type": "string",
           "minLength": 1,
-          "title": "Deployment Environment Name",
-          "description": "The deployment environment name must be unique in the Concert service in use.",
+          "title": "Commit Sha",
+          "description": "Commit sha of a git repo.",
           "examples": [
-            "acme-test",
-            "cluster-001",
-            "us-west-vpc-005"
+            "03964735fadfd0fae86a1edb5f82257a133f79c7"
           ]
         },
-        "properties": {
-          "type": "array",
-          "title": "Properties",
-          "description": "Valid property names for environments are: \"platform_type\", \"deployment_purpose\".",
-          "items": {
-            "$ref": "#/definitions/property"
-          }
+        "branch": {
+          "type": "string",
+          "minLength": 1,
+          "title": "Branch",
+          "description": "Branch of a git repo.  This optional field facilitates human consumption per need.",
+          "examples": [
+            "main"
+          ]
+        },
+        "cyclonedx-bom-link": {
+          "$ref": "#/definitions/bomLinkDocumentType"
         }
       }
     },
-    "app-service": {
+    "property": {
       "type": "object",
-      "title": "Service Blueprint in Application SBOM",
+      "title": "Lightweight name-value pair",
+      "description": "Provides the ability to document properties in a name-value store. This provides flexibility to include data not officially supported in the standard without having to use additional namespaces or create extensions. Unlike key-value stores, properties support duplicate names, each potentially having different values.",
       "required": [
         "name",
-        "endpoints"
+        "value"
       ],
       "additionalProperties": false,
       "properties": {
-        "bom-ref": {
-          "$ref": "#/definitions/refType"
-        },
         "name": {
           "type": "string",
           "minLength": 1,
-          "title": "Service Name",
-          "description": "The name of the service. This will often be a shortened, single name of the service.",
-          "examples": [
-            "mongodb"
-          ]
+          "title": "Name",
+          "description": "The name of the property. Duplicate names are allowed, each potentially having a different value."
         },
-        "endpoints": {
-          "type": "array",
-          "items": {
-            "type": "string",
-            "minLength": 1
-          },
-          "minItems": 1,
-          "uniqueItems": true,
-          "title": "Endpoints",
-          "description": "The API paths of the service providing component. Base URLs of the API service endpoints are provided by the service's Deploy component",
-          "examples": [
-            "/v1/ticker"
-          ]
-        },
-        "properties": {
-          "type": "array",
-          "title": "Properties",
-          "description": "Valid values for the \"network_exposure\" property are: \"private\" and \"public\".  Networking infrastructure of the target deployment environments must be configured and managed accordingly.",
-          "items": {
-            "$ref": "#/definitions/property"
-          }
+        "value": {
+          "type": "string",
+          "title": "Value",
+          "description": "The value of the property."
         }
       }
     },
@@ -566,29 +488,6 @@
           },
           "title": "Depends On",
           "description": "The bom-ref identifiers of the components or services that are dependencies of this dependency object."
-        }
-      }
-    },
-    "property": {
-      "type": "object",
-      "title": "Lightweight name-value pair",
-      "description": "Provides the ability to document properties in a name-value store. This provides flexibility to include data not officially supported in the standard without having to use additional namespaces or create extensions. Unlike key-value stores, properties support duplicate names, each potentially having different values.",
-      "required": [
-        "name",
-        "value"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "name": {
-          "type": "string",
-          "minLength": 1,
-          "title": "Name",
-          "description": "The name of the property. Duplicate names are allowed, each potentially having a different value."
-        },
-        "value": {
-          "type": "string",
-          "title": "Value",
-          "description": "The value of the property."
         }
       }
     }
