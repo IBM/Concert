@@ -1,9 +1,9 @@
 [
     {
         "provider": "IBM",
-        "name": "nfr_library",
-        "label": "Foundational Library",
-        "description": "The following non-functional requirements (NFRs) are evaluated when you use this library",
+        "name": "sample_library",
+        "label": "Sample Resilience Library",
+        "description": "Sample Resilience library that can be used to build custom libraries based on customer requirements.",
         "use_last_received_data": "mins_deployment_downtime",
         "requirements": [
             {
@@ -29,7 +29,7 @@
                             ],
                             "indicator": "leading",
                             "weight": "3",
-                            "recommendation": "Provide data collected about availability based on synthetic tests, It has a weight of 20% when computing the assessed score."
+                            "recommendation": ""
                         },
                         {
                             "data_input": "pct_availability_by_error_rate",
@@ -41,7 +41,7 @@
                             ],
                             "indicator": "leading",
                             "weight": "3",
-                            "recommendation": "Provide data collected about availability based on error rates, It has a weight of 20% when computing the assessed score."
+                            "recommendation": ""
                         },
                         {
                             "data_input": "pct_availability_by_downtime_post_rca",
@@ -53,7 +53,7 @@
                             ],
                             "indicator": "lagging",
                             "weight": "9",
-                            "recommendation": "Provide data collected about availability based on downtime post RCA, It has a weight of 60% when computing the assessed score."
+                            "recommendation": ""
                         }
                     ]
                 }
@@ -80,7 +80,7 @@
                             ],
                             "indicator": "manual",
                             "weight": "9",
-                            "recommendation": "Collect and provide data about downtime during deployment, It has a weight of 100% when computing the assessed score."
+                            "recommendation": ""
                         }
                     ]
                 }
