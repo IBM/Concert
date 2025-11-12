@@ -1,7 +1,7 @@
 {
     "data_dictionary": [
         {
-            "name": "pct_availability_by_synthetic_tests",
+            "name": "pct_availability_by_synthetic_tests_sample",
             "description": "The aggregated application availability, reported by the synthetic tests",
             "unit": "Percentage",
             "data_type": "double",
@@ -11,7 +11,7 @@
             "origin": "APM"
         },
         {
-            "name": "pct_availability_by_error_rate",
+            "name": "pct_availability_by_error_rate_sample",
             "description": "The aggregated application availability, reported by the error rates",
             "unit": "Percentage",
             "data_type": "double",
@@ -21,7 +21,7 @@
             "origin": "APM"
         },
         {
-            "name": "pct_availability_by_downtime_post_rca",
+            "name": "pct_availability_by_downtime_post_rca_sample",
             "description": "The application's availability, reported by the downtime as the outcome of root cause analysis (RCA)",
             "unit": "Percentage",
             "data_type": "double",
@@ -31,7 +31,7 @@
             "origin": "ITSM"
         },
         {
-            "name": "mins_deployment_downtime",
+            "name": "mins_deployment_downtime_sample",
             "description": "The downtime in minutes caused by deployments",
             "unit": "Minutes",
             "data_type": "double",
