@@ -1,0 +1,114 @@
+{
+  "name": "Resilience",
+  "description": "Workflows used for Resilience",
+  "entries": [
+    {
+      "name": "AWS Ec2 Cloudwatch Metrics Assessment WF",
+      "path": "AWS_Ec2_Cloudwatch_Metrics_Assessment_WF_v2.2.zip",
+      "description": "This workflow produces consolidated posture assessments for all instances linked to the application, based on the provided metrics data.",
+      "integrations": ["IBM", "Common"]
+    },
+    {
+      "name": "AWS EC2 Cloudwatch Metrics Extraction WF",
+      "path": "Aws_EC2_Cloudwatch_Metrics_Extraction_WF.zip",
+      "description": "This workflow is designed to collect all required metrics(pre-defined metrics list-user can update it based on their requirement) from AWS CloudWatch and outputs the raw metrics for each instance. It includes metrics gathered by the CloudWatch agent, along with custom metrics and default metrics from the namespace.",
+      "integrations": ["AWS", "Common"]
+    },
+    {
+      "name": "Discovering applications on a ECS",
+      "path": "AWS_ECS_resilience_v2.2.zip",
+      "description": "Concert can access to your Amazon Elastic Container Service (ECS) environment to collect cluster, service, task, and container-level metadata and metrics to access the resilience of your applications.",
+      "integrations": ["AWS", "IBM", "Common"]
+    },
+    {
+      "name": "Containerised App Discovery For VM",
+      "path": "Containerised_App_Discovery_For_VM_v2.2.zip",
+      "description": "This workflow is to discover application in VM",
+      "integrations": ["IBM", "Pliant", "Common"]
+    },
+    {
+      "name": "Datadog Application Resilience Sample",
+      "path": "Datadog_Application_Resilience_Sample_v2.2.zip",
+      "description": "This workflow retrieves performance metrics from Datadog over a specified time period, calculates availability and error rates, and sends to the main flow.",
+      "integrations": ["Datadog", "IBM", "Common"]
+    },
+    {
+      "name": "Datadog Resilience Sample",
+      "path": "DataDog_Resilience_sample_v2.2.zip",
+      "description": "This workflow retrieves performance metrics from Datadog over a specified time period, calculates availability and error rates, and sends to the main flow.",
+      "integrations": ["Datadog", "IBM"]
+    },
+    {
+      "name": "Dynatrace Application Resilience Sample",
+      "path": "Dynatrace_Application_Resilience_sample_v2.2.zip",
+      "description": "This workflow retrieves performance metrics from Dynatrace over a specified time period, calculates availability and error rates, and sends to the main flow.",
+      "integrations": ["Dynatrace", "IBM"]
+    },
+    {
+      "name": "Dynatrace Resilience Sample",
+      "path": "Dynatrace_Resilience_sample_v2.2.zip",
+      "description": "This workflow retrieves performance metrics from Dynatrace over a specified time period, calculates availability and error rates, and sends to the main flow.",
+      "integrations": ["Dynatrace", "IBM"]
+    },
+    {
+      "name": "EKS CLOUDWATCH METRICS",
+      "path": "EKS_CLOUDWATCH_METRICS_v2.2.zip",
+      "description": "This workflow is to extract all metrics from EKS through cloudwatch agent and create a posture for the same.",
+      "integrations": ["AWS", "IBM", "Common"]
+    },
+    {
+      "name": "Image Registry Workflow",
+      "path": "Image_Registry_Workflow_v2.2.zip",
+      "description": "The image registry workflow will capture the metrics for the images that are not deployed in any environment, but the images are only present in the registry. The workflow will pull those images into an VM, and then inspect the images to compute the metrics related to image layers and size.",
+      "integrations": ["IBM", "Common"]
+    },
+    {
+      "name": "Instana Resilience Sample",
+      "path": "Instana_Resilience_Sample_V2.2.zip",
+      "description": "This workflow is designed to run Instana resilience tests within the IBM Concert platform. It involves authentication with Instana, API key authentication, and selecting configuration profiles.",
+      "integrations": ["IBM", "Common"]
+    },
+    {
+      "name": "Discovering Java applications on a VM",
+      "path": "Java_Application_Discovery_v2.2.zip",
+      "description": "The auto-discovery workflow identifies applications along with its associated Java components running on Linux® servers, focusing on Spring Boot, Apache Tomcats (using JMX) or any JAVA application using JDK.",
+      "integrations": ["IBM", "Common"]
+    },
+    {
+      "name": "Jira Resilience Sample",
+      "path": "Jira_Resilience_Sample_V2.2.zip",
+      "description": "This workflow pulls outage/incident tickets from Jira for a given time window, maps their fields to the Resilience schema, and derives ITSM metrics like MTTD/MTTR.It then uploads these computed metrics to Concert so resilience/NFR scores can be evaluated and displayed from real Jira outage history.",
+      "integrations": ["Atlassian", "IBM", "Common"]
+    },
+    {
+      "name": "Package and Image Scan Upload",
+      "path": "Package_and_Image_Scan_Upload_v2.2.zip",
+      "description": "Workflow for Package and Image Scan Upload",
+      "integrations": ["IBM", "Common"]
+    },
+    {
+      "name": "Package Vulnerability Exposure Assessment",
+      "path": "Package_Vulnerability_Exposure_Assessment_V2.2.zip",
+      "description": "Pull aggregated metrics for Packages, vulnerabilities and Exposures for the given application and Load the Assessment data to IBM Concert for all the profiles associated with that application.",
+      "integrations": ["IBM", "Common"]
+    },
+    {
+      "name": "Prometheus NFR Resilience",
+      "path": "Prometheus_NFR_Resilience_v2.2.zip",
+      "description": "This workflow collects metrics from Prometheus and generates resilience assessments.",
+      "integrations": ["Prometheus", "IBM"]
+    },
+    {
+      "name": "Resilience Helper",
+      "path": "Resilience_Helper.zip",
+      "description": "This flow will query Resilience API to fetch last assessment time and current time for a given profile,application and source system and create posture.",
+      "integrations": ["Common"]
+    },
+    {
+      "name": "ServiceNow Resilience Sample",
+      "path": "ServiceNow_Resilience_Sample.zip",
+      "description": "This workflow retrieves problems/incidents from ServiceNow over a specified time period, calculates  percentage of incidents (sev1 and sev2) in ServiceNow that are either resolved by change or detected by monitoring tools, and sends the processed data to the Concert Resilience evaluation API.",
+      "integrations": ["Common"]
+    }
+  ]
+}

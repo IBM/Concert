@@ -1,0 +1,90 @@
+{
+  "name": "Certificates",
+  "description": "Workflows used for Certificates",
+  "entries": [
+    {
+      "name": "AWS CertManager Certificate Discovery",
+      "path": "AWS_CertManager_Certificate_Discovery_v2.2.zip",
+      "description": "Discovers certificates managed through AWS Certificate Manager (ACM), and retrieves metadata.",
+      "integrations": ["AWS", "IBM", "Common"]
+    },
+    {
+      "name": "AWS SecretManager Certificates Discovery",
+      "path": "AWS_SecretManager_Certificates_Discovery_v2.2.zip",
+      "description": "Discovers certificate-type secrets stored in AWS Secrets Manager and retrieves metadata.",
+      "integrations": ["AWS", "IBM","Common"]
+    },
+    {
+      "name": "Concert Certificate Flows",
+      "path": "Concert_Certificate_Flows.zip",
+      "description": "Provides a collection of reusable certificate workflows for discovery, rotation, and validation across supported platforms.",
+      "integrations": ["AWS", "Kubernetes", "IBM", "Common"]
+    },
+    {
+      "name": "Discover Certificates With Network Scan",
+      "path": "Discover_Certificates_With_Network_Scan_v2.2.zip",
+      "description": "Workflow to Perform a network-wide scan of IP ranges and ports to identify exposed TLS/SSL certificates and retrieve certificate details.",
+      "integrations": ["Ansible", "IBM", "Common"]
+    },
+    {
+      "name": "Discover Public Access Points From Kubernetes And OCP",
+      "path": "Discover_Public_Access_Points_From_Kubernetes_And_OCP_v2.2.zip",
+      "description": "This flow discovers Public Access Point data from Kubernetes and OCP, transforms the data and ingests the data to IBM Concert.",
+      "integrations": ["Kubernetes", "OpenShift", "IBM", "Common"]
+    },
+    {
+      "name": "HashiCorp VaultCertificate Discovery and Rotation",
+      "path": "HashiCorp_VaultCertificate_DiscoveryAndRotation_v2.2.zip",
+      "description": "Discovers HashiCorp Vault certificates and performs rotation when certificates are close to expiry.",
+      "integrations": ["HashiCorp", "IBM", "Common"]
+    },
+    {
+      "name": "IBM DataPower Certificates DiscoveryandRotation",
+      "path": "IBM_DataPower_Certificates_DiscoveryandRotation.zip",
+      "description": "Discovers certificates deployed on IBM DataPower gateways and performs rotation when certificates are close to expiry.",
+      "integrations": ["IBM", "Common"]
+    },
+    {
+      "name": "IBMCloud SecretManager Certificates discoveryAndRotation",
+      "path": "IBMCloud_SecretManager_Certificates_discoveryAndRotation_v2.2.zip",
+      "description": "This flow obtains a list of certificates in IBM Secrets Manager that is decoded, and then formed in JSON format and returned, ready to be ingested by IBM Concert.",
+      "integrations": ["IBM", "Common"]
+    },
+    {
+      "name": "Kubeadm Certificates Discover And Renew",
+      "path": "Kubeadm_Certificates_Discover_And_Renew_v2.2.zip",
+      "description": "This flow discovers Kubernetes kubeadm certificates, decodes and formats them in JSON, and performs batch renewal of the identified certificates using kubeadm.",
+      "integrations": ["IBM", "Common"]
+    },
+    {
+      "name": "Kubernetes Certificate Discovery",
+      "path": "Kubernetes_Certificate_Discovery_v2.2.zip",
+      "description": "This flow obtains a list of certificates in AWS Certificate Manager that is decoded, and then formed in JSON format and returned, ready to be ingested by IBM Concert.",
+      "integrations": ["Kubernetes", "IBM", "Common"]
+    },
+    {
+      "name": "Linux Tomcat Certificates DiscoveryandRotation",
+      "path": "Linux_Tomcat_Certificates_DiscoveryandRotation_v2.2.zip",
+      "description": "This workflow connects to Linux machines to discover certificates, ingest them into Concert, manage and generate self-signed Java/Tomcat certificates, and rotate selected certificates by renewing them in the specified keystores.",
+      "integrations": ["Ansible", "IBM", "Common"]
+    },
+    {
+      "name": "SSH Key Discovery And Renewal",
+      "path": "SSH_Key_Discovery_And_Renewal_v2.2.zip",
+      "description": "Discovers SSH host keys and user keys across systems, identifies weak or expiring keys, and renews them securely.",
+      "integrations": ["Ansible", "IBM", "Common"]
+    },
+    {
+      "name": "Windows RDP Certificate Rotation",
+      "path": "Windows_RDP_Certificate_Rotation_v2.2.zip",
+      "description": "Discovers and rotates certificates configured for Windows Remote Desktop Protocol (RDP) to ensure secure connectivity.",
+      "integrations": ["Ansible", "IBM", "Common"]
+    },
+    {
+      "name": "Windows Tomcat Certificates DiscoveryandRotation",
+      "path": "Windows_Tomcat_Certificates_DiscoveryandRotation_v2.2.zip",
+      "description": "This workflow connects to a Windows machine to fetch certificates from the keystore, ingests them into Concert, and manages the Java/Tomcat keystore by generating self-signed certificates and safely restarting the Tomcat server.",
+      "integrations": ["Ansible", "IBM", "Common"]
+    }
+  ]
+}
