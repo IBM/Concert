@@ -1,0 +1,24 @@
+{
+  "name": "Compliance",
+  "description": "Workflows used for Compliance",
+  "entries": [
+    {
+      "name": "CIS OCP4 OSCO Compliance Scan",
+      "path": "CIS_OCP4_OSCO_Compliance_Scan_v2.2.zip",
+      "description": "This workflow automates the CIS compliance scan for OpenShift clusters using OSCO, validates security policies, converts the results into YAML, and ingests them into Concert for compliance tracking.",
+      "integrations": ["Ansible", "IBM", "Common"]
+    },
+    {
+      "name": "CIS RHEL9 OpenSCAP Compliance Scan",
+      "path": "CIS_RHEL9_OpenSCAP_Compliance_Scan_v2.2.zip",
+      "description": "This workflow automates the CIS compliance scan for RHEL 9 using OpenSCAP, ensuring security compliance based on CIS benchmarks. The scan results are retrieved and uploaded into Concert for analysis.",
+      "integrations": ["IBM", "Common"]
+    },
+    {
+      "name": "CISO Agentic AI Assessment",
+      "path": "CISO_Agentic_AI_Assessment.zip",
+      "description": "This workflow initiates an OpenSCAP scan on a RHEL machine, invokes the Compliance API to run additional control checks through the Assessment Agent, and aggregates all results into a unified OSCAL Assessment Result for ingestion into IBM Concert.",
+      "integrations": ["Common"]
+    }
+  ]
+}

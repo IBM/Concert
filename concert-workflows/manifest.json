@@ -1,0 +1,30 @@
+{
+  "name": "Concert workflows",
+  "description": "Workflows used in concert scenarios",
+  "categories": [
+    {
+      "name": "Certificates",
+      "path": "Certificates"
+    },
+    {
+      "name": "Compliance",
+      "path": "Compliance"
+    },
+    {
+      "name": "Discovery Jobs",
+      "path": "Discovery Jobs"
+    },
+    {
+      "name": "Gitlab",
+      "path": "Gitlab"
+    },
+    {
+      "name": "Resilience",
+      "path": "Resilience"
+    },
+    {
+      "name": "Vulnerability",
+      "path": "Vulnerability"
+    }
+  ]
+}
