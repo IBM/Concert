@@ -1,0 +1,69 @@
+{
+    "bomFormat": "ConcertDef",
+    "specVersion": "1.0.2",
+    "metadata": {
+        "timestamp": "2025-11-03T12:42:46Z",
+        "type": "application",
+        "component": {
+            "name": "digibank-app",
+            "version": "1.0.0"
+        },
+        "business": {
+            "name": "IBM",
+            "units": [
+                {
+                    "name": "Automation",
+                    "email": "myemail@ibm.com",
+                    "phone": "(123) 123-1234"
+                }
+            ]
+        }
+    },
+    "environments": [
+        {
+            "bom-ref": "environment:dev",
+            "type": "environment",
+            "name": "dev"
+        }
+    ],
+    "components": [
+        {
+            "bom-ref": "build:digibank-app",
+            "type": "build",
+            "name": "digibank-app",
+            "version": "1.0.0",
+            "components": [
+                {
+                    "bom-ref": "container:testregistry.io:5000/digibank-app",
+                    "type": "container",
+                    "name": "testregistry.io:5000/digibank-app",
+                    "tag": "latest",
+                    "digest": "sha256:5da8880fc329421a926356ae7499777cd6181b8898cada4b8b520cfdf75f9753",
+                    "uri": "testregistry.io:5000/digibank-app:latest@sha256:5da8880fc329421a926356ae7499777cd6181b8898cada4b8b520cfdf75f9753"
+                },
+                {
+                    "bom-ref": "repository:coderepo:github:digibank-app",
+                    "type": "code",
+                    "name": "digibank-app",
+                    "purl": "https://github.ibm.com/reva/digibank-app",
+                    "branch": "main",
+                    "commit_sha": "8b3423f0b7a45543637a1083d38f64dbf5fe781c"
+                }
+            ]
+        }
+    ],
+    "properties": [
+        {
+            "name": "application_criticality",
+            "value": "4"
+        },
+        {
+            "name": "application_data_assessment_impact_risk",
+            "value": "5"
+        },
+        {
+            "name": "revenue",
+            "value": "50000"
+        }
+    ]
+}
