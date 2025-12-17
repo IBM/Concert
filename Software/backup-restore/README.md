@@ -31,7 +31,7 @@ oc apply -f concert-backup-restore-pvc.yaml -n ${INSTANCE_NAMESPACE}
 For more information about storage classes that IBM Concert supports, see [Storage considerations](https://www.ibm.com/docs/en/concert?topic=requirements-storage-considerations).
 
 
-User need to create backup-secret with below bucket details. 
+Users need to bring their bucket for storing the backup data on a remote bucket. They need to create a secret called `backup-secret` with following details in Concert namespace. 
 
 ```
 BACKUP_HOST:
@@ -64,7 +64,11 @@ type: Opaque
 
 ## Take concert backup
 
-To take concert backup run ./ibm-concert-backup.sh after exporting the namespace and schedule. To schedule the cronjob refer k8s documentation. You can set the cronjob for once a night or twice a day etc with this. [Schedule K8s Job](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#writing-a-cronjob-spec)
+To take concert backup run ./ibm-concert-backup.sh after exporting below values:
+   - `instance_ns`
+   - `schedule`
+
+To schedule the cronjob refer k8s documentation. You can set the cronjob for once a night or twice a day etc with this. [Schedule K8s Job](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#writing-a-cronjob-spec)
 
 Here's an example of schedule to run a job once a night at midnight. 
 
@@ -72,6 +76,7 @@ Here's an example of schedule to run a job once a night at midnight.
 Eg: schedule: "0 0 * * *"
 ```
 
+The script picks up USERID, GROUPID, FS_GROUPID and SUPP_GROUPID from app-cfg-cm config map that is generated at the time of deployment. It would run into error, if any of the values are missing in app-cfg-cm.  If you run into error, please verify app-cfg-cm configmap. 
 Export variables to run the script
 
 Eg: 
@@ -107,6 +112,7 @@ kubectl patch cronjob concert-backup -n ${INSTANCE_NAMESPACE} --type=json -p '[{
 
 ## Restore concert backup
 
+The script picks up USER_ID, GROUP_ID, FS_GROUPID and SUPP_GROUPID from app-cfg-cm config map that is generated at the time of deployment.  It would run into error, if any of the values are missing in app-cfg-cm. If you run into error, please verify app-cfg-cm configmap. 
 Export variables to run the script
 Eg: 
 BACKUP_ENTITY can be configdb,appdb,EL and LZ
@@ -119,7 +125,7 @@ BACKUP_ENTITY can be configdb,appdb,EL and LZ
  export BACKUP_TIMESTAMP=20250210_194423
 ```
 
-Run the below backup script 
+Run the below restore script 
 ```
  ./ibm-concert-restore.sh
 ```
