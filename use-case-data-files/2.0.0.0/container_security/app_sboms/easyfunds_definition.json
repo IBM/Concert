@@ -1,0 +1,69 @@
+{
+    "bomFormat": "ConcertDef",
+    "specVersion": "1.0.2",
+    "metadata": {
+        "timestamp": "2025-11-03T13:16:43Z",
+        "type": "application",
+        "component": {
+            "name": "EasyFunds-App",
+            "version": "1.0.0"
+        },
+        "business": {
+            "name": "IBM",
+            "units": [
+                {
+                    "name": "Automation",
+                    "email": "myemail@ibm.com",
+                    "phone": "(123) 123-1234"
+                }
+            ]
+        }
+    },
+    "environments": [
+        {
+            "bom-ref": "environment:dev",
+            "type": "environment",
+            "name": "dev"
+        }
+    ],
+    "components": [
+        {
+            "bom-ref": "build:EasyFunds-App",
+            "type": "build",
+            "name": "EasyFunds-App",
+            "version": "1.0.0",
+            "components": [
+                {
+                    "bom-ref": "container:testregistry.io:5000/easyfunds-app",
+                    "type": "container",
+                    "name": "testregistry.io:5000/easyfunds-app",
+                    "tag": "latest",
+                    "digest": "sha256:9ae1993eb81b2e159639f4ce11d834d5ded8f9ccb0d49cf9b3d7de070fd1234e",
+                    "uri": "testregistry.io:5000/easyfunds-app:latest@sha256:9ae1993eb81b2e159639f4ce11d834d5ded8f9ccb0d49cf9b3d7de070fd1234e"
+                },
+                {
+                    "bom-ref": "repository:coderepo:github:EasyFunds-App",
+                    "type": "code",
+                    "name": "EasyFunds-App",
+                    "purl": "https://github.ibm.com/reva/EasyFunds-App",
+                    "branch": "main",
+                    "commit_sha": "8b3423f0b7a45543637a1083d38f64dbf5fe781c"
+                }
+            ]
+        }
+    ],
+    "properties": [
+        {
+            "name": "application_criticality",
+            "value": "4"
+        },
+        {
+            "name": "application_data_assessment_impact_risk",
+            "value": "5"
+        },
+        {
+            "name": "revenue",
+            "value": "50000"
+        }
+    ]
+}
