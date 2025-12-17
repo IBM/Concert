@@ -1,0 +1,12 @@
+{
+  "name": "Gitlab",
+  "description": "Workflows used for Gitlab",
+  "entries": [
+    {
+      "name": "GitLab Fetch Repositories From Group",
+      "path": "GitLab_Fetch_Repositories_From_Group_v2.2.zip",
+      "description": "This flow fetches all the GitLab projects inside a group, transforms them into source repository metadata, and ingests them into Concert.",
+      "integrations": ["GitLab", "IBM", "Common"]
+    }
+  ]
+}
