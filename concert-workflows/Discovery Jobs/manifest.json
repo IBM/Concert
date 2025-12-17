@@ -1,0 +1,12 @@
+{
+  "name": "Discovery Jobs",
+  "description": "Workflows used for Discovery Jobs",
+  "entries": [
+    {
+      "name": "Re-Run Discovery Ingestion",
+      "path": "Re-Run_Discovery_Ingestion.zip",
+      "description": "This workflow re-runs the discovery job whose names are provided as input parameter in IBM Concert.",
+      "integrations": ["IBM", "Common"]
+    }
+  ]
+}
