@@ -1,0 +1,90 @@
+[
+    {
+        "provider": "IBM",
+        "name": "sample_library",
+        "label": "Sample Resilience Library",
+        "description": "Sample Resilience library that can be used to build custom libraries based on customer requirements.",
+        "use_last_received_data": "mins_deployment_downtime",
+        "requirements": [
+            {
+                "name": "application_availability",
+                "tags": "apm:observability,apm:datadog,apm:instana,apm:dynatrace,itsm:servicenow",
+                "label": "Application Availability",
+                "description": "The availability of an application, specified as a percentage",
+                "category": "Availability",
+                "criteria_type": "default_function",
+                "expected_score": "100",
+                "rating_thresholds": "100, 75, 50, 25",
+                "input_data_keys": "pct_availability_by_synthetic_tests, pct_availability_by_error_rate, pct_availability_by_downtime_post_rca",
+                "metadata": {
+                    "recommendation":"",
+                    "input_data_spec": [
+                        {
+                            "data_input": "pct_availability_by_synthetic_tests",
+                            "levels": [
+                                100,
+                                99.99,
+                                99.9,
+                                99.5
+                            ],
+                            "indicator": "leading",
+                            "weight": "3",
+                            "recommendation": ""
+                        },
+                        {
+                            "data_input": "pct_availability_by_error_rate",
+                            "levels": [
+                                100,
+                                99.99,
+                                99.9,
+                                99.5
+                            ],
+                            "indicator": "leading",
+                            "weight": "3",
+                            "recommendation": ""
+                        },
+                        {
+                            "data_input": "pct_availability_by_downtime_post_rca",
+                            "levels": [
+                                100,
+                                99.99,
+                                99.9,
+                                99.5
+                            ],
+                            "indicator": "lagging",
+                            "weight": "9",
+                            "recommendation": ""
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "deployment_downtime",
+                "label": "Deployment Downtime",
+                "description": "The deployment downtime goal for the application, determined by selecting from the provided choices",
+                "category": "Maintainability",
+                "criteria_type": "default_function",
+                "expected_score": "100",
+                "rating_thresholds": "100, 75, 50, 25",
+                "input_data_keys": "mins_deployment_downtime",
+                "metadata": {
+                    "recommendation":"",
+                    "input_data_spec": [
+                        {
+                            "data_input": "mins_deployment_downtime",
+                            "levels": [
+                                0,
+                                5,
+                                30,
+                                60
+                            ],
+                            "indicator": "manual",
+                            "weight": "9",
+                            "recommendation": ""
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+]
