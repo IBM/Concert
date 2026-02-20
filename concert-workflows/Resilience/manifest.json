@@ -57,6 +57,12 @@
       "integrations": ["AWS", "IBM", "Common"]
     },
     {
+      "name": "HCM Resilience Sample",
+      "path": "HCM_Resilience_Sample_v2.2.zip",
+      "description": "Workflow sample for HCM resilience",
+      "integrations": ["IBM", "Common"]
+    },
+    {
       "name": "Image Registry Workflow",
       "path": "Image_Registry_Workflow_v2.2.zip",
       "description": "The image registry workflow will capture the metrics for the images that are not deployed in any environment, but the images are only present in the registry. The workflow will pull those images into an VM, and then inspect the images to compute the metrics related to image layers and size.",
@@ -70,7 +76,7 @@
     },
     {
       "name": "Discovering Java applications on a VM",
-      "path": "Java_Application_Discovery_v2.2.zip",
+      "path": "Java_Application_Resilience_Discovery_v2.3.zip",
       "description": "The auto-discovery workflow identifies applications along with its associated Java components running on Linux® servers, focusing on Spring Boot, Apache Tomcats (using JMX) or any JAVA application using JDK.",
       "integrations": ["IBM", "Common"]
     },
