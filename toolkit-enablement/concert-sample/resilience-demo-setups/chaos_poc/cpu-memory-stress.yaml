@@ -1,0 +1,20 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: StressChaos
+metadata:
+name: cpu-memory-stress
+namespace: chaos-mesh
+spec:
+mode: all
+selector:
+namespaces:
+- sample-app # change to your app namespace
+labelSelectors:
+app: sample-app # change to your app label
+stressors:
+cpu:
+workers: 2
+load: 98 # Load is 98%
+memory:
+workers: 2
+size: "200" # Size is 200MB
+duration: "30m"
