@@ -1,0 +1,338 @@
+{
+  "bomFormat": "ConcertDef",
+  "specVersion": "1.0.2",
+  "metadata": {
+    "timestamp": "2025-08-01T20:41:19.462Z",
+    "type": "application",
+    "component": {
+      "name": "order-processor",
+      "version": "1.0.0"
+    }
+  },
+  "runtime-components": [
+    {
+      "bom-ref": "vm:svl-visa-virtualis1.fyre.ibm.com",
+      "type": "vm",
+      "name": "svl-visa-virtualis1.fyre.ibm.com",
+      "ipv4": [
+        {
+          "addr": "127.0.0.1"
+        },
+        {
+          "addr": "10.11.36.216"
+        },
+        {
+          "addr": "9.30.147.6"
+        }
+      ],
+      "hostname": "svl-visa-virtualis1.fyre.ibm.com",
+      "components": [
+        {
+          "bom-ref": "library:virtualis",
+          "type": "library",
+          "name": "virtualis",
+          "version": "0.0.1",
+          "filename": "virtualis-0.0.1-SNAPSHOT.war",
+          "purl": "library:/opt/tomcat/webapps/virtualis-0.0.1-SNAPSHOT.war"
+        }
+      ],
+      "properties": [
+        {
+          "name": "vm_id",
+          "value": "0000-0000-0000-0000"
+        },
+        {
+          "name": "os",
+          "value": "ubuntu"
+        },
+        {
+          "name": "os_version",
+          "value": "9.37"
+        },
+        {
+          "name": "env_type",
+          "value": "VM"
+        },
+        {
+          "name": "server_description",
+          "value": "This is a Java-based web application running on an Apache Tomcat server deployed on a standalone virtual machine. It uses Tomcat as the servlet container to process HTTP requests and responses, making it a reliable platform for deploying and managing web applications without relying on container orchestration or clustered environments."
+        }
+      ]
+    },
+    {
+      "bom-ref": "vm:svl-visa-core1.fyre.ibm.com",
+      "type": "vm",
+      "name": "svl-visa-core1.fyre.ibm.com",
+      "ipv4": [
+        {
+          "addr": "127.0.0.1"
+        },
+        {
+          "addr": "10.11.35.127"
+        },
+        {
+          "addr": "9.30.118.190"
+        }
+      ],
+      "hostname": "svl-visa-core1.fyre.ibm.com",
+      "components": [
+        {
+          "bom-ref": "library:core",
+          "type": "library",
+          "name": "core",
+          "version": "0.0.1",
+          "filename": "core-0.0.1-SNAPSHOT.war",
+          "purl": "library:/opt/tomcat/webapps/core-0.0.1-SNAPSHOT.war"
+        }
+      ],
+      "properties": [
+        {
+          "name": "vm_id",
+          "value": "0000-0000-0000-0000"
+        },
+        {
+          "name": "os",
+          "value": "ubuntu"
+        },
+        {
+          "name": "os_version",
+          "value": "9.37"
+        },
+        {
+          "name": "env_type",
+          "value": "VM"
+        },
+        {
+          "name": "server_description",
+          "value": "This is a Java-based web application running on an Apache Tomcat server deployed on a standalone virtual machine. It uses Tomcat as the servlet container to process HTTP requests and responses, making it a reliable platform for deploying and managing web applications without relying on container orchestration or clustered environments."
+        }
+      ]
+    },
+    {
+      "bom-ref": "vm:svl-visa-notification1.fyre.ibm.com",
+      "type": "vm",
+      "name": "svl-visa-notification1.fyre.ibm.com",
+      "ipv4": [
+        {
+          "addr": "127.0.0.1"
+        },
+        {
+          "addr": "10.11.65.83"
+        },
+        {
+          "addr": "9.30.34.164"
+        }
+      ],
+      "hostname": "svl-visa-notification1.fyre.ibm.com",
+      "components": [
+        {
+          "bom-ref": "library:notification",
+          "type": "library",
+          "name": "notification",
+          "version": "0.0.1",
+          "filename": "notification-0.0.1-SNAPSHOT.war",
+          "purl": "library:/opt/tomcat/webapps/notification-0.0.1-SNAPSHOT.war"
+        }
+      ],
+      "properties": [
+        {
+          "name": "vm_id",
+          "value": "0000-0000-0000-0000"
+        },
+        {
+          "name": "os",
+          "value": "ubuntu"
+        },
+        {
+          "name": "os_version",
+          "value": "9.37"
+        },
+        {
+          "name": "env_type",
+          "value": "VM"
+        },
+        {
+          "name": "server_description",
+          "value": "This is a Java-based web application running on an Apache Tomcat server deployed on a standalone virtual machine. It uses Tomcat as the servlet container to process HTTP requests and responses, making it a reliable platform for deploying and managing web applications without relying on container orchestration or clustered environments."
+        }
+      ]
+    },
+    {
+      "bom-ref": "vm:svl-visa-notif-rhel1.fyre.ibm.com",
+      "type": "vm",
+      "name": "svl-visa-notif-rhel1.fyre.ibm.com",
+      "ipv4": [
+        {
+          "addr": "127.0.0.1"
+        },
+        {
+          "addr": "10.11.39.214"
+        },
+        {
+          "addr": "9.30.146.204"
+        }
+      ],
+      "hostname": "svl-visa-notif-rhel1.fyre.ibm.com",
+      "components": [
+        {
+          "bom-ref": "library:balance",
+          "type": "library",
+          "name": "balance",
+          "version": "0.0.1",
+          "filename": "balance-0.0.1-SNAPSHOT.war",
+          "purl": "library:/usr/local/tomcat10/webapps/balance-0.0.1-SNAPSHOT.war"
+        }
+      ],
+      "properties": [
+        {
+          "name": "vm_id",
+          "value": "0000-0000-0000-0000"
+        },
+        {
+          "name": "os",
+          "value": "ubuntu"
+        },
+        {
+          "name": "os_version",
+          "value": "9.37"
+        },
+        {
+          "name": "env_type",
+          "value": "VM"
+        },
+        {
+          "name": "server_description",
+          "value": "This is a Java-based web application running on an Apache Tomcat server deployed on a standalone virtual machine. It uses Tomcat as the servlet container to process HTTP requests and responses, making it a reliable platform for deploying and managing web applications without relying on container orchestration or clustered environments."
+        }
+      ]
+    }
+  ],
+  "environments": [
+    {
+      "bom-ref": "environment:Production",
+      "name": "Production",
+      "type": "environment",
+      "access-points": [
+        {
+          "ref": "service:virtualis",
+          "base-url": "http://svl-visa-virtualis1.fyre.ibm.com",
+          "port": 8080
+        },
+        {
+          "ref": "service:core",
+          "base-url": "http://svl-visa-core1.fyre.ibm.com",
+          "port": 8080
+        },
+        {
+          "ref": "service:notification",
+          "base-url": "http://svl-visa-notification1.fyre.ibm.com",
+          "port": 8080
+        },
+        {
+          "ref": "service:balance",
+          "base-url": "http://svl-visa-notif-rhel1.fyre.ibm.com",
+          "port": 8234
+        }
+      ]
+    }
+  ],
+  "properties": [
+    {
+      "name": "application_criticality",
+      "value": "5"
+    },
+    {
+      "name": "application_data_assessment_impact_risk",
+      "value": "5"
+    }
+  ],
+  "services": [
+    {
+      "bom-ref": "service:virtualis",
+      "name": "virtualis",
+      "endpoints": [
+        "/virtualis-0.0.1-SNAPSHOT"
+      ],
+      "properties": [
+        {
+          "name": "network_exposure",
+          "value": "public"
+        }
+      ]
+    },
+    {
+      "bom-ref": "service:core",
+      "name": "core",
+      "endpoints": [
+        "/core-0.0.1-SNAPSHOT"
+      ],
+      "properties": [
+        {
+          "name": "network_exposure",
+          "value": "public"
+        }
+      ]
+    },
+    {
+      "bom-ref": "service:notification",
+      "name": "notification",
+      "endpoints": [
+        "/notification-0.0.1-SNAPSHOT"
+      ],
+      "properties": [
+        {
+          "name": "network_exposure",
+          "value": "public"
+        }
+      ]
+    },
+    {
+      "bom-ref": "service:balance",
+      "name": "balance",
+      "endpoints": [
+        "/balance-0.0.1-SNAPSHOT"
+      ],
+      "properties": [
+        {
+          "name": "network_exposure",
+          "value": "public"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "environment:Production",
+      "dependsOn": [
+        "vm:svl-visa-virtualis1.fyre.ibm.com",
+        "vm:svl-visa-core1.fyre.ibm.com",
+        "vm:svl-visa-notification1.fyre.ibm.com",
+        "vm:svl-visa-notif-rhel1.fyre.ibm.com"
+      ]
+    },
+    {
+      "ref": "library:virtualis",
+      "dependsOn": [
+        "service:virtualis"
+      ]
+    },
+    {
+      "ref": "library:core",
+      "dependsOn": [
+        "service:core"
+      ]
+    },
+    {
+      "ref": "library:notification",
+      "dependsOn": [
+        "service:notification"
+      ]
+    },
+    {
+      "ref": "library:balance",
+      "dependsOn": [
+        "service:balance"
+      ]
+    }
+  ]
+}
