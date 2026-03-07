@@ -1,0 +1,5 @@
+# RabbitMQ client library for Python
+pika>=1.3.0
+
+# HTTP library for API requests
+requests>=2.28.0

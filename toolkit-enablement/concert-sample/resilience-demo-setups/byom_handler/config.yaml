@@ -1,0 +1,237 @@
+# BYOM Handler Configuration
+# This configuration allows you to connect to ANY LLM provider via HTTP
+
+# Handler Configuration (for Concert registration)
+handler:
+  name: "byom_handler"
+  description: "BYOM Handler for Concert GenAI"
+  protocol: "https"  # Use "https" for SSL/TLS, "http" for non-SSL
+  hostname: "localhost"
+  port: 8082
+  prefix: "custom_handler"
+  
+  # SSL/TLS Configuration
+  ssl_enabled: true  # Set to false to disable HTTPS
+  ssl_certfile: "certs/cert.pem"  # Path to SSL certificate
+  ssl_keyfile: "certs/key.pem"    # Path to SSL private key
+
+# Authentication for Concert requests
+# auth:
+#   type: "api_key"
+#   header_name: "Authentication"
+#   api_key: "${CONCERT_API_KEY}"
+
+# Logging Configuration
+logging:
+  level: "INFO"
+
+# LLM Endpoint Configuration
+# Configure your LLM provider's HTTP endpoint details
+llm_endpoint:
+  # The base URL of your LLM service
+  url: "https://us-south.ml.cloud.ibm.com/ml/v1/text/generation"
+  
+  # HTTP method (POST, GET, etc.)
+  method: "POST"
+  
+  # Authentication headers
+  headers:
+    Authorization: "Bearer ${LLM_API_KEY}"
+    Content-Type: "application/json"
+  
+  # Request body template - use {prompt} placeholder for the user's prompt
+  # Use {param_name} for any parameter you want to pass
+  request_body:
+    input: "{prompt}"
+    model_id: "meta-llama/llama-3-3-70b-instruct"
+    project_id: "${WATSONX_PROJECT_ID}"
+    parameters:
+      max_new_tokens: 600
+      temperature: 0.7
+  
+  # Response parsing - JSONPath to extract the generated text
+  # Examples: 
+  #   - "results[0].generated_text" for Watsonx
+  #   - "choices[0].message.content" for OpenAI
+  #   - "generated_text" for simple responses
+  response_path: "results[0].generated_text"
+  
+  # Optional: Model name path in response (for Concert response)
+  model_path: "model_id"
+  
+  # Timeout in seconds
+  timeout: 60
+
+# ============================================
+# EXAMPLE CONFIGURATIONS FOR DIFFERENT PROVIDERS
+# ============================================
+
+# Example 1: Anthropic Claude Opus
+# llm_endpoint:
+#   url: "https://api.anthropic.com/v1/messages"
+#   method: "POST"
+#   headers:
+#     x-api-key: "${ANTHROPIC_API_KEY}"
+#     anthropic-version: "2023-06-01"
+#     Content-Type: "application/json"
+#   request_body:
+#     model: "claude-opus-4-20250514"
+#     max_tokens: 2048
+#     messages:
+#       - role: "user"
+#         content: "{prompt}"
+#     temperature: 0.7
+#   response_path: "content[0].text"
+#   model_path: "model"
+#   timeout: 60
+
+# Example 2: OpenAI
+# llm_endpoint:
+#   url: "https://api.openai.com/v1/chat/completions"
+#   method: "POST"
+#   headers:
+#     Authorization: "Bearer ${OPENAI_API_KEY}"
+#     Content-Type: "application/json"
+#   request_body:
+#     model: "gpt-4"
+#     messages:
+#       - role: "user"
+#         content: "{prompt}"
+#     max_tokens: 600
+#     temperature: 0.7
+#   response_path: "choices[0].message.content"
+#   model_path: "model"
+#   timeout: 60
+
+# Example 3: Azure OpenAI
+# llm_endpoint:
+#   url: "${AZURE_OPENAI_ENDPOINT}/openai/deployments/gpt-4/chat/completions?api-version=2024-02-15-preview"
+#   method: "POST"
+#   headers:
+#     api-key: "${AZURE_OPENAI_API_KEY}"
+#     Content-Type: "application/json"
+#   request_body:
+#     messages:
+#       - role: "user"
+#         content: "{prompt}"
+#     max_tokens: 600
+#     temperature: 0.7
+#   response_path: "choices[0].message.content"
+#   model_path: "model"
+#   timeout: 60
+
+# Example 4: Google Gemini
+# llm_endpoint:
+#   url: "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent"
+#   method: "POST"
+#   headers:
+#     x-goog-api-key: "${GEMINI_API_KEY}"
+#     Content-Type: "application/json"
+#   request_body:
+#     contents:
+#       - parts:
+#           - text: "{prompt}"
+#     generationConfig:
+#       temperature: 0.7
+#   response_path: "candidates[0].content.parts[0].text"
+#   model_path: "gemini-2.5-flash"
+#   timeout: 60
+
+# Example 5: Anthropic Claude Sonnet
+# llm_endpoint:
+#   url: "https://api.anthropic.com/v1/messages"
+#   method: "POST"
+#   headers:
+#     x-api-key: "${ANTHROPIC_API_KEY}"
+#     anthropic-version: "2023-06-01"
+#     Content-Type: "application/json"
+#   request_body:
+#     model: "claude-3-5-sonnet-20241022"
+#     max_tokens: 2048
+#     messages:
+#       - role: "user"
+#         content: "{prompt}"
+#   response_path: "content[0].text"
+#   model_path: "model"
+#   timeout: 60
+
+# Example 6: Mistral AI
+# llm_endpoint:
+#   url: "https://api.mistral.ai/v1/chat/completions"
+#   method: "POST"
+#   headers:
+#     Authorization: "Bearer ${MISTRAL_API_KEY}"
+#     Content-Type: "application/json"
+#   request_body:
+#     model: "mistral-large-latest"
+#     messages:
+#       - role: "user"
+#         content: "{prompt}"
+#     max_tokens: 600
+#     temperature: 0.7
+#   response_path: "choices[0].message.content"
+#   model_path: "model"
+#   timeout: 60
+
+# Example 7: HuggingFace Inference API
+# llm_endpoint:
+#   url: "https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.2"
+#   method: "POST"
+#   headers:
+#     Authorization: "Bearer ${HUGGINGFACE_API_KEY}"
+#     Content-Type: "application/json"
+#   request_body:
+#     inputs: "{prompt}"
+#     parameters:
+#       max_new_tokens: 600
+#       temperature: 0.7
+#   response_path: "[0].generated_text"
+#   timeout: 60
+
+# Example 8: Local Ollama
+# llm_endpoint:
+#   url: "http://localhost:11434/api/generate"
+#   method: "POST"
+#   headers:
+#     Content-Type: "application/json"
+#   request_body:
+#     model: "llama2"
+#     prompt: "{prompt}"
+#     stream: false
+#   response_path: "response"
+#   model_path: "model"
+#   timeout: 60
+
+# Example 9: vLLM Server
+# llm_endpoint:
+#   url: "http://localhost:8000/v1/completions"
+#   method: "POST"
+#   headers:
+#     Content-Type: "application/json"
+#   request_body:
+#     model: "meta-llama/Llama-2-7b-hf"
+#     prompt: "{prompt}"
+#     max_tokens: 600
+#     temperature: 0.7
+#   response_path: "choices[0].text"
+#   model_path: "model"
+#   timeout: 60
+
+# Example 10: Custom LLM Endpoint
+# Use this template for any custom LLM endpoint
+# llm_endpoint:
+#   url: "${CUSTOM_LLM_URL}"
+#   method: "POST"
+#   headers:
+#     Authorization: "Bearer ${CUSTOM_API_KEY}"
+#     Content-Type: "application/json"
+#   request_body:
+#     model: "your-model-name"
+#     messages:
+#       - role: "user"
+#         content: "{prompt}"
+#     max_tokens: 600
+#     temperature: 0.7
+#   response_path: "choices[0].message.content"
+#   model_path: "model"
+#   timeout: 60
