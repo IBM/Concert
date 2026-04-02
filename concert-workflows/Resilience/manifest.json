@@ -115,6 +115,12 @@
       "path": "ServiceNow_Resilience_Sample.zip",
       "description": "This workflow retrieves problems/incidents from ServiceNow over a specified time period, calculates  percentage of incidents (sev1 and sev2) in ServiceNow that are either resolved by change or detected by monitoring tools, and sends the processed data to the Concert Resilience evaluation API.",
       "integrations": ["Common"]
+    },
+    {
+      "name": "VM integrity assessment",
+      "path": "VM_integrity_assessment.zip",
+      "description": "VM integrity assessment workflow.",
+      "integrations": ["Common"]
     }
   ]
 }
