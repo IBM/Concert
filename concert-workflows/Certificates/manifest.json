@@ -33,6 +33,18 @@
       "integrations": ["Kubernetes", "OpenShift", "IBM", "Common"]
     },
     {
+      "name": "Email Scheduler for Certificates",
+      "path": "Email_Scheduler_For_Certificates.zip",
+      "description": "Workflow to send email notifications and escalated emails to a group of receivers for expiring and expired certificates respectively.",
+      "integrations": ["Common"]
+    },
+    {
+      "name": "Export Certs",
+      "path": "Export_Certs.zip",
+      "description": "Workflow to export all available certificates in Concert into a tar file to user's file system.",
+      "integrations": ["IBM", "Common"]
+    },
+    {
       "name": "HashiCorp VaultCertificate Discovery and Rotation",
       "path": "HashiCorp_VaultCertificate_DiscoveryAndRotation_v2.2.zip",
       "description": "Discovers HashiCorp Vault certificates and performs rotation when certificates are close to expiry.",
