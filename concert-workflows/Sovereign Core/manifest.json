@@ -1,0 +1,144 @@
+{
+  "name": "Sovereign Core",
+  "description": "Workflows used for Sovereign Core",
+  "entries": [
+    {
+      "name": "CSCF-AI-01 AI Model Inventory And Approval Monitoring",
+      "path": "CSCF-AI-01_AI_Model_Inventory_And_Approval_Monitoring/CSCF-AI-01_AI_Model_Inventory_And_Approval_Monitoring.zip",
+      "description": "This control ensures that only approved AI models are deployed and operational within the sovereign cloud environment. It validates that all AI models in use are from an authorized list and monitors their deployment status through the AIIaaS broker service.",
+      "integrations": ["Common", "IBM"]
+    },
+    {
+      "name": "CSCF-AI-03 AI Network Isolation And No External Egress",
+      "path": "CSCF-AI-03_AI_Network_Isolation_And_No_External_Egress/AI_Network_Isolation_And_No_External_Egress.zip",
+      "description": "AI workloads do not communicate with external networks except explicitly approved sovereign endpoints. Prevent AI workloads from transferring data outside the sovereign boundary.",
+      "integrations": ["Common", "IBM"]
+    },
+    {
+      "name": "CSCF-CR-01 MSP Controlled Encryption Keys",
+      "path": "CSCF-CR-01_MSP_Controlled_Encryption_Keys/MSP_Controlled_Encryption_Keys.zip",
+      "description": "This Concert workflow validates customer control over cryptographic keys by checking HashiCorp Vault policies and roles in an OpenShift environment. The workflow performs automated compliance assessments and uploads results to IBM Concert in OSCAL format.",
+      "integrations": ["Common", "IBM"]
+    },
+    {
+      "name": "CSCF-DR-02 Derived and Temporary Data Residency",
+      "path": "CSCF-DR-02_Derived_and_Temporary_Data_Residency/Derived_and_Temporary_Data_Residency.zip",
+      "description": "This IBM Concert workflow validates that derived and temporary data (specifically Loki telemetry logs) remains within the designated control plane CIDR range, ensuring data residency compliance for sovereign cloud environments.",
+      "integrations": ["Common", "IBM"]
+    },
+    {
+      "name": "CSCF-DR-04 Inter-Namespace Data Flow Control",
+      "path": "CSCF-DR-04_Inter-Namespace_Data_Flow_Control/CSCF-DR-04_Inter-Namespace_Data_Flow_Control.zip",
+      "description": "The workflow performs automated checks on Network Policies and Egress Firewalls to verify that proper controls are in place to restrict and monitor data movement between namespaces, preventing unauthorized lateral data movement within the cluster.",
+      "integrations": ["Common", "IBM"]
+    },
+    {
+      "name": "CSCF-DR-05 Backup And Snapshot Sovereignty",
+      "path": "CSCF-DR-05_Backup_And_Snapshot_Sovereignty/CSCF-DR-05_Backup_And_Snapshot_Sovereignty.zip",
+      "description": "This IBM Concert workflow validates backup and snapshot sovereignty compliance by ensuring that all backups, snapshots, and recovery copies of customer data remain within the designated sovereign region.",
+      "integrations": ["Common", "IBM"]
+    },
+    {
+      "name": "CSCF-DR-08_Backup And Snapshot Deletion Verification",
+      "path": "CSCF-DR-08_Backup_And_Snapshot_Deletion_Verification/CSCF-DR-08_Backup_And_Snapshot_Deletion_Verification.zip",
+      "description": "The workflow performs automated checks on backup configurations to verify proper data residency and sovereignty controls.",
+      "integrations": ["Common", "IBM"]
+    },
+    {
+      "name": "CSCF-DR-09 Cross-Tenant Data Exposure Prevention",
+      "path": "CSCF-DR-09_Cross-Tenant_Data_Exposure_Prevention/CSCF-DR-09_Cross-Tenant_Data_Exposure_Prevention.zip",
+      "description": "This IBM Concert workflow validates Validates storage class isolation across operational accounts to prevent cross-tenant data exposure.",
+      "integrations": ["Common", "IBM"]
+    },
+    {
+      "name": "CSCF-DR-10 Metadata And Telemetry Residency",
+      "path": "CSCF-DR-10_Metadata_And_Telemetry_Residency/Metadata_And_Telemetry_Residency.zip",
+      "description": "This Concert workflow validates Operational metadata, telemetry, metrics, and logs are resident inside the sovereign boundary and not transmitted to external endpoints.",
+      "integrations": ["Common", "IBM"]
+    },
+    {
+      "name": "CSCF-IA-01 MSP Controlled IAM",
+      "path": "CSCF-IA-01_MSP_Controlled_IAM/MSP_Controlled_IAM.zip",
+      "description": "This workflow checks whether the ibm verify route is pointing to account-iam service.",
+      "integrations": ["Common", "IBM"]
+    },
+    {
+      "name": "CSCF-IA-04 Account Lifecycle Monitoring",
+      "path": "CSCF-IA-04_Account_Lifecycle_Monitoring/CSCF-IA-04_Account_Lifecycle_Monitoring.zip",
+      "description": "This Workflow validates if identity lifecycle activities such as account creation, modification, and deletion are monitored through audit logging mechanisms.",
+      "integrations": ["Common", "IBM"]
+    },
+    {
+      "name": "CSCF-MI-01 Sovereign Monitoring Stack",
+      "path": "CSCF-MI-01_Sovereign_Monitoring_Stack/Sovereign_Monitoring_Stack.zip",
+      "description": "This workflow checks whether Prometheus, Loki, Thanos, and Perses are deployed locally.",
+      "integrations": ["Common", "IBM"]
+    },
+    {
+      "name": "CSCF-RA-02_Remediation_SLA_Tracking",
+      "path": "CSCF-RA-02_Remediation_SLA_Tracking/CSCF-RA-02_Remediation_SLA_Tracking.zip",
+      "description": "This workflow validates track and enforce remediation timelines (SLAs) for identified security vulnerabilities.",
+      "integrations": ["Common", "IBM"]
+    },
+    {
+      "name": "CSCF-SC-01 Source Code Transparency",
+      "path": "CSCF-SC-01_Source_Code_Transparency/CSCF-SC-01_Source_Code_Transparency.zip",
+      "description": "This workflow validates that source code or relevant build artifacts for platform components are accessible for review.",
+      "integrations": ["Common", "IBM"]
+    },
+    {
+      "name": "CSCF-SC-03 Transitive Dependency Risk Management",
+      "path": "CSCF-SC-03_Transitive_Dependency_Risk_Management/CSCF-SC-03_Transitive_Dependency_Risk_Management.zip",
+      "description": "This workflow validates the management of risks associated with transitive dependencies in the platform.",
+      "integrations": ["Common", "IBM"]
+    },
+    {
+      "name": "CSCF-TRN-03 Customer Control over Identity and Access",
+      "path": "CSCF-TRN-03_Customer_Control_over_Identity_and_Access/Customer_Control_over_Identity_and_Access.zip",
+      "description": "The workflow have three sub workflows of validation checks they are Configuration changes , User activity and MFA is detected.",
+      "integrations": ["Common", "IBM"]
+    },
+    {
+      "name": "CSCF-TRN-04 Customer Control over Cryptographic Keys",
+      "path": "CSCF-TRN-04_Customer_Control_over_Cryptographic_Keys/Customer_Control_over_Cryptographic_Keys.zip",
+      "description": "This Concert workflow validates customer control over cryptographic keys by checking HashiCorp Vault policies and roles in an OpenShift environment.",
+      "integrations": ["Common", "IBM"]
+    },
+    {
+      "name": "CSCF-TRN-05 Customer Access to Audit and Evidence",
+      "path": "CSCF-TRN-05_Customer_Access_to_Audit_and_Evidence/Customer_Access_To_Audit_And_Evidence.zip",
+      "description": "This workflow validates customer access to audit and evidence.",
+      "integrations": ["Common", "IBM"]
+    },
+    {
+      "name": "ISCF-CR-03 Approved Cryptographic Algorithms And Cipher Governance",
+      "path": "ISCF-CR-03_Approved_Cryptographic_Algorithms_And_Cipher_Governance/ISCF-CR-03_Approved_Cryptographic_Algorithms_And_Cipher_Governance.zip",
+      "description": "This Workflow validates that cryptographic algorithms, key sizes, and cipher suites used within the environment comply with approved governance policies and industry standards, preventing weak or deprecated cryptography.",
+      "integrations": ["Common", "IBM"]
+    },
+    {
+      "name": "ISCF-DR-01 REGION Data Residency",
+      "path": "ISCF-DR-01_REGION_Data_Residency/ISCF-DR-01_REGION_Data_Residency.zip",
+      "description": "This Workflow validates that all storage resources and associated infrastructure are confined within an approved REGION by validating network boundaries (CIDR ranges) and storage endpoint configurations.",
+      "integrations": ["Common", "IBM"]
+    },
+    {
+      "name": "ISCF-DR-03 Network Egress Sovereignty",
+      "path": "ISCF-DR-03_Network_Egress_Sovereignty/Network_Egress_Sovereignty.zip",
+      "description": "This IBM Concert workflow validates network egress controls in OpenShift clusters to ensure compliance with sovereignty requirements.",
+      "integrations": ["Common", "IBM"]
+    },
+    {
+      "name": "ISCF-OP-02 Offline Deployment Capability",
+      "path": "ISCF-OP-02_Offline_Deployment_Capability/ISCF-OP-02_Offline_Deployment_Capability.zip",
+      "description": "This workflow implements offline deployment capability compliance checks for the Sovereign Control Framework. It validates that an OpenShift cluster can operate in an air-gapped/offline environment using local container registries without external dependencies.",
+      "integrations": ["Common", "IBM"]
+    },
+    {
+      "name": "ISCF-RA-01 Continuous Vulnerability Scanning",
+      "path": "ISCF-RA-01_Continuous_Vulnerability_Scanning/ISCF-RA-01_Continuous_Vulnerability_Scanning.zip",
+      "description": "This workflow validates continuous vulnerability scanning processes to ensure timely identification and remediation of security vulnerabilities.",
+      "integrations": ["Common", "IBM"]
+    }
+  ]
+}
