@@ -16,7 +16,7 @@
     },
     {
       "name": "Discovering applications on a ECS",
-      "path": "AWS_ECS_resilience_v2.2.zip",
+      "path": "AWS_ECS_resilience_v2.3.zip",
       "description": "Concert can access to your Amazon Elastic Container Service (ECS) environment to collect cluster, service, task, and container-level metadata and metrics to access the resilience of your applications.",
       "integrations": ["AWS", "IBM", "Common"]
     },
@@ -34,7 +34,7 @@
     },
     {
       "name": "Datadog Resilience Sample",
-      "path": "DataDog_Resilience_sample_v2.2.zip",
+      "path": "DataDog_Resilience_Sample_v2.2.zip",
       "description": "This workflow retrieves performance metrics from Datadog over a specified time period, calculates availability and error rates, and sends to the main flow.",
       "integrations": ["Datadog", "IBM"]
     },
@@ -76,7 +76,7 @@
     },
     {
       "name": "Discovering Java applications on a VM",
-      "path": "Java_Application_Resilience_Discovery_v2.3.zip",
+      "path": "Java_Application_Resilience_Discovery.zip",
       "description": "The auto-discovery workflow identifies applications along with its associated Java components running on Linux® servers, focusing on Spring Boot, Apache Tomcats (using JMX) or any JAVA application using JDK.",
       "integrations": ["IBM", "Common"]
     },
