@@ -63,6 +63,12 @@
       "integrations": ["IBM", "Common"]
     },
     {
+      "name": "IIS Server Certificate Discovery and Rotation",
+      "path": "IIS Endpoint Certificate Scan and Rotation.zip",
+      "description": "Discovers IISServer  certificates and performs rotation when certificates are close to expiry.",
+      "integrations": ["IBM", "Common"]
+    },
+    {
       "name": "Kubeadm Certificates Discover And Renew",
       "path": "Kubeadm_Certificates_Discover_And_Renew_v2.2.zip",
       "description": "This flow discovers Kubernetes kubeadm certificates, decodes and formats them in JSON, and performs batch renewal of the identified certificates using kubeadm.",
