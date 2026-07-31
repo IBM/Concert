@@ -121,6 +121,12 @@
       "path": "VM_integrity_assessment.zip",
       "description": "VM integrity assessment workflow.",
       "integrations": ["Common"]
+    },
+    {
+      "name": "Infragraph Remediation Workflows",
+      "path": "Infragraph_Remediation_Workflows.zip",
+      "description": "Workflows to remediate the issues found in the Infragraph assessment using by fixing Terraform files.",
+      "integrations": ["Github", "IBM", "Common"]
     }
   ]
 }
