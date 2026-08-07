@@ -1,0 +1,226 @@
+{
+    "bomFormat": "ConcertDef",
+    "specVersion": "2.0.0",
+    "metadata": {
+        "timestamp": "2026-08-04T00:00:00Z",
+        "type": "deploy",
+        "deploy-name": "deploy-region-datacenter-cluster",
+        "application-name": "product-name",
+        "application-version" : "product-version",
+        "deploy-number": "1"
+    },
+    "environment": {
+        "bom-ref": "environment:continent-region",
+        "name": "continent-region",
+        "purpose" : "production",
+        "type" : "kubernetes",
+        "tags":["group-3", "group-4", "group-5"],
+        "properties": [
+            {
+                "name": "environment-property-name-2",
+                "value": "environment-property-value-2"
+            }
+        ]
+    },
+    "runtime-components": [
+        {
+            "bom-ref": "infra:kubernetes:rosa:cluster-1",
+            "name": "cluster-1",
+            "type": "kubernetes",
+            "api-server": "https://api.cluster1.com:1234",
+            "properties": [
+                {
+                    "name": "platform",
+                    "value": "rosa"
+                },
+                {
+                    "name": "cluster_platform",
+                    "value": "aws"
+                },
+                {
+                    "name": "cluster_id",
+                    "value": "arn:111111111111"
+                },
+                {
+                    "name": "cluster_region",
+                    "value": "continent-cluster-region-1"
+                },
+                {
+                    "name": "cluster_name",
+                    "value": "cluster-1"
+                }
+            ],
+            "components": [
+                {
+                    "bom-ref" : "namespace:namespace-1",
+                    "type": "namespace",
+                    "name": "namespace-1",
+                    "components": [
+                        {
+                            "bom-ref": "deployment:component-name-1",
+                            "type": "deployment",
+                            "name": "component-name-1",
+                            "components": [
+                                {
+                                    "bom-ref": "image:image-name-1",
+                                    "type": "image",
+                                    "name": "image-name-1",
+                                    "uri": "registry.io/placeholder/image-name-1:image-tag"
+                                }
+                            ],
+                            "properties": [
+                                {
+                                    "name": "workload.type",
+                                    "value": "k8s:Deployment"
+                                }
+                            ]
+                        },
+                        {
+                            "bom-ref": "deployment:component-name-3",
+                            "type": "deployment",
+                            "name": "component-name-3",
+                            "components": [
+                                {
+                                    "bom-ref": "image:image-name-2",
+                                    "type": "image",
+                                    "name": "image-name-2",
+                                    "uri": "registry.io/placeholder/image-name-2:image-tag"
+                                },
+                                {
+                                    "bom-ref": "image:image-name-5",
+                                    "type": "image",
+                                    "name": "image-name-5",
+                                    "uri": "registry.io/placeholder/image-name-5@sha256:4d11e24ba8a615cc85a535daa17b47d3c0219f7eeb2b8208896704ad7f88ae2d"
+                                }
+                            ],
+                            "properties": [
+                                {
+                                    "name": "workload.type",
+                                    "value": "k8s:Deployment"
+                                }
+                            ]
+                        },
+                        {
+                            "bom-ref": "deployment:component-name-4",
+                            "type": "deployment",
+                            "name": "component-name-4",
+                            "components": [
+                                {
+                                    "bom-ref": "image:image-name-3",
+                                    "type": "image",
+                                    "name": "image-name-3",
+                                    "uri": "registry.io/placeholder/image-name-3:image-tag"
+                                },
+                                {
+                                    "bom-ref": "image:image-name-4",
+                                    "type": "image",
+                                    "name": "image-name-4",
+                                    "uri": "registry.io/placeholder/image-name-4:image-tag"
+                                }
+                            ],
+                            "properties": [
+                                {
+                                    "name": "workload.type",
+                                    "value": "k8s:Deployment"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "bom-ref": "infra:node:node-1",
+                    "type": "node",
+                    "name": "node-1",
+                    "ipv4": [
+                        {
+                            "addr": "127.0.0.1"
+                        }
+                    ],
+                    "hostname": "hostname-1.host.com",
+                    "properties": [
+                        {
+                            "name": "node-property-name-1",
+                            "value": "node-property-value-1"
+                        }
+                    ]
+                },
+                {
+                    "bom-ref": "infra:node:node-2",
+                    "type": "node",
+                    "name": "node-2",
+                    "ipv4": [
+                        {
+                            "addr": "127.0.0.2"
+                        }
+                    ],
+                    "hostname": "hostname-2.host.com",
+                    "properties": [
+                        {
+                            "name": "node-property-name-2",
+                            "value": "node-property-value-2"
+                        }
+                    ]
+                },
+                {
+                    "bom-ref": "infra:node:node-3",
+                    "type": "node",
+                    "name": "node-3",
+                    "ipv4": [
+                        {
+                            "addr": "127.0.0.3"
+                        }
+                    ],
+                    "hostname": "hostname-3.host.com",
+                    "properties": [
+                        {
+                            "name": "node-property-name-3",
+                            "value": "node-property-value-3"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "services": [
+        {
+            "bom-ref": "service:service-name-3",
+            "name": "service-name-3",
+            "network_exposure": "public",
+            "endpoints": [
+            "/",
+            "/endpoints/endpoint3"
+            ],
+            "base-url": "http://placeholder-cluster.cluster-1.com",
+            "port": 1234,
+            "properties": [
+                {
+                    "name": "services-property-name-3",
+                    "value": "services-property-value-3"
+                }
+            ]
+        }
+    ],
+    "dependencies": [
+        {
+            "ref": "environment:continent-region",
+            "dependsOn": [
+                "infra:kubernetes:rosa:cluster-1"
+            ]
+        },
+        {
+            "ref": "infra:kubernetes:rosa:cluster-1",
+            "dependsOn": [
+                "infra:node:node-1",
+                "infra:node:node-2",
+                "infra:node:node-3"
+            ]
+        },
+        {
+            "ref": "image:image-name-1",
+            "dependsOn": [
+                "service:service-name-3"
+            ]
+        }
+    ],
+    "tags":["group-3", "group-4", "group-7"]
+}
