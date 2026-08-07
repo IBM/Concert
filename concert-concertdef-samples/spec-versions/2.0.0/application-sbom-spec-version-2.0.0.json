@@ -1,0 +1,189 @@
+{
+    "bomFormat": "ConcertDef",
+    "specVersion": "2.0.0",
+    "criticality": 3,
+    "data-sensitivity": 3,
+    "revenue": 70000000.00,
+    "metadata": {
+        "timestamp": "2025-10-01T00:00:00Z",
+        "type": "application",
+        "application-name": "product-name",
+        "application-version": "product-version",
+        "description" : "product-description",
+        "build-number": "build-number",
+        "build-timestamp": "2025-10-01T00:00:00Z"
+    },
+    "business": {
+        "name": "Business Name",
+        "unit":{
+                "name": "Business Unit Name",
+                "email": "business-unit@business.com",
+                "phone": "123-123-1234"
+        },
+        "properties": [
+            {
+                "name": "business-unit-property-name-1", 
+                "value": "business-unit-property-value-1"
+            },
+            {
+                "name": "business-unit-property-name-2",
+                "value": "business-unit-property-value-2"
+            }
+        ]
+    },
+    "components": [
+        {
+            "bom-ref":"component:component-name-1",
+            "type": "component",
+            "name": "component-name-1",
+            "components": [
+                {
+                    "bom-ref": "code:repository-org-repository-name-1",
+                    "type": "code",
+                    "name": "repository-org-repository-name-1",
+                    "purl": "https://repository.com/repository-org/repository-name-1",
+                    "branch": "branch-name-1",
+                    "properties": [
+                        {
+                            "name": "code-property-name-1",
+                            "value": "code-property-value-1"
+                        }
+                    ]
+                },
+                {
+                    "bom-ref": "image:image-name-1",                
+                    "type": "image",
+                    "name": "image-name-1",
+                    "properties": [
+                        {
+                            "name": "image-property-name-1",
+                            "value": "image-property-value-1"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "bom-ref":"component:component-name-2",
+            "type": "component",
+            "name": "component-name-2",
+            "components": [
+                {
+                    "bom-ref": "code:repository-org-repository-name-2",
+                    "type": "code",
+                    "name": "repository-org-repository-name-2",
+                    "purl": "https://repository.com/repository-org/repository-name-2",
+                    "branch": "branch-name-2",
+                    "properties": [
+                        {
+                            "name": "code-property-name-2",
+                            "value": "code-property-value-2"
+                        }
+                    ]
+                },
+                {
+                    "bom-ref": "library:library-name-1",                
+                    "type": "library",
+                    "name": "library-name-1",
+                    "scope": "scope-1",
+                    "properties": [
+                        {
+                            "name": "library-property-name-1",
+                            "value": "library-property-value-1"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "bom-ref":"component:component-name-3",
+            "type": "component",
+            "name": "component-name-3",
+            "components": [
+                {
+                    "bom-ref": "code:repository-org-repository-name-3",
+                    "type": "code",
+                    "name": "repository-org-repository-name-3",
+                    "purl": "https://repository.com/repository-org/repository-name-3",
+                    "branch": "branch-name-3"
+                },
+                {
+                    "bom-ref": "code:repository-org-repository-name-4",
+                    "type": "code",
+                    "name": "repository-org-repository-name-4",
+                    "purl": "https://repository.com/repository-org/repository-name-4",
+                    "branch": "branch-name-4"
+                },
+                {
+                    "bom-ref": "image:image-name-2",                
+                    "type": "image",
+                    "name": "image-name-2"
+                }
+            ]
+        },
+        {
+            "bom-ref":"component:component-name-4",
+            "type": "component",
+            "name": "component-name-4",
+            "components": [
+                {
+                    "bom-ref": "code:repository-org-repository-name-5",
+                    "type": "code",
+                    "name": "repository-org-repository-name-5",
+                    "purl": "https://repository.com/repository-org/repository-name-5",
+                    "branch": "branch-name-5"
+                },
+                {
+                    "bom-ref": "image:image-name-3",                
+                    "type": "image",
+                    "name": "image-name-3"
+                },
+                {
+                    "bom-ref": "image:image-name-4",                
+                    "type": "image",
+                    "name": "image-name-4"
+                }
+            ]
+        }
+    ],
+    "services": [
+        {
+            "bom-ref": "service:service-name-1",
+            "name": "service-name-1",
+            "endpoints": [
+                "/endpoints/endpoint1",
+                "/endpoints/endpoint2"
+            ],
+            "network-exposure" : "public",
+            "properties": [
+                {
+                    "name": "services-property-name-1",
+                    "value": "services-property-value-1"
+                },
+                {
+                    "name": "services-property-name-2",
+                    "value": "services-property-value-2"
+                }
+            ]
+        }
+    ],
+    "dependencies": [
+        {
+            "ref": "image:image-name-1",
+            "dependsOn": [
+                "service:service-name-1"
+            ]
+        }
+    ],
+    "properties": [
+        {
+            "name": "application-property-name-1",
+            "value": "application-property-value-1"
+        },
+        {
+            "name": "application-property-name-2",
+            "value": "application-property-value-2"
+        }
+    ],
+    "tags":["group-1", "group-2", "group-3"]
+}
