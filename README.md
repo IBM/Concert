@@ -7,4 +7,4 @@ Concert automates resilience best practices while providing audit-ready evidence
 ## More details on IBM Concert
 - [Introduction to IBM Concert](https://www.ibm.com/docs/en/concert?topic=introduction-concert)
 - [Concert-as-service](https://www.ibm.com/docs/en/concert?topic=implementing-concert-as-service)
-- [Concert On-Premise](https://www.ibm.com/docs/en/concert?topic=implementing-concert-premises)
+- [Concert On-Premises](https://www.ibm.com/docs/en/concert?topic=implementing-concert-premises)
