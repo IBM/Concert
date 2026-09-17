@@ -1,0 +1,81 @@
+{
+    "bomFormat": "ConcertDef",
+    "specVersion": "1.0.2",
+    "metadata": {
+        "timestamp": "2025-02-07T10:45:08Z",
+        "type": "deploy",
+        "environment": "ibmc_prod",
+        "component": {
+            "name": "mern-react-app",
+            "version": "1.0.0",
+            "deploy-number": "56",
+            "change-request-url": "https://us-south.git.cloud.ibm.com/samples/mern-react-change/issues/56"
+        }
+    },
+    "runtime-components": [
+        {
+            "bom-ref": "service:kubernetes:aws:rosa",
+            "name": "rosa",
+            "type": "kubernetes",
+            "api-server": "http://cluster-a1b.ocp.internal.company.com:6443",
+            "properties": [
+                {
+                    "name": "platform",
+                    "value": "aws"
+                },
+                {
+                    "name": "cluster_platform",
+                    "value": "ROSA"
+                },
+                {
+                    "name": "cluster_id",
+                    "value": "7306ed2b-3af1-488c-b43c-0d42a933236f"
+                },
+                {
+                    "name": "cluster_region",
+                    "value": "us-east-1"
+                },
+                {
+                    "name": "cluster_name",
+                    "value": "rosa1"
+                }
+            ],
+            "components": [
+                {
+                    "type": "namespace",
+                    "name": "mern-react-app-deployment",
+                    "components": [
+                        {
+                            "bom-ref": "container:us.icr.io/encoreapps/mern-react-app",
+                            "type": "container",
+                            "name": "us.icr.io/encoreapps/mern-react-app",
+                            "tag": "latest",
+                            "digest": "sha256:9373bcf1c12a4836f4c14b7d19ad405b45561c5340fd574c56332a6a1e1658fe",
+                            "uri": "us.icr.io/encoreapps/mern-react-app:latest@sha256:9373bcf1c12a4836f4c14b7d19ad405b45561c5340fd574c56332a6a1e1658fe"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "services": [
+        {
+            "bom-ref": "appapi:mern-react-app",
+            "name": "mern-react-app",
+            "properties": [
+                {
+                    "name": "base_url",
+                    "value": "https://mern-react-app.apps.rosa1.0jk4.p1.openshiftapps.com"
+                }
+            ]
+        }
+    ],
+    "dependencies": [
+        {
+            "ref": "container:us.icr.io/encoreapps/mern-react-app",
+            "dependsOn": [
+                "appapi:mern-react-app"
+            ]
+        }
+    ]
+}

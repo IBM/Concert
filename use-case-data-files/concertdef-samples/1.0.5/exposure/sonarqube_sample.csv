@@ -1,0 +1,4 @@
+Message,Type,Severity,Security Category,Hotspot Priority,Rule Key,Rule Name,File Name,File Line
+Verify this is the key that was intended; a value has already been saved for it on line 495.,BUG,MAJOR,,,python:S4143,Collection content should not be replaced unconditionally,path/vulnerability_task.py,497
+Introduce a new variable or use its initial value before reassigning 'data_type'.,BUG,MINOR,,,python:S1226,Function parameters initial values should not be ignored,path/app_utils.py,37
+Introduce a new variable or use its initial value before reassigning 'file_content'.,BUG,MINOR,,,python:S1226,Function parameters initial values should not be ignored,path/test_preprocessing.py,486
