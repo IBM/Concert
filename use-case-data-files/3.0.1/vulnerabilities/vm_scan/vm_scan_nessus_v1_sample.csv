@@ -1,0 +1,105 @@
+Plugin ID,CVE,CVSS v2.0 Base Score,Risk,Host,Protocol,Port,Name,Synopsis,Description,Solution,See Also,Plugin Output,CVSS v3.0 Base Score,Plugin Publication Date,Plugin Modification Date
+"177664","CVE-2023-26604","6.8","High","172.16.92.93","tcp","0","RHEL 8 : systemd (RHSA-2023:3837)","The remote Red Hat host is missing a security update for systemd.","The remote Redhat Enterprise Linux 8 host has packages installed that are affected by a vulnerability as referenced in
+the RHSA-2023:3837 advisory.
+
+    The systemd packages contain systemd, a system and service manager for Linux, compatible with the SysV and
+    LSB init scripts. It provides aggressive parallelism capabilities, uses socket and D-Bus activation for
+    starting services, offers on-demand starting of daemons, and keeps track of processes using Linux cgroups.
+    In addition, it supports snapshotting and restoring of the system state, maintains mount and automount
+    points, and implements an elaborate transactional dependency-based service control logic. It can also work
+    as a drop-in replacement for sysvinit.
+
+    Security Fix(es):
+
+    * systemd: privilege escalation via the less pager (CVE-2023-26604)
+
+    For more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and
+    other related information, refer to the CVE page(s) listed in the References section.
+
+    Bug Fix(es):
+
+    * systemd-pstore crashes when attempting to move standalone files out of /sys/fs/pstore (BZ#2190153)
+
+Tenable has extracted the preceding description block directly from the Red Hat Enterprise Linux security advisory.
+
+Note that Nessus has not tested for this issue but has instead relied only on the application's self-reported version
+number.","Update the RHEL systemd package based on the guidance in RHSA-2023:3837.","http://www.nessus.org/u?55e4adee
+https://access.redhat.com/security/updates/classification/#moderate
+https://bugzilla.redhat.com/show_bug.cgi?id=2175611
+https://bugzilla.redhat.com/show_bug.cgi?id=2190153
+https://access.redhat.com/errata/RHSA-2023:3837","
+Remote package installed : systemd-239-68.el8_7.4
+Should be                : systemd-239-74.el8_8.2
+
+Remote package installed : systemd-libs-239-68.el8_7.4
+Should be                : systemd-libs-239-74.el8_8.2
+
+Remote package installed : systemd-pam-239-68.el8_7.4
+Should be                : systemd-pam-239-74.el8_8.2
+
+Remote package installed : systemd-udev-239-68.el8_7.4
+Should be                : systemd-udev-239-74.el8_8.2
+
+NOTE: The vulnerability information above was derived by checking the
+package versions of the affected packages from this advisory. This
+scan would normally rely on checking for the presence of specific
+installed and enabled Red Hat repositories, but either no repositories
+were found in the repository directory, the repository files were empty
+or missing, or the scan account lacked permissions to access them.
+Please ensure that the repository files are populated and the scanning
+account has permissions to examine the files in /etc/yum.repos.d/.","7.8","2023/06/27","2024/11/07"
+"197783","CVE-2023-7008","5.4","Medium","172.16.92.93","tcp","0","RHEL 8 : systemd (RHSA-2024:3203)","The remote Red Hat host is missing a security update for systemd.","The remote Redhat Enterprise Linux 8 host has packages installed that are affected by a vulnerability as referenced in
+the RHSA-2024:3203 advisory.
+
+    The systemd packages contain systemd, a system and service manager for Linux, compatible with the SysV and
+    LSB init scripts. It provides aggressive parallelism capabilities, uses socket and D-Bus activation for
+    starting services, offers on-demand starting of daemons, and keeps track of processes using Linux cgroups.
+    In addition, it supports snapshotting and restoring of the system state, maintains mount and automount
+    points, and implements an elaborate transactional dependency-based service control logic. It can also work
+    as a drop-in replacement for sysvinit.
+
+    Security Fix(es):
+
+    * systemd-resolved: Unsigned name response in signed zone is not refused when DNSSEC=yes (CVE-2023-7008)
+
+    For more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and
+    other related information, refer to the CVE page(s) listed in the References section.
+
+    Additional Changes:
+
+    For detailed information on changes in this release, see the Red Hat Enterprise Linux 8.10 Release Notes
+    linked from the References section.
+
+Tenable has extracted the preceding description block directly from the Red Hat Enterprise Linux security advisory.
+
+Note that Nessus has not tested for this issue but has instead relied only on the application's self-reported version
+number.","Update the RHEL systemd package based on the guidance in RHSA-2024:3203.","https://access.redhat.com/security/updates/classification/#moderate
+http://www.nessus.org/u?99ff6172
+http://www.nessus.org/u?b449b859
+https://bugzilla.redhat.com/show_bug.cgi?id=2222672
+https://issues.redhat.com/browse/RHEL-18302
+https://issues.redhat.com/browse/RHEL-22426
+https://issues.redhat.com/browse/RHEL-2857
+https://issues.redhat.com/browse/RHEL-5863
+https://issues.redhat.com/browse/RHEL-5991
+https://access.redhat.com/errata/RHSA-2024:3203","
+Remote package installed : systemd-239-68.el8_7.4
+Should be                : systemd-239-82.el8
+
+Remote package installed : systemd-libs-239-68.el8_7.4
+Should be                : systemd-libs-239-82.el8
+
+Remote package installed : systemd-pam-239-68.el8_7.4
+Should be                : systemd-pam-239-82.el8
+
+Remote package installed : systemd-udev-239-68.el8_7.4
+Should be                : systemd-udev-239-82.el8
+
+NOTE: The vulnerability information above was derived by checking the
+package versions of the affected packages from this advisory. This
+scan would normally rely on checking for the presence of specific
+installed and enabled Red Hat repositories, but either no repositories
+were found in the repository directory, the repository files were empty
+or missing, or the scan account lacked permissions to access them.
+Please ensure that the repository files are populated and the scanning
+account has permissions to examine the files in /etc/yum.repos.d/.","5.9","2024/05/23","2024/11/07"

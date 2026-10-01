@@ -1,0 +1,516 @@
+{
+  "synthesis_completed": true,
+  "title": "CoreDB attack-surface sweep (PROTO/FMT/DIR/audit/auth/fmp)",
+  "generated": "2026-05-21T00:00:00Z",
+  "context": {
+    "audience": "Executive + security team",
+    "grouping_axis": "component",
+    "scope": "Six attack surfaces of AcmeCorp CoreDB server (commit a1b2c3d) exercised using install-pkg (non-ASAN) build with crash/trap detection.",
+    "suppress": []
+  },
+  "campaign_stats": {
+    "components_scanned": 6,
+    "components_with_findings": 5,
+    "components_clean": 1,
+    "focus_areas_total": 16,
+    "focus_areas_productive": 4,
+    "focus_areas_clean": 11,
+    "agent_runs_total": 52,
+    "find_rate": "17 TP / 52 runs = 0.33",
+    "dedup_rate": "17 raw → 11 distinct"
+  },
+  "components": [
+    {
+      "label": "audit",
+      "target": "monolithic-audit",
+      "runs": 3,
+      "findings_raw": 2,
+      "findings_deduped": 2
+    },
+    {
+      "label": "auth",
+      "target": "monolithic-auth",
+      "runs": 4,
+      "findings_raw": 2,
+      "findings_deduped": 1
+    },
+    {
+      "label": "proto",
+      "target": "monolithic",
+      "runs": 12,
+      "findings_raw": 2,
+      "findings_deduped": 2
+    },
+    {
+      "label": "fmp",
+      "target": "monolithic-fmp",
+      "runs": 12,
+      "findings_raw": 0,
+      "findings_deduped": 0
+    },
+    {
+      "label": "fmt",
+      "target": "monolithic-fmt",
+      "runs": 12,
+      "findings_raw": 7,
+      "findings_deduped": 2
+    },
+    {
+      "label": "dir",
+      "target": "monolithic-dir",
+      "runs": 9,
+      "findings_raw": 4,
+      "findings_deduped": 4
+    }
+  ],
+  "themes": [
+    {
+      "id": "T1",
+      "title": "Vendored directory client library trusts malicious server responses without bounds checking",
+      "finding_count": 4,
+      "max_severity": "CRITICAL",
+      "what_we_found": "All four bugs live in the AcmeCorp DirectoryServices v10 libdirclient statically linked into AcmeDIRauthserver.so. The library decodes server-supplied fields (referral hostnames, TLV string-lengths) and copies them into fixed-size buffers without checking length, or trusts wire-supplied lengths that wrap to zero before allocation.",
+      "why_it_matters": "An attacker who controls or intercepts directory server responses can overwrite the return address inside coredbsysc's authentication path or corrupt heap state, giving code execution as the instance owner.",
+      "root_cause_hypothesis": "Frozen vendored DirectoryServices v10 client assumes the directory server is trusted infrastructure. Statically linked and unsymbolized, drifted out of any upstream patch stream.",
+      "recommendations": [
+        "Rebase onto a maintained directory client or current vendor drop.",
+        "Add length clamps on referral-chase and TLV-decode entry points.",
+        "Make DIRS/StartTLS with cert verification the shipped default.",
+        "Consider disabling directory referral following in the auth plugin."
+      ],
+      "where_to_look": "AcmeDIRauthserver.so, open_dir_connection, acme_getaddrinfo, ftlv_get_stringa_INTERNAL",
+      "confidence": "high",
+      "finding_gids": [
+        "g014",
+        "g015",
+        "g016",
+        "g017"
+      ]
+    },
+    {
+      "id": "T2",
+      "title": "Pre-auth PROTO handshake parser overflows fixed stack buffers, attacker controls return address",
+      "finding_count": 2,
+      "max_severity": "CRITICAL",
+      "what_we_found": "Two PDU object decoders (DBNAME in coredb_pdu_sndpkt, NETADDR in coredbParseNetaddr) call coredbReadChars() with the client's PDU LL as copy length into fixed stack locals, without clamping. Both reached from pre-auth HELLO state, no stack canary, non-PIE coredbsysc.",
+      "why_it_matters": "Anyone who can TCP-connect to the PROTO listener can overwrite RIP in coredbsysc with no credentials. Credible path to remote code execution as instance owner; also one-packet unauthenticated DoS.",
+      "root_cause_hypothesis": "coredbReadChars() takes N directly from wire PDU LL; bounds-checking burden on each caller, which HELLO-state decoders don't honor. No -fstack-protector, non-PIE binary.",
+      "recommendations": [
+        "Add checked coredbReadChars variant that takes destination buffer size.",
+        "Audit all PDU objects decoded in pre-auth states.",
+        "Rebuild libcoredb.so.1 with -fstack-protector-strong; link coredbsysc as PIE."
+      ],
+      "where_to_look": "engn/netproto/coredbpar.C, coredb_pdu_sndpkt, coredbParseNetaddr, coredbReadChars callers",
+      "confidence": "high",
+      "finding_gids": [
+        "g005",
+        "g006"
+      ]
+    },
+    {
+      "id": "T3",
+      "title": "FMT IMPORT parser trusts file-supplied length fields when copying into fixed buffers",
+      "finding_count": 2,
+      "max_severity": "CRITICAL",
+      "what_we_found": "Two distinct root-cause bugs (7 raw reports collapsed): coredbimportrc.C:1930 FMTCUDTL→udtval[256] heap overflow → write-what-where, and coredbimportra.C:1134 A-record length → arec_buff[] stack overflow → RIP control. Both in engn/fmt/ FMT IMPORT path.",
+      "why_it_matters": "Reachable remotely with ordinary SQL privileges via SYSPROC.ADMIN_CMD('IMPORT … OF FMT …'). 'Can run IMPORT' becomes 'can run arbitrary code as instance owner.'",
+      "root_cause_hypothesis": "FMT parser treats file as trusted CoreDB-to-CoreDB interchange. No shared bounded-copy helper or up-front record-length sanity layer in H/T/C/A/D dispatch.",
+      "recommendations": [
+        "Add hardened 'read N bytes into buf of size M' helper, reject file on overrun.",
+        "Validate header-declared lengths against record length and struct sizes at dispatch layer.",
+        "Sweep engn/fmt/coredbimport*.C and engn/fmtload/coredbload*.C for same pattern."
+      ],
+      "where_to_look": "engn/fmt/coredbimportrc.C, engn/fmt/coredbimportra.C, engn/fmt/coredbimport*.C, engn/fmtload/coredbload*.C",
+      "confidence": "high",
+      "finding_gids": [
+        "g008",
+        "g013"
+      ]
+    },
+    {
+      "id": "T4",
+      "title": "Audit-archive extraction trusts record-length fields in archived log files",
+      "finding_count": 2,
+      "max_severity": "HIGH",
+      "what_we_found": "coredb_audit_readrecord and readbuf_statement_values let a hostile .aud file dictate copy sizes — one via oversized field length, one via 64-bit size wrap to tiny allocation. Same (short)sizeof() pattern across ~20 sibling fields.",
+      "why_it_matters": "Reached via setuid-root coredbaudit CLI or NOT-FENCED SYSPROC.AUDIT_DELIM_EXTRACT inside coredbsysc. Local-to-root or DB-privilege-to-engine-takeover.",
+      "root_cause_hypothesis": "Audit reader assumes it only consumes self-produced records. No chokepoint bounds field length against remaining record bytes.",
+      "recommendations": [
+        "Introduce bounds-checked 'read length-prefixed field' helper in coredbauditwr.C.",
+        "Add fuzz target for coredb_audit_readrecord.",
+        "Consider fencing SYSPROC.AUDIT_DELIM_EXTRACT until hardened."
+      ],
+      "where_to_look": "engn/audit/coredbauditwr.C, engn/audit/coredbAudit*.C, coredbaudit CLI, SYSPROC.AUDIT_DELIM_EXTRACT",
+      "confidence": "high",
+      "finding_gids": [
+        "g001",
+        "g002"
+      ]
+    },
+    {
+      "id": "T5",
+      "title": "acmeflacc trusts request length fields blindly, overflowing stack buffers in a setgid helper",
+      "finding_count": 1,
+      "max_severity": "HIGH",
+      "what_we_found": "setgid acmeflacc reads TLV data_length from SysV msgq request without checking against message size or destination buffer. acmeflacc_catalog_node: memcpy into stack local with attacker-controlled length → RIP overwrite. acmeflacc_update_dbm_cfg: same field as pointer offset → wild read.",
+      "why_it_matters": "Any local user can launch acmeflacc and feed crafted msgq input — no CoreDB credentials needed. Stack overflow → code execution as acmeadm1 group, which owns the instance sqllib tree.",
+      "root_cause_hypothesis": "Request handlers assume caller is trusted CoreDB process. No shared 'validate length' helper. The setgid bit creates a privilege boundary the code was never hardened for.",
+      "recommendations": [
+        "Add bounds check at TLV decode: clamp data_length against request_length and destination size.",
+        "Sweep all acmeflacc_* handlers for identical pattern.",
+        "Audit all setuid/setgid helpers under sqllib/security/."
+      ],
+      "where_to_look": "engn/audit/acmeflacc.C, sqllib/security/acmeflacc, sqllib/security/ sibling binaries",
+      "confidence": "high",
+      "finding_gids": [
+        "g004"
+      ]
+    }
+  ],
+  "cross_cutting_patterns": [
+    {
+      "pattern": "Unchecked length fields from external sources into fixed-size buffers",
+      "spans": [
+        "proto",
+        "fmt",
+        "dir",
+        "audit",
+        "auth"
+      ],
+      "note": "All 5 components with findings exhibit the same root antipattern. Systemic coding convention failure."
+    },
+    {
+      "pattern": "Integer arithmetic on untrusted size fields before allocation",
+      "spans": [
+        "audit",
+        "dir",
+        "fmt"
+      ],
+      "note": "Integer overflow/wrap creates undersized buffers that subsequent copies overflow."
+    }
+  ],
+  "coverage": {
+    "productive": 4,
+    "clean": 11,
+    "incidental": 5
+  },
+  "findings": [
+    {
+      "gid": "g001",
+      "origin": {
+        "label": "audit",
+        "bug_id": 0
+      },
+      "title": "SIGSEGV in coredb_memblkEx — linear heap buffer overflow → free-of-controlled-pointer",
+      "category": "heap-buffer-overflow (write)",
+      "severity": "HIGH",
+      "confidence": 8.6,
+      "top_frame": "coredb_memblkEx",
+      "theme_id": "T4",
+      "duplicate_of": null,
+      "also_seen_in": [],
+      "suppressed": false,
+      "report_path": "harness/results/monolithic-audit/20260520T020947Z_audit/reports/bug_00/report.json"
+    },
+    {
+      "gid": "g002",
+      "origin": {
+        "label": "audit",
+        "bug_id": 1
+      },
+      "title": "Heap-buffer-overflow via 64-bit integer overflow in coredb_audit_readbuf_statement_values()",
+      "category": "integer-overflow → heap write",
+      "severity": "HIGH",
+      "confidence": 8.6,
+      "top_frame": "<unsymbolized>",
+      "theme_id": "T4",
+      "duplicate_of": null,
+      "also_seen_in": [],
+      "suppressed": false,
+      "report_path": "harness/results/monolithic-audit/20260520T020947Z_audit/reports/bug_01/report.json"
+    },
+    {
+      "gid": "g003",
+      "origin": {
+        "label": "auth",
+        "bug_id": 1
+      },
+      "title": "Wild-pointer read at attacker-controlled offset in acmeflacc_update_dbm_cfg",
+      "category": "wild-pointer read",
+      "severity": "HIGH",
+      "confidence": 10.0,
+      "top_frame": "<unsymbolized>",
+      "theme_id": "T5",
+      "duplicate_of": "g004",
+      "also_seen_in": [],
+      "suppressed": false,
+      "report_path": "harness/results/monolithic-auth/20260520T020940Z_auth/reports/bug_01/report.json"
+    },
+    {
+      "gid": "g004",
+      "origin": {
+        "label": "auth",
+        "bug_id": 0
+      },
+      "title": "Stack buffer overflow with RIP overwrite in setgid acmeflacc (acmeflacc_catalog_node)",
+      "category": "stack-buffer-overflow → RIP overwrite",
+      "severity": "HIGH",
+      "confidence": 8.6,
+      "top_frame": "acmeflacc_catalog_node",
+      "theme_id": "T5",
+      "duplicate_of": null,
+      "also_seen_in": [
+        {
+          "label": "auth",
+          "bug_id": 1
+        }
+      ],
+      "suppressed": false,
+      "report_path": "harness/results/monolithic-auth/20260520T020940Z_auth/reports/bug_00/report.json"
+    },
+    {
+      "gid": "g005",
+      "origin": {
+        "label": "proto",
+        "bug_id": 0
+      },
+      "title": "Pre-auth stack buffer overflow in coredb_pdu_sndpkt (DBNAME), RIP overwrite",
+      "category": "pre-auth stack-buffer-overflow",
+      "severity": "HIGH",
+      "confidence": 8.6,
+      "top_frame": "<unsymbolized>",
+      "theme_id": "T2",
+      "duplicate_of": null,
+      "also_seen_in": [],
+      "suppressed": false,
+      "report_path": "harness/results/monolithic/20260520T020923Z_proto/reports/bug_00/report.json"
+    },
+    {
+      "gid": "g006",
+      "origin": {
+        "label": "proto",
+        "bug_id": 1
+      },
+      "title": "Pre-auth stack-buffer-overflow in coredbParseNetaddr (tcpname[65]), RIP overwrite — RCE class",
+      "category": "pre-auth stack-buffer-overflow",
+      "severity": "HIGH",
+      "confidence": 8.6,
+      "top_frame": "<unsymbolized>",
+      "theme_id": "T2",
+      "duplicate_of": null,
+      "also_seen_in": [],
+      "suppressed": false,
+      "report_path": "harness/results/monolithic/20260520T020923Z_proto/reports/bug_01/report.json"
+    },
+    {
+      "gid": "g007",
+      "origin": {
+        "label": "fmt",
+        "bug_id": 5
+      },
+      "title": "FMT stack-based buffer overflow (attacker-controlled length, RIP hijack)",
+      "category": "stack-buffer-overflow (CWE-121)",
+      "severity": "HIGH",
+      "confidence": 10.0,
+      "top_frame": "<unsymbolized>",
+      "theme_id": "T3",
+      "duplicate_of": "g008",
+      "also_seen_in": [],
+      "suppressed": false,
+      "report_path": "harness/results/monolithic-fmt/20260520T044728Z_fmt/reports/bug_05/report.json"
+    },
+    {
+      "gid": "g008",
+      "origin": {
+        "label": "fmt",
+        "bug_id": 6
+      },
+      "title": "FMT stack-buffer-overflow — memcpy 0x7FFF onto arec_buff[] in coredbimportra (coredbimportra.C:1134)",
+      "category": "stack-buffer-overflow (CWE-121)",
+      "severity": "HIGH",
+      "confidence": 10.0,
+      "top_frame": "<unsymbolized>",
+      "theme_id": "T3",
+      "duplicate_of": null,
+      "also_seen_in": [
+        {
+          "label": "fmt",
+          "bug_id": 5
+        }
+      ],
+      "suppressed": false,
+      "report_path": "harness/results/monolithic-fmt/20260520T044728Z_fmt/reports/bug_06/report.json"
+    },
+    {
+      "gid": "g009",
+      "origin": {
+        "label": "fmt",
+        "bug_id": 0
+      },
+      "title": "FMT write-what-where via C-record udtval overflow → defaultval pointer dereference",
+      "category": "heap-buffer-overflow (CWE-122)",
+      "severity": "HIGH",
+      "confidence": 8.6,
+      "top_frame": "<unsymbolized>",
+      "theme_id": "T3",
+      "duplicate_of": "g013",
+      "also_seen_in": [],
+      "suppressed": false,
+      "report_path": "harness/results/monolithic-fmt/20260520T044728Z_fmt/reports/bug_00/report.json"
+    },
+    {
+      "gid": "g010",
+      "origin": {
+        "label": "fmt",
+        "bug_id": 1
+      },
+      "title": "FMT heap buffer overflow (linear forward write)",
+      "category": "heap-buffer-overflow (CWE-122)",
+      "severity": "HIGH",
+      "confidence": 8.6,
+      "top_frame": "<unsymbolized>",
+      "theme_id": "T3",
+      "duplicate_of": "g013",
+      "also_seen_in": [],
+      "suppressed": false,
+      "report_path": "harness/results/monolithic-fmt/20260520T044728Z_fmt/reports/bug_01/report.json"
+    },
+    {
+      "gid": "g011",
+      "origin": {
+        "label": "fmt",
+        "bug_id": 2
+      },
+      "title": "FMT arbitrary heap-pointer overwrite via FMTCUDTL memcpy → write-what-where",
+      "category": "heap-buffer-overflow (CWE-122)",
+      "severity": "HIGH",
+      "confidence": 8.6,
+      "top_frame": "<unsymbolized>",
+      "theme_id": "T3",
+      "duplicate_of": "g013",
+      "also_seen_in": [],
+      "suppressed": false,
+      "report_path": "harness/results/monolithic-fmt/20260520T044728Z_fmt/reports/bug_02/report.json"
+    },
+    {
+      "gid": "g012",
+      "origin": {
+        "label": "fmt",
+        "bug_id": 3
+      },
+      "title": "FMT heap-buffer-overflow → controlled pointer → write-what-where",
+      "category": "heap-buffer-overflow (CWE-122)",
+      "severity": "HIGH",
+      "confidence": 8.6,
+      "top_frame": "<unsymbolized>",
+      "theme_id": "T3",
+      "duplicate_of": "g013",
+      "also_seen_in": [],
+      "suppressed": false,
+      "report_path": "harness/results/monolithic-fmt/20260520T044728Z_fmt/reports/bug_03/report.json"
+    },
+    {
+      "gid": "g013",
+      "origin": {
+        "label": "fmt",
+        "bug_id": 4
+      },
+      "title": "FMT C-record heap overflows (coredbimportrc.C:1930) → ACME_MEM_POOL metadata corruption",
+      "category": "heap-buffer-overflow (CWE-122)",
+      "severity": "HIGH",
+      "confidence": 8.6,
+      "top_frame": "<unsymbolized>",
+      "theme_id": "T3",
+      "duplicate_of": null,
+      "also_seen_in": [
+        {
+          "label": "fmt",
+          "bug_id": 0
+        },
+        {
+          "label": "fmt",
+          "bug_id": 1
+        },
+        {
+          "label": "fmt",
+          "bug_id": 2
+        },
+        {
+          "label": "fmt",
+          "bug_id": 3
+        }
+      ],
+      "suppressed": false,
+      "report_path": "harness/results/monolithic-fmt/20260520T044728Z_fmt/reports/bug_04/report.json"
+    },
+    {
+      "gid": "g014",
+      "origin": {
+        "label": "dir",
+        "bug_id": 3
+      },
+      "title": "Stack-buffer-overflow / return-address overwrite in open_dir_connection",
+      "category": "stack-buffer-overflow → RIP overwrite",
+      "severity": "HIGH",
+      "confidence": 8.6,
+      "top_frame": "open_dir_connection",
+      "theme_id": "T1",
+      "duplicate_of": null,
+      "also_seen_in": [],
+      "suppressed": false,
+      "report_path": "harness/results/monolithic-dir/20260520T020930Z_dir/reports/bug_03/report.json"
+    },
+    {
+      "gid": "g015",
+      "origin": {
+        "label": "dir",
+        "bug_id": 1
+      },
+      "title": "Heap-buffer-overflow in acme_getaddrinfo() — unbounded memcpy of directory referral hostname",
+      "category": "heap-buffer-overflow (write)",
+      "severity": "HIGH",
+      "confidence": 8.6,
+      "top_frame": "<unsymbolized>",
+      "theme_id": "T1",
+      "duplicate_of": null,
+      "also_seen_in": [],
+      "suppressed": false,
+      "report_path": "harness/results/monolithic-dir/20260520T020930Z_dir/reports/bug_01/report.json"
+    },
+    {
+      "gid": "g016",
+      "origin": {
+        "label": "dir",
+        "bug_id": 4
+      },
+      "title": "Heap-buffer-overflow write via integer-wrap on TLV length → memmove into malloc(0)",
+      "category": "integer-wrap → heap write",
+      "severity": "MEDIUM",
+      "confidence": 8.6,
+      "top_frame": "ftlv_get_stringa_INTERNAL",
+      "theme_id": "T1",
+      "duplicate_of": null,
+      "also_seen_in": [],
+      "suppressed": false,
+      "report_path": "harness/results/monolithic-dir/20260520T020930Z_dir/reports/bug_04/report.json"
+    },
+    {
+      "gid": "g017",
+      "origin": {
+        "label": "dir",
+        "bug_id": 2
+      },
+      "title": "NULL-pointer read dereference in directory auth plugin",
+      "category": "NULL-pointer dereference",
+      "severity": "LOW",
+      "confidence": 7.1,
+      "top_frame": "<unsymbolized>",
+      "theme_id": "T1",
+      "duplicate_of": null,
+      "also_seen_in": [],
+      "suppressed": false,
+      "report_path": "harness/results/monolithic-dir/20260520T020930Z_dir/reports/bug_02/report.json"
+    }
+  ],
+  "suppressed_findings": []
+}

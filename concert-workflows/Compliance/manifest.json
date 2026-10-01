@@ -4,13 +4,13 @@
   "entries": [
     {
       "name": "CIS OCP4 OSCO Compliance Scan",
-      "path": "CIS_OCP4_OSCO_Compliance_Scan_v2.2.zip",
+      "path": "CIS_OCP4_OSCO_Compliance_Scan.zip",
       "description": "This workflow automates the CIS compliance scan for OpenShift clusters using OSCO, validates security policies, converts the results into YAML, and ingests them into Concert for compliance tracking.",
       "integrations": ["Ansible", "IBM", "Common"]
     },
     {
       "name": "CIS RHEL9 OpenSCAP Compliance Scan",
-      "path": "CIS_RHEL9_OpenSCAP_Compliance_Scan_v2.2.zip",
+      "path": "CIS_RHEL9_OpenSCAP_Compliance_Scan.zip",
       "description": "This workflow automates the CIS compliance scan for RHEL 9 using OpenSCAP, ensuring security compliance based on CIS benchmarks. The scan results are retrieved and uploaded into Concert for analysis.",
       "integrations": ["IBM", "Common"]
     },
@@ -19,6 +19,48 @@
       "path": "CISO_Agentic_AI_Assessment.zip",
       "description": "This workflow initiates an OpenSCAP scan on a RHEL machine, invokes the Compliance API to run additional control checks through the Assessment Agent, and aggregates all results into a unified OSCAL Assessment Result for ingestion into IBM Concert.",
       "integrations": ["Common"]
+    },
+    {
+      "name": "Db2 Database Compliance Scan",
+      "path": "DB2_SCAN.zip",
+      "description": "Scans an IBM Db2 LUW database against 62 database-level security controls and publishes the OSCAL results to IBM Concert.",
+      "integrations": ["Ansible", "IBM"]
+    },
+    {
+      "name": "MSSQL Database Compliance Scan",
+      "path": "MSSQL_SCAN.zip",
+      "description": "Scans a containerized Microsoft SQL Server instance against 62 database-level security controls and publishes the OSCAL results to IBM Concert.",
+      "integrations": ["Ansible", "IBM"]
+    },
+    {
+      "name": "Oracle Database Compliance Scan",
+      "path": "ORACLE_DB_SCAN.zip",
+      "description": "Scans a containerized Oracle Database instance against 57 database-level security controls and publishes the OSCAL results to IBM Concert.",
+      "integrations": ["Ansible", "IBM"]
+    },
+    {
+      "name": "PostgreSQL Container Compliance Scan",
+      "path": "Postgress_DB_SCAN_Container.zip",
+      "description": "Scans a containerized PostgreSQL instance against 62 database-level security controls and publishes the OSCAL results to IBM Concert.",
+      "integrations": ["Ansible", "IBM"]
+    },
+    {
+      "name": "PostgreSQL Pod Level Compliance Scan",
+      "path": "Postgress_DB_SCAN_Pod_LevelL.zip",
+      "description": "Scans a PostgreSQL pod on OpenShift against 62 database-level security controls and publishes the OSCAL results to IBM Concert.",
+      "integrations": ["Ansible", "IBM"]
+    },
+    {
+      "name": "Apache Kafka Openshift Compliance Scan",
+      "path": "Apache_Kafka_Openshift_Compliance_Scan.zip",
+      "description": "Scans Apache Kafka running on OpenShift, evaluates it against the Message Queue Middleware compliance controls and publishes the OSCAL result to IBM Concert.",
+      "integrations": ["FaaS", "IBM"]
+    },
+    {
+      "name": "RabbitMQ Openshift Compliance Scan",
+      "path": "RabbitMQ_Openshift_Compliance_Scan.zip",
+      "description": "Scans RabbitMQ running on OpenShift, evaluates it against the Message Queue Middleware compliance controls and publishes the OSCAL result to IBM Concert.",
+      "integrations": ["FaaS", "IBM"]
     }
   ]
 }

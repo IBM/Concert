@@ -1,0 +1,93 @@
+{
+  "image": "us.icr.io/bravoapps/allegroapp-data-store:@sha256:aaee8951bb58510789440c5724fba85900d5442282e91bf5a0de9243563ef391",
+  "resources": [
+    {
+      "resource": {
+        "format": "rpm",
+        "name": "ca-certificates",
+        "version": "2023.2.60_v7.0.306-90.1.el9_2",
+        "arch": "noarch",
+        "cpe": "pkg:/rhel:9.4:ca-certificates:2023.2.60_v7.0.306-90.1.el9_2",
+        "license": "Public Domain",
+        "layer": "/bin/sh -c mv -fZ /tmp/ubi.repo /etc/yum.repos.d/ubi.repo || :",
+        "layer_digest": "sha256:53544948f51f66ab8080a28acc12474abac3103c6194ca36777aa60762ede49c",
+        "src_name": "ca-certificates",
+        "src_version": "2023.2.60_v7.0.306"
+      },
+      "scanned": true,
+      "vulnerabilities": [
+        {
+          "name": "CVE-2023-37920",
+          "type": "vulnerability",
+          "description": "Certifi is a curated collection of Root Certificates for validating the trustworthiness of SSL certificates while verifying the identity of TLS hosts. Certifi prior to version 2023.07.22 recognizes \"e-Tugra\" root certificates. e-Tugra's root certificates were subject to an investigation prompted by reporting of security issues in their systems. Certifi 2023.07.22 removes root certificates from \"e-Tugra\" from the root store.",
+          "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2023-37920",
+          "vendor_severity": "low",
+          "vendor_url": "https://access.redhat.com/security/cve/CVE-2023-37920",
+          "publish_date": "2023-07-25",
+          "modification_date": "2023-08-12",
+          "nvd_score_v3": 9.8,
+          "nvd_vectors_v3": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "nvd_severity_v3": "critical",
+          "vendor_score_v3": 9.1,
+          "vendor_vectors_v3": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N",
+          "aqua_score": 9.1,
+          "aqua_severity": "low",
+          "aqua_vectors": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N",
+          "aqua_scoring_system": "CVSS V3",
+          "aqua_severity_classification": "Vendor Severity: low",
+          "aqua_score_classification": "Vendor CVSS V3 Score: 9.1",
+          "vendor_publish_date": "2023-07-25",
+          "cwe_info": [
+            {
+              "Id": "CWE-345",
+              "name": "Insufficient Verification of Data Authenticity"
+            }
+          ],
+          "epss_score": 0.00059,
+          "epss_percentile": 0.22793,
+          "epss_date": "2024-01-22"
+        }
+      ]
+    },
+    {
+      "resource": {
+        "format": "rpm",
+        "name": "curl-minimal",
+        "version": "7.76.1-29.el9_4",
+        "arch": "x86_64",
+        "cpe": "pkg:/rhel:9.4:curl-minimal:7.76.1-29.el9_4",
+        "license": "MIT",
+        "layer": "/bin/sh -c mv -fZ /tmp/ubi.repo /etc/yum.repos.d/ubi.repo || :",
+        "layer_digest": "sha256:53544948f51f66ab8080a28acc12474abac3103c6194ca36777aa60762ede49c",
+        "src_name": "curl",
+        "src_version": "7.76.1"
+      },
+      "scanned": true,
+      "vulnerabilities": [
+        {
+          "name": "CVE-2024-2398",
+          "type": "vulnerability",
+          "description": "When an application tells libcurl it wants to allow HTTP/2 server push, and the amount of received headers for the push surpasses the maximum allowed limit (1000), libcurl aborts the server push. When aborting, libcurl inadvertently does not free all the previously allocated headers and instead leaks the memory.  Further, this error condition fails silently and is therefore not easily detected by an application.",
+          "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2024-2398",
+          "vendor_severity": "moderate",
+          "vendor_url": "https://access.redhat.com/security/cve/CVE-2024-2398",
+          "publish_date": "2024-03-27",
+          "modification_date": "2024-07-03",
+          "nvd_score_v3": 8.6,
+          "nvd_vectors_v3": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:L/A:L",
+          "nvd_severity_v3": "high",
+          "vendor_score_v3": 7.5,
+          "vendor_vectors_v3": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+          "aqua_score": 7.5,
+          "aqua_severity": "medium",
+          "aqua_vectors": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+          "aqua_scoring_system": "CVSS V3",
+          "ancestor_pkg": "curl",
+          "aqua_severity_classification": "Vendor Severity: moderate",
+          "aqua_score_classification": "Vendor CVSS V3 Score: 7.5",
+          "vendor_publish_date": "2024-03-27"
+        }
+      ]
+    }
+  ]
+}
