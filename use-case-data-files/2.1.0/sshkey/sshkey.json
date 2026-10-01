@@ -1,0 +1,101 @@
+{
+  "components": [
+    {
+      "type": "certificate",
+      "ref": "certificate:SHA256:pgHn/ggQt9eVuydK67Xm8YWQXqIJeqLYjI3ugs/kr4a",
+      "serial_number": "SHA256:pgHn/ggQt9eVuydK67Xm8YWQXqIJeqLYjI3ugs/kr4a",
+      "properties": [
+        { "name": "subject", "value": "client1.fyre.ibm.com" },
+        { "name": "namespace", "value": "root@client1.fyre.ibm.com:/root/.ssh/id_rsa1"},
+        { "name": "issuer", "value": "ssh-rsa" },
+        { "name": "owner", "value": "joe@us.ibm.com" },
+        { "name": "description", "value": "key for app-name : app2" },
+        { "name": "certificate_type", "value": "ssh-key" },
+        {
+          "name": "validity_start_date",
+          "value": "2024-10-07 00:00:00 +0000 UTC"
+        },
+        {
+          "name": "validity_end_date",
+          "value": "2026-01-14 00:00:00 +0000 UTC"
+        },
+        {
+          "name": "metadata",
+          "value": "{\"bit_length\":\"3072\",\"private_key\":\"/root/.ssh/id_rsa\",\"public_key\":\"/root/.ssh/id_rsa.pub\",\"ssh_port\":22,\"username\":\"root\",\"hostname\":\"client1.fyre.ibm.com\",\"api_server\":\"root@client1.fyre.ibm.com\"}"
+        },
+        {
+          "name": "additional_data",
+          "value": "{\"servers\":[{\"authorized_keys_file\":\"~/.ssh/authorized_keys\",\"hostname\":\"host1.fyre.ibm.com\",\"owner_email\":\"joe@us.ibm.com\",\"ssh_port\":22,\"username\":\"root\"}]}"
+        }
+      ]
+    },
+    {
+      "type": "certificate",
+      "ref": "certificate:SHA256:pgHn/ggQt9eVuydK67Xm8YWQXqIJeqLYjI3ugs/kr2a",
+      "serial_number": "SHA256:pgHn/ggQt9eVuydK67Xm8YWQXqIJeqLYjI3ugs/kr2a",
+      "properties": [
+        { "name": "subject", "value": "client1.fyre.ibm.com" },
+        { "name": "namespace", "value": "root@client1.fyre.ibm.com:/root/.ssh/id_rsa2"},
+        { "name": "issuer", "value": "ssh-rsa" },
+        { "name": "owner", "value": "joe@us.ibm.com" },
+        { "name": "description", "value": "key for app-name : app2" },
+        { "name": "certificate_type", "value": "ssh-key" },
+        {
+          "name": "validity_start_date",
+          "value": "2024-10-07 00:00:00 +0000 UTC"
+        },
+        {
+          "name": "validity_end_date",
+          "value": "2025-05-14 00:00:00 +0000 UTC"
+        },
+        {
+          "name": "metadata",
+          "value": "{\"bit_length\":\"3072\",\"private_key\":\"/root/.ssh/id_rsa\",\"public_key\":\"/root/.ssh/id_rsa.pub\",\"ssh_port\":22,\"username\":\"root\",\"hostname\":\"client1.fyre.ibm.com\",\"api_server\":\"root@client1.fyre.ibm.com\"}"
+        },
+        {
+          "name": "additional_data",
+          "value": "{\"servers\":[{\"authorized_keys_file\":\"~/.ssh/authorized_keys\",\"hostname\":\"host1.fyre.ibm.com\",\"owner_email\":\"joe@us.ibm.com\",\"ssh_port\":22,\"username\":\"root\"}]}"
+        }
+      ]
+    },
+    {
+      "type": "certificate",
+      "ref": "certificate:SHA256:pgHn/ggQt9eVuydK67Xm8YWQXqIJeqLYjI3ugs/kr3a",
+      "serial_number": "SHA256:pgHn/ggQt9eVuydK67Xm8YWQXqIJeqLYjI3ugs/kr3a",
+      "properties": [
+        { "name": "subject", "value": "client1.fyre.ibm.com" },
+        { "name": "namespace", "value": "root@client1.fyre.ibm.com:/root/.ssh/id_rsa3"},
+        { "name": "issuer", "value": "ssh-rsa" },
+        { "name": "owner", "value": "joe@us.ibm.com" },
+        { "name": "description", "value": "key for app-name : app2" },
+        { "name": "certificate_type", "value": "ssh-key" },
+        {
+          "name": "validity_start_date",
+          "value": "2024-10-07 00:00:00 +0000 UTC"
+        },
+        {
+          "name": "validity_end_date",
+          "value": "2025-05-14 00:00:00 +0000 UTC"
+        },
+        {
+          "name": "metadata",
+          "value": "{\"bit_length\":\"3072\",\"private_key\":\"/root/.ssh/id_rsa\",\"public_key\":\"/root/.ssh/id_rsa.pub\",\"ssh_port\":22,\"username\":\"root\",\"hostname\":\"client1.fyre.ibm.com\",\"api_server\":\"root@client1.fyre.ibm.com\"}"
+        },
+        {
+          "name": "additional_data",
+          "value": "{\"servers\":[{\"authorized_keys_file\":\"~/.ssh/authorized_keys\",\"hostname\":\"host1.fyre.ibm.com\",\"owner_email\":\"joe@us.ibm.com\",\"ssh_port\":22,\"username\":\"root\"}]}"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "environment:ibmc_qa_test",
+      "depends_on": [
+        "certificate:SHA256:pgHn/ggQt9eVuydK67Xm8YWQXqIJeqLYjI3ugs/kr4a",
+        "certificate:SHA256:pgHn/ggQt9eVuydK67Xm8YWQXqIJeqLYjI3ugs/kr2a",
+        "certificate:SHA256:pgHn/ggQt9eVuydK67Xm8YWQXqIJeqLYjI3ugs/kr3a"
+      ]
+    }
+  ]
+}

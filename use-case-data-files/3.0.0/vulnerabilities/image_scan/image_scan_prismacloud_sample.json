@@ -1,0 +1,306 @@
+{
+    "metadata": {
+      "requestUser": "user",
+      "requestTimestamp": "2024-06-11 09:08:43 UTC",
+      "requestElapsedTime": "1 minute 9 seconds",
+      "ttApiVersion": "v1.0.2",
+      "ttControlGroup": "psirt_prd0004031",
+      "ttTwistlockProject": "public",
+      "ttScanErrors": "include",
+      "ttVersion": "1.7.0",
+      "ttOutputFormat": "csv-and-json",
+      "ttJsonFieldFilter": "include=all",
+      "ttCVEFilter": "include=all",
+      "ttSeverityFilter": "CHML",
+      "ttIssueTypeFilter": "CV",
+      "ttHasFixFilter": "YN",
+      "ttOutputDirAndFile": "sample/path/prismacloudsample.json",
+      "twistcliVersion": "32.04.113",
+      "twistlockConsoleVersion": "32.04.113",
+      "twistlockConsoleProject": "sc-public-2",
+      "twistlockIntelligenceAutoUpdateEnabled": "false",
+      "twistlockIntelligenceLastUpdate": "2024-06-11 06:32:07 UTC",
+      "twistlockResultsSource": "twistlock api (https://cdn.twistlock.com/docs/api/twistlock_api.html#scans_get)",
+      "imagePullContainerName": "sample_container",
+      "imagePullContainerHostname": "9d2ac68abacb",
+      "imagePullServerAddress": "172.30.141.208",
+      "imagePullServerHostname": "apipull-public-2",
+      "imagePullScriptVersion": "v14ps",
+      "allPackages": "false",
+      "imageType": "nonprod"
+    },
+    "overview": {
+      "images": {
+        "all": {
+          "count": 1,
+          "list": [
+            "image_name@sha256:3d26d592e40f1ddc3a556c9057a3b7afc557106cfc665abc6c14526da3196256"
+          ]
+        },
+        "resultsMissing": {},
+        "resultsExcluded": {},
+        "resultsIncluded": {
+          "noScanErrors": {
+            "count": 1,
+            "list": [
+              "image_name@sha256:3d26d592e40f1ddc3a556c9057a3b7afc557106cfc665abc6c14526da3196256"
+            ]
+          }
+        }
+      },
+      "results": {
+        "imagesIncluded": {
+          "count": 1,
+          "list": [
+            {
+              "image": "image_name@sha256:3d26d592e40f1ddc3a556c9057a3b7afc557106cfc665abc6c14526da3196256",
+              "complianceFailureSummary": "C:0|H:1|M:0|L:0|T:1",
+              "vulnerabilityFailureSummary": "C:1|H:28|M:156|L:58|T:243",
+              "scanTime": "2024-06-11T09:09:40.841Z",
+              "scanID": "66681454b6ed6a8e6800811a",
+              "scanVersion": "32.04.113",
+              "scanConsole": "sc-public-2.cp-cts-twistlock.svc.cluster.local:8183",
+              "scanConsoleProject": "sc-public-2",
+              "scanIntelligenceTime": "2024-06-11T06:32:07.778Z",
+              "imagePullServer": "172.30.141.208",
+              "imagePullServerHostname": "apipull-public-2",
+              "elapsedTimeTwistlockAPIResults": "1 second",
+              "elapsedTimeTwistcliScan": "5 seconds",
+              "elapsedTimeDockerPull": "41 seconds"
+            }
+          ]
+        },
+        "totals": {
+          "complianceFailureSummary": "C:0|H:1|M:0|L:0|T:1",
+          "vulnerabilityFailureSummary": "C:1|H:28|M:156|L:58|T:243",
+          "complianceDistribution": {
+            "critical": 0,
+            "high": 1,
+            "medium": 0,
+            "low": 0,
+            "total": 1
+          },
+          "vulnerabilityDistribution": {
+            "critical": 1,
+            "high": 0,
+            "medium": 2,
+            "low": 0,
+            "total": 0
+          }
+        }
+      }
+    },
+    "results": [
+      {
+        "_id": "66681454b6ed6a8e6800811a",
+        "time": "2024-06-11T09:09:40.841Z",
+        "version": "32.04.113",
+        "console": "sc-public-2.cp-cts-twistlock.svc.cluster.local:8183",
+        "consoleProject": "sc-public-2",
+        "intelligenceTime": "2024-06-11T06:32:07.778Z",
+        "complianceFailureSummary": "C:0|H:1|M:0|L:0|T:1",
+        "vulnerabilityFailureSummary": "C:1|H:28|M:156|L:58|T:243",
+        "image": "image_name@sha256:3d26d592e40f1ddc3a556c9057a3b7afc557106cfc665abc6c14526da3196256",
+        "entityInfo": {
+          "complianceDistribution": {
+            "critical": 0,
+            "high": 1,
+            "medium": 0,
+            "low": 0,
+            "total": 1
+          },
+          "complianceIssues": [
+            {
+              "text": "",
+              "id": 41,
+              "severity": "high",
+              "cvss": 0,
+              "status": "",
+              "cve": "",
+              "cause": "",
+              "description": "It is a good practice to run the container as a non-root user, if possible. Though user\nnamespace mapping is now available, if a user is already defined in the container image, the\ncontainer is run as that user by default and specific user namespace remapping is not\nrequired",
+              "title": "(CIS_Docker_v1.5.0 - 4.1) Image should be created with a non-root user",
+              "vecStr": "",
+              "exploit": "",
+              "link": "",
+              "type": "image",
+              "packageName": "",
+              "packageVersion": "",
+              "packageType": "",
+              "layerTime": 0,
+              "templates": [
+                "PCI",
+                "DISA STIG"
+              ],
+              "twistlock": false,
+              "cri": false,
+              "published": 0,
+              "fixDate": 0,
+              "discovered": "0001-01-01T00:00:00Z",
+              "functionLayer": "",
+              "wildfireMalware": {},
+              "secret": {},
+              "severityCHML": "H"
+            }
+          ],
+          "complianceIssuesCount": 1,
+          "complianceRiskScore": 10000,
+          "imageIdentifiers": {
+            "image": "image_name@sha256:3d26d592e40f1ddc3a556c9057a3b7afc557106cfc665abc6c14526da3196256",
+            "registry": "app.io",
+            "repo": "cp/aaf/aaf-utils",
+            "tag": "",
+            "digest": "sha256:3d26d592e40f1ddc3a556c9057a3b7afc557106cfc665abc6c14526da3196256",
+            "twistlockImageID": "sha256:400c0ca0805e9a8148bf20d996a3f0cbade8cbd2f002716119365f4bccdfa8a1"
+          },
+          "riskFactors": {},
+          "scanConsole": "sc-public-2.cp-cts-twistlock.svc.cluster.local:8183",
+          "scanConsoleProject": "sc-public-2",
+          "scanID": "66681454b6ed6a8e6800811a",
+          "scanIntelligenceTime": "2024-06-11T06:32:07.778Z",
+          "scanTime": "2024-06-11T09:09:40.773Z",
+          "scanVersion": "32.04.113",
+          "vulnerabilities": [
+            {
+              "text": "",
+              "id": 410,
+              "severity": "moderate",
+              "cvss": 6.2,
+              "status": "fixed in 3.7",
+              "cve": "CVE-2024-3651",
+              "cause": "",
+              "description": "python-idna: potential DoS via resource consumption via specially crafted inputs to idna.encode()",
+              "title": "",
+              "vecStr": "",
+              "exploit": "",
+              "riskFactors": {
+                "Attack complexity: low": true,
+                "Attack vector: network": true,
+                "DoS - High": true,
+                "Has fix": true,
+                "Medium severity": true,
+                "Recent vulnerability": true
+              },
+              "link": "https://nvd.nist.gov/vuln/detail/CVE-2024-3651",
+              "type": "image",
+              "packageType": "python",
+              "layerTime": 1707790971,
+              "templates": null,
+              "twistlock": false,
+              "cri": false,
+              "published": 1712880000,
+              "fixDate": 1712873121,
+              "applicableRules": [
+                "<3.7"
+              ],
+              "discovered": "2024-06-11T09:09:35Z",
+              "functionLayer": "",
+              "wildfireMalware": {},
+              "secret": {},
+              "severityCHML": "M",
+              "packageName": "idna",
+              "packageVersion": "2.5",
+              "packageBinaryPkgs": [],
+              "packagePath": "/usr/lib/python3.6/site-packages/idna-2.5-py3.6.egg-info",
+              "packageLicense": "BSD-like"
+            },
+            {
+              "text": "",
+              "id": 410,
+              "severity": "high",
+              "cvss": 7.5,
+              "status": "fixed in 42.0.4",
+              "cve": "CVE-2024-26130",
+              "cause": "",
+              "description": "cryptography is a package designed to expose cryptographic primitives and recipes to Python developers. Starting in version 38.0.0 and prior to version 42.0.4, if `pkcs12.serialize_key_and_certificates` is called with both a certificate whose public key did not match the provided private key and an `encryption_algorithm` with `hmac_hash` set ",
+              "title": "",
+              "vecStr": "",
+              "exploit": "",
+              "riskFactors": {
+                "Attack complexity: low": true,
+                "Attack vector: network": true,
+                "DoS - High": true,
+                "Has fix": true,
+                "High severity": true,
+                "Recent vulnerability": true
+              },
+              "link": "https://nvd.nist.gov/vuln/detail/CVE-2024-26130",
+              "type": "image",
+              "packageType": "python",
+              "layerTime": 1708463935,
+              "templates": null,
+              "twistlock": false,
+              "cri": false,
+              "published": 1708535709,
+              "fixDate": 1708543132,
+              "applicableRules": [
+                ">=38.0.0",
+                "<42.0.4"
+              ],
+              "discovered": "2024-06-11T09:09:35Z",
+              "functionLayer": "",
+              "wildfireMalware": {},
+              "secret": {},
+              "severityCHML": "H",
+              "packageName": "cryptography",
+              "packageVersion": "42.0.3",
+              "packageBinaryPkgs": [],
+              "packagePath": "/usr/local/lib64/python3.11/site-packages/cryptography-42.0.3.dist-info",
+              "packageLicense": "Apache-2.0 OR BSD-3-Clause"
+            },
+            {
+              "text": "",
+              "id": 410,
+              "severity": "medium",
+              "cvss": 6.1,
+              "status": "fixed in 1.24.3",
+              "cve": "CVE-2019-11236",
+              "cause": "",
+              "description": "In the urllib3 library through 1.24.1 for Python, CRLF injection is possible if the attacker controls the request parameter.",
+              "title": "",
+              "vecStr": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+              "exploit": "",
+              "riskFactors": {
+                "Attack complexity: low": true,
+                "Attack vector: network": true,
+                "Has fix": true,
+                "Medium severity": true
+              },
+              "link": "https://nvd.nist.gov/vuln/detail/CVE-2019-11236",
+              "type": "image",
+              "packageType": "python",
+              "layerTime": 1707790971,
+              "templates": null,
+              "twistlock": false,
+              "cri": false,
+              "published": 1555342140,
+              "fixDate": 1555342140,
+              "applicableRules": [
+                "<=1.24.2"
+              ],
+              "discovered": "2024-06-11T09:09:35Z",
+              "functionLayer": "",
+              "wildfireMalware": {},
+              "secret": {},
+              "severityCHML": "M",
+              "packageName": "urllib3",
+              "packageVersion": "1.24.2",
+              "packageBinaryPkgs": [],
+              "packagePath": "/usr/lib/python3.6/site-packages/urllib3-1.24.2-py3.6.egg-info",
+              "packageLicense": "MIT"
+            }
+          ],
+          "vulnerabilitiesCount": 3,
+          "vulnerabilityDistribution": {
+            "critical": 1,
+            "high": 0,
+            "medium": 2,
+            "low": 0,
+            "total": 0
+          },
+          "vulnerabilityRiskScore": 25
+        }
+      }
+    ]
+  }
+  
