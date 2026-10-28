@@ -8,6 +8,7 @@
         "timestamp": "2025-10-01T00:00:00Z",
         "type": "application",
         "application-name": "product-name",
+        "display-name": "product-display-name",
         "application-version": "product-version",
         "description" : "product-description",
         "build-number": "build-number",
